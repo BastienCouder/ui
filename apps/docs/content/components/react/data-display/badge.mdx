@@ -1,0 +1,82 @@
+---
+title: Badge
+description: Displays a badge or a component that looks like a badge.
+thumbnail:
+  image: /previews/components/core/badge.jpeg
+  video: /previews/components/core/badge.mp4
+---
+
+<ComponentPreview name="demos/components/core/react/data-display/badge/default" />
+
+## Installation
+
+<Steps>
+  <Step>Copy and paste the following code into your project.</Step>
+  <ComponentSource name={["components/core/default/react/data-display/badge"]} extension={["tsx"]} />
+  <Step>Update the import paths to match your project setup.</Step>
+</Steps>
+
+## Options
+
+### Variant
+
+Use the `variant` prop to control the visual style of the `Badge`. The default variant is `primary`.
+
+<ComponentPreview
+  name="demos/components/core/react/data-display/badge/variants"
+  preview={`<Flex>
+  <Badge variant="neutral">Neutral</Badge>
+  <Badge variant="outline">Outline</Badge>
+  <Badge variant="primary">Primary</Badge>
+</Flex>
+<Flex>
+  <Badge variant="success">Success</Badge>
+  <Badge variant="danger">Danger</Badge>
+  <Badge variant="warning">Warning</Badge>
+  <Badge variant="accent">Accent</Badge>
+</Flex>`}
+/>
+
+### Size
+
+Use the `size` prop to control the size of the `Badge`. The default variant is `sm`.
+
+<ComponentPreview
+  name="demos/components/core/react/data-display/badge/sizes"
+  preview={`<Badge variant="primary" size="sm">
+  Small
+</Badge>
+<Badge variant="primary" size="md">
+  Medium
+</Badge>
+<Badge variant="primary" size="lg">
+  Large
+</Badge>`}
+/>
+
+### Icon
+
+To add additional context for the `Badge`, use the `icon` prop to add an icon.
+
+<ComponentPreview
+  name="demos/components/core/react/data-display/badge/icon"
+  preview={`<Badge icon={<ShieldIcon />} size="sm">
+  Badge
+</Badge>
+<Badge icon={<ShieldIcon />} size="md">
+  Badge
+</Badge>
+<Badge icon={<ShieldIcon />} size="lg">
+  Badge
+</Badge>`}
+/>
+
+## API Reference
+
+Badge accepts all HTML `span` element props and the following:
+
+| Prop      | Type                                                                                                                                                                                                                                       | Default     | Description                               |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- | ----------------------------------------- |
+| `neutral` | `"outline" \| "primary" \| "success" \| "success-subtle" \| "success-outline" \| "danger" \| "danger-subtle" \| "danger-outline" \| "warning" \| "warning-subtle" \| "warning-outline" \| "accent" \| "accent-subtle" \| "accent-outline"` | `"primary"` | The visual style of the badge.            |
+| `size`    | `"sm" \| "md" \| "lg"`                                                                                                                                                                                                                     | `"sm"`      | The size of the badge.                    |
+| `icon`    | `React.ReactNode`                                                                                                                                                                                                                          | -           | An icon to display before the badge text. |

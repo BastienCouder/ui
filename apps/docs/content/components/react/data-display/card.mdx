@@ -1,0 +1,74 @@
+---
+title: Card
+description: Displays a card with header, content, and footer.
+thumbnail:
+image: /previews/components/ui/card.jpeg
+video: /previews/components/ui/card.mp4
+---
+
+<ComponentPreview name="demos/components/core/react/data-display/card/default" />
+
+## Installation
+
+<Steps>  
+  <Step>Copy and paste the following code into your project.</Step>  
+  <ComponentSource name={["components/core/default/react/data-display/card"]} extension={["tsx"]} />  
+  <Step>Update the import paths to match your project setup.</Step>  
+</Steps>
+
+## Options
+
+## Variant
+
+Use the variant prop to control the visual style of the Card. The default variant is default.
+
+<ComponentPreview
+name="demos/components/core/react/data-display/card/variants"
+preview={`
+<Card variant="default">Default</Card> 
+<Card variant="outlined">Outlined</Card> 
+<Card variant="success">Success</Card>
+<Card variant="warning">Warning</Card>
+<Card variant="Danger">Danger</Card>`}
+/>
+
+## Size
+
+Use the size prop to control the size of the Card. The default size is md.
+
+<ComponentPreview
+name="demos/components/core/react/data-display/card/sizes"
+preview={`<Card size="sm">Small Card</Card> 
+<Card size="md">Medium Card</Card> 
+<Card size="lg">Large Card</Card>`}
+/>
+
+## Header, Content, and Footer
+
+You can customize the Card by adding a CardHeader, CardContent, and CardFooter for structure.
+
+<ComponentPreview
+name="demos/components/core/react/data-display/card/sections"
+preview={`<Card>
+  <CardHeader>
+    <CardTitle>Title</CardTitle>
+    <CardDescription>Description</CardDescription>
+  </CardHeader> 
+  <CardContent>Content</CardContent>
+  <CardFooter>Footer</CardFooter>
+</Card>`}
+/>
+
+## API Reference
+
+
+Card accepts all HTML div element props and the following.
+
+| Prop        | Type                                                           | Default    | Description                                                                                 |
+| ----------- | ---------------------------------------------------------------| ---------- | ------------------------------------------------------------------------------------------- |                                                        |
+| `variant`   | `'default' \| 'outline' \| 'success' \| 'warning' \| 'danger'` | -          | Specifies an alternate text for the image, if the image for some reason cannot be displayed |
+| `shape`     | `'rectangle' \| 'square'` | `'circle'`                         | -          | The shape of the card.                                                                    |
+| `size`      | `'sm' \| 'md' \| 'lg'` | `'md'`     | The size of the card.                                                                     |
+| `children`  | `ReactNode \| (values: ButtonRenderProps & {defaultChildren: ReactNode \| undefined}) => ReactNode` | -             | The children of the component. A function may be provided to alter the children based on component state.   |
+| `className` | `string`                                                                                            | -             | The CSS className for the element.                                                                          |
+| `style`     | `CSSProperties \| (values: ButtonRenderProps & {defaultStyle: CSSProperties}) => CSSProperties`     | -             | The inline style for the element. A function may be provided to compute the style based on component state. |

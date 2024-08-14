@@ -16,17 +16,22 @@ const cardStyles = tv({
   base: "inline-flex gap-2 cursor-pointer items-center justify-center whitespace-nowrap rounded-md leading-normal text-sm shrink-0 font-medium ring-offset-background transition-colors disabled:cursor-default disabled:bg-disabled disabled:text-disabled-fg",
   variants: {
     variant: {
-      default: "bg-neutral hover:bg-neutral-hover active:bg-neutral-active text-neutral-fg",
-      outline: "border border-border bg-transparent hover:bg-neutral/10 active:bg-neutral/20 text-fg disabled:border-disabled disabled:bg-transparent",
-      success: "bg-success hover:bg-success-hover active:bg-success-active text-success-fg",
-      warning: "bg-warning hover:bg-warning-hover active:bg-warning-active text-warning-fg",
-      danger: "bg-danger hover:bg-danger-hover active:bg-danger-active text-danger-fg",
+      default:
+        "bg-neutral hover:bg-neutral-hover active:bg-neutral-active text-neutral-fg",
+      outline:
+        "border border-border bg-transparent hover:bg-neutral/10 active:bg-neutral/20 text-fg disabled:border-disabled disabled:bg-transparent",
+      success:
+        "bg-success hover:bg-success-hover active:bg-success-active text-success-fg",
+      warning:
+        "bg-warning hover:bg-warning-hover active:bg-warning-active text-warning-fg",
+      danger:
+        "bg-danger hover:bg-danger-hover active:bg-danger-active text-danger-fg",
     },
     size: {
       sm: "p-4",
       md: "p-6",
       lg: "p-8",
-      icon: "p-2"
+      icon: "p-2",
     },
     shape: {
       rectangle: "",
@@ -48,13 +53,7 @@ const Card = React.forwardRef<
   React.HTMLAttributes<HTMLDivElement> & CardVariants
 >(({ className, variant, size, shape, ...props }, ref) => {
   const { root } = cardStyles({ variant, size, shape });
-  return (
-    <div
-      ref={ref}
-      className={cn(root, className)}
-      {...props}
-    />
-  );
+  return <div ref={ref} className={cn(root, className)} {...props} />;
 });
 
 Card.displayName = "Card";
@@ -64,9 +63,7 @@ const CardHeader = React.forwardRef<
   React.HTMLAttributes<HTMLDivElement> & CardVariants
 >(({ className, variant, size, shape, ...props }, ref) => {
   const { header } = cardStyles({ variant, size, shape });
-  return (
-    <div ref={ref} className={cn(header, className)} {...props} />
-  );
+  return <div ref={ref} className={cn(header, className)} {...props} />;
 });
 CardHeader.displayName = "CardHeader";
 
@@ -74,14 +71,9 @@ const CardTitle = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLDivElement> & CardVariants
 >(({ className, variant, size, ...props }, ref) => {
-  const { title } = cardStyles({ variant, size});
-  return (
-  <h3
-    ref={ref}
-    className={cn(title, className)}
-      {...props}
-  />
-)});
+  const { title } = cardStyles({ variant, size });
+  return <h3 ref={ref} className={cn(title, className)} {...props} />;
+});
 CardTitle.displayName = "CardTitle";
 
 const CardDescription = React.forwardRef<
@@ -89,9 +81,7 @@ const CardDescription = React.forwardRef<
   React.HTMLAttributes<HTMLParagraphElement> & CardVariants
 >(({ className, variant, size, ...props }, ref) => {
   const { description } = cardStyles({ variant, size });
-  return (
-    <p ref={ref} className={cn(description, className)} {...props} />
-  );
+  return <p ref={ref} className={cn(description, className)} {...props} />;
 });
 CardDescription.displayName = "CardDescription";
 
@@ -100,9 +90,7 @@ const CardContent = React.forwardRef<
   React.HTMLAttributes<HTMLDivElement> & CardVariants
 >(({ className, variant, size, shape, ...props }, ref) => {
   const { content } = cardStyles({ variant, size, shape });
-  return (
-    <div ref={ref} className={cn(content, className)} {...props} />
-  );
+  return <div ref={ref} className={cn(content, className)} {...props} />;
 });
 CardContent.displayName = "CardContent";
 
@@ -111,10 +99,15 @@ const CardFooter = React.forwardRef<
   React.HTMLAttributes<HTMLDivElement> & CardVariants
 >(({ className, variant, size, shape, ...props }, ref) => {
   const { footer } = cardStyles({ variant, size, shape });
-  return (
-    <div ref={ref} className={cn(footer, className)} {...props} />
-  );
+  return <div ref={ref} className={cn(footer, className)} {...props} />;
 });
 CardFooter.displayName = "CardFooter";
 
-export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent };
+export {
+  Card,
+  CardHeader,
+  CardFooter,
+  CardTitle,
+  CardDescription,
+  CardContent,
+};

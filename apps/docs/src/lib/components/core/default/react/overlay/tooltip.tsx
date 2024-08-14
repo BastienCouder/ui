@@ -9,7 +9,7 @@ const TooltipProvider = TooltipPrimitive.Provider;
 interface TooltipProps {
   children: React.ReactNode | string;
   content: React.ReactNode;
-  placement?: 'top' | 'right' | 'bottom' | 'left';
+  placement?: "top" | "right" | "bottom" | "left";
   offset?: number;
   delay?: number;
   shouldFlip?: boolean;
@@ -19,7 +19,7 @@ interface TooltipProps {
 interface TooltipProps {
   children: React.ReactNode | string;
   content: React.ReactNode;
-  placement?: 'top' | 'right' | 'bottom' | 'left';
+  placement?: "top" | "right" | "bottom" | "left";
   offset?: number;
   delay?: number;
   shouldFlip?: boolean;
@@ -36,9 +36,12 @@ const Tooltip: React.FC<TooltipProps> = ({
   arrow = false,
   ...props
 }) => {
-  const wrappedChildren = typeof children === 'string' || typeof children === 'number'
-    ? <>{children}</>
-    : children;
+  const wrappedChildren =
+    typeof children === "string" || typeof children === "number" ? (
+      <>{children}</>
+    ) : (
+      children
+    );
 
   return (
     <TooltipProvider>
@@ -57,11 +60,11 @@ const Tooltip: React.FC<TooltipProps> = ({
   );
 };
 
-
 const TooltipTrigger = TooltipPrimitive.Trigger;
 
-interface TooltipContentProps extends React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content> {
-  placement?: 'top' | 'right' | 'bottom' | 'left';
+interface TooltipContentProps
+  extends React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content> {
+  placement?: "top" | "right" | "bottom" | "left";
   offset?: number;
   shouldFlip?: boolean;
   arrow?: boolean;
@@ -80,7 +83,7 @@ const TooltipContent = React.forwardRef<
       arrow = false,
       ...props
     },
-    ref
+    ref,
   ) => (
     <TooltipPrimitive.Content
       ref={ref}
@@ -89,7 +92,7 @@ const TooltipContent = React.forwardRef<
       avoidCollisions={shouldFlip}
       className={cn(
         "overflow-hidden rounded-md border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
-        className
+        className,
       )}
       {...props}
     >
@@ -98,11 +101,14 @@ const TooltipContent = React.forwardRef<
         <TooltipPrimitive.Arrow className="fill-current text-popover" />
       )}
     </TooltipPrimitive.Content>
-  )
+  ),
 );
 TooltipContent.displayName = TooltipPrimitive.Content.displayName;
 
-const TooltipRoot: React.FC<{ children: React.ReactNode, delay?:number }> = ({ children,delay }) => {
+const TooltipRoot: React.FC<{ children: React.ReactNode; delay?: number }> = ({
+  children,
+  delay,
+}) => {
   return (
     <TooltipProvider>
       <TooltipPrimitive.Root delayDuration={delay}>
@@ -112,4 +118,10 @@ const TooltipRoot: React.FC<{ children: React.ReactNode, delay?:number }> = ({ c
   );
 };
 
-export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider, TooltipRoot };
+export {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+  TooltipProvider,
+  TooltipRoot,
+};

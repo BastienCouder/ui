@@ -1,10 +1,12 @@
 import React from "react";
 
 export const useIntersectionObserver = <T extends Element>(
-  options: IntersectionObserverInit = {}
+  options: IntersectionObserverInit = {},
 ): [React.RefCallback<T>, IntersectionObserverEntry | null] => {
   const { threshold = 1, root = null, rootMargin = "0px" } = options;
-  const [entry, setEntry] = React.useState<IntersectionObserverEntry | null>(null);
+  const [entry, setEntry] = React.useState<IntersectionObserverEntry | null>(
+    null,
+  );
 
   const previousObserver = React.useRef<IntersectionObserver | null>(null);
 
@@ -22,14 +24,14 @@ export const useIntersectionObserver = <T extends Element>(
               setEntry(entry);
             }
           },
-          { threshold, root, rootMargin }
+          { threshold, root, rootMargin },
         );
 
         observer.observe(node);
         previousObserver.current = observer;
       }
     },
-    [threshold, root, rootMargin]
+    [threshold, root, rootMargin],
   );
 
   return [customRef, entry];

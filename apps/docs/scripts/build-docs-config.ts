@@ -7,7 +7,10 @@ import { Item, SubCategory } from "@/types/docs-nav";
 const COMPONENTS_BASE_PATH = path.join(process.cwd(), "content/components");
 
 // Function to generate navigation items recursively
-const generateNavItems = (basePath: string, relativePath = ""): (Item | SubCategory)[] => {
+const generateNavItems = (
+  basePath: string,
+  relativePath = "",
+): (Item | SubCategory)[] => {
   const items: (Item | SubCategory)[] = [];
 
   if (fs.existsSync(basePath)) {
@@ -18,19 +21,31 @@ const generateNavItems = (basePath: string, relativePath = ""): (Item | SubCateg
       const stat = fs.statSync(entryPath);
 
       if (stat.isDirectory()) {
-        const subItems = generateNavItems(entryPath, path.join(relativePath, entry));
+        const subItems = generateNavItems(
+          entryPath,
+          path.join(relativePath, entry),
+        );
         if (subItems.length > 0) {
           items.push({
             title: entry.charAt(0).toUpperCase() + entry.slice(1),
-            href: "/components" + path.join("/", relativePath, entry).replace(/\\/g, "/"),
+            href:
+              "/components" +
+              path.join("/", relativePath, entry).replace(/\\/g, "/"),
             items: subItems as Item[],
           });
         }
-      } else if (stat.isFile() && path.extname(entry) === ".mdx" && entry !== "index.mdx") {
+      } else if (
+        stat.isFile() &&
+        path.extname(entry) === ".mdx" &&
+        entry !== "index.mdx"
+      ) {
         const title = path.basename(entry, ".mdx");
         items.push({
-          title: title.charAt(0).toUpperCase() + title.slice(1).replace(/-/g, " "),
-          href: "/components" + path.join("/", relativePath, title).replace(/\\/g, "/"), 
+          title:
+            title.charAt(0).toUpperCase() + title.slice(1).replace(/-/g, " "),
+          href:
+            "/components" +
+            path.join("/", relativePath, title).replace(/\\/g, "/"),
         });
       }
     });
@@ -71,6 +86,9 @@ export const docsConfig: DocsConfig = ${JSON.stringify(docsConfig, null, 2)};
 `;
 
 rimraf.sync(path.join(process.cwd(), "src", "config", "docs-config.ts"));
-fs.writeFileSync(path.join(process.cwd(), "src", "config", "docs-config.ts"), index);
+fs.writeFileSync(
+  path.join(process.cwd(), "src", "config", "docs-config.ts"),
+  index,
+);
 
 console.log("\x1b[32m✓\x1b[0m Created docs-config file.");

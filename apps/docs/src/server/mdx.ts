@@ -3,7 +3,9 @@ import path from "path";
 import { VFile } from "vfile";
 import { matter } from "vfile-matter";
 
-export const parseMDXFile = <T>(rawContent: string): { frontmatter: T; content: string } => {
+export const parseMDXFile = <T>(
+  rawContent: string,
+): { frontmatter: T; content: string } => {
   const vfile = new VFile(rawContent);
   matter(vfile, { strip: true });
   return { frontmatter: vfile.data.matter as T, content: vfile.toString() };
@@ -18,7 +20,7 @@ export const getAllMdxFiles = (
   directory: string,
   rootDirectory: string,
   filesArray: MdxFile[] = [],
-  includeIndexMdx = false
+  includeIndexMdx = false,
 ): MdxFile[] => {
   const files = fs.readdirSync(directory);
 
@@ -28,7 +30,10 @@ export const getAllMdxFiles = (
 
     if (fileStat.isDirectory()) {
       getAllMdxFiles(filePath, rootDirectory, filesArray, includeIndexMdx);
-    } else if (path.extname(file) === ".mdx" && (includeIndexMdx || file !== "index.mdx")) {
+    } else if (
+      path.extname(file) === ".mdx" &&
+      (includeIndexMdx || file !== "index.mdx")
+    ) {
       const relativePath = path
         .relative(rootDirectory, filePath)
         .split(path.sep)

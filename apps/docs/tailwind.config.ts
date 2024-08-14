@@ -128,7 +128,7 @@ const config = {
           "0%": { transform: "scaleX(1)" },
           "100%": { transform: "scaleX(0)" },
         },
-        "rotate": {
+        rotate: {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" },
         },
@@ -190,7 +190,10 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("tailwindcss-react-aria-components")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("tailwindcss-react-aria-components"),
+  ],
 } satisfies Config;
 
 export default withTV(config);

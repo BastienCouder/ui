@@ -14,7 +14,12 @@ interface CodeBlockProps extends CodeBlockRootProps {
   className?: string;
 }
 
-const CodeBlock = async ({ files: _files, preview: _preview, className , ...props}: CodeBlockProps) => {
+const CodeBlock = async ({
+  files: _files,
+  preview: _preview,
+  className,
+  ...props
+}: CodeBlockProps) => {
   let preview = undefined;
   if (_preview) {
     const html = await codeToHtml(_preview, {
@@ -31,7 +36,7 @@ const CodeBlock = async ({ files: _files, preview: _preview, className , ...prop
       />
     );
   }
-  
+
   const files = await Promise.all(
     _files.map(async ({ fileName, code, lang }) => {
       const html = await codeToHtml(code, {
@@ -41,7 +46,6 @@ const CodeBlock = async ({ files: _files, preview: _preview, className , ...prop
           dark: "aurora-x",
         },
       });
-
 
       return {
         fileName,
@@ -54,10 +58,17 @@ const CodeBlock = async ({ files: _files, preview: _preview, className , ...prop
         ),
         lang,
       };
-    })
+    }),
   );
 
-  return <CodeBlockClient files={files} preview={preview} previewStr={_preview} {...props} />;
+  return (
+    <CodeBlockClient
+      files={files}
+      preview={preview}
+      previewStr={_preview}
+      {...props}
+    />
+  );
 };
 
 export { CodeBlock };

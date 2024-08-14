@@ -1,44 +1,75 @@
 import fs from "fs";
 import path from "path";
 import { getDocTypeFromSlug } from "@/utils/docs";
-import type { Doc, DocCategory, DocFrontmatter, DocMetadata, DocType } from "@/types/docs";
+import type {
+  Doc,
+  DocCategory,
+  DocFrontmatter,
+  DocMetadata,
+  DocType,
+} from "@/types/docs";
 import { getTableOfContents } from "../utils/toc";
 import { getAllMdxFiles, parseMDXFile } from "./mdx";
 
 const getBreadcrumbs = (slug: string[]): { label: string; href: string }[] => {
   const result = slug.map((slugPart, index) => {
-    const partPath = path.join(process.cwd(), "content", ...slug.slice(0, index + 1));
+    const partPath = path.join(
+      process.cwd(),
+      "content",
+      ...slug.slice(0, index + 1),
+    );
+
     if (fs.existsSync(partPath) && fs.lstatSync(partPath).isDirectory()) {
-      // get title from index.mdx
+      // Get title from index.mdx
       const indexPath = path.join(partPath, "index.mdx");
+
       if (fs.existsSync(indexPath)) {
-        const fileRawContent = fs.readFileSync(indexPath, "utf-8");
-        const { frontmatter } = parseMDXFile<DocFrontmatter>(fileRawContent);
-        return {
-          label: frontmatter.title,
-          href: `/${slug.slice(0, index + 1).join("/")}`,
-        };
+        try {
+          const fileRawContent = fs.readFileSync(indexPath, "utf-8");
+          const { frontmatter } = parseMDXFile<DocFrontmatter>(fileRawContent);
+          return {
+            label: frontmatter.title,
+            href: `/${slug.slice(0, index + 1).join("/")}`,
+          };
+        } catch (error) {
+          console.error(`Error reading file at ${indexPath}:`, error);
+          return null;
+        }
       }
     } else {
-      // get title from last {slug}.mdx
+      // Get title from last {slug}.mdx
       const filePath = path.join(
         process.cwd(),
         "content",
         ...slug.slice(0, index),
-        `${slugPart}.mdx`
+        `${slugPart}.mdx`,
       );
+
       if (fs.existsSync(filePath)) {
-        const fileRawContent = fs.readFileSync(filePath, "utf-8");
-        const { frontmatter } = parseMDXFile<DocFrontmatter>(fileRawContent);
-        return {
-          label: frontmatter.title,
-          href: `/${slug.slice(0, index + 1).join("/")}`,
-        };
+        try {
+          const sanitizedPath = path.normalize(filePath);
+          if (!sanitizedPath.startsWith(process.cwd())) {
+            throw new Error("Invalid file path");
+          }
+          // eslint-disable-next-line TP1004
+          const fileRawContent = fs.readFileSync(sanitizedPath, "utf-8");
+          const { frontmatter } = parseMDXFile<DocFrontmatter>(fileRawContent);
+          return {
+            label: frontmatter.title,
+            href: `/${slug.slice(0, index + 1).join("/")}`,
+          };
+        } catch (error) {
+          console.error(`Error reading file at ${filePath}:`, error);
+          return null;
+        }
       }
     }
+    return null;
   });
 
-  return result.filter((elem) => !!elem) as { label: string; href: string }[];
+  return result.filter(
+    (elem): elem is { label: string; href: string } => !!elem,
+  );
 };
 
 type FrameworkColor = "react" | "vue" | "angular";
@@ -62,29 +93,46 @@ const findParentColor = (slug: string[]): FrameworkColor | undefined => {
   return undefined;
 };
 
-export const getDocFromSlug = async (slug: string[], parentColor?: FrameworkColor): Promise<Doc | null> => {
+export const getDocFromSlug = async (
+  slug: string[],
+  parentColor?: FrameworkColor,
+): Promise<Doc | null> => {
   const breadcrumbs = getBreadcrumbs(slug);
   const type = slug[0] as DocType;
   const directoryPath = path.join(process.cwd(), "content", ...slug);
 
-  if (fs.existsSync(directoryPath) && fs.lstatSync(directoryPath).isDirectory()) {
+  if (
+    fs.existsSync(directoryPath) &&
+    fs.lstatSync(directoryPath).isDirectory()
+  ) {
     const indexPath = path.join(directoryPath, "index.mdx");
     if (fs.existsSync(indexPath)) {
       const fileRawContent = fs.readFileSync(indexPath, "utf-8");
-      const { content, frontmatter } = parseMDXFile<DocFrontmatter>(fileRawContent);
+      const { content, frontmatter } =
+        parseMDXFile<DocFrontmatter>(fileRawContent);
 
       // Trouver la couleur depuis les parents si elle n'est pas définie dans le frontmatter
-      const color = frontmatter.color as FrameworkColor || parentColor || findParentColor(slug);
+      const color =
+        (frontmatter.color as FrameworkColor) ||
+        parentColor ||
+        findParentColor(slug);
 
       const subfolders = fs
         .readdirSync(directoryPath)
-        .filter((item) => fs.lstatSync(path.join(directoryPath, item)).isDirectory());
+        .filter((item) =>
+          fs.lstatSync(path.join(directoryPath, item)).isDirectory(),
+        );
       const categories = subfolders
         .map((subfolder) => {
-          const categoryIndexPath = path.join(directoryPath, subfolder, "index.mdx");
+          const categoryIndexPath = path.join(
+            directoryPath,
+            subfolder,
+            "index.mdx",
+          );
           if (fs.existsSync(categoryIndexPath)) {
             const fileRawContent = fs.readFileSync(categoryIndexPath, "utf-8");
-            const { frontmatter } = parseMDXFile<DocFrontmatter>(fileRawContent);
+            const { frontmatter } =
+              parseMDXFile<DocFrontmatter>(fileRawContent);
             return {
               label: frontmatter.title,
               href: `/${[...slug, subfolder].join("/")}`,
@@ -116,13 +164,18 @@ export const getDocFromSlug = async (slug: string[], parentColor?: FrameworkColo
     process.cwd(),
     "content",
     ...slug.slice(0, -1),
-    `${slug[slug.length - 1]}.mdx`
+    `${slug[slug.length - 1]}.mdx`,
   );
   if (fs.existsSync(filePath)) {
-    const fileRawContent = fs.readFileSync(filePath, "utf-8");
-    const { content, frontmatter } = parseMDXFile<DocFrontmatter>(fileRawContent);
+    const safeFilePath = path.resolve(directoryPath, filePath);
+    const fileRawContent = fs.readFileSync(safeFilePath, "utf-8");
+    const { content, frontmatter } =
+      parseMDXFile<DocFrontmatter>(fileRawContent);
 
-    const color = frontmatter.color as FrameworkColor || parentColor || findParentColor(slug.slice(0, -1));
+    const color =
+      (frontmatter.color as FrameworkColor) ||
+      parentColor ||
+      findParentColor(slug.slice(0, -1));
 
     const toc = await getTableOfContents(content);
     return {
@@ -147,7 +200,11 @@ export const getDocFromSlug = async (slug: string[], parentColor?: FrameworkColo
 // getDocs("hooks") returns all docs from content/hooks folder
 // getDocs("components/core") returns all docs from content/components/core folder
 export const getDocs = (slug?: string, includeIndex = false): DocMetadata[] => {
-  const directoryPath = path.join(process.cwd(), "content", ...(slug ? slug.split("/") : []));
+  const directoryPath = path.join(
+    process.cwd(),
+    "content",
+    ...(slug ? slug.split("/") : []),
+  );
 
   // console.log(
   //   getAllMdxFiles(directoryPath, directoryPath, [], includeIndex).map(
@@ -165,7 +222,8 @@ export const getDocs = (slug?: string, includeIndex = false): DocMetadata[] => {
   // );
   return getAllMdxFiles(directoryPath, directoryPath, [], includeIndex).map(
     ({ fullPath, relativePath }) => {
-      const itemRawContent = fs.readFileSync(fullPath, "utf-8");
+      const safeFullPath = path.resolve(directoryPath, fullPath);
+      const itemRawContent = fs.readFileSync(safeFullPath, "utf-8");
       const { frontmatter } = parseMDXFile<DocFrontmatter>(itemRawContent);
       return {
         ...frontmatter,
@@ -173,6 +231,6 @@ export const getDocs = (slug?: string, includeIndex = false): DocMetadata[] => {
         breadcrumbs: [],
         href: `${slug ? `/${slug}` : ""}/${relativePath.join("/").replace("/index", "")}`,
       };
-    }
+    },
   );
 };

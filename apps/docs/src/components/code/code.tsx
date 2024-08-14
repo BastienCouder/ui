@@ -29,7 +29,7 @@ const Code = async ({ children, inline, lang: _lang, ...props }: CodeProps) => {
     },
     structure: inline ? "inline" : "classic",
   });
-  
+
   const ElementType = inline ? "span" : "div";
   const code = (
     <ElementType
@@ -62,7 +62,7 @@ type CodeText = string | MdCodeText | MdMultiCodeText;
 function parseChildren(
   children: CodeText,
   lang?: string,
-  code?: string
+  code?: string,
 ): { lang: string; code: string; title?: string } {
   if (typeof children === "string" || code) {
     return {
@@ -71,7 +71,10 @@ function parseChildren(
     };
   }
 
-  if (typeof children === "object" && typeof children?.props?.children === "string") {
+  if (
+    typeof children === "object" &&
+    typeof children?.props?.children === "string"
+  ) {
     return {
       code: children.props?.children,
       ...getLanguageAndTitle((children as MdCodeText).props?.className),

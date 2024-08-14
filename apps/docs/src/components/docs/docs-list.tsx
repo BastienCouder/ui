@@ -12,7 +12,13 @@ export interface DocsListProps {
   cardClassName?: string;
 }
 
-export const DocsList = ({ name, href, limit, className, cardClassName }: DocsListProps) => {
+export const DocsList = ({
+  name,
+  href,
+  limit,
+  className,
+  cardClassName,
+}: DocsListProps) => {
   const docs = getDocs(name);
   const type = getDocTypeFromSlug(name);
   const hasMore = limit ? docs.length > limit : false;
@@ -26,7 +32,7 @@ export const DocsList = ({ name, href, limit, className, cardClassName }: DocsLi
             "grid-cols-3": type === "component" || type === "hook",
             "grid-cols-4": type === "block" || type === "template",
           },
-          className
+          className,
         )}
       >
         {docs.slice(0, limit).map((doc, index) => (
@@ -35,7 +41,12 @@ export const DocsList = ({ name, href, limit, className, cardClassName }: DocsLi
       </div>
       {hasMore && (
         <div className="flex justify-end">
-          <Button href={href ?? `/${name}`} size="sm" variant="quiet" className="mt-4 block">
+          <Button
+            href={href ?? `/${name}`}
+            size="sm"
+            variant="quiet"
+            className="mt-4 block"
+          >
             Explore more
           </Button>
         </div>

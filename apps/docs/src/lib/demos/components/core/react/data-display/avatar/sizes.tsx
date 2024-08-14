@@ -7,9 +7,10 @@ export default function Demo() {
         <Avatar
           key={size}
           size={size}
-          src="/images/profile-default.png" 
+          src="/images/profile-default.png"
           alt="@bastiencouder"
           fallback="B"
+          className="bg-white/70"
         />
       ))}
     </div>

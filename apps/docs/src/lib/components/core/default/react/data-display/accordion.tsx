@@ -1,11 +1,11 @@
-"use client"
+"use client";
 // correction
-import * as React from "react"
-import * as AccordionPrimitive from "@radix-ui/react-accordion"
-import { ChevronDown } from "lucide-react"
+import * as React from "react";
+import * as AccordionPrimitive from "@radix-ui/react-accordion";
+import { ChevronDown } from "lucide-react";
 
-import { cn } from "@/lib/utils"
-import { tv } from "tailwind-variants"
+import { cn } from "@/lib/utils";
+import { tv } from "tailwind-variants";
 
 const accordionStyles = tv({
   slots: {
@@ -21,7 +21,9 @@ const accordionStyles = tv({
 
 const Accordion = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Root> & { gap?: string }
+  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Root> & {
+    gap?: string;
+  }
 >(({ className, gap, children, ...props }, ref) => (
   <AccordionPrimitive.Root
     ref={ref}
@@ -32,60 +34,71 @@ const Accordion = React.forwardRef<
   </AccordionPrimitive.Root>
 ));
 Accordion.displayName = AccordionPrimitive.Root.displayName;
- 
+
 const AccordionItem = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item> & { disabled?: boolean; variant?: string }
-  >(({ className, disabled, variant = "default", ...props }, ref) => {
-    const { root } = accordionStyles({ variant });
-    return (
-  <AccordionPrimitive.Item
-    ref={ref}
-    className={root({ className: className, "opacity-50 cursor-not-allowed": disabled ? "true" : undefined })}
-    {...props}
-  />
-)})
+  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item> & {
+    disabled?: boolean;
+    variant?: string;
+  }
+>(({ className, disabled, variant = "default", ...props }, ref) => {
+  const { root } = accordionStyles({ variant });
+  return (
+    <AccordionPrimitive.Item
+      ref={ref}
+      className={root({
+        className: className,
+        "opacity-50 cursor-not-allowed": disabled ? "true" : undefined,
+      })}
+      {...props}
+    />
+  );
+});
 
+AccordionItem.displayName = "AccordionItem";
 
-AccordionItem.displayName = "AccordionItem"
- 
 const AccordionTrigger = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger> & { disabled?: boolean; variant?: string }
+  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger> & {
+    disabled?: boolean;
+    variant?: string;
+  }
 >(({ className, children, disabled, variant = "default", ...props }, ref) => {
   const { trigger } = accordionStyles({ variant });
   return (
-  <AccordionPrimitive.Header className="flex">
-    <AccordionPrimitive.Trigger
-      ref={ref}
-      className={trigger({ className })}
-      {...props}
-    >
-      {children}
-      <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200" />
-    </AccordionPrimitive.Trigger>
-  </AccordionPrimitive.Header>
-)})
-AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName
- 
+    <AccordionPrimitive.Header className="flex">
+      <AccordionPrimitive.Trigger
+        ref={ref}
+        className={trigger({ className })}
+        {...props}
+      >
+        {children}
+        <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200" />
+      </AccordionPrimitive.Trigger>
+    </AccordionPrimitive.Header>
+  );
+});
+AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;
+
 const AccordionContent = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>
 >(({ className, children, ...props }, ref) => {
   const { content } = accordionStyles();
   return (
-  <AccordionPrimitive.Content
-    ref={ref}
-    className={content({ className })}
-    {...props}
-  >
-    <div className={cn("pb-4 pt-0", className)}>{children}</div>
-  </AccordionPrimitive.Content>
-)})
- 
-AccordionContent.displayName = AccordionPrimitive.Content.displayName
- 
-export { Accordion, AccordionItem, AccordionTrigger, AccordionContent }
+    <AccordionPrimitive.Content
+      ref={ref}
+      className={content({ className })}
+      {...props}
+    >
+      <div className={cn("pb-4 pt-0", className)}>{children}</div>
+    </AccordionPrimitive.Content>
+  );
+});
+
+AccordionContent.displayName = AccordionPrimitive.Content.displayName;
+
+export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };
 /*
 const Accordion = AccordionPrimitive.Root
 

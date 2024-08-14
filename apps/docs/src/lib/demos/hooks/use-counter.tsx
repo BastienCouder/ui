@@ -10,7 +10,9 @@ export default function Demo() {
   });
   return (
     <div>
-      <p className="text-center text-fg-muted">startingValue: 3, min: 0, max: 10</p>
+      <p className="text-center text-fg-muted">
+        startingValue: 3, min: 0, max: 10
+      </p>
       <div className="mt-4 flex items-center gap-2">
         <Button onClick={increment} isDisabled={count >= 10}>
           Increment

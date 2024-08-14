@@ -49,12 +49,24 @@ interface CheckboxProps
 
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   (props, ref) => {
-    const { className, variant, children, isDisabled, isReadOnly, defaultSelected, isSelected, onChange, ...restProps } = props;
+    const {
+      className,
+      variant,
+      children,
+      isDisabled,
+      isReadOnly,
+      defaultSelected,
+      isSelected,
+      onChange,
+      ...restProps
+    } = props;
     const { root, indicator } = checkboxStyles({ variant });
 
-    const [isChecked, setIsChecked] = React.useState(isSelected ?? restProps.checked ?? defaultSelected ?? false);
+    const [isChecked, setIsChecked] = React.useState(
+      isSelected ?? restProps.checked ?? defaultSelected ?? false,
+    );
     const [isIndeterminate, setIsIndeterminate] = React.useState(
-      restProps.indeterminate || false
+      restProps.indeterminate || false,
     );
 
     React.useEffect(() => {
@@ -71,7 +83,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       if (isDisabled || isReadOnly) return;
-    
+
       const checked = event.target.checked;
       setIsChecked(checked);
       setIsIndeterminate(event.target.indeterminate);
@@ -92,17 +104,31 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           readOnly={isReadOnly}
           className="sr-only"
         />
-        <div className={indicator({ className: isDisabled ? "cursor-not-allowed" : "" })}>
+        <div
+          className={indicator({
+            className: isDisabled ? "cursor-not-allowed" : "",
+          })}
+        >
           {isIndeterminate ? (
             <MinusIcon className="w-2.5 h-2.5" />
           ) : (
-            isChecked && <CheckIcon className={`w-3 h-3 ${isDisabled ? "text-fg-disabled" : "text-primary"}`} />
+            isChecked && (
+              <CheckIcon
+                className={`w-3 h-3 ${isDisabled ? "text-fg-disabled" : "text-primary"}`}
+              />
+            )
           )}
         </div>
-        <span className={isDisabled ? "text-fg-disabled" : (isReadOnly ? "text-fg-muted" : "")}>{children}</span>
+        <span
+          className={
+            isDisabled ? "text-fg-disabled" : isReadOnly ? "text-fg-muted" : ""
+          }
+        >
+          {children}
+        </span>
       </label>
     );
-  }
+  },
 );
 
 Checkbox.displayName = "Checkbox";

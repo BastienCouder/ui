@@ -13,14 +13,20 @@ import { AspectRatio } from "@/lib/components/core/default/react/layout/aspect-r
 import { ScrollArea } from "@/lib/components/core/default/react/layout/scroll-area";
 import { Tooltip } from "@/lib/components/core/default/react/overlay/tooltip";
 
-export const DocCard = ({ doc, className }: { doc: DocMetadata; className?: string }) => {
+export const DocCard = ({
+  doc,
+  className,
+}: {
+  doc: DocMetadata;
+  className?: string;
+}) => {
   return (
     <Link
       href={doc.href}
       target={doc.href.startsWith("/") ? undefined : "_blank"}
       className={cn(
         "group flex cursor-pointer flex-col overflow-hidden rounded-md border border-border/20 bg-bg/70 transition-colors duration-150 hover:border-border hover:bg-bg",
-        className
+        className,
       )}
     >
       {doc.type !== "hook" && (
@@ -34,16 +40,20 @@ export const DocCard = ({ doc, className }: { doc: DocMetadata; className?: stri
         <div className="flex-1">
           <p className="text-lg font-semibold">{doc.title}</p>
           {doc.description && (
-            <p className="mt-1 text-sm text-fg-muted">{truncateOnWord(doc.description, 70)}</p>
+            <p className="mt-1 text-sm text-fg-muted">
+              {truncateOnWord(doc.description, 70)}
+            </p>
           )}
         </div>
         {doc.keywords && (
           <div className="mt-3 flex flex-wrap gap-1">
-            {doc.keywords.slice(0, doc.keywords.length > 3 ? 2 : 3).map((keyword, index) => (
-              <Badge key={index} variant="outline">
-                {keyword}
-              </Badge>
-            ))}
+            {doc.keywords
+              .slice(0, doc.keywords.length > 3 ? 2 : 3)
+              .map((keyword, index) => (
+                <Badge key={index} variant="outline">
+                  {keyword}
+                </Badge>
+              ))}
             {doc.keywords.length > 3 && (
               <Tooltip
                 content={
@@ -80,7 +90,14 @@ const Thumbnail = ({
   const debouncedInView = useDebounce(isInView, 1500);
 
   if (!thumbnail)
-    return <div className={cn("aspect-video w-full", aspect === "page" && "aspect-[9/11]")} />;
+    return (
+      <div
+        className={cn(
+          "aspect-video w-full",
+          aspect === "page" && "aspect-[9/11]",
+        )}
+      />
+    );
 
   if (thumbnail?.video) {
     return (

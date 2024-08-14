@@ -3,7 +3,10 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { FileIcon, SearchIcon } from "lucide-react";
-import { Button, type ButtonProps } from "@/lib/components/core/default/react/buttons/button";
+import {
+  Button,
+  type ButtonProps,
+} from "@/lib/components/core/default/react/buttons/button";
 import {
   Command,
   CommandEmpty,
@@ -60,12 +63,22 @@ export const SearchDocs = (props: ButtonProps) => {
         className={cn("w-full px-2 text-sm text-fg-muted", props.className)}
       >
         {props.children ?? (
-          <span className="mr-4 inline-flex flex-1 text-left">Quick Search...</span>
+          <span className="mr-4 inline-flex flex-1 text-left">
+            Quick Search...
+          </span>
         )}
       </Button>
-      <Dialog className="!p-0" showDismissButton={false} type="modal" mobileType="modal">
+      <Dialog
+        className="!p-0"
+        showDismissButton={false}
+        type="modal"
+        mobileType="modal"
+      >
         <Command>
-          <CommandInput autoFocus placeholder="Search a component, a block, a hook..." />
+          <CommandInput
+            autoFocus
+            placeholder="Search a component, a block, a hook..."
+          />
           <CommandList>
             <CommandEmpty>No results found.</CommandEmpty>
             {docsConfig.nav.map((category, index) => (

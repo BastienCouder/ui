@@ -6,7 +6,9 @@ import { type VariantProps } from "tailwind-variants";
 import { cn } from "@/lib/utils";
 import { toggleStyles } from "./toggle";
 
-const ToggleGroupContext = React.createContext<VariantProps<typeof toggleStyles>>({
+const ToggleGroupContext = React.createContext<
+  VariantProps<typeof toggleStyles>
+>({
   size: "md",
   variant: "outline",
 });
@@ -34,7 +36,8 @@ type ToggleGroupItemProps = {
   isDisabled?: boolean;
   prefix?: React.ReactNode;
   defaultSelected?: boolean;
-} & VariantProps<typeof toggleStyles> & React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Item>;
+} & VariantProps<typeof toggleStyles> &
+  React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Item>;
 
 const ToggleGroupItem = React.forwardRef<
   React.ElementRef<typeof ToggleGroupPrimitive.Item>,
@@ -53,7 +56,7 @@ const ToggleGroupItem = React.forwardRef<
       defaultSelected,
       ...props
     },
-    ref
+    ref,
   ) => {
     const context = React.useContext(ToggleGroupContext);
 
@@ -67,7 +70,7 @@ const ToggleGroupItem = React.forwardRef<
             size: context.size || size,
             shape: shape,
           }),
-          className
+          className,
         )}
         {...props}
       >
@@ -76,7 +79,7 @@ const ToggleGroupItem = React.forwardRef<
         {suffix && <span className="ml-2">{suffix}</span>}
       </ToggleGroupPrimitive.Item>
     );
-  }
+  },
 );
 
 ToggleGroupItem.displayName = ToggleGroupPrimitive.Item.displayName;

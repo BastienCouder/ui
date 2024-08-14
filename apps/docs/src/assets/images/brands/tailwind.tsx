@@ -1,9 +1,14 @@
 import * as React from "react";
 
 export const TailwindLogo = (
-  props: React.JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>
+  props: React.JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>,
 ) => (
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 262 33" {...props}>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 262 33"
+    {...props}
+  >
     <path
       // fill="#38BDF8"
       fillRule="evenodd"

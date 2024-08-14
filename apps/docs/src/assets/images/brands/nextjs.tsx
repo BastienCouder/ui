@@ -1,7 +1,7 @@
 import * as React from "react";
 
 export const NextjsLogo = (
-  props: React.JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>
+  props: React.JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>,
 ) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 394 79" {...props}>
     <path d="M261.919.033h68.628V12.7h-27.224v66.639H289.71V12.7h-27.791V.033ZM149.052.033V12.7h-55.01v20.377h44.239v12.667H94.042v20.928h55.01V79.34H80.43V12.7h-.006V.033h68.628ZM183.32.066h-17.814l63.806 79.306h17.866l-31.907-39.626L247.127.126l-17.815.028-22.96 28.516L183.32.066ZM201.6 56.715l-8.921-11.092-27.224 33.81h17.865l18.28-22.718Z" />

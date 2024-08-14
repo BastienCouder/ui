@@ -16,13 +16,16 @@ const scrollAreaStyles = tv({
   variants: {
     size: {
       sm: {
-        scrollbar: "data-[orientation=horizontal]:h-1 data-[orientation=vertical]:w-1",
+        scrollbar:
+          "data-[orientation=horizontal]:h-1 data-[orientation=vertical]:w-1",
       },
       md: {
-        scrollbar: "data-[orientation=horizontal]:h-2 data-[orientation=vertical]:w-2",
+        scrollbar:
+          "data-[orientation=horizontal]:h-2 data-[orientation=vertical]:w-2",
       },
       lg: {
-        scrollbar: "data-[orientation=horizontal]:h-3 data-[orientation=vertical]:w-3",
+        scrollbar:
+          "data-[orientation=horizontal]:h-3 data-[orientation=vertical]:w-3",
       },
     },
     variant: {
@@ -65,10 +68,27 @@ const ScrollArea = ({
   ...viewportProps
 }: ScrollAreaProps) => {
   return (
-    <ScrollAreaRoot asChild={asChild} scrollHideDelay={scrollHideDelay} dir={dir} type={type}>
+    <ScrollAreaRoot
+      asChild={asChild}
+      scrollHideDelay={scrollHideDelay}
+      dir={dir}
+      type={type}
+    >
       <ScrollAreaViewPort {...viewportProps}>{children}</ScrollAreaViewPort>
-      {scrollbars !== "vertical" && <ScrollAreaScrollbar orientation="horizontal" size={size} variant={variant} />}
-      {scrollbars !== "horizontal" && <ScrollAreaScrollbar orientation="vertical" size={size} variant={variant} />}
+      {scrollbars !== "vertical" && (
+        <ScrollAreaScrollbar
+          orientation="horizontal"
+          size={size}
+          variant={variant}
+        />
+      )}
+      {scrollbars !== "horizontal" && (
+        <ScrollAreaScrollbar
+          orientation="vertical"
+          size={size}
+          variant={variant}
+        />
+      )}
       {scrollbars === "both" && <ScrollAreaCorner />}
     </ScrollAreaRoot>
   );
@@ -77,22 +97,40 @@ const ScrollArea = ({
 type ScrollAreaRootProps = ScrollAreaPrimitive.ScrollAreaProps;
 const ScrollAreaRoot = ({ className, ...props }: ScrollAreaRootProps) => {
   const { root } = scrollAreaStyles();
-  return <ScrollAreaPrimitive.Root className={root({ className })} {...props} />;
+  return (
+    <ScrollAreaPrimitive.Root className={root({ className })} {...props} />
+  );
 };
 
 type ScrollAreaViewPortProps = ScrollAreaPrimitive.ScrollAreaViewportProps;
-const ScrollAreaViewPort = ({ className, ...props }: ScrollAreaViewPortProps) => {
+const ScrollAreaViewPort = ({
+  className,
+  ...props
+}: ScrollAreaViewPortProps) => {
   const { viewport } = scrollAreaStyles();
-  return <ScrollAreaPrimitive.Viewport className={viewport({ className })} {...props} />;
+  return (
+    <ScrollAreaPrimitive.Viewport
+      className={viewport({ className })}
+      {...props}
+    />
+  );
 };
 
 interface ScrollAreaScrollbarProps
   extends Omit<ScrollAreaPrimitive.ScrollAreaScrollbarProps, "variant">,
     VariantProps<typeof scrollAreaStyles> {}
-const ScrollAreaScrollbar = ({ className, size, variant, ...props }: ScrollAreaScrollbarProps) => {
+const ScrollAreaScrollbar = ({
+  className,
+  size,
+  variant,
+  ...props
+}: ScrollAreaScrollbarProps) => {
   const { scrollbar, thumb } = scrollAreaStyles({ size, variant });
   return (
-    <ScrollAreaPrimitive.Scrollbar className={scrollbar({ className })} {...props}>
+    <ScrollAreaPrimitive.Scrollbar
+      className={scrollbar({ className })}
+      {...props}
+    >
       <ScrollAreaPrimitive.Thumb className={thumb()} />
     </ScrollAreaPrimitive.Scrollbar>
   );
@@ -106,4 +144,10 @@ export type {
   ScrollAreaViewPortProps,
   ScrollAreaScrollbarProps,
 };
-export { ScrollArea, ScrollAreaRoot, ScrollAreaViewPort, ScrollAreaScrollbar, ScrollAreaCorner };
+export {
+  ScrollArea,
+  ScrollAreaRoot,
+  ScrollAreaViewPort,
+  ScrollAreaScrollbar,
+  ScrollAreaCorner,
+};

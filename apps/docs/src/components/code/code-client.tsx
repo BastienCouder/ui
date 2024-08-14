@@ -20,7 +20,12 @@ interface CodeClientProps extends React.HTMLAttributes<HTMLDivElement> {
   inline?: boolean;
   code: string;
 }
-const CodeClient = ({ className, inline = false, children, code }: CodeClientProps) => {
+const CodeClient = ({
+  className,
+  inline = false,
+  children,
+  code,
+}: CodeClientProps) => {
   const [copied, setCopied] = React.useState(false);
   const handleCopy = () => {
     void navigator.clipboard.writeText(code);
@@ -31,7 +36,9 @@ const CodeClient = ({ className, inline = false, children, code }: CodeClientPro
   };
 
   if (inline) {
-    return <span className={codeStyles({ variant: "inline" })}>{children}</span>;
+    return (
+      <span className={codeStyles({ variant: "inline" })}>{children}</span>
+    );
   }
 
   return (

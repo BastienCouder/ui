@@ -22,8 +22,14 @@ type SeparatorProps = {
   [key: string]: any;
 };
 
-const Separator = ({ orientation = "horizontal", className, ...props }: SeparatorProps) => {
-  return <div {...props} className={separatorStyles({ orientation, className })} />;
+const Separator = ({
+  orientation = "horizontal",
+  className,
+  ...props
+}: SeparatorProps) => {
+  return (
+    <div {...props} className={separatorStyles({ orientation, className })} />
+  );
 };
 
 export { Separator };

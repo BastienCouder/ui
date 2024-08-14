@@ -4,15 +4,28 @@ import React from "react";
 import { CheckIcon, CopyIcon } from "lucide-react";
 import type { Key } from "react-aria-components";
 import { tv } from "tailwind-variants";
-import { Tab, Tabs, TabList, TabPanel, type TabsProps } from "@/lib/components/core/default/tabs";
-import { Button, ButtonProps } from "@/lib/components/core/default/react/buttons/button";
-import { ScrollArea, ScrollAreaProps } from "@/lib/components/core/default/react/layout/scroll-area";
+import {
+  Tab,
+  Tabs,
+  TabList,
+  TabPanel,
+  type TabsProps,
+} from "@/lib/components/core/default/tabs";
+import {
+  Button,
+  ButtonProps,
+} from "@/lib/components/core/default/react/buttons/button";
+import {
+  ScrollArea,
+  ScrollAreaProps,
+} from "@/lib/components/core/default/react/layout/scroll-area";
 import { cn } from "@/lib/utils";
 
 const codeBlockStyles = tv({
   slots: {
     root: "block rounded-md max-w-full",
-    header: "flex items-center justify-betweenrounded-t-[inherit] pr-2 h-10 mb-2",
+    header:
+      "flex items-center justify-betweenrounded-t-[inherit] pr-2 h-10 mb-2",
     body: "text-[0.8rem] p-4 bg-neutral/10",
     code: "text-[0.8rem]",
   },
@@ -36,17 +49,23 @@ const CodeBlockClient = ({
   expandable = false,
   ...props
 }: CodeBlockClientProps) => {
-  const [activeTab, setActiveTab] = React.useState<Key>(files[0]?.fileName || 'defaultKey');
+  const [activeTab, setActiveTab] = React.useState<Key>(
+    files[0]?.fileName || "defaultKey",
+  );
   const [isExpanded, setExpanded] = React.useState(false);
   const handleExpand = () => {
     const prevState = isExpanded;
     if (prevState) {
-      setActiveTab(files[0]?.fileName || 'defaultKey');
+      setActiveTab(files[0]?.fileName || "defaultKey");
     }
     setExpanded(!prevState);
   };
   return (
-    <CodeBlockRoot selectedKey={activeTab} onSelectionChange={setActiveTab} {...props}>
+    <CodeBlockRoot
+      selectedKey={activeTab}
+      onSelectionChange={setActiveTab}
+      {...props}
+    >
       <CodeBlockHeader>
         <div className="shrink-1 flex h-full w-full flex-1 basis-0 items-end gap-2">
           {files.length > 0 && (
@@ -71,14 +90,17 @@ const CodeBlockClient = ({
             code={
               (previewStr && !isExpanded
                 ? previewStr
-                : files.find(({ fileName }) => fileName === activeTab)?.codeStr)!
+                : files.find(({ fileName }) => fileName === activeTab)
+                    ?.codeStr)!
             }
           />
         </div>
       </CodeBlockHeader>
-      <CodeBlockBody className={cn(isExpanded ? "max-h-[1000px]" : "max-h-[500px]")}>
+      <CodeBlockBody
+        className={cn(isExpanded ? "max-h-[1000px]" : "max-h-[500px]")}
+      >
         {preview && !isExpanded ? (
-          <TabPanel id={files[0]?.fileName || 'defaultKey'} className="!mt-0">
+          <TabPanel id={files[0]?.fileName || "defaultKey"} className="!mt-0">
             {preview}
           </TabPanel>
         ) : (
@@ -108,7 +130,14 @@ const CodeBlockHeader = ({ className, ...props }: CodeBlockHeaderProps) => {
 type CodeBlockBodyProps = ScrollAreaProps;
 const CodeBlockBody = ({ className, ...props }: CodeBlockBodyProps) => {
   const { body } = codeBlockStyles();
-  return <ScrollArea variant={"primary"} scrollbars="both" className={body({ className })} {...props} />;
+  return (
+    <ScrollArea
+      variant={"primary"}
+      scrollbars="both"
+      className={body({ className })}
+      {...props}
+    />
+  );
 };
 
 interface CodeBlockCopyButtonProps extends ButtonProps {

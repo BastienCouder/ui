@@ -65,57 +65,62 @@ type TextFieldProps = TextFieldRootProps &
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {}
 
-  const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
-    (
-      { label, description, className, type, prefix, suffix, isInvalid, errorMessage, contextualHelp, size, ...props },
-      ref
-    ) => {
-      return (
-        <div className={cn(textFieldStyles())}>
-          {label && (
-            <label className="text-sm font-medium text-gray-700 flex items-center gap-1">
-              {label}
-              {contextualHelp && (
-                <span className="ml-2">{contextualHelp}</span> // Affichage de l'aide contextuelle
-              )}
-            </label>
-          )}
-          <div className={cn(inputContainerStyles())}>
-            {prefix && (
-              <span className="absolute left-3 inset-y-0 flex items-center pointer-events-none text-gray-400">
-                {prefix}
-              </span>
+const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
+  (
+    {
+      label,
+      description,
+      className,
+      type,
+      prefix,
+      suffix,
+      isInvalid,
+      errorMessage,
+      contextualHelp,
+      size,
+      ...props
+    },
+    ref,
+  ) => {
+    return (
+      <div className={cn(textFieldStyles())}>
+        {label && (
+          <label className="text-sm font-medium text-gray-700 flex items-center gap-1">
+            {label}
+            {contextualHelp && (
+              <span className="ml-2">{contextualHelp}</span> // Affichage de l'aide contextuelle
             )}
-            <input
-              type={type}
-              className={cn(
-                inputStyles({ size, invalid: isInvalid }),
-                className
-              )}
-              ref={ref}
-              {...props}
-            />
-            {suffix && (
-              <span className="absolute right-3 inset-y-0 flex items-center pointer-events-none text-gray-400">
-                {suffix}
-              </span>
-            )}
-          </div>
-          {isInvalid && errorMessage && (
-            <p className="text-xs text-danger mt-1">
-              {errorMessage}
-            </p>
+          </label>
+        )}
+        <div className={cn(inputContainerStyles())}>
+          {prefix && (
+            <span className="absolute left-3 inset-y-0 flex items-center pointer-events-none text-gray-400">
+              {prefix}
+            </span>
           )}
-          {!isInvalid && description && (
-            <p className="text-xs text-muted-foreground mt-1">
-              {description}
-            </p>
+          <input
+            type={type}
+            className={cn(inputStyles({ size, invalid: isInvalid }), className)}
+            ref={ref}
+            {...props}
+          />
+          {suffix && (
+            <span className="absolute right-3 inset-y-0 flex items-center pointer-events-none text-gray-400">
+              {suffix}
+            </span>
           )}
         </div>
-      );
-    }
-  );
-  TextField.displayName = "TextField";
+        {isInvalid && errorMessage && (
+          <p className="text-xs text-danger mt-1">{errorMessage}</p>
+        )}
+        {!isInvalid && description && (
+          <p className="text-xs text-muted-foreground mt-1">{description}</p>
+        )}
+      </div>
+    );
+  },
+);
+TextField.displayName = "TextField";
 
 type TextFieldRootProps = Omit<
   React.InputHTMLAttributes<HTMLInputElement>,
@@ -127,8 +132,10 @@ type TextFieldRootProps = Omit<
 
 const TextFieldRoot = React.forwardRef<HTMLInputElement, TextFieldRootProps>(
   ({ className, size, ...props }, ref) => {
-    return <input ref={ref} className={textFieldStyles({ className })} {...props} />;
-  }
+    return (
+      <input ref={ref} className={textFieldStyles({ className })} {...props} />
+    );
+  },
 );
 TextFieldRoot.displayName = "TextFieldRoot";
 

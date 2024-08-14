@@ -9,12 +9,14 @@ import { cn } from "@/lib/utils";
 function Demo() {
   const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
   const isMediumDevice = useMediaQuery(
-    "only screen and (min-width : 769px) and (max-width : 992px)"
+    "only screen and (min-width : 769px) and (max-width : 992px)",
   );
   const isLargeDevice = useMediaQuery(
-    "only screen and (min-width : 993px) and (max-width : 1200px)"
+    "only screen and (min-width : 993px) and (max-width : 1200px)",
   );
-  const isExtraLargeDevice = useMediaQuery("only screen and (min-width : 1201px)");
+  const isExtraLargeDevice = useMediaQuery(
+    "only screen and (min-width : 1201px)",
+  );
 
   return (
     <ClientOnly>
@@ -47,7 +49,7 @@ function Demo() {
               key={name}
               className={cn(
                 "flex flex-col items-center gap-2 rounded border-2 p-4",
-                isMatched && "border-green-800 text-green-200"
+                isMatched && "border-green-800 text-green-200",
               )}
             >
               {icon}

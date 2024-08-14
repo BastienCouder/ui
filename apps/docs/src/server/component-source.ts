@@ -1,8 +1,10 @@
 import fs from "fs";
 import path from "path";
 
-export const getComponentSource = (relativePath: string, extensions?: string | string[]) => {
-
+export const getComponentSource = (
+  relativePath: string,
+  extensions?: string | string[],
+) => {
   if (!relativePath) {
     console.error("relativePath is undefined");
     return [];
@@ -12,7 +14,9 @@ export const getComponentSource = (relativePath: string, extensions?: string | s
   let code: { title: string; code: string; extension: string }[] = [];
 
   // Convert single extension to array for uniform processing
-  const exts = Array.isArray(extensions) ? extensions : [extensions || "tsx", "ts"];
+  const exts = Array.isArray(extensions)
+    ? extensions
+    : [extensions || "tsx", "ts"];
 
   // Check if fullPath exists and is a directory
   if (fs.existsSync(fullPath) && fs.lstatSync(fullPath).isDirectory()) {
@@ -49,7 +53,13 @@ export const getComponentSource = (relativePath: string, extensions?: string | s
     }
 
     const fileName = path.basename(fullPath);
-    code = [{ title: `${fileName}.${fileExt}`, code: fileContent, extension: fileExt }];
+    code = [
+      {
+        title: `${fileName}.${fileExt}`,
+        code: fileContent,
+        extension: fileExt,
+      },
+    ];
   }
   return code;
 };

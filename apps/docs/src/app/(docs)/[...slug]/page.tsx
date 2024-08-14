@@ -12,7 +12,10 @@ import { DocsLogo } from "@/components/docs/doc-logo";
 import { StarRating } from "@/lib/components/core/default/react/buttons/star-rating";
 import DocsLayout from "@/components/docs/doc-layout";
 import { ScrollArea } from "@/lib/components/core/default/react/layout/scroll-area";
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from "@/lib/components/core/default/react/navigation/breadcrumb";
+import {
+  Breadcrumb,
+  Breadcrumbs,
+} from "@/lib/components/core/default/react/navigation/breadcrumb";
 
 interface PageProps {
   params: {
@@ -20,7 +23,9 @@ interface PageProps {
   };
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const doc = await getDocFromSlug(params.slug);
 
   if (!doc) {
@@ -49,7 +54,7 @@ export default async function Page({ params }: PageProps) {
   const themeColor = metadata.color || "react";
 
   return (
-    <ThemeWrapper metadataColor={themeColor} >
+    <ThemeWrapper metadataColor={themeColor}>
       <DocsLayout>
         <main
           className={cn("relative pb-20 lg:gap-10", {
@@ -58,23 +63,25 @@ export default async function Page({ params }: PageProps) {
         >
           <div className="mx-auto w-full min-w-0 pt-6">
             {metadata.breadcrumbs.length > 1 && (
-              <Breadcrumb>
-                <BreadcrumbList>
-                  {metadata.breadcrumbs.map((item, index) => (
-                    <BreadcrumbItem
-                      key={item.href}
-
-                    >
-                      <BreadcrumbLink href={index < metadata.breadcrumbs.length - 1 ? item.href : undefined}>
-                        {item.label}</BreadcrumbLink>
-                      <BreadcrumbSeparator />
-                    </BreadcrumbItem>
-                  ))}
-                </BreadcrumbList>
-              </Breadcrumb>
+              <Breadcrumbs>
+                {metadata.breadcrumbs.map((item, index) => (
+                  <Breadcrumb
+                    key={item.href}
+                    href={
+                      index < metadata.breadcrumbs.length - 1
+                        ? item.href
+                        : undefined
+                    }
+                  >
+                    {item.label}
+                  </Breadcrumb>
+                ))}
+              </Breadcrumbs>
             )}
             <div className="flex gap-4">
-              <h1 className={`text-4xl font-bold text-primary`}>{metadata.title}</h1>
+              <h1 className={`text-4xl font-bold text-primary`}>
+                {metadata.title}
+              </h1>
               <DocsLogo name={params.slug} />
             </div>
             <p className={`mt-2 opacity-90`}>{metadata.description}</p>
@@ -87,7 +94,7 @@ export default async function Page({ params }: PageProps) {
                     suffix={<ExternalLinkIcon />}
                     size="sm"
                     className="h-6 text-xs font-semibold [&_svg]:w-3 [&_svg]:h-3"
-                  // target="_blank"
+                    // target="_blank"
                   >
                     {link.label}
                   </Button>

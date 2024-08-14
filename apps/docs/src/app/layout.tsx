@@ -4,7 +4,12 @@ import { Analytics } from "@vercel/analytics/react";
 import { Header } from "@/components/header";
 import { cn } from "@/lib/utils";
 import { truncateOnWord } from "@/lib/utils/string";
-import { JosephinFont, fontDisplay, geistMono, geistSans } from "@/styles/fonts";
+import {
+  JosephinFont,
+  fontDisplay,
+  geistMono,
+  geistSans,
+} from "@/styles/fonts";
 import "@/styles/globals.css";
 import { siteConfig } from "@/config";
 import { Providers } from "./providers";
@@ -16,7 +21,7 @@ export const metadata: Metadata = {
   description: truncateOnWord(config.description, 148, true),
   keywords: config.keywords,
   authors: config.authors,
- /// creator: config.creator,
+  /// creator: config.creator,
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon-16x16.png",
@@ -30,7 +35,7 @@ export const metadata: Metadata = {
     title: config.title,
     description: truncateOnWord(config.description, 148, true),
     siteName: config.name,
-  //  images: [config.thumbnail],
+    //  images: [config.thumbnail],
   },
   twitter: {
     card: "summary_large_image",
@@ -49,7 +54,11 @@ export const viewport: Viewport = {
   ],
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -58,14 +67,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           geistMono.variable,
           geistSans.variable,
           fontDisplay.variable,
-          JosephinFont.variable
+          JosephinFont.variable,
         )}
         suppressHydrationWarning
       >
         <Analytics />
         <Providers>
           <Header />
-  
+
           <main>{children}</main>
           {/* <Footer /> */}
           {/* <LayoutColumnsGrid /> */}

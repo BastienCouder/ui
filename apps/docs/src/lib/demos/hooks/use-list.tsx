@@ -8,11 +8,9 @@ import { useList } from "@/lib/hooks/use-list";
 
 export default function Demo() {
   const [inputValue, setInputValue] = React.useState("");
-  const [list, { set, push, removeAt, insertAt, clear }] = useList<string | number>([
-    "First",
-    "Second",
-    "Third",
-  ]);
+  const [list, { set, push, removeAt, insertAt, clear }] = useList<
+    string | number
+  >(["First", "Second", "Third"]);
 
   return (
     <div>

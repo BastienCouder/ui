@@ -1,12 +1,16 @@
 "use client";
 
-import React from 'react';
+import React from "react";
 
-const BEFORE_HORIZONTAL = "before:h-px before:flex-1 before:bg-border before:content-['']";
-const AFTER_HORIZONTAL = "after:h-px after:flex-1 after:bg-border after:content-['']";
+const BEFORE_HORIZONTAL =
+  "before:h-px before:flex-1 before:bg-border before:content-['']";
+const AFTER_HORIZONTAL =
+  "after:h-px after:flex-1 after:bg-border after:content-['']";
 
-const BEFORE_VERTICAL = "before:w-px before:flex-1 before:bg-border before:content-['']";
-const AFTER_VERTICAL = "after:w-px after:flex-1 after:bg-border after:content-['']";
+const BEFORE_VERTICAL =
+  "before:w-px before:flex-1 before:bg-border before:content-['']";
+const AFTER_VERTICAL =
+  "after:w-px after:flex-1 after:bg-border after:content-['']";
 
 const variantClasses: { [key: string]: { [key: string]: string } } = {
   horizontal: {
@@ -22,8 +26,8 @@ const variantClasses: { [key: string]: { [key: string]: string } } = {
 };
 
 const Divider = ({
-  position = 'default',
-  orientation = 'horizontal',
+  position = "default",
+  orientation = "horizontal",
   children,
   className,
 }: {
@@ -32,14 +36,14 @@ const Divider = ({
   children?: React.ReactNode;
   className?: string;
 }) => {
-  const isHorizontal = orientation === 'horizontal';
+  const isHorizontal = orientation === "horizontal";
   const baseClasses = isHorizontal
-    ? 'flex justify-center items-center my-4'
-    : 'flex flex-col justify-center items-center mx-4';
+    ? "flex justify-center items-center my-4"
+    : "flex flex-col justify-center items-center mx-4";
 
-  const classes = `${baseClasses} ${variantClasses[orientation]?.[position] || ''}`;
+  const classes = `${baseClasses} ${variantClasses[orientation]?.[position] || ""}`;
 
-  return <div className={[classes, className].join(' ')}>{children}</div>;
+  return <div className={[classes, className].join(" ")}>{children}</div>;
 };
 
 export default Divider;

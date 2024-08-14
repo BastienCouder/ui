@@ -7,7 +7,10 @@ import { ClientOnly } from "@/lib/components/utils/client-only";
 import { useLocalStorage } from "@/lib/hooks/use-local-storage";
 
 function Demo() {
-  const [writing, saveWriting] = useLocalStorage<string | null>("writing", null);
+  const [writing, saveWriting] = useLocalStorage<string | null>(
+    "writing",
+    null,
+  );
   const [input, setInput] = React.useState(writing ?? "");
 
   return (

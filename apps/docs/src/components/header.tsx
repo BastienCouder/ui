@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MenuIcon } from "lucide-react";
-import { GitHubIcon,  } from "@/components/icons";
+import { GitHubIcon } from "@/components/icons";
 import { Button } from "@/lib/components/core/default/react/buttons/button";
 import { Dialog, DialogRoot } from "@/lib/components/core/default/dialog";
 import { useScrolled } from "@/lib/hooks/use-scrolled";
@@ -22,7 +22,7 @@ export const Header = () => {
     <header
       className={cn(
         "sticky top-0 z-50 flex h-14 rounded-md max-md:border-b max-md:bg-bg md:h-16",
-        scrolled && "pointer-events-none"
+        scrolled && "pointer-events-none",
       )}
     >
       <div className="container flex h-full max-w-screen-2xl items-center">
@@ -34,7 +34,7 @@ export const Header = () => {
               className={cn(
                 focusRing(),
                 "flex items-center space-x-2 rounded opacity-100 transition-[opacity,transform] duration-300 ease-out",
-                scrolled && "pointer-events-none -translate-x-2 opacity-0"
+                scrolled && "pointer-events-none -translate-x-2 opacity-0",
               )}
               aria-hidden={scrolled}
             >
@@ -54,7 +54,8 @@ export const Header = () => {
           <div
             className={cn(
               "relative flex items-center gap-6 overflow-hidden rounded-md bg-transparent px-4 py-1 transition-[padding,background-color] duration-300 ease-out",
-              scrolled && "pointer-events-auto bg-bg-muted pl-14 shadow-md bg-neutral/70"
+              scrolled &&
+                "pointer-events-auto bg-bg-muted pl-14 shadow-md bg-neutral/70",
             )}
           >
             <Link
@@ -62,24 +63,25 @@ export const Header = () => {
               className={cn(
                 focusRing(),
                 "pointer-events-none absolute -translate-x-14 rounded opacity-0 transition-[opacity,transform] duration-300 ease-out",
-                scrolled && "-translate-x-10 opacity-100"
+                scrolled && "-translate-x-10 opacity-100",
               )}
               aria-hidden={!scrolled}
               tabIndex={scrolled ? undefined : -1}
             >
+              {/*}
               <Image
                 src={siteConfig.global.logo}
                 alt={siteConfig.global.name}
                 width={20}
                 height={20}
-              />
+              />*/}
             </Link>
             <Nav items={config.nav.links} />
           </div>
           <div
             className={cn(
               "flex w-[130px] items-center justify-end space-x-2 opacity-100 transition-[opacity,transform] duration-300 ease-out",
-              scrolled && "pointer-events-none translate-x-2 opacity-0"
+              scrolled && "pointer-events-none translate-x-2 opacity-0",
             )}
             aria-hidden={scrolled}
             tabIndex={scrolled ? -1 : undefined}
@@ -94,7 +96,7 @@ export const Header = () => {
             >
               <GitHubIcon />
             </Button> */}
-             {/*  <ThemeToggle />*/}
+            {/*  <ThemeToggle />*/}
           </div>
         </div>
         {/* Mobile nav */}
@@ -103,25 +105,31 @@ export const Header = () => {
             href="/"
             className={cn(
               focusRing(),
-              "flex w-[130px] items-center space-x-2 rounded transition-opacity hover:opacity-80"
+              "flex w-[130px] items-center space-x-2 rounded transition-opacity hover:opacity-80",
             )}
           >
+            {/*}
             <Image
               src={siteConfig.global.logo}
               alt={siteConfig.global.name}
               loading="lazy"
               width={24}
               height={24}
-            />
+            />*/}
             <div className="mt-1 font-josephin font-bold leading-normal tracking-tighter">
               {siteConfig.global.name}
             </div>
           </Link>
-                    {/* <SearchDocs className="flex-1" size="sm">
+          {/* <SearchDocs className="flex-1" size="sm">
             <span className="mr-4 flex-1 text-left">Search...</span>
           </SearchDocs>*/}
           <DialogRoot>
-            <Button variant="quiet" size="sm" shape="square" aria-label="Open menu">
+            <Button
+              variant="quiet"
+              size="sm"
+              shape="square"
+              aria-label="Open menu"
+            >
               <MenuIcon />
             </Button>
             <Dialog type="drawer">
@@ -169,8 +177,10 @@ const Nav = (props: NavProps) => {
               className={cn(
                 focusRing(),
                 "flex items-center justify-center gap-2 rounded px-4 py-1 text-sm font-medium text-fg/60 transition-colors hover:text-fg",
-                pathname.startsWith(item.href) && item.href !== "/" && "bg-bg-inverse/10 text-fg",
-                direction === "col" && "text-md w-full py-2"
+                pathname.startsWith(item.href) &&
+                  item.href !== "/" &&
+                  "bg-bg-inverse/10 text-fg",
+                direction === "col" && "text-md w-full py-2",
               )}
               href={item.href}
               onClick={onNavItemClick}
@@ -186,7 +196,7 @@ const Nav = (props: NavProps) => {
               )}
               <span>{item.label}</span>
             </Link>
-          )
+          ),
       )}
     </nav>
   );

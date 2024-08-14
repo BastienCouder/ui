@@ -32,7 +32,14 @@ export interface BadgeProps
   icon?: React.ReactNode;
 }
 
-function Badge({ children, className, variant, size, icon, ...props }: BadgeProps) {
+function Badge({
+  children,
+  className,
+  variant,
+  size,
+  icon,
+  ...props
+}: BadgeProps) {
   return (
     <span
       role="presentation"

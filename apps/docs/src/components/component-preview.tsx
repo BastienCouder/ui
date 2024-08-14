@@ -24,9 +24,8 @@ export const ComponentPreview = ({
   aspect = "default",
   preview,
   expandable,
-  language
+  language,
 }: ComponentPreviewProps) => {
-  
   // make it server component
   const component = React.useMemo(() => {
     const Component = previews[name]?.component;
@@ -52,7 +51,9 @@ export const ComponentPreview = ({
   }, [name]);
 
   return (
-    <div className={cn("overflow-hidden rounded-md space-y-4", containerClassName)}>
+    <div
+      className={cn("overflow-hidden rounded-md space-y-4", containerClassName)}
+    >
       <div className="relative">
         <ScrollArea
           className={cn("flex items-center justify-center", {
@@ -60,14 +61,23 @@ export const ComponentPreview = ({
           })}
         >
           <div className="flex min-h-40 items-center justify-center px-4 pt-4 pb-2">
-            <div className={cn("flex w-full items-center justify-center", className)}>
+            <div
+              className={cn(
+                "flex w-full items-center justify-center",
+                className,
+              )}
+            >
               {component}
             </div>
           </div>
         </ScrollArea>
       </div>
       <CodeBlock
-        files={code.map((file) => ({ fileName: file.title, code: file.code, lang: "tsx" }))}
+        files={code.map((file) => ({
+          fileName: file.title,
+          code: file.code,
+          lang: "tsx",
+        }))}
         preview={preview}
         className={"w-full rounded-t-none border-x-0 border-b-0"}
         expandable={expandable}

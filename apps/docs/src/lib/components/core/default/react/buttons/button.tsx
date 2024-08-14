@@ -16,7 +16,8 @@ const buttonStyles = tv(
           "bg-primary hover:bg-primary-hover pressed:bg-primary-active text-primary-fg",
         secondary:
           "bg-secondary hover:bg-secondary-hover pressed:bg-secondary-active text-secondary-fg",
-        quiet: "bg-transparent hover:bg-neutral/10 pressed:bg-neutral/20 text-fg",
+        quiet:
+          "bg-transparent hover:bg-neutral/10 pressed:bg-neutral/20 text-fg",
         outline:
           "border border-border bg-transparent hover:bg-neutral/10 pressed:bg-neutral/20 text-fg disabled:border-disabled disabled:bg-transparent",
         success:
@@ -63,11 +64,11 @@ const buttonStyles = tv(
   },
   {
     responsiveVariants: ["sm", "lg"],
-  }
+  },
 );
 
 export interface ButtonProps
-  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'prefix'>,
+  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "prefix">,
     VariantProps<typeof buttonStyles> {
   asChild?: boolean;
   isLoading?: boolean;
@@ -94,7 +95,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       asChild = false,
       ...props
     },
-    ref
+    ref,
   ) => {
     const Comp = asChild ? Slot : "button";
     const Element: React.ElementType = props.href ? "a" : Comp;
@@ -106,13 +107,19 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={isDisabled || isLoading}
         {...props}
       >
-        {isLoading && <LoaderIcon aria-label="loading" className="animate-spin" />}
+        {isLoading && (
+          <LoaderIcon aria-label="loading" className="animate-spin" />
+        )}
         {prefix}
-        {typeof children === "string" ? <span className="truncate">{children}</span> : children}
+        {typeof children === "string" ? (
+          <span className="truncate">{children}</span>
+        ) : (
+          children
+        )}
         {suffix}
       </Element>
     );
-  }
+  },
 );
 Button.displayName = "Button";
 

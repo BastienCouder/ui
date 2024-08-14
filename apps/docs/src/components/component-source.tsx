@@ -29,10 +29,14 @@ export const ComponentSource = ({
   if (code.length === 0) {
     return <p>Source code not found</p>;
   }
-  
+
   return (
     <CodeBlock
-      files={code.map((file) => ({ fileName: file.title, code: file.code, lang: file.extension as BundledLanguage || "tsx" }))}
+      files={code.map((file) => ({
+        fileName: file.title,
+        code: file.code,
+        lang: (file.extension as BundledLanguage) || "tsx",
+      }))}
       className={className}
       expandable
     />

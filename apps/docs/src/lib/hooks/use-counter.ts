@@ -2,7 +2,7 @@ import React from "react";
 
 export function useCounter(
   startingValue = 0,
-  options: { min?: number; max?: number } = {}
+  options: { min?: number; max?: number } = {},
 ): [
   number,
   {
@@ -15,11 +15,15 @@ export function useCounter(
   const { min, max } = options;
 
   if (typeof min === "number" && startingValue < min) {
-    throw new Error(`Your starting value of ${startingValue} is less than your min of ${min}.`);
+    throw new Error(
+      `Your starting value of ${startingValue} is less than your min of ${min}.`,
+    );
   }
 
   if (typeof max === "number" && startingValue > max) {
-    throw new Error(`Your starting value of ${startingValue} is greater than your max of ${max}.`);
+    throw new Error(
+      `Your starting value of ${startingValue} is greater than your max of ${max}.`,
+    );
   }
 
   const [count, setCount] = React.useState(startingValue);
@@ -62,7 +66,7 @@ export function useCounter(
         return nextCount;
       });
     },
-    [max, min]
+    [max, min],
   );
 
   const reset = React.useCallback(() => {

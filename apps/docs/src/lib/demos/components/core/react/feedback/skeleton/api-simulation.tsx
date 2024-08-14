@@ -5,7 +5,9 @@ import { Skeleton } from "@/lib/components/core/default/react/feedback/skeleton"
 import React from "react";
 
 export default function Demo() {
-  const [status, setStatus] = React.useState<"idle" | "loading" | "error" | "success">("idle");
+  const [status, setStatus] = React.useState<
+    "idle" | "loading" | "error" | "success"
+  >("idle");
   const apiCall = () => {
     setStatus("loading");
     setTimeout(() => {

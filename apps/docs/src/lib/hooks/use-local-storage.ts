@@ -30,21 +30,23 @@ const getLocalStorageServerSnapshot = () => {
 
 export function useLocalStorage<T>(
   key: string,
-  initialValue: T
+  initialValue: T,
 ): [T, React.Dispatch<React.SetStateAction<T>>] {
   const getSnapshot = () => getLocalStorageItem(key);
 
   const store = React.useSyncExternalStore(
     useLocalStorageSubscribe,
     getSnapshot,
-    getLocalStorageServerSnapshot
+    getLocalStorageServerSnapshot,
   );
 
   const setState: React.Dispatch<React.SetStateAction<T>> = React.useCallback(
     (v: T | ((prevState: T) => T)) => {
       try {
         const nextState =
-          typeof v === "function" ? (v as (prevState: T) => T)(JSON.parse(store!) as T) : v;
+          typeof v === "function"
+            ? (v as (prevState: T) => T)(JSON.parse(store!) as T)
+            : v;
 
         if (nextState === undefined || nextState === null) {
           removeLocalStorageItem(key);
@@ -55,11 +57,14 @@ export function useLocalStorage<T>(
         console.warn(e);
       }
     },
-    [key, store]
+    [key, store],
   );
 
   React.useEffect(() => {
-    if (getLocalStorageItem(key) === null && typeof initialValue !== "undefined") {
+    if (
+      getLocalStorageItem(key) === null &&
+      typeof initialValue !== "undefined"
+    ) {
       setLocalStorageItem(key, initialValue);
     }
   }, [key, initialValue]);

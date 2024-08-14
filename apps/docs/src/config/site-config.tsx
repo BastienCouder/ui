@@ -12,16 +12,16 @@ export const siteConfig = {
         url: "https://www.bastiencouder.com",
       },
     ],
-   // creator: "bastiencouder",
-   // thumbnail: "/images/thumbnail.png",
-   // twitter: {
-   //   creator: "",
-   // },
+    // creator: "bastiencouder",
+    // thumbnail: "/images/thumbnail.png",
+    // twitter: {
+    //   creator: "",
+    // },
   },
   links: {
     github: "https://github.com/BastienCouder",
- //   twitter: "",
-   // discord: "",
+    //   twitter: "",
+    // discord: "",
   },
   header: {
     nav: {

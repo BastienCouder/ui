@@ -13,7 +13,7 @@ function Skeleton({
       className={cn(
         "relative block h-6 animate-pulse rounded-md bg-neutral",
         props.children && "h-auto *:invisible",
-        className
+        className,
       )}
       {...props}
     />

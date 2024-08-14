@@ -6,7 +6,9 @@ import { RouterProvider } from "react-aria-components";
 
 declare module "react-aria-components" {
   interface RouterConfig {
-    routerOptions: NonNullable<Parameters<ReturnType<typeof useRouter>["push"]>[1]>;
+    routerOptions: NonNullable<
+      Parameters<ReturnType<typeof useRouter>["push"]>[1]
+    >;
   }
 }
 
@@ -15,9 +17,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <RouterProvider navigate={router.push}>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <div drawer-wrapper="" >
-          {children}
-        </div>
+        <div drawer-wrapper="">{children}</div>
       </ThemeProvider>
     </RouterProvider>
   );

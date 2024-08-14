@@ -13,7 +13,7 @@ const Command = React.forwardRef<
     ref={ref}
     className={cn(
       "flex h-full w-full flex-col overflow-hidden rounded-md bg-bg text-fg",
-      className
+      className,
     )}
     {...props}
   />
@@ -30,7 +30,7 @@ const CommandInput = React.forwardRef<
       ref={ref}
       className={cn(
         "flex h-11 w-full rounded-md bg-transparent py-3 text-base outline-none placeholder:text-fg-muted disabled:cursor-not-allowed disabled:opacity-50 sm:text-sm",
-        className
+        className,
       )}
       {...props}
     />
@@ -56,7 +56,11 @@ const CommandEmpty = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Empty>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Empty>
 >((props, ref) => (
-  <CommandPrimitive.Empty ref={ref} className="py-6 text-center text-sm" {...props} />
+  <CommandPrimitive.Empty
+    ref={ref}
+    className="py-6 text-center text-sm"
+    {...props}
+  />
 ));
 
 CommandEmpty.displayName = CommandPrimitive.Empty.displayName;
@@ -69,7 +73,7 @@ const CommandGroup = React.forwardRef<
     ref={ref}
     className={cn(
       "text-foreground overflow-hidden p-1 [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:text-xs [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-fg-muted",
-      className
+      className,
     )}
     {...props}
   />
@@ -97,7 +101,7 @@ const CommandItem = React.forwardRef<
     ref={ref}
     className={cn(
       "relative flex h-10 cursor-pointer select-none items-center rounded-sm px-2 text-sm outline-none transition-colors aria-selected:bg-bg-muted aria-selected:text-fg data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
-      className
+      className,
     )}
     {...props}
   />
@@ -105,9 +109,15 @@ const CommandItem = React.forwardRef<
 
 CommandItem.displayName = CommandPrimitive.Item.displayName;
 
-const CommandShortcut = ({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>) => {
+const CommandShortcut = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLSpanElement>) => {
   return (
-    <span className={cn("ml-auto text-xs tracking-widest text-fg-muted", className)} {...props} />
+    <span
+      className={cn("ml-auto text-xs tracking-widest text-fg-muted", className)}
+      {...props}
+    />
   );
 };
 CommandShortcut.displayName = "CommandShortcut";

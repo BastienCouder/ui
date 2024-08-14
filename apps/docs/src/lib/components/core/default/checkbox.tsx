@@ -45,30 +45,31 @@ interface CheckboxProps
     VariantProps<typeof checkboxStyles> {
   className?: string;
 }
-const Checkbox = React.forwardRef<React.ElementRef<typeof AriaCheckbox>, CheckboxProps>(
-  (localProps, ref) => {
-    const contextProps = useCheckboxContext();
-    const props = { ...contextProps, ...localProps };
-    const { className, variant, ...restProps } = props;
-    const { root, indicator } = checkboxStyles({ variant });
-    return (
-      <AriaCheckbox ref={ref} {...restProps} className={root({ className })}>
-        {composeRenderProps(props.children, (children, { isIndeterminate }) => (
-          <>
-            <div className={indicator({ className: "" })}>
-              {isIndeterminate ? (
-                <MinusIcon className="w-2.5 h-3.5" />
-              ) : (
-                <CheckIcon className="w-3 h-3" />
-              )}
-            </div>
-            <span>{children}</span>
-          </>
-        ))}
-      </AriaCheckbox>
-    );
-  }
-);
+const Checkbox = React.forwardRef<
+  React.ElementRef<typeof AriaCheckbox>,
+  CheckboxProps
+>((localProps, ref) => {
+  const contextProps = useCheckboxContext();
+  const props = { ...contextProps, ...localProps };
+  const { className, variant, ...restProps } = props;
+  const { root, indicator } = checkboxStyles({ variant });
+  return (
+    <AriaCheckbox ref={ref} {...restProps} className={root({ className })}>
+      {composeRenderProps(props.children, (children, { isIndeterminate }) => (
+        <>
+          <div className={indicator({ className: "" })}>
+            {isIndeterminate ? (
+              <MinusIcon className="w-2.5 h-3.5" />
+            ) : (
+              <CheckIcon className="w-3 h-3" />
+            )}
+          </div>
+          <span>{children}</span>
+        </>
+      ))}
+    </AriaCheckbox>
+  );
+});
 Checkbox.displayName = "Checkbox";
 
 type CheckboxContextValue = VariantProps<typeof checkboxStyles>;

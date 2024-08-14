@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const FlagGB: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg

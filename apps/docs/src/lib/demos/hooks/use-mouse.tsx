@@ -63,7 +63,7 @@ export default function Demo() {
         ref={ref}
         className={cn(
           "bg-background mx-auto mt-4 flex h-[200px] w-full max-w-sm items-center justify-center rounded-lg border p-4 transition-colors",
-          isIntersecting && "bg-green-900"
+          isIntersecting && "bg-green-900",
         )}
       >
         <span>Use a ref to add coords relative to the element</span>

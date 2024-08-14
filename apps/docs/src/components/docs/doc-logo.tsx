@@ -10,7 +10,7 @@ export interface DocsLogoProps {
 
 export const DocsLogo = ({ name, className }: DocsLogoProps) => {
   const logo = name[1];
-  
+
   const renderLogo = () => {
     switch (logo) {
       case "vue":
@@ -18,7 +18,7 @@ export const DocsLogo = ({ name, className }: DocsLogoProps) => {
       case "angular":
         return <AngularLogo className={cn("w-10 h-10", className)} />;
       case "react":
-        return  <ReactLogo className={cn("w-10 h-10", className)} />;
+        return <ReactLogo className={cn("w-10 h-10", className)} />;
       default:
         return null;
     }

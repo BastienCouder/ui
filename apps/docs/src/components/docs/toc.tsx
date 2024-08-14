@@ -28,7 +28,7 @@ export function TableOfContents({ toc }: TocProps) {
             .filter(Boolean)
             .map((id) => id?.split("#")[1])
         : [],
-    [toc]
+    [toc],
   );
   const activeHeading = useActiveItem(itemIds as string[]);
   const mounted = useMounted();
@@ -57,7 +57,7 @@ function useActiveItem(itemIds: string[]) {
           }
         });
       },
-      { rootMargin: `0% 0% -80% 0%` }
+      { rootMargin: `0% 0% -80% 0%` },
     );
 
     itemIds?.forEach((id) => {
@@ -96,7 +96,9 @@ function Tree({ tree, level = 1, activeItem }: TreeProps) {
               href={item.url}
               className={cn(
                 "inline-block no-underline transition-colors hover:text-fg",
-                item.url === `#${activeItem}` ? "font-medium text-primary" : "text-fg"
+                item.url === `#${activeItem}`
+                  ? "font-medium text-primary"
+                  : "text-fg",
               )}
             >
               {item.title}

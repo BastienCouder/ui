@@ -1,7 +1,13 @@
 import type { DocsNav } from "./docs-nav";
 import type { TableOfContents } from "./toc";
 
-export type DocType = "hook" | "component" | "page" | "template" | "block" | undefined;
+export type DocType =
+  | "hook"
+  | "component"
+  | "page"
+  | "template"
+  | "block"
+  | undefined;
 
 export type DocAspect = "video" | "page";
 
@@ -31,7 +37,7 @@ export interface DocFrontmatter {
   links?: DocLink[];
   label?: string;
   icon?: JSX.Element;
-  color?:"react" | "vue" | "angular";
+  color?: "react" | "vue" | "angular";
 }
 
 export interface DocMetadata {

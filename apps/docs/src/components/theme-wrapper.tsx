@@ -21,7 +21,7 @@ export function ThemeWrapper(props: ThemeWrapperProps) {
   }, [metadataColor, setTheme]);
 
   // Only apply the theme class if the component is mounted
-  const themeClass = mounted ? `${theme || 'dark'}` : 'dark';
+  const themeClass = mounted ? `${theme || "dark"}` : "dark";
 
   return (
     <div className={`w-full h-full ${themeClass}`}>

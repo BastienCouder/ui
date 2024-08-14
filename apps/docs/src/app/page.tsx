@@ -34,7 +34,7 @@ export default function HomePage() {
   return (
     <main className="container pb-36 pt-16">
       <div className="flex flex-col items-center gap-10">
-        <Breadcrumbs>
+        <Breadcrumbs size="lg">
           <Breadcrumb href="/">
             {" "}
             <ChevronRightCircle size={18} />

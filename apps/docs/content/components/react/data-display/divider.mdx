@@ -1,0 +1,57 @@
+---
+title: Divider
+description: Visually or semantically separates content.
+thumbnail:
+  image: /previews/components/core/divider.jpeg
+---
+
+<ComponentPreview
+  name="demos/components/core/react/data-display/divider/default"
+  extension={"tsx"}
+  preview={`<Divider className="gap-4">
+<Button>Default</Button>
+</Divider>`}
+/>
+
+## Installation
+
+<Steps>
+  <Step>Copy and paste the following code into your project.</Step>
+  <ComponentSource
+    name={["components/core/default/react/data-display/divider"]}
+    extension={["tsx"]}
+  />
+  <Step>Update the import paths to match your project setup.</Step>
+</Steps>
+
+## Options
+
+### Orientation
+
+Use the `orientation ` prop to change the direction of the divider.
+
+<ComponentPreview
+  name="demos/components/core/react/data-display/divider/orientation"
+  preview={`<Divider orientation="horizontal">Horizontal</Divider>
+<Divider orientation="vertical">Vertical</Divider>`}
+/>
+
+### Position
+
+Use the `position` prop to change the direction of the divider.
+
+<ComponentPreview
+  name="demos/components/core/react/data-display/divider/position"
+  preview={`<Divider className="gap-4">Gap 4</Divider>
+<Divider position="after">After</Divider>
+<Divider position="before">Before</Divider>`}
+/>
+
+### API Reference
+
+| Prop          | Type                         | Default        | Description                        |
+| ------------- | ---------------------------- | -------------- | ---------------------------------- |
+| `elementType` | `string`                     | -              | The HTML element type to render.   |
+| `orientation` | `'horizontal' \| 'vertical'` | `'horizontal'` | The orientation of the separator.  |
+| `className`   | `string`                     | -              | The CSS className for the element. |
+| `style`       | `CSSProperties`              | -              | The inline style for the element.  |

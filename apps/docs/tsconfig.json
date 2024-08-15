@@ -18,5 +18,5 @@
     "**/*.tsx",
     ".next/types/**/*.ts"
   ],
-"exclude": ["node_modules", "./src/lib/demos","./src/lib/components/core/default/angular","./src/lib/components/core/default/vue"]
+"exclude": ["node_modules", "./src/lib/demos/components/core/angular","./src/lib/demos/components/core/vue","./src/lib/components/core/default/angular","./src/lib/components/core/default/vue"]
 }

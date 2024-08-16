@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MenuIcon } from "lucide-react";
-import { GitHubIcon } from "@/components/icons";
 import { Button } from "@/lib/components/core/default/react/buttons/button";
 import { Dialog, DialogRoot } from "@/lib/components/core/default/dialog";
 import { useScrolled } from "@/lib/hooks/use-scrolled";

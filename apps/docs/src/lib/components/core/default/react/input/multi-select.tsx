@@ -4,10 +4,9 @@ import React from "react";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 import type { Primitive } from "@radix-ui/react-primitive";
 import { useControllableState } from "@radix-ui/react-use-controllable-state";
-import { Check, ChevronsUpDown, X } from "lucide-react";
+import { Check, ChevronsUpDown } from "lucide-react";
 import { createPortal } from "react-dom";
 import { cn } from "@/lib/utils";
-import { Badge } from "../data-display/badge";
 import {
   Command,
   CommandEmpty,
@@ -17,7 +16,6 @@ import {
   CommandList,
   CommandSeparator,
 } from "../overlay/command";
-import { Tooltip } from "react-aria-components";
 
 export interface MultiSelectOptionItem {
   value: string;

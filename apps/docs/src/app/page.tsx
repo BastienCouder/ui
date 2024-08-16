@@ -15,8 +15,6 @@ import { Header } from "@/components/header";
 import { Divider } from "@/lib/components/core/default/react/data-display/divider";
 import {
   ChevronRightCircle,
-  ChevronRightSquareIcon,
-  ClapperboardIcon,
   X,
 } from "lucide-react";
 import { Checkbox } from "@/lib/components/core/default/react/input/checkbox";
@@ -35,7 +33,7 @@ export default function HomePage() {
   return (
     <main className="container pb-36 pt-16">
       <div className="flex flex-col items-center gap-10">
-        <Breadcrumbs size="sm" separatorIcon={<X/>}>
+        <Breadcrumbs size="sm" separatorIcon={<X />}>
           <Breadcrumb href="/">
             {" "}
             <ChevronRightCircle size={18} />

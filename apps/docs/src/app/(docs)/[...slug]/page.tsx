@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ExternalLinkIcon, Star } from "lucide-react";
+import { ExternalLinkIcon } from "lucide-react";
 import { TableOfContents } from "@/components/docs/toc";
 import { Mdx } from "@/components/mdx/mdx-remote";
 import { Button } from "@/lib/components/core/default/react/buttons/button";
@@ -9,7 +9,6 @@ import { cn } from "@/lib/utils";
 import { getDocFromSlug, getDocs } from "@/server/docs";
 import { ThemeWrapper } from "@/components/theme-wrapper";
 import { DocsLogo } from "@/components/docs/doc-logo";
-import { StarRating } from "@/lib/components/core/default/react/buttons/star-rating";
 import DocsLayout from "@/components/docs/doc-layout";
 import { ScrollArea } from "@/lib/components/core/default/react/layout/scroll-area";
 import {

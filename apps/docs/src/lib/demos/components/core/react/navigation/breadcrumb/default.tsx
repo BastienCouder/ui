@@ -1,4 +1,7 @@
-import { Breadcrumb, Breadcrumbs } from "@/lib/components/core/default/react/navigation/breadcrumb";
+import {
+  Breadcrumb,
+  Breadcrumbs,
+} from "@/lib/components/core/default/react/navigation/breadcrumb";
 
 export default function BreadcrumbDemo() {
   return (

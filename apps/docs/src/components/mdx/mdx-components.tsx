@@ -22,7 +22,7 @@ export const Link = ({
 }: React.ComponentProps<"a">) => {
   const classes = cn("font-medium underline underline-offset-4", className);
 
-  if (!!href?.startsWith("/")) {
+  if (href?.startsWith("/")) {
     return (
       <NavLink {...props} href={href} className={classes}>
         {children}

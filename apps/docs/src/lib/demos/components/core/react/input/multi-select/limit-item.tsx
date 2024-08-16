@@ -1,43 +1,43 @@
-'use client'
+"use client";
 
 import {
-   MultiSelect,
-   MultiSelectContent,
-   MultiSelectGroup,
-   MultiSelectItem,
-   MultiSelectList,
-   MultiSelectTrigger,
-   MultiSelectValue,
-} from '@/lib/components/core/default/react/input/multi-select'
+  MultiSelect,
+  MultiSelectContent,
+  MultiSelectGroup,
+  MultiSelectItem,
+  MultiSelectList,
+  MultiSelectTrigger,
+  MultiSelectValue,
+} from "@/lib/components/core/default/react/input/multi-select";
 
 export default function MultiSelectDemo() {
-   return (
-      <MultiSelect defaultValue={['long', 'react', 'angular', 'vue', 'remix']}>
-         <MultiSelectTrigger className="w-96">
-            <MultiSelectValue
-               placeholder="Select stack"
-               maxDisplay={3}
-               maxItemLength={5}
-            />
-         </MultiSelectTrigger>
-         <MultiSelectContent>
-            <MultiSelectList>
-               <MultiSelectGroup heading="React">
-                  <MultiSelectItem value="react">React</MultiSelectItem>
-                  <MultiSelectItem value="next">Next.js</MultiSelectItem>
-                  <MultiSelectItem value="remix">Remix</MultiSelectItem>
-               </MultiSelectGroup>
-               <MultiSelectGroup heading="Vue">
-                  <MultiSelectItem value="vue">Vue</MultiSelectItem>
-                  <MultiSelectItem value="nuxt">Nuxt</MultiSelectItem>
-               </MultiSelectGroup>
-               <MultiSelectGroup heading="Others">
-                  <MultiSelectItem value="angular">Angular</MultiSelectItem>
-                  <MultiSelectItem value="svelte">Svelte</MultiSelectItem>
-                  <MultiSelectItem value="long">VeryVeryLongItem</MultiSelectItem>
-               </MultiSelectGroup>
-            </MultiSelectList>
-         </MultiSelectContent>
-      </MultiSelect>
-   )
+  return (
+    <MultiSelect defaultValue={["long", "react", "angular", "vue", "remix"]}>
+      <MultiSelectTrigger className="w-96">
+        <MultiSelectValue
+          placeholder="Select stack"
+          maxDisplay={3}
+          maxItemLength={5}
+        />
+      </MultiSelectTrigger>
+      <MultiSelectContent>
+        <MultiSelectList>
+          <MultiSelectGroup heading="React">
+            <MultiSelectItem value="react">React</MultiSelectItem>
+            <MultiSelectItem value="next">Next.js</MultiSelectItem>
+            <MultiSelectItem value="remix">Remix</MultiSelectItem>
+          </MultiSelectGroup>
+          <MultiSelectGroup heading="Vue">
+            <MultiSelectItem value="vue">Vue</MultiSelectItem>
+            <MultiSelectItem value="nuxt">Nuxt</MultiSelectItem>
+          </MultiSelectGroup>
+          <MultiSelectGroup heading="Others">
+            <MultiSelectItem value="angular">Angular</MultiSelectItem>
+            <MultiSelectItem value="svelte">Svelte</MultiSelectItem>
+            <MultiSelectItem value="long">VeryVeryLongItem</MultiSelectItem>
+          </MultiSelectGroup>
+        </MultiSelectList>
+      </MultiSelectContent>
+    </MultiSelect>
+  );
 }

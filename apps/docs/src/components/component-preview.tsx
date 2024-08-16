@@ -52,7 +52,10 @@ export const ComponentPreview = ({
 
   return (
     <div
-      className={cn("mt-2 overflow-hidden rounded-md space-y-4", containerClassName)}
+      className={cn(
+        "mt-2 overflow-hidden rounded-md space-y-4",
+        containerClassName,
+      )}
     >
       <div className="relative">
         <ScrollArea

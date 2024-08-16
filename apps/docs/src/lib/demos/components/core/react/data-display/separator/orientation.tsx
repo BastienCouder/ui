@@ -1,6 +1,6 @@
 import { Separator } from "@/lib/components/core/default/react/data-display/separator";
 
-export default function Demo() {
+export default function SeparatorDemo() {
   return (
     <div className="flex items-center gap-10">
       <div className="flex h-5 items-center gap-2 text-sm">

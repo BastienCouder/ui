@@ -7,7 +7,7 @@ import {
 import * as React from "react";
 // import { Radio, RadioGroup } from "@/lib/components/core/default/radio-group";
 
-export default function Demo() {
+export default function ScrollAreaDemo() {
   const [scrollbars, setScrollbars] = React.useState("vertical");
   return (
     <div className="flex items-center gap-10">

@@ -1,6 +1,6 @@
 import { Separator } from "@/lib/components/core/default/react/data-display/separator";
 
-export default function Demo() {
+export default function SeparatorDemo() {
   return (
     <div className="space-y-2 rounded-md border p-4">
       <div>

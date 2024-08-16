@@ -41,25 +41,53 @@ Use the `Slider` component to allow users to select a value from within a given 
 
 Use the `disabled` prop to disable the slider.
 
-<ComponentPreview name="demos/components/core/react/feedback/slider/disabled" />
+<ComponentPreview name="demos/components/core/react/feedback/slider/disabled"
+preview={`<Slider
+defaultValue={[50]}
+max={100}
+step={1}
+className='w-3/5'
+disabled />`}
+/>
 
-### Inverted
+### Inverted 
 
 Use the `inverted` prop to invert the slider.
 
-<ComponentPreview name="demos/components/core/react/feedback/slider/inverted" />
+<ComponentPreview name="demos/components/core/react/feedback/slider/inverted"
+preview={`<Slider
+defaultValue={[50]}
+max={100}
+step={1}
+className='w-3/5'
+inverted />`}
+/>
 
 ### Orientation
 
 Use the `orientation` prop to change the direction of the slider.
 
-<ComponentPreview name="demos/components/core/react/feedback/slider/orientation" />
+<ComponentPreview name="demos/components/core/react/feedback/slider/orientation"
+preview={`<Slider
+defaultValue={[50]}
+max={100}
+step={1}
+className='w-3/5'
+orientation="vertical" />`}
+/>
 
 ### Range
 
 Use the `range` prop to enable a range slider.
 
-<ComponentPreview name="demos/components/core/react/feedback/slider/range" />
+<ComponentPreview name="demos/components/core/react/feedback/slider/range"
+preview={`<Slider
+defaultValue={[25, 75]}
+max={100}
+step={1}
+className='w-3/5'
+orientation="vertical" />`}
+/>
 
 ### Tick Marks
 
@@ -68,20 +96,51 @@ NOTE: The tick marks' positions are not 100% accurate!
 
 #### Half Tick Marks
 
-<ComponentPreview name="demos/components/core/react/feedback/slider/half-tick-marks" />
+<ComponentPreview name="demos/components/core/react/feedback/slider/half-tick-marks"
+preview={`<Slider
+defaultValue={[2]}
+max={5}
+step={1}
+className='w-3/5'
+showSteps="half" />`}
+/>
 
 #### Full Tick Marks
 
-<ComponentPreview name="demos/components/core/react/feedback/slider/full-tick-marks" />
+<ComponentPreview name="demos/components/core/react/feedback/slider/full-tick-marks"
+preview={`<Slider
+defaultValue={[2]}
+max={5}
+step={1}
+className='w-3/5'
+showSteps="full" />`}
+/>
 
 ### Format Label
 
 Use the `formatLabel` prop to define how the value is shown on popover.
 
-<ComponentPreview name="demos/components/core/react/feedback/slider/format-label" />
+<ComponentPreview name="demos/components/core/react/feedback/slider/format-label" 
+preview={`<Slider
+defaultValue={[2]}
+max={5}
+step={1}
+className='w-3/5'
+formatLabel={value => \`\${value} points\`} />`}
+/>
+
+
 
 ### Format Label Side
 
 Use the `formatLabelSide` prop to indicate where the popover will appear.
 
-<ComponentPreview name="demos/components/core/react/feedback/slider/format-label-side" />
+<ComponentPreview name="demos/components/core/react/feedback/slider/format-label-side"
+preview={`<Slider
+defaultValue={[2]}
+max={5}
+step={1}
+className='w-3/5'
+formatLabel={value => \`\${value} points\`}
+formatLabelSide="left" />`}
+/>

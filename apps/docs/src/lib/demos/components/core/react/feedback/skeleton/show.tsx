@@ -1,7 +1,7 @@
 import { Button } from "@/lib/components/core/default/react/buttons/button";
 import { Skeleton } from "@/lib/components/core/default/react/feedback/skeleton";
 
-export default function Demo() {
+export default function SkeletonDemo() {
   return (
     <div className="flex flex-col items-center gap-4">
       <Skeleton>

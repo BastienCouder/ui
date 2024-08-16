@@ -11,21 +11,21 @@ const buttonStyles = tv(
     variants: {
       variant: {
         default:
-          "bg-neutral hover:bg-neutral-hover pressed:bg-neutral-active text-neutral-fg",
+          "bg-neutral hover:bg-neutral-hover active:bg-neutral-active text-neutral-fg",
         primary:
-          "bg-primary hover:bg-primary-hover pressed:bg-primary-active text-primary-fg",
+          "bg-primary hover:bg-primary-hover active:bg-primary-active text-primary-fg",
         secondary:
-          "bg-secondary hover:bg-secondary-hover pressed:bg-secondary-active text-secondary-fg",
+          "bg-secondary hover:bg-secondary-hover active:bg-secondary-active text-secondary-fg",
         quiet:
-          "bg-transparent hover:bg-neutral/10 pressed:bg-neutral/20 text-fg",
+          "bg-transparent hover:bg-neutral/10 active:bg-neutral/20 text-fg",
         outline:
-          "border border-border bg-transparent hover:bg-neutral/10 pressed:bg-neutral/20 text-fg disabled:border-disabled disabled:bg-transparent",
+          "border border-border bg-transparent hover:bg-neutral/10 active:bg-neutral/20 text-fg disabled:border-disabled disabled:bg-transparent",
         success:
-          "bg-success hover:bg-success-hover pressed:bg-success-active text-success-fg",
+          "bg-success hover:bg-success-hover active:bg-success-active text-success-fg",
         warning:
-          "bg-warning hover:bg-warning-hover pressed:bg-warning-active text-warning-fg",
+          "bg-warning hover:bg-warning-hover active:bg-warning-active text-warning-fg",
         danger:
-          "bg-danger hover:bg-danger-hover pressed:bg-danger-active text-danger-fg",
+          "bg-danger hover:bg-danger-hover active:bg-danger-active text-danger-fg",
       },
       size: {
         sm: "h-8 px-3 [&_svg]:w-4 [&_svg]:h-4",

@@ -61,7 +61,7 @@ export default async function Page({ params }: PageProps) {
             "xl:grid xl:grid-cols-[1fr_220px]": !!doc.toc.items,
           })}
         >
-          <div className="mx-auto w-full min-w-0 pt-6">
+          <div className="mx-auto w-full min-w-0 pt-6 space-y-2">
             {metadata.breadcrumbs.length > 1 && (
               <Breadcrumbs>
                 {metadata.breadcrumbs.map((item, index) => (

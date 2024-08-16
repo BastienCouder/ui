@@ -1,6 +1,6 @@
 import { Badge } from "@/lib/components/core/default/react/data-display/badge";
 
-export default function Demo() {
+export default function BadgeDemo() {
   return (
     <div className="flex flex-col items-start gap-2">
       <Flex>

@@ -46,6 +46,10 @@ export const docsConfig: DocsConfig = {
                 {
                   "title": "Button",
                   "href": "/components/react/buttons/button"
+                },
+                {
+                  "title": "Star rating",
+                  "href": "/components/react/buttons/star-rating"
                 }
               ]
             },
@@ -100,6 +104,30 @@ export const docsConfig: DocsConfig = {
                 {
                   "title": "Slider",
                   "href": "/components/react/feedback/slider"
+                }
+              ]
+            },
+            {
+              "title": "Form",
+              "href": "/components/react/form",
+              "items": [
+                {
+                  "title": "Form",
+                  "href": "/components/react/form/form"
+                }
+              ]
+            },
+            {
+              "title": "Input",
+              "href": "/components/react/input",
+              "items": [
+                {
+                  "title": "Label",
+                  "href": "/components/react/input/label"
+                },
+                {
+                  "title": "Multi select",
+                  "href": "/components/react/input/multi-select"
                 }
               ]
             },

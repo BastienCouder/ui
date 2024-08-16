@@ -1,7 +1,7 @@
 import { AspectRatio } from "@/lib/components/core/default/react/layout/aspect-ratio";
 import Image from "next/image";
 
-export default function Demo() {
+export default function AspectRatioDemo() {
   return (
     <AspectRatio ratio={16 / 9}>
       <Image

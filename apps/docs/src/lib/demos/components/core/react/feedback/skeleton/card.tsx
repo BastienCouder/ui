@@ -1,6 +1,6 @@
 import { Skeleton } from "@/lib/components/core/default/react/feedback/skeleton";
 
-export default function Demo() {
+export default function SkeletonDemo() {
   return (
     <div className="space-y-4">
       <Skeleton className="h-44 w-64" />

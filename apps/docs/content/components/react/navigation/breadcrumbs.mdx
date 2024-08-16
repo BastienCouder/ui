@@ -1,13 +1,13 @@
 ---
-title: Breadcrumbs
-description: Breadcrumbs display a hierarchy of links to the current page or resource in an application.
+title: Breadcrumb
+description: Breadcrumb display a hierarchy of links to the current page or resource in an application.
 thumbnail:
   image: /previews/components/core/breadcrumbs.jpeg
   video: /previews/components/core/breadcrumbs.mp4
 ---
 
 <ComponentPreview
-  name="demos/components/core/react/navigation/breadcrumbs/default"
+  name="demos/components/core/react/navigation/breadcrumb/default"
   preview={`<Breadcrumbs>
   <Breadcrumb href="#">Home</Breadcrumb>
   <Breadcrumb href="#">Components</Breadcrumb>
@@ -19,23 +19,18 @@ thumbnail:
 
 <Steps>
   <Step>Copy and paste the following code into your project.</Step>
-  <ComponentSource name={["components/core/default/react/navigation/breadcrumbs"]} extension={["tsx"]}  />
+  <ComponentSource name={["components/core/default/react/navigation/breadcrumb"]} extension={["tsx"]}  />
   <Step>Update the import paths to match your project setup.</Step>
 </Steps>
 
-## Usage
-
-Use `Breadcrumbs` to display a hierarchy of links to the current page or resource in an application.
-
 ## Options
-
 
 ### Size
 
-Use the `size` prop to control the size of the `Breadcrumbs`. The default variant is `sm`.
+Use the `size` prop to control the size of the `Breadcrumb`. The default variant is `sm`.
 
 <ComponentPreview
-  name="demos/components/core/react/navigation/breadcrumbs/sizes"
+  name="demos/components/core/react/navigation/breadcrumb/sizes"
   preview={`<Breadcrumbs size="sm">
   <Breadcrumb href="#">Home</Breadcrumb>
   <Breadcrumb href="#">Components</Breadcrumb>
@@ -59,7 +54,7 @@ Use the `size` prop to control the size of the `Breadcrumbs`. The default varian
 Use the `orientation` prop to change the direction of the breadcrumbs.
 
 <ComponentPreview
-  name="demos/components/core/react/navigation/breadcrumbs/orientation"
+  name="demos/components/core/react/navigation/breadcrumb/orientation"
   preview={`<Breadcrumbs orientation="vertical">
   <Breadcrumb href="#">Home</Breadcrumb>
   <Breadcrumb href="#">Components</Breadcrumb>
@@ -77,7 +72,7 @@ Use the `orientation` prop to change the direction of the breadcrumbs.
 Use the `separatorIcon` prop to change the separator icon of the breadcrumbs.
 
 <ComponentPreview
-  name="demos/components/core/react/navigation/breadcrumbs/orientation"
+  name="demos/components/core/react/navigation/breadcrumb/separator"
   preview={`<Breadcrumbs separatorIcon={<X/>}>
   <Breadcrumb href="#">Home</Breadcrumb>
   <Breadcrumb href="#">Components</Breadcrumb>
@@ -88,14 +83,14 @@ Use the `separatorIcon` prop to change the separator icon of the breadcrumbs.
 
 ### Disabled
 
-Use the `isDisabled` prop to disable the breadcrumbs.
+Use the `disabled` prop to disable the breadcrumbs.
 
 <ComponentPreview
-  name="demos/components/core/react/navigation/breadcrumbs/disabled"
-  preview={`<Breadcrumbs isDisabled>
+  name="demos/components/core/react/navigation/breadcrumb/disabled"
+  preview={`<Breadcrumbs>
   <Breadcrumb href="#">Home</Breadcrumb>
   <Breadcrumb href="#">Components</Breadcrumb>
-  <Breadcrumb>Breadcrumbs</Breadcrumb>
+  <Breadcrumb disabled>Breadcrumbs</Breadcrumb>
 </Breadcrumbs>`}
 />
 
@@ -104,7 +99,7 @@ Use the `isDisabled` prop to disable the breadcrumbs.
 If you need to customize things further, you can drop down to the composition level.
 
 <ComponentPreview
-  name="demos/components/core/react/navigation/breadcrumbs/composition"
+  name="demos/components/core/react/navigation/breadcrumb/composition"
   preview={`<Breadcrumbs>
   <BreadcrumbItem>
     <BreadcrumbLink href="#">Home</BreadcrumbLink>
@@ -124,7 +119,7 @@ If you need to customize things further, you can drop down to the composition le
 
 | Prop           | Type                                  | Default | Description                                                                  |
 | -------------- | ------------------------------------- | ------- | ---------------------------------------------------------------------------- |
-| `isDisabled`   | `boolean`                             | -       | Whether the breadcrumbs are disabled.                                        |
+| `disabled`   | `boolean`                             | -       | Whether the breadcrumbs are disabled.                                        |
 | `items`        | `boolean`                             | -       | Item objects in the collection.                                              |
 | `dependencies` | `boolean`                             | -       | Values that should invalidate the item cache when using dynamic collections. |
 | `children`     | `ReactNode \| (item: T) => ReactNode` | -       | The contents of the collection.                                              |

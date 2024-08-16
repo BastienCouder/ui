@@ -50,6 +50,10 @@ export const docsConfig: DocsConfig = {
                 {
                   "title": "Star rating",
                   "href": "/components/react/buttons/star-rating"
+                },
+                {
+                  "title": "Toggle",
+                  "href": "/components/react/buttons/toggle"
                 }
               ]
             },
@@ -142,6 +146,16 @@ export const docsConfig: DocsConfig = {
                 {
                   "title": "Scroll area",
                   "href": "/components/react/layout/scroll-area"
+                }
+              ]
+            },
+            {
+              "title": "Navigation",
+              "href": "/components/react/navigation",
+              "items": [
+                {
+                  "title": "Breadcrumbs",
+                  "href": "/components/react/navigation/breadcrumbs"
                 }
               ]
             }

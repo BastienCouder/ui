@@ -18,11 +18,14 @@ const getBreadcrumbs = (slug: string[]): { label: string; href: string }[] => {
       "content",
       ...slug.slice(0, index + 1),
     );
-
-    if (fs.existsSync(partPath) && fs.lstatSync(partPath).isDirectory()) {
+    
+    const resolvedPartPath = path.resolve(process.cwd(), partPath);
+    
+    // Ensure the resolved path is within the content directory before checking if it exists
+    if (resolvedPartPath.startsWith(path.join(process.cwd(), "content")) && fs.existsSync(resolvedPartPath) && fs.lstatSync(resolvedPartPath).isDirectory()) {
       // Get title from index.mdx
-      const indexPath = path.join(partPath, "index.mdx");
-
+      const indexPath = path.join(resolvedPartPath, "index.mdx");
+    
       if (fs.existsSync(indexPath)) {
         try {
           const fileRawContent = fs.readFileSync(indexPath, "utf-8");
@@ -44,14 +47,12 @@ const getBreadcrumbs = (slug: string[]): { label: string; href: string }[] => {
         ...slug.slice(0, index),
         `${slugPart}.mdx`,
       );
-
-      if (fs.existsSync(filePath)) {
+      
+      const sanitizedPath = path.resolve(process.cwd(), filePath);
+      
+      // Ensure the sanitized path is within the content directory before checking if it exists
+      if (sanitizedPath.startsWith(path.join(process.cwd(), "content")) && fs.existsSync(sanitizedPath)) {
         try {
-          const sanitizedPath = path.normalize(filePath);
-          if (!sanitizedPath.startsWith(process.cwd())) {
-            throw new Error("Invalid file path");
-          }
-          // eslint-disable-next-line TP1004
           const fileRawContent = fs.readFileSync(sanitizedPath, "utf-8");
           const { frontmatter } = parseMDXFile<DocFrontmatter>(fileRawContent);
           return {
@@ -59,11 +60,11 @@ const getBreadcrumbs = (slug: string[]): { label: string; href: string }[] => {
             href: `/${slug.slice(0, index + 1).join("/")}`,
           };
         } catch (error) {
-          console.error(`Error reading file at ${filePath}:`, error);
+          console.error(`Error reading file at ${sanitizedPath}:`, error);
           return null;
         }
       }
-    }
+    }      
     return null;
   });
 
@@ -100,12 +101,14 @@ export const getDocFromSlug = async (
   const breadcrumbs = getBreadcrumbs(slug);
   const type = slug[0] as DocType;
   const directoryPath = path.join(process.cwd(), "content", ...slug);
+  const resolvedDirectoryPath = path.resolve(process.cwd(), directoryPath);
 
   if (
-    fs.existsSync(directoryPath) &&
-    fs.lstatSync(directoryPath).isDirectory()
+    resolvedDirectoryPath.startsWith(path.join(process.cwd(), "content")) &&
+    fs.existsSync(resolvedDirectoryPath) &&
+    fs.lstatSync(resolvedDirectoryPath).isDirectory()
   ) {
-    const indexPath = path.join(directoryPath, "index.mdx");
+    const indexPath = path.join(resolvedDirectoryPath, "index.mdx");
     if (fs.existsSync(indexPath)) {
       const fileRawContent = fs.readFileSync(indexPath, "utf-8");
       const { content, frontmatter } =
@@ -166,17 +169,20 @@ export const getDocFromSlug = async (
     ...slug.slice(0, -1),
     `${slug[slug.length - 1]}.mdx`,
   );
-  if (fs.existsSync(filePath)) {
-    const safeFilePath = path.resolve(directoryPath, filePath);
+  
+  const safeFilePath = path.resolve(process.cwd(), filePath);
+  
+  // Ensure the path is within the content directory before checking if it exists
+  if (safeFilePath.startsWith(path.join(process.cwd(), "content")) && fs.existsSync(safeFilePath)) {
     const fileRawContent = fs.readFileSync(safeFilePath, "utf-8");
     const { content, frontmatter } =
       parseMDXFile<DocFrontmatter>(fileRawContent);
-
+  
     const color =
       (frontmatter.color as FrameworkColor) ||
       parentColor ||
       findParentColor(slug.slice(0, -1));
-
+  
     const toc = await getTableOfContents(content);
     return {
       metadata: {
@@ -193,9 +199,10 @@ export const getDocFromSlug = async (
       toc,
     };
   }
-
+  
   return null;
 };
+
 // getDocs() returns all docs from content folder
 // getDocs("hooks") returns all docs from content/hooks folder
 // getDocs("components/core") returns all docs from content/components/core folder
@@ -206,23 +213,15 @@ export const getDocs = (slug?: string, includeIndex = false): DocMetadata[] => {
     ...(slug ? slug.split("/") : []),
   );
 
-  // console.log(
-  //   getAllMdxFiles(directoryPath, directoryPath, [], includeIndex).map(
-  //     ({ fullPath, relativePath }) => {
-  //       const itemRawContent = fs.readFileSync(fullPath, "utf-8");
-  //       const { frontmatter } = parseMDXFile<DocFrontmatter>(itemRawContent);
-  //       return {
-  //         ...frontmatter,
-  //         type: getDocTypeFromSlug(slug),
-  //         breadcrumbs: [],
-  //         href: `${slug ? `/${slug}` : ""}/${relativePath.join("/").replace("/index", "")}`,
-  //       };
-  //     }
-  //   )
-  // );
   return getAllMdxFiles(directoryPath, directoryPath, [], includeIndex).map(
     ({ fullPath, relativePath }) => {
       const safeFullPath = path.resolve(directoryPath, fullPath);
+      
+      // Ensure the path is within the content directory
+      if (!safeFullPath.startsWith(process.cwd())) {
+        throw new Error("Invalid file path");
+      }
+
       const itemRawContent = fs.readFileSync(safeFullPath, "utf-8");
       const { frontmatter } = parseMDXFile<DocFrontmatter>(itemRawContent);
       return {

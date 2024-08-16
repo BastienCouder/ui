@@ -1,14 +1,15 @@
+"use client";
+
 import React from "react";
 import { ChevronRight, ChevronDown } from "lucide-react";
 import { tv } from "tailwind-variants";
 import { cn } from "@/lib/utils";
 
-// Styles pour le Breadcrumb
 const breadcrumbStyles = tv({
   variants: {
     variant: {
       neutral: "text-fg hover:text-primary-hover",
-      active: "text-primary-active font-bold", // Style pour l'élément actif
+      active: "text-primary-active font-bold",
     },
     size: {
       sm: "text-sm [&_svg]:w-4 [&_svg]:h-4",
@@ -21,7 +22,7 @@ const breadcrumbStyles = tv({
     size: "sm",
   },
 });
-// Types pour les props de Breadcrumb et BreadcrumbItem
+
 interface BreadcrumbProps extends React.ComponentPropsWithoutRef<"li"> {
   href?: string;
   isLast?: boolean;
@@ -43,7 +44,6 @@ interface BreadcrumbsProps extends React.ComponentPropsWithoutRef<"nav"> {
   variant?: "neutral";
 }
 
-// Composant principal Breadcrumbs
 const Breadcrumbs = React.forwardRef<HTMLElement, BreadcrumbsProps>(
   (
     {
@@ -90,7 +90,6 @@ const Breadcrumbs = React.forwardRef<HTMLElement, BreadcrumbsProps>(
 );
 Breadcrumbs.displayName = "Breadcrumbs";
 
-// Composant BreadcrumbItem pour la nouvelle syntaxe
 const BreadcrumbItem = React.forwardRef<HTMLLIElement, BreadcrumbProps>(
   (
     {
@@ -131,7 +130,6 @@ const BreadcrumbItem = React.forwardRef<HTMLLIElement, BreadcrumbProps>(
 );
 BreadcrumbItem.displayName = "BreadcrumbItem";
 
-// Composant BreadcrumbLink pour la nouvelle syntaxe
 const BreadcrumbLink = React.forwardRef<
   HTMLAnchorElement | HTMLSpanElement,
   React.ComponentPropsWithoutRef<"a"> & {
@@ -171,7 +169,6 @@ const BreadcrumbLink = React.forwardRef<
 );
 BreadcrumbLink.displayName = "BreadcrumbLink";
 
-// Ancien composant Breadcrumb pour compatibilité
 const Breadcrumb = React.forwardRef<HTMLLIElement, BreadcrumbProps>(
   (
     {
@@ -238,5 +235,4 @@ const Breadcrumb = React.forwardRef<HTMLLIElement, BreadcrumbProps>(
 );
 Breadcrumb.displayName = "Breadcrumb";
 
-// Export des composants
 export { Breadcrumbs, Breadcrumb, BreadcrumbItem, BreadcrumbLink };

@@ -44,6 +44,8 @@ interface CheckboxProps
   isReadOnly?: boolean;
   defaultSelected?: boolean;
   isSelected?: boolean;
+  checked?: any;
+  onCheckedChange?: React.ChangeEventHandler<HTMLInputElement> | undefined;
   onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined;
 }
 

@@ -66,8 +66,26 @@ export const docsConfig: DocsConfig = {
                   "href": "/components/react/data-display/card"
                 },
                 {
+                  "title": "Divider",
+                  "href": "/components/react/data-display/divider"
+                },
+                {
                   "title": "Separator",
                   "href": "/components/react/data-display/separator"
+                },
+                {
+                  "title": "Table",
+                  "href": "/components/react/data-display/table"
+                }
+              ]
+            },
+            {
+              "title": "Draggable",
+              "href": "/components/react/draggable",
+              "items": [
+                {
+                  "title": "Resizable",
+                  "href": "/components/react/draggable/resizable"
                 }
               ]
             },
@@ -78,6 +96,10 @@ export const docsConfig: DocsConfig = {
                 {
                   "title": "Skeleton",
                   "href": "/components/react/feedback/skeleton"
+                },
+                {
+                  "title": "Slider",
+                  "href": "/components/react/feedback/slider"
                 }
               ]
             },

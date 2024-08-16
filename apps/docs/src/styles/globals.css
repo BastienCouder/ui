@@ -107,7 +107,7 @@
   /* Thème React */
   .react {
     --bg: 0, 0%, 2%;
-    --fg: 240 10% 98%;
+    --fg: 0 0% 80%;
     --border: 215, 15%, 16%;
     --input: 0 0% 30%;
     --neutral: 0 0% 30%;
@@ -115,7 +115,7 @@
     --neutral-active:  0 0% 30%;
     --neutral-fg: 240 10% 98%;
     --muted: 191, 66%, 61%;
-    --muted-fg:215, 15%, 16%;
+    --muted-fg:0 0% 40%;
     --popover: 215, 15%, 16%;
     --popover-fg: 191, 66%, 61%;
     --card: 215, 15%, 16%;

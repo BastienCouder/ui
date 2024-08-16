@@ -25,7 +25,7 @@ const variantClasses: { [key: string]: { [key: string]: string } } = {
   },
 };
 
-const Divider = ({
+export const Divider = ({
   position = "default",
   orientation = "horizontal",
   children,
@@ -45,5 +45,3 @@ const Divider = ({
 
   return <div className={[classes, className].join(" ")}>{children}</div>;
 };
-
-export default Divider;

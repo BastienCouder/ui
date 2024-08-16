@@ -101,7 +101,7 @@ export default async function Page({ params }: PageProps) {
                 ))}
               </div>
             )}
-            <div className="mt-10 text-sm md:text-base">
+            <div className="text-sm md:text-base">
               <Mdx source={rawContent} />
             </div>
           </div>

@@ -43,7 +43,7 @@ const CodeClient = ({
 
   return (
     <div className={className}>
-      <ScrollArea scrollbars="both" className="max-h-[200px]">
+      <ScrollArea scrollbars="both" className="max-h-[600px]">
         <div className={codeStyles({ variant: "classic" })}>
           {children}
           <Button

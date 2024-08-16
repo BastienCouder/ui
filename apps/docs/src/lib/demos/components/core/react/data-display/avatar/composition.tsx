@@ -7,7 +7,7 @@ import {
   AvatarRoot,
 } from "@/lib/components/core/default/react/data-display/avatar";
 
-export default function Demo() {
+export default function AvatarDemo() {
   return (
     <AvatarRoot className="bg-white/70">
       <AvatarImage src="/images/profile-default.png" alt="@bastiencouder" />

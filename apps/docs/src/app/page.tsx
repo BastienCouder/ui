@@ -12,7 +12,7 @@ import { Button } from "@/lib/components/core/default/react/buttons/button";
 import { Popover } from "@/lib/components/core/default/react/overlay/popover";
 import { Tooltip } from "@/lib/components/core/default/react/overlay/tooltip";
 import { Header } from "@/components/header";
-import Divider from "@/lib/components/core/default/react/data-display/divider";
+import { Divider } from "@/lib/components/core/default/react/data-display/divider";
 import {
   ChevronRightCircle,
   ChevronRightSquareIcon,

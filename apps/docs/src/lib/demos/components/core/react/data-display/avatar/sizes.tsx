@@ -1,6 +1,6 @@
 import { Avatar } from "@/lib/components/core/default/react/data-display/avatar";
 
-export default function Demo() {
+export default function AvatarDemo() {
   return (
     <div className="space-x-4">
       {(["sm", "md", "lg"] as const).map((size) => (

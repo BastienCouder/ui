@@ -3,7 +3,7 @@ import * as React from "react";
 
 const variants = ["default", "primary", "secondary"] as const;
 
-export default function Demo() {
+export default function ScrollAreaDemo() {
   return (
     <div className="grid grid-cols-3 gap-10">
       {variants.map((variant) => (

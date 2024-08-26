@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
-import { FileIcon, SearchIcon } from "lucide-react";
+import { File , Search } from "@/lib/icons";
 import {
   Button,
   type ButtonProps,
@@ -53,7 +53,7 @@ export const SearchDocs = (props: ButtonProps) => {
     <DialogRoot isOpen={isOpen} onOpenChange={setIsOpen}>
       <Button
         variant="outline"
-        prefix={<SearchIcon />}
+        prefix={<Search />}
         suffix={
           <span className="hidden rounded-md bg-muted px-1 py-0.5 text-xs md:inline">
             Ctrl K
@@ -93,7 +93,7 @@ export const SearchDocs = (props: ButtonProps) => {
                         }}
                         className="flex items-center space-x-2"
                       >
-                        <FileIcon className="size-4 text-fg-muted" />
+                        <File className="size-4 text-fg-muted" />
                         <span>{item.title}</span>
                       </CommandItem>
                     );
@@ -111,7 +111,7 @@ export const SearchDocs = (props: ButtonProps) => {
                               className="flex items-center justify-between"
                             >
                               <div className="flex items-center space-x-2">
-                                <FileIcon className="size-4 text-fg-muted" />
+                                <File className="size-4 text-fg-muted" />
                                 <span>{subItem.title}</span>
                               </div>
                               <div>

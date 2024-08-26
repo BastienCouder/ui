@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronRightIcon } from "lucide-react";
+import { ChevronRight } from "@/lib/icons";
 import {
   Collapsible,
   CollapsibleContent,
@@ -48,7 +48,7 @@ const Category = ({ title, slug, items, pathname }: CategoryProps) => {
   return (
     <Collapsible open={open} onOpenChange={setOpen}>
       <CollapsibleTrigger className="flex items-center space-x-2 [&[data-state=open]>svg]:rotate-90">
-        <ChevronRightIcon className="h-4 w-4 shrink-0 transition-transform duration-200 text-primary" />
+        <ChevronRight className="h-4 w-4 shrink-0 transition-transform duration-200 text-primary" />
         <h4 className="rounded-md text-sm md:text-base font-semibold">
           {title}
         </h4>
@@ -75,7 +75,7 @@ const Category = ({ title, slug, items, pathname }: CategoryProps) => {
                             )}
                           >
                             <CollapsibleTrigger className="flex items-center space-x-2 [&[data-state=open]>svg]:rotate-90">
-                              <ChevronRightIcon className="h-4 w-4 shrink-0 transition-transform duration-200 text-primary" />
+                              <ChevronRight className="h-4 w-4 shrink-0 transition-transform duration-200 text-primary" />
                               <span className="block duration-100 group-hover:translate-x-0.5">
                                 {item.title} {item.icon}
                               </span>

@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { ColumnDef } from "@tanstack/react-table"
-import { ArrowUpDown } from "lucide-react"
-import { Payment } from "../basic/column"
-import { Button } from "@/lib/components/core/default/react/buttons/button"
+import { ColumnDef } from "@tanstack/react-table";
+import { ArrowUpDown } from "@/lib/icons";
+import { Payment } from "../basic/column";
+import { Button } from "@/lib/components/core/default/react/buttons/button";
 
 export const columns: ColumnDef<Payment>[] = [
   {
@@ -17,7 +17,7 @@ export const columns: ColumnDef<Payment>[] = [
           Email
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
-      )
+      );
     },
   },
-]
+];

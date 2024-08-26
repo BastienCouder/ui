@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ExternalLinkIcon, Star } from "lucide-react";
+import { ExternalLink } from "@/lib/icons";
 import { TableOfContents } from "@/components/docs/toc";
 import { Mdx } from "@/components/mdx/mdx-remote";
 import { Button } from "@/lib/components/core/default/react/buttons/button";
@@ -9,7 +9,6 @@ import { cn } from "@/lib/utils";
 import { getDocFromSlug, getDocs } from "@/server/docs";
 import { ThemeWrapper } from "@/components/theme-wrapper";
 import { DocsLogo } from "@/components/docs/doc-logo";
-import { StarRating } from "@/lib/components/core/default/react/buttons/star-rating";
 import DocsLayout from "@/components/docs/doc-layout";
 import { ScrollArea } from "@/lib/components/core/default/react/layout/scroll-area";
 import {
@@ -61,7 +60,7 @@ export default async function Page({ params }: PageProps) {
             "xl:grid xl:grid-cols-[1fr_220px]": !!doc.toc.items,
           })}
         >
-          <div className="mx-auto w-full min-w-0 pt-6">
+          <div className="mx-auto w-full min-w-0 pt-6 space-y-2">
             {metadata.breadcrumbs.length > 1 && (
               <Breadcrumbs>
                 {metadata.breadcrumbs.map((item, index) => (
@@ -91,7 +90,7 @@ export default async function Page({ params }: PageProps) {
                   <Button
                     key={index}
                     href={link.href}
-                    suffix={<ExternalLinkIcon />}
+                    suffix={<ExternalLink />}
                     size="sm"
                     className="h-6 text-xs font-semibold [&_svg]:w-3 [&_svg]:h-3"
                     // target="_blank"

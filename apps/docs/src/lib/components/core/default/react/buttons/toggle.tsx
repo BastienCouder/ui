@@ -6,20 +6,20 @@ import { tv, type VariantProps } from "tailwind-variants";
 import { cn } from "@/lib/utils";
 
 const toggleStyles = tv({
-  base: "inline-flex items-center justify-center gap-2 rounded-md leading-normal text-sm font-medium ring-offset-background transition-colors disabled:cursor-default disabled:bg-bg-disabled disabled:text-fg-disabled",
+  base: "inline-flex items-center justify-center gap-2 rounded-md leading-normal text-sm font-medium ring-offset-bg transition-colors disabled:cursor-default disabled:bg-disabled disabled:text-disabled-fg",
   variants: {
     variant: {
       quiet:
-        "bg-transparent hover:bg-bg-inverse/10 pressed:bg-bg-inverse/20 text-fg data-[state=on]:bg-bg-primary data-[state=on]:text-fg-onPrimary data-[state=on]:hover:bg-bg-primary-hover data-[state=on]:pressed:bg-bg-primary-active",
+        "bg-transparent hover:bg-neutral/40 active:bg-neutral/20 text-fg data-[state=on]:bg-primary data-[state=on]:text-primary-fg data-[state=on]:hover:bg-primary-hover data-[state=on]:active:bg-primary-active",
       outline:
-        "border border-border-field bg-transparent hover:bg-bg-inverse/10 pressed:bg-bg-inverse/20 pressed:border-transparent text-fg data-[state=on]:bg-bg-primary data-[state=on]:border-transparent data-[state=on]:text-fg-onPrimary data-[state=on]:hover:bg-bg-primary-hover data-[state=on]:pressed:bg-bg-primary-active",
+        "border border-border-field bg-transparent hover:bg-neutral/40 active:bg-neutral/20 active:border-transparent text-fg data-[state=on]:bg-primary data-[state=on]:border-transparent data-[state=on]:text-primary-fg data-[state=on]:hover:bg-primary-hover data-[state=on]:active:bg-primary-active",
       accent:
-        "border border-border-field bg-transparent hover:bg-bg-inverse/10 pressed:bg-bg-inverse/20 pressed:border-transparent text-fg data-[state=on]:bg-bg-accent data-[state=on]:border-transparent data-[state=on]:hover:bg-bg-accent-hover data-[state=on]:pressed:bg-bg-accent-active data-[state=on]:text-fg-onAccent",
+        "border border-border-field bg-transparent hover:bg-neutral/40 active:bg-neutral/20 active:border-transparent text-fg data-[state=on]:bg-accent data-[state=on]:border-transparent data-[state=on]:hover:bg-accent-hover data-[state=on]:active:bg-accent-active data-[state=on]:text-accent-fg",
     },
     size: {
-      sm: "p-1.5 size-8 [&_svg]:w-4 [&_svg]:h-4",
-      md: "p-2 size-9 [&_svg]:w-4 [&_svg]:h-4",
-      lg: "p-4 size-10 [&_svg]:w-5 [&_svg]:h-5",
+      sm: "p-1.5 w-8 h-8 [&_svg]:w-4 [&_svg]:h-4",
+      md: "p-2 w-9 h-9 [&_svg]:w-4 [&_svg]:h-4",
+      lg: "p-2 w-10 h-10 [&_svg]:w-5 [&_svg]:h-5",
     },
     shape: {
       rectangle: "",
@@ -54,7 +54,7 @@ const toggleStyles = tv({
 interface ToggleProps
   extends Omit<
       React.ComponentPropsWithoutRef<typeof TogglePrimitive.Root>,
-      "prefix"
+      "prefix" | "onChange"
     >,
     VariantProps<typeof toggleStyles> {
   children: React.ReactNode;
@@ -67,7 +67,7 @@ interface ToggleProps
   onPressedChange?: (isSelected: boolean) => void;
 }
 
-const ToggleButton = React.forwardRef<
+const Toggle = React.forwardRef<
   React.ElementRef<typeof TogglePrimitive.Root>,
   ToggleProps
 >((props: ToggleProps, ref: React.ForwardedRef<HTMLButtonElement>) => {
@@ -85,15 +85,6 @@ const ToggleButton = React.forwardRef<
     ...restProps
   } = props;
 
-  const handlePressedChange = React.useCallback(
-    (pressed: boolean) => {
-      if (onPressedChange) {
-        onPressedChange(pressed);
-      }
-    },
-    [onPressedChange],
-  );
-
   return (
     <TogglePrimitive.Root
       ref={ref}
@@ -101,7 +92,7 @@ const ToggleButton = React.forwardRef<
       className={cn(toggleStyles({ variant, size, shape, className }))}
       defaultPressed={defaultSelected}
       pressed={isSelected}
-      onPressedChange={handlePressedChange}
+      onPressedChange={onPressedChange}
       {...restProps}
     >
       {prefix && <span className="mr-2">{prefix}</span>}
@@ -111,7 +102,7 @@ const ToggleButton = React.forwardRef<
   );
 });
 
-ToggleButton.displayName = "ToggleButton";
+Toggle.displayName = "Toggle";
 
 type ToggleContextValue = VariantProps<typeof toggleStyles>;
 const ToggleContext = React.createContext<ToggleContextValue>({});
@@ -120,4 +111,4 @@ const useToggleContext = () => {
 };
 
 export type { ToggleProps };
-export { ToggleButton, toggleStyles, ToggleContext, useToggleContext };
+export { Toggle, toggleStyles, ToggleContext, useToggleContext };

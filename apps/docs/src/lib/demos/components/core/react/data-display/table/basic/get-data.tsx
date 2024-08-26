@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import React from "react"
-import { columns, Payment } from "./column"
-import { DataTable } from "./data-table"
+import React from "react";
+import { columns, Payment } from "./column";
+import { DataTable } from "./data-table";
 
 async function getData(): Promise<Payment[]> {
   // Fetch data from your API here.
@@ -14,15 +14,15 @@ async function getData(): Promise<Payment[]> {
       email: "m@example.com",
     },
     // ...
-  ]
+  ];
 }
 
 export default async function DemoPage() {
-  const data = await getData()
+  const data = await getData();
 
   return (
     <div className="container mx-auto py-10">
       <DataTable columns={columns} data={data} />
     </div>
-  )
+  );
 }

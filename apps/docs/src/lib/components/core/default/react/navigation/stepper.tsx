@@ -1,8 +1,7 @@
 "use client";
 
 import * as React from "react";
-import type { LucideIcon } from "lucide-react";
-import { CheckIcon, Loader2, X } from "lucide-react";
+import { Check , Loader2, X,  } from "@/lib/icons";
 import { cn } from "@/lib/utils";
 import { Button } from "../buttons/button";
 import { Collapsible, CollapsibleContent } from "../data-display/collapsible";
@@ -796,7 +795,7 @@ function StepButtonContainer({
 
 // <---------- STEP ICON ---------->
 
-type IconType = LucideIcon | React.ComponentType<any> | undefined;
+type IconType = React.ComponentType<any> | undefined;
 
 const iconVariants = tv({
   base: "",
@@ -825,7 +824,7 @@ interface StepIconProps {
 }
 
 const StepIcon = React.forwardRef<HTMLDivElement, StepIconProps>(
-  (props, ref) => {
+  (props, ref): JSX.Element => {
     const { size } = useStepper();
 
     const {
@@ -841,16 +840,8 @@ const StepIcon = React.forwardRef<HTMLDivElement, StepIconProps>(
     } = props;
 
     const Icon = React.useMemo(() => CustomIcon || null, [CustomIcon]);
-
-    const ErrorIcon = React.useMemo(
-      () => CustomErrorIcon || null,
-      [CustomErrorIcon],
-    );
-
-    const Check = React.useMemo(
-      () => CustomCheckIcon || CheckIcon,
-      [CustomCheckIcon],
-    );
+    const ErrorIcon = React.useMemo(() => CustomErrorIcon || null, [CustomErrorIcon]);
+    const CheckIcon = React.useMemo(() => CustomCheckIcon || Check, [CustomCheckIcon]);
 
     return React.useMemo(() => {
       if (isCompletedStep) {
@@ -863,7 +854,7 @@ const StepIcon = React.forwardRef<HTMLDivElement, StepIconProps>(
         }
         return (
           <div key="check-icon">
-            <Check className={cn(iconVariants({ size }))} />
+            <CheckIcon className={cn(iconVariants({ size }))} />
           </div>
         );
       }
@@ -911,7 +902,7 @@ const StepIcon = React.forwardRef<HTMLDivElement, StepIconProps>(
       isLoading,
       Icon,
       index,
-      Check,
+      CheckIcon,
       ErrorIcon,
       isKeepError,
       ref,

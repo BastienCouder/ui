@@ -4,7 +4,7 @@ import { Button } from "@/lib/components/core/default/react/buttons/button";
 import { Skeleton } from "@/lib/components/core/default/react/feedback/skeleton";
 import React from "react";
 
-export default function Demo() {
+export default function SkeletonDemo() {
   const [status, setStatus] = React.useState<
     "idle" | "loading" | "error" | "success"
   >("idle");

@@ -1,6 +1,15 @@
 "use client";
 
-import { Table, TableBody, TableHeader ,TableCaption, TableCell, TableFooter, TableHead, TableRow } from "@/lib/components/core/default/react/data-display/table"
+import {
+  Table,
+  TableBody,
+  TableHeader,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableRow,
+} from "@/lib/components/core/default/react/data-display/table";
 
 const invoices = [
   {
@@ -45,7 +54,7 @@ const invoices = [
     totalAmount: "$300.00",
     paymentMethod: "Credit Card",
   },
-]
+];
 
 export default function TableDemo() {
   return (
@@ -76,5 +85,5 @@ export default function TableDemo() {
         </TableRow>
       </TableFooter>
     </Table>
-  )
+  );
 }

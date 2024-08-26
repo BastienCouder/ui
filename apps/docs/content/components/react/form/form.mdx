@@ -1,0 +1,110 @@
+---
+title: Form
+description: A form component that allows users to submit data.
+component: true
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/slider
+  api: https://www.radix-ui.com/docs/primitives/components/slider#api-reference
+---
+
+<ComponentPreview
+  name="demos/components/core/react/form/form/default"
+  extension={"tsx"}
+  preview={`<Form {...form}>
+    <form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
+      <FormField
+        control={form.control}
+        name="username"
+        render={({ field }) => (
+          <FormItem>
+              <FormLabel>Username</FormLabel>
+              <FormControl>
+                <Input placeholder="name..." {...field} />
+              </FormControl>
+              <FormDescription>
+                This is your public display name.
+              </FormDescription>
+              <FormMessage />
+          </FormItem>
+        )}
+      />
+      <Button type="submit" size="sm">Submit</Button>
+    </form>
+</Form>`}
+/>
+
+
+Forms are tricky. They are one of the most common things you'll build in a web application, but also one of the most complex.
+
+Well-designed HTML forms are:
+
+- Well-structured and semantically correct.
+- Easy to use and navigate (keyboard).
+- Accessible with ARIA attributes and proper labels.
+- Has support for client and server side validation.
+- Well-styled and consistent with the rest of the application.
+
+In this guide, we will take a look at building forms with [`react-hook-form`](https://react-hook-form.com/) and [`zod`](https://zod.dev). We're going to use a `<FormField>` component to compose accessible forms using Radix UI components.
+
+## Features
+
+The `<Form />` component is a wrapper around the `react-hook-form` library. It provides a few things:
+
+- Composable components for building forms.
+- A `<FormField />` component for building controlled form fields.
+- Form validation using `zod`.
+- Handles accessibility and error messages.
+- Uses `React.useId()` for generating unique IDs.
+- Applies the correct `aria` attributes to form fields based on states.
+- Built to work with all Radix UI components.
+- Bring your own schema library. We use `zod` but you can use anything you want.
+- **You have full control over the markup and styling.**
+
+## Anatomy
+
+```tsx
+<Form>
+  <FormField
+    control={...}
+    name="..."
+    render={() => (
+      <FormItem>
+        <FormLabel />
+        <FormControl>
+          { /* Your form field */}
+        </FormControl>
+        <FormDescription />
+        <FormMessage />
+      </FormItem>
+    )}
+  />
+</Form>
+```
+
+## Installation
+
+<Steps>
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @radix-ui/react-label @radix-ui/react-slot react-hook-form @hookform/resolvers zod
+```
+  <Step>Copy and paste the following code into your project.</Step>
+  <ComponentSource  name={["components/core/default/react/form/form"]} extension={["tsx"]} />
+  <Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Examples
+
+See the following links for more examples on how to use the `<Form />` component with other components:
+
+- [Checkbox](/docs/components/checkbox#form)
+- [Date Picker](/docs/components/date-picker#form)
+- [Input](/docs/components/input#form)
+- [Phone Input](/docs/components/input-phone#form)
+- [Radio Group](/docs/components/radio-group#form)
+- [Select](/docs/components/select#form)
+- [Switch](/docs/components/switch#form)
+- [Textarea](/docs/components/textarea#form)
+- [Combobox](/docs/components/combobox#form)

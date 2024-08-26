@@ -1,14 +1,15 @@
+"use client";
+
 import React from "react";
 import { ChevronRight, ChevronDown } from "lucide-react";
 import { tv } from "tailwind-variants";
 import { cn } from "@/lib/utils";
 
-// Styles pour le Breadcrumb
 const breadcrumbStyles = tv({
   variants: {
     variant: {
       neutral: "text-fg hover:text-primary-hover",
-      active: "text-primary-active font-bold", // Style pour l'élément actif
+      active: "text-primary-active font-bold",
     },
     size: {
       sm: "text-sm [&_svg]:w-4 [&_svg]:h-4",
@@ -21,7 +22,7 @@ const breadcrumbStyles = tv({
     size: "sm",
   },
 });
-// Types pour les props de Breadcrumb et BreadcrumbItem
+
 interface BreadcrumbProps extends React.ComponentPropsWithoutRef<"li"> {
   href?: string;
   isLast?: boolean;
@@ -43,7 +44,6 @@ interface BreadcrumbsProps extends React.ComponentPropsWithoutRef<"nav"> {
   variant?: "neutral";
 }
 
-// Composant principal Breadcrumbs
 const Breadcrumbs = React.forwardRef<HTMLElement, BreadcrumbsProps>(
   (
     {
@@ -56,10 +56,14 @@ const Breadcrumbs = React.forwardRef<HTMLElement, BreadcrumbsProps>(
       variant = "neutral",
       ...props
     },
-    ref
+    ref,
   ) => {
     const defaultSeparatorIcon =
-      orientation === "vertical" ? <ChevronDown size={18} /> : <ChevronRight size={18} />;
+      orientation === "vertical" ? (
+        <ChevronDown size={18} />
+      ) : (
+        <ChevronRight size={18} />
+      );
     const effectiveSeparatorIcon = separatorIcon || defaultSeparatorIcon;
 
     return (
@@ -67,8 +71,10 @@ const Breadcrumbs = React.forwardRef<HTMLElement, BreadcrumbsProps>(
         <ol
           className={cn(
             "flex",
-            orientation === "horizontal" ? "flex-row items-center gap-2" : "flex-col gap-2",
-            listClassName
+            orientation === "horizontal"
+              ? "flex-row items-center gap-2"
+              : "flex-col gap-2",
+            listClassName,
           )}
         >
           {React.Children.map(children, (child, index) => {
@@ -86,11 +92,10 @@ const Breadcrumbs = React.forwardRef<HTMLElement, BreadcrumbsProps>(
         </ol>
       </nav>
     );
-  }
+  },
 );
 Breadcrumbs.displayName = "Breadcrumbs";
 
-// Composant BreadcrumbItem pour la nouvelle syntaxe
 const BreadcrumbItem = React.forwardRef<HTMLLIElement, BreadcrumbProps>(
   (
     {
@@ -103,13 +108,13 @@ const BreadcrumbItem = React.forwardRef<HTMLLIElement, BreadcrumbProps>(
       children,
       ...props
     },
-    ref
+    ref,
   ) => {
     return (
       <li
         ref={ref}
         className={cn(
-          `flex items-center ${orientation === "vertical" ? "flex-col" : "flex-row"} ${className}`
+          `flex items-center ${orientation === "vertical" ? "flex-col" : "flex-row"} ${className}`,
         )}
         {...props}
       >
@@ -118,8 +123,10 @@ const BreadcrumbItem = React.forwardRef<HTMLLIElement, BreadcrumbProps>(
           <div
             className={cn(
               `flex items-center ${
-                orientation === "vertical" ? "mt-2 flex justify-center w-full" : "ml-2"
-              }`
+                orientation === "vertical"
+                  ? "mt-2 flex justify-center w-full"
+                  : "ml-2"
+              }`,
             )}
           >
             {separatorIcon}
@@ -127,11 +134,10 @@ const BreadcrumbItem = React.forwardRef<HTMLLIElement, BreadcrumbProps>(
         )}
       </li>
     );
-  }
+  },
 );
 BreadcrumbItem.displayName = "BreadcrumbItem";
 
-// Composant BreadcrumbLink pour la nouvelle syntaxe
 const BreadcrumbLink = React.forwardRef<
   HTMLAnchorElement | HTMLSpanElement,
   React.ComponentPropsWithoutRef<"a"> & {
@@ -143,8 +149,16 @@ const BreadcrumbLink = React.forwardRef<
   }
 >(
   (
-    { className, href, disabled = false, variant = "neutral", size = "sm", children, ...props },
-    ref
+    {
+      className,
+      href,
+      disabled = false,
+      variant = "neutral",
+      size = "sm",
+      children,
+      ...props
+    },
+    ref,
   ) => {
     const Comp: any = href && !disabled ? "a" : "span";
     const itemClasses = breadcrumbStyles({ variant, size });
@@ -160,18 +174,17 @@ const BreadcrumbLink = React.forwardRef<
               : "font-normal text-foreground"
           } ${disabled ? "pointer-events-none text-disabled-fg" : ""}`,
           itemClasses,
-          className
+          className,
         )}
         {...props}
       >
         {children}
       </Comp>
     );
-  }
+  },
 );
 BreadcrumbLink.displayName = "BreadcrumbLink";
 
-// Ancien composant Breadcrumb pour compatibilité
 const Breadcrumb = React.forwardRef<HTMLLIElement, BreadcrumbProps>(
   (
     {
@@ -186,7 +199,7 @@ const Breadcrumb = React.forwardRef<HTMLLIElement, BreadcrumbProps>(
       size = "sm",
       ...props
     },
-    ref
+    ref,
   ) => {
     const itemClasses = breadcrumbStyles({
       variant: isLast ? "active" : variant,
@@ -202,7 +215,7 @@ const Breadcrumb = React.forwardRef<HTMLLIElement, BreadcrumbProps>(
           `flex items-center ${
             orientation === "vertical" ? "flex-col" : "flex-row"
           } ${disabled ? "opacity-50 cursor-not-allowed" : ""}`,
-          className
+          className,
         )}
       >
         <Comp
@@ -215,7 +228,7 @@ const Breadcrumb = React.forwardRef<HTMLLIElement, BreadcrumbProps>(
                 : "font-normal text-foreground"
             } ${disabled ? "pointer-events-none text-disabled-fg" : ""}`,
             itemClasses,
-            itemClassName
+            itemClassName,
           )}
         >
           {props.children}
@@ -224,9 +237,11 @@ const Breadcrumb = React.forwardRef<HTMLLIElement, BreadcrumbProps>(
           <div
             className={cn(
               `flex items-center ${
-                orientation === "vertical" ? "mt-2 flex justify-center w-full" : "ml-2"
+                orientation === "vertical"
+                  ? "mt-2 flex justify-center w-full"
+                  : "ml-2"
               }`,
-              itemClasses
+              itemClasses,
             )}
           >
             {separatorIcon}
@@ -234,9 +249,8 @@ const Breadcrumb = React.forwardRef<HTMLLIElement, BreadcrumbProps>(
         )}
       </li>
     );
-  }
+  },
 );
 Breadcrumb.displayName = "Breadcrumb";
 
-// Export des composants
 export { Breadcrumbs, Breadcrumb, BreadcrumbItem, BreadcrumbLink };

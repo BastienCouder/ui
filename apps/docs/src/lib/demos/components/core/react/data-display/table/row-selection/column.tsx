@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { ColumnDef } from "@tanstack/react-table"
-import { Payment } from "../basic/column"
-import { Checkbox } from "@/lib/components/core/default/react/input/checkbox"
+import { ColumnDef } from "@tanstack/react-table";
+import { Payment } from "../basic/column";
+import { Checkbox } from "@/lib/components/core/default/react/input/checkbox";
 
 export const columns: ColumnDef<Payment>[] = [
   {
@@ -27,4 +27,4 @@ export const columns: ColumnDef<Payment>[] = [
     enableSorting: false,
     enableHiding: false,
   },
-]
+];

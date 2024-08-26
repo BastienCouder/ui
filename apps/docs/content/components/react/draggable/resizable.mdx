@@ -48,14 +48,42 @@ thumbnail:
 Use the `direction` prop to change the direction of the resizable panel group.
 
 <ComponentPreview
-  name="demos/components/core/react/draggable/resizable/direction"/>
+  name="demos/components/core/react/draggable/resizable/direction"
+  preview={`<ResizablePanelGroup direction="vertical" className="min-h-[200px] max-w-md rounded-lg border">
+  <ResizablePanel defaultSize={25}>
+    <div className="flex h-full items-center justify-center p-6">
+      <span className="font-semibold">Sidebar</span>
+    </div>
+  </ResizablePanel>
+    <ResizableHandle withHandle />
+  <ResizablePanel defaultSize={75}>
+    <div className="flex h-full items-center justify-center p-6">
+      <span className="font-semibold">Content</span>
+    </div>
+  </ResizablePanel>
+</ResizablePanelGroup>`}
+/>
 
 ### Handle
 
 Use the `withHandle` prop to change the direction of the resizable panel group.
 
 <ComponentPreview
-  name="demos/components/core/react/draggable/resizable/handle"/>
+  name="demos/components/core/react/draggable/resizable/handle"
+  preview={`<ResizablePanelGroup direction="horizontal" className="min-h-[200px] max-w-md rounded-lg border">
+  <ResizablePanel defaultSize={25}>
+    <div className="flex h-full items-center justify-center p-6">
+      <span className="font-semibold">Sidebar</span>
+    </div>
+  </ResizablePanel>
+    <ResizableHandle withHandle />
+  <ResizablePanel defaultSize={75}>
+    <div className="flex h-full items-center justify-center p-6">
+      <span className="font-semibold">Content</span>
+    </div>
+  </ResizablePanel>
+</ResizablePanelGroup>`}
+/>
 
 ### API Reference
 

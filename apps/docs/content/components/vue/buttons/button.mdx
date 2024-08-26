@@ -11,7 +11,7 @@ links: [
 ---
 
 <ComponentPreview
-  name="demos/components/core/vue/button/default"
+  name="demos/components/core/vue/buttons/button/default"
   preview={`<Button>button</Button>`}
   language="vue"
 />
@@ -37,7 +37,7 @@ Use the `variant` prop to control the visual style of the button.<br/>
 The default variant is `"default"`.
 
 <ComponentPreview
-  name="demos/components/core/vue/button/variants"
+  name="demos/components/core/vue/buttons/button/variants"
   preview={`<Button variant="default">default</Button>
 <Button variant="primary">primary</Button>
 <Button variant="secondary">secondary</Button>
@@ -55,7 +55,7 @@ Use the `size` prop to control the size of the button.<br/>
 The default size is `"md"`.
 
 <ComponentPreview
-  name="demos/components/core/vue/button/sizes"
+  name="demos/components/core/vue/buttons/button/sizes"
   preview={`<Button size="sm">Button</Button>
 <Button size="md">Button</Button>
 <Button size="lg">Button</Button>`}
@@ -68,7 +68,7 @@ Use the `shape` prop to control the shape of the button. The default variant is 
 Icon-only buttons should include an `aria-label`.
 
 <ComponentPreview
-  name="demos/components/core/vue/button/shapes"
+  name="demos/components/core/vue/buttons/button/shapes"
   preview={`<Button shape="square"><UplaodIcon /></Button>
 <Button shape="circular"><UplaodIcon /></Button>`}
   language="vue"
@@ -79,7 +79,7 @@ Icon-only buttons should include an `aria-label`.
 To add additional context for a button label, such as a search icon next to the label for a search field submit, use the `prefix` and `suffix` props. Leading visuals always appear locked to the button label, even if the button is full width.
 
 <ComponentPreview
-  name="demos/components/core/vue/button/prefix-and-suffix"
+  name="demos/components/core/vue/buttons/button/prefix-and-suffix"
   preview={`<Button :prefix="UplaodIcon">Upload</Button>
 <Button :suffix="UplaodIcon">Upload</Button>`}
   language="vue"
@@ -90,7 +90,7 @@ To add additional context for a button label, such as a search icon next to the 
 Use the `isLoading` prop to control the loading state of the button, if you need to wait for a button's action to be completed.
 
 <ComponentPreview
-  name="demos/components/core/vue/button/loading"
+  name="demos/components/core/vue/buttons/button/loading"
   preview={`<Button isLoading>Button</Button>`}
   language="vue"
 />
@@ -100,7 +100,7 @@ Use the `isLoading` prop to control the loading state of the button, if you need
 Use the `isDisabled` prop to disable the button.
 
 <ComponentPreview
-  name="demos/components/core/vue/button/disabled"
+  name="demos/components/core/vue/buttons/button/disabled"
   preview={`<Button isDisabled>Button</Button>`}
   language="vue"
 />
@@ -110,7 +110,7 @@ Use the `isDisabled` prop to disable the button.
 To use a button as a link, use the `href` prop the button will automatically render a link that visually looks like a button.
 
 <ComponentPreview
-  name="demos/components/core/vue/button/link-button"
+  name="demos/components/core/vue/buttons/button/link-button"
   preview={`<Button href="/login">Login</Button>`}
   language="vue"
 />

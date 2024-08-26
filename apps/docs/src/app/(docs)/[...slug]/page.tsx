@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ExternalLinkIcon } from "lucide-react";
+import { ExternalLink } from "@/lib/icons";
 import { TableOfContents } from "@/components/docs/toc";
 import { Mdx } from "@/components/mdx/mdx-remote";
 import { Button } from "@/lib/components/core/default/react/buttons/button";
@@ -90,7 +90,7 @@ export default async function Page({ params }: PageProps) {
                   <Button
                     key={index}
                     href={link.href}
-                    suffix={<ExternalLinkIcon />}
+                    suffix={<ExternalLink />}
                     size="sm"
                     className="h-6 text-xs font-semibold [&_svg]:w-3 [&_svg]:h-3"
                     // target="_blank"

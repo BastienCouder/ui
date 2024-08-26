@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { CheckIcon, CopyIcon } from "lucide-react";
+import { Check, Copy } from "@/lib/icons";
 import type { Key } from "react-aria-components";
 import { tv } from "tailwind-variants";
 import {
@@ -159,9 +159,9 @@ const CodeBlockCopyButton = ({ code, ...props }: CodeBlockCopyButtonProps) => {
       {...props}
     >
       {copied ? (
-        <CheckIcon className="animate-in fade-in" />
+        <Check className="animate-in fade-in" />
       ) : (
-        <CopyIcon className="animate-in fade-in" />
+        <Copy className="animate-in fade-in" />
       )}
     </Button>
   );

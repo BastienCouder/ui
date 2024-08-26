@@ -6,7 +6,7 @@
     "dev": "next dev --turbo --port 3000",
     "build": "npm run build:docs-config && npm run build:previews && next build",
     "build:previews": "tsx ./scripts/build-previews.ts",
-    "build:icons": "tsx ./scripts/build-icons.ts",
+    "build:icons": "tsx ./scripts/build-icon.ts",
     "build:docs-config": "tsx ./scripts/build-docs-config.ts",
     "start": "next start",
     "lint": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'"

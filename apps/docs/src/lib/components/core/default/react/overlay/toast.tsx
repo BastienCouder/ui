@@ -3,7 +3,7 @@
 import * as React from "react";
 import * as SheetPrimitive from "@radix-ui/react-dialog";
 import { type VariantProps, tv } from "tailwind-variants";
-import { X } from "lucide-react";
+import { X } from "@/lib/icons";
 import { cn } from "@/lib/utils";
 
 const Sheet = SheetPrimitive.Root;

@@ -11,7 +11,7 @@ import {
 } from "@/lib/components/core/default/react/data-display/card";
 
 import { cn } from "@/lib/utils";
-import { BellRing, Check } from "lucide-react";
+import { BellRing, Check } from "@/lib/icons";
 import { Switch } from "react-aria-components";
 
 const notifications = [

@@ -16,7 +16,7 @@ import { Divider } from "@/lib/components/core/default/react/data-display/divide
 import {
   ChevronRightCircle,
   X,
-} from "lucide-react";
+} from "@/lib/icons";
 import { Checkbox } from "@/lib/components/core/default/react/input/checkbox";
 import {
   Accordion,

@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+    :root {
+        --gradient: #707070;
+        --radius: 0.5rem;
+        --bg: 0, 0%, 2%;
+        --fg: 240 10% 98%;
+        --border: 210, 29%, 29%;
+        --input: 0 0% 30%;
+        --neutral: 0 0% 30%;
+        --neutral-hover: 0 0% 30%;
+        --neutral-active: 0 0% 30%;
+        --neutral-fg: 240 10% 98%;
+        --muted: 153, 48%, 49%;
+        --muted-fg: 210, 29%, 29%;
+        --popover: 0, 0%, 2%;
+        --popover-fg: 153, 48%, 49%;
+        --card: 0, 0%, 2%;
+        --card-fg: 153, 48%, 49%;
+        --primary: 153, 48%, 49%;
+        --primary-hover: 153, 48%, 49%;
+        --primary-active: 153, 48%, 49%;
+        --primary-fg: 210, 29%, 29%;
+        --secondary: 210, 29%, 29%;
+        --secondary-hover: 210, 29%, 29%;
+        --secondary-active: 210, 29%, 29%;
+        --secondary-fg: 240 10% 90%;
+        --accent: 0 0% 30%;
+        --accent-hover: 0 0% 30%;
+        --accent-active: 0 0% 30%;
+        --accent-fg: 240 10% 90%;
+        --success: 145, 63%, 40%;
+        --success-hover: 145, 63%, 40%;
+        --success-active: 145, 63%, 40%;
+        --success-fg: 240 10% 90%;
+        --warning: 44, 99%, 50%;
+        --warning-hover: 38, 76%, 50%;
+        --warning-active: 38, 76%, 50%;
+        --warning-fg: 0, 0%, 2%;
+        --danger: 345, 100%, 38%;
+        --danger-hover: 0, 96%, 31%;
+        --danger-active: 0, 96%, 31%;
+        --danger-fg: 240 10% 90%;
+        --ring: 210, 29%, 29%;
+    }
+}

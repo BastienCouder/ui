@@ -2,7 +2,7 @@ import {
   Breadcrumb,
   Breadcrumbs,
 } from "@/lib/components/core/default/react/navigation/breadcrumb";
-import { X } from "lucide-react";
+import { X } from "@/lib/icons";
 
 export default function BreadcrumbDemo() {
   return (

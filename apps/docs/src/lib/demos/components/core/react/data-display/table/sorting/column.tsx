@@ -1,7 +1,7 @@
 "use client";
 
 import { ColumnDef } from "@tanstack/react-table";
-import { ArrowUpDown } from "lucide-react";
+import { ArrowUpDown } from "@/lib/icons";
 import { Payment } from "../basic/column";
 import { Button } from "@/lib/components/core/default/react/buttons/button";
 

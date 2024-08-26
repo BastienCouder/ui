@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { CheckIcon, CopyIcon } from "lucide-react";
+import { Check, Copy } from "@/lib/icons";
 import { tv } from "tailwind-variants";
 import { Button } from "@/lib/components/core/default/react/buttons/button";
 import { ScrollArea } from "@/lib/components/core/default/react/layout/scroll-area";
@@ -54,9 +54,9 @@ const CodeClient = ({
             onClick={handleCopy}
           >
             {copied ? (
-              <CheckIcon className="animate-in fade-in" />
+              <Check className="animate-in fade-in" />
             ) : (
-              <CopyIcon className="animate-in fade-in" />
+              <Copy className="animate-in fade-in" />
             )}
           </Button>
         </div>

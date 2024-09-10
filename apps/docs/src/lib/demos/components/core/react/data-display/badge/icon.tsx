@@ -1,16 +1,16 @@
 import { Badge } from "@/lib/components/core/default/react/data-display/badge";
-import { ShieldIcon } from "@/lib/icons";
+import { Shield } from "@/lib/icons";
 
 export default function BadgeDemo() {
   return (
     <div className="flex items-center gap-2">
-      <Badge icon={<ShieldIcon />} size="sm">
+      <Badge icon={<Shield />} size="sm">
         Badge
       </Badge>
-      <Badge icon={<ShieldIcon />} size="md">
+      <Badge icon={<Shield />} size="md">
         Badge
       </Badge>
-      <Badge icon={<ShieldIcon />} size="lg">
+      <Badge icon={<Shield />} size="lg">
         Badge
       </Badge>
     </div>

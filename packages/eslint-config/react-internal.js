@@ -30,7 +30,7 @@ module.exports = {
     // Ignore dotfiles
     ".*.js",
     "node_modules/",
-    "dist/"
+    "dist/",
   ],
   overrides: [
     // Force ESLint to detect .tsx files

@@ -1,5 +1,5 @@
 import React from "react";
-import { UserIcon } from "@/lib/icons";
+import { User2 } from "@/lib/icons";
 import {
   AvatarFallback,
   AvatarImage,
@@ -13,7 +13,7 @@ export default function AvatarDemo() {
       <AvatarImage src="/images/profile-default.png" alt="@bastiencouder" />
       <AvatarFallback>B</AvatarFallback>
       <AvatarPlaceholder>
-        <UserIcon className="size-5" />
+        <User2 className="size-5" />
       </AvatarPlaceholder>
     </AvatarRoot>
   );

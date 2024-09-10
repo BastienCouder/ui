@@ -1,17 +1,17 @@
 import { Toggle } from "@/lib/components/core/default/react/buttons/toggle";
-import { PinIcon } from "@/lib/icons";
+import { Pin } from "@/lib/icons";
 
 export default function ToggleDemo() {
   return (
     <div className="flex w-full items-center justify-center gap-4">
       <Toggle size="sm">
-        <PinIcon />
+        <Pin />
       </Toggle>
       <Toggle size="md">
-        <PinIcon />
+        <Pin />
       </Toggle>
       <Toggle size="lg">
-        <PinIcon />
+        <Pin />
       </Toggle>
     </div>
   );

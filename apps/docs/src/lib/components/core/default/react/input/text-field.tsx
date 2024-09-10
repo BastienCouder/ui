@@ -5,7 +5,7 @@ import * as React from "react";
 import { tv, type VariantProps } from "tailwind-variants";
 
 const textFieldStyles = tv({
-  base: "flex flex-col gap-2 items-start w-full sm:w-96",
+  base: "flex flex-col gap-2 items-start w-auto",
 });
 
 const inputContainerStyles = tv({
@@ -13,7 +13,7 @@ const inputContainerStyles = tv({
 });
 
 const inputStyles = tv({
-  base: "w-full rounded-md text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 pl-10 pr-10", // Added padding for prefix and suffix
+  base: "z-10 w-full rounded-md text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 px-2",
   variants: {
     variant: {
       default:
@@ -26,7 +26,7 @@ const inputStyles = tv({
         "bg-transparent border border-input-border hover:bg-input-background-hover focus:bg-input-background-active text-input-foreground",
       quiet: "bg-transparent text-input-foreground",
     },
-    size: {
+    inputSize: {
       sm: "h-8 text-sm",
       md: "h-10 text-base",
       lg: "h-12 text-lg",
@@ -42,7 +42,7 @@ const inputStyles = tv({
   },
   defaultVariants: {
     variant: "default",
-    size: "md",
+    inputSize: "md",
     shape: "rectangle",
   },
 });
@@ -59,7 +59,7 @@ type TextFieldProps = TextFieldRootProps &
     isLoading?: boolean;
     loaderPosition?: "prefix" | "suffix";
     placeholder?: string;
-    contextualHelp?: React.ReactNode; // Nouvelle propriété pour l'aide contextuelle
+    contextualHelp?: React.ReactNode;
   };
 
 export interface InputProps
@@ -77,35 +77,37 @@ const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
       isInvalid,
       errorMessage,
       contextualHelp,
-      size,
+      inputSize,
+      shape,
       ...props
     },
     ref,
   ) => {
+    
     return (
       <div className={cn(textFieldStyles())}>
         {label && (
           <label className="text-sm font-medium text-gray-700 flex items-center gap-1">
             {label}
             {contextualHelp && (
-              <span className="ml-2">{contextualHelp}</span> // Affichage de l'aide contextuelle
+              <span className="ml-2">{contextualHelp}</span>
             )}
           </label>
         )}
         <div className={cn(inputContainerStyles())}>
           {prefix && (
-            <span className="absolute left-3 inset-y-0 flex items-center pointer-events-none text-gray-400">
+            <span className="absolute left-3 inset-y-0 flex items-center z-40 text-gray-400">
               {prefix}
             </span>
           )}
           <input
             type={type}
-            className={cn(inputStyles({ size, invalid: isInvalid }), className)}
+            className={cn(inputStyles({invalid: isInvalid, inputSize, shape }), className)}
             ref={ref}
             {...props}
           />
           {suffix && (
-            <span className="absolute right-3 inset-y-0 flex items-center pointer-events-none text-gray-400">
+            <span className="relative right-3 inset-y-0 flex z-20 items-center  text-gray-400">
               {suffix}
             </span>
           )}
@@ -127,13 +129,16 @@ type TextFieldRootProps = Omit<
   "className"
 > & {
   className?: string;
-  size?: "sm" | "md" | "lg";
 };
 
 const TextFieldRoot = React.forwardRef<HTMLInputElement, TextFieldRootProps>(
-  ({ className, size, ...props }, ref) => {
+  ({ className, ...props }, ref) => {
     return (
-      <input ref={ref} className={textFieldStyles({ className })} {...props} />
+      <input
+        ref={ref}
+        className={cn(textFieldStyles(className))} 
+        {...props}
+      />
     );
   },
 );

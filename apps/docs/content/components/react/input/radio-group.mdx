@@ -1,0 +1,43 @@
+---
+title: Radio Group
+description:  A radio group component that allows users to select one option from a list of choices.
+component: true
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/slider
+  api: https://www.radix-ui.com/docs/primitives/components/slider#api-reference
+---
+
+<ComponentPreview
+  name="demos/components/core/react/input/radio-group/default"
+  extension={"tsx"}
+  preview={`<RadioGroup defaultValue="comfortable">
+    <div className="flex items-center space-x-2">
+        <RadioGroupItem value="default" id="r1" />
+        <Label htmlFor="r1">Default</Label>
+    </div>
+    <div className="flex items-center space-x-2">
+        <RadioGroupItem value="comfortable" id="r2" />
+        <Label htmlFor="r2">Comfortable</Label>
+    </div>
+    <div className="flex items-center space-x-2">
+        <RadioGroupItem value="compact" id="r3" />
+        <Label htmlFor="r3">Compact</Label>
+    </div>
+</RadioGroup>`}
+/>
+
+## Installation
+
+<Steps>
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @radix-ui/react-radio-group
+```
+  <Step>Copy and paste the following code into your project.</Step>
+  <ComponentSource  name={["components/core/default/react/input/radio-group"]} extension={["tsx"]} />
+  <Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+in progress...

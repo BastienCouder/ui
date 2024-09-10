@@ -1,0 +1,36 @@
+---
+title: Stepper
+description: A stepper is a user interface element that displays a sequence of steps in a linear order.
+thumbnail:
+  image: /previews/components/core/avatar.jpeg
+  video: /previews/components/core/avatar.mp4
+---
+
+<ComponentPreview
+  name="demos/components/core/react/navigation/stepper/default"
+  preview={`<Stepper initialStep={0} steps={steps}>
+    {steps.map((stepProps, index) => {
+        return (
+        <Step key={stepProps.label} {...stepProps}>
+            <div className="bg-secondary text-primary my-2 flex h-40 items-center justify-center rounded-md border">
+                <h1 className="text-xl">
+                     Step
+                    {index + 1}
+                </h1>
+            </div>
+        </Step>
+        )
+    })}
+    <Footer />
+</Stepper>`}
+/>
+
+## Installation
+
+<Steps>
+  <Step>Copy and paste the following code into your project.</Step>
+  <ComponentSource name={["components/core/default/react/navigation/stepper"]} extension={["tsx"]} />
+  <Step>Update the import paths to match your project setup.</Step>
+</Steps>
+
+in progress...

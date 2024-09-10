@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import { tv, type VariantProps } from "tailwind-variants";
 
@@ -9,7 +11,7 @@ const alertVariants = tv({
     variant: {
       default: "bg-background text-foreground",
       destructive:
-        "border-destructive/50 text-destructive dark:border-destructive [&>svg]:text-destructive",
+        "border-destructive/50 text-danger dark:border-destructive [&>svg]:text-danger",
     },
   },
   defaultVariants: {

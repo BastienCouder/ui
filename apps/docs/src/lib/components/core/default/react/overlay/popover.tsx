@@ -22,7 +22,7 @@ const Popover: React.FC<PopoverProps> = ({
   children,
   content,
   className,
-  placement = "top",
+  placement = "bottom",
   offset = 10,
   delay = 0,
   shouldFlip = true,
@@ -74,7 +74,7 @@ const PopoverContent = React.forwardRef<
   (
     {
       className,
-      placement = "top",
+      placement = "bottom",
       offset = 10,
       shouldFlip = true,
       arrow = false,
@@ -93,17 +93,15 @@ const PopoverContent = React.forwardRef<
         onOpenAutoFocus={(event) => {
           if (delay > 0) {
             event.preventDefault();
-            if (event.target instanceof HTMLElement) {
-              setTimeout(() => {
-                if (event.target instanceof HTMLElement) {
-                  event.target.focus();
-                }
-              }, delay);
-            }
+            setTimeout(() => {
+              if (event.target instanceof HTMLElement) {
+                event.target.focus();
+              }
+            }, delay);
           }
         }}
         className={cn(
-          "flex z-50 w-72 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+          "flex z-50 w-full px-4 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out",
           flexContent === "start" && "justify-start",
           flexContent === "center" && "justify-center",
           flexContent === "end" && "justify-end",
@@ -119,6 +117,7 @@ const PopoverContent = React.forwardRef<
     </PopoverPrimitive.Portal>
   ),
 );
+
 PopoverContent.displayName = PopoverPrimitive.Content.displayName;
 
 export { Popover, PopoverTrigger, PopoverContent };

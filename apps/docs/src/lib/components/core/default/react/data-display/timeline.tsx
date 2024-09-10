@@ -40,7 +40,7 @@ const Timeline = React.forwardRef<HTMLUListElement, TimelineProps>(
 Timeline.displayName = "Timeline";
 
 const timelineItemVariants = tv({
-  base: "grid items-center gap-x-2",
+  base: "grid items-center gap-x-2 text-muted-fg",
   variants: {
     status: {
       done: "text-primary",
@@ -108,7 +108,7 @@ const TimelineDot = React.forwardRef<HTMLDivElement, TimelineDotProps>(
 TimelineDot.displayName = "TimelineDot";
 
 const timelineContentVariants = tv({
-  base: "row-start-2 row-end-2 pb-8 text-muted-fg",
+  base: "row-start-2 row-end-2 pb-8 text-fg/80",
   variants: {
     side: {
       right: "col-start-3 col-end-4 mr-auto text-left",
@@ -122,19 +122,25 @@ const timelineContentVariants = tv({
 
 interface TimelineContentProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof timelineContentVariants> {}
+    VariantProps<typeof timelineContentVariants> {
+  status?: "done" | "default";
+    }
 
-const TimelineContent = React.forwardRef<HTMLDivElement, TimelineContentProps>(
-  ({ className, side, ...props }, ref) => (
-    <div
-      className={cn(timelineContentVariants({ side }), className)}
-      ref={ref}
-      {...props}
-    />
-  ),
-);
-TimelineContent.displayName = "TimelineContent";
-
+    const TimelineContent = React.forwardRef<HTMLDivElement, TimelineContentProps>(
+      ({ className, status, side, ...props }, ref) => {
+        const textClass = status === "done" ? "text-fg" : "text-muted-fg";
+    
+        return (
+          <div
+            className={cn(timelineContentVariants({ side }), textClass, className)}
+            ref={ref}
+            {...props}
+          />
+        );
+      },
+    );
+    TimelineContent.displayName = "TimelineContent";
+    
 const timelineHeadingVariants = tv({
   base: "row-start-1 row-end-1 line-clamp-1 max-w-full truncate",
   variants: {
@@ -164,7 +170,10 @@ const TimelineHeading = React.forwardRef<
   <p
     role="heading"
     aria-level={variant === "primary" ? 2 : 3}
-    className={cn(timelineHeadingVariants({ side, variant }), className)}
+    className={cn(
+      timelineHeadingVariants({ side, variant }), 
+      className
+    )}
     ref={ref}
     {...props}
   />

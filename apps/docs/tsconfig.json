@@ -1,6 +1,22 @@
 {
-  "extends": "@repo/typescript-config/nextjs.json",
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Default",
   "compilerOptions": {
+    "esModuleInterop": true,
+    "incremental": false,
+    "isolatedModules": true,
+    "lib": ["es2022", "DOM", "DOM.Iterable"],
+    "moduleDetection": "force",
+    "noUncheckedIndexedAccess": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "allowJs": true,
+    "jsx": "preserve",
+    "noEmit": true,
     "paths": {
       "@/*": ["./src/*"],
       "~/*": ["./*"]
@@ -17,6 +33,6 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "content/components/react/data-display/timeline.mdx"  ],
 "exclude": ["node_modules", "./src/lib/demos/components/core/angular","./src/lib/demos/components/core/vue","./src/lib/components/core/default/angular","./src/lib/components/core/default/vue"]
 }

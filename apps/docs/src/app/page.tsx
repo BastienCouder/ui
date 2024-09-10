@@ -28,6 +28,13 @@ import {
   Breadcrumbs,
   Breadcrumb,
 } from "@/lib/components/core/default/react/navigation/breadcrumb";
+import { StarRating } from "@/lib/components/core/default/react/buttons/star-rating";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/lib/components/core/default/react/input/select";
+import { RadioGroup, RadioGroupItem } from "@/lib/components/core/default/react/input/radio-group";
+import { Label } from "@/lib/components/core/default/react/input/label";
+import { Switch } from "@/lib/components/core/default/react/input/switch";
+import NumberField from "@/lib/components/core/default/react/input/number-field";
+import { PasswordField } from "@/lib/components/core/default/react/input/password-field";
 
 export default function HomePage() {
   return (
@@ -50,7 +57,6 @@ export default function HomePage() {
         content={<Header />}
         shouldFlip={true}
         className="w-full"
-        flexContent="end"
       >
         <Button>Cliquer moi</Button>
       </Popover>
@@ -131,7 +137,43 @@ export default function HomePage() {
           </AccordionContent>
         </AccordionItem>
       </Accordion>
-      <Checkbox isDisabled>I accept the terms and conditions</Checkbox>
+     
+      <StarRating defaultValue={8.42} numStars={10} disabled onChange={(value: number) => {}}/>
+      <StarRating defaultValue={7.62} numStars={20} disabled/>
+      <Checkbox labelPosition="right" defaultChecked size="lg">I accept the terms and conditions</Checkbox>
+      <Select>
+         <SelectTrigger className="w-[180px]" size="md">
+            <SelectValue placeholder="Select a fruit" />
+         </SelectTrigger>
+         <SelectContent>
+            <SelectGroup>
+               <SelectLabel>Fruits</SelectLabel>
+               <SelectItem value="apple">Apple</SelectItem>
+               <SelectItem value="banana">Banana</SelectItem>
+               <SelectItem value="blueberry">Blueberry</SelectItem>
+               <SelectItem value="grapes">Grapes</SelectItem>
+               <SelectItem value="pineapple">Pineapple</SelectItem>
+            </SelectGroup>
+         </SelectContent>
+      </Select>
+      <RadioGroup defaultValue="option-one">
+  <div className="flex items-center space-x-2">
+    <RadioGroupItem value="option-one" id="option-one" />
+    <Label htmlFor="option-one">Option One</Label>
+  </div>
+  <div className="flex items-center space-x-2">
+    <RadioGroupItem value="option-two" id="option-two" />
+    <Label htmlFor="option-two">Option Two</Label>
+  </div>
+</RadioGroup>
+<Switch size="md" shape="rectangle" />
+<NumberField
+  className="custom-class"
+  decrementClassName="custom-decrement-class"
+  incrementClassName="custom-increment-class"
+  inputClassName="custom-input-class"
+/>
+<PasswordField />
     </main>
   );
 }

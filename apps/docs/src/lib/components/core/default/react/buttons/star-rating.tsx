@@ -9,7 +9,7 @@ const starStyles = {
   base: "h-6 w-6 transition-transform duration-300 hover:scale-110",
   variants: {
     variant: {
-      default: "fill-yellow-500 text-yellow-500",
+      default: "text-yellow-500 fill-yellow-500",
       primary: "text-primary fill-primary",
       secondary: "text-secondary fill-secondary",
       success: "text-success fill-success",
@@ -38,6 +38,8 @@ interface StarRatingProps {
   defaultValue?: number;
   variant?: keyof (typeof starStyles)["variants"]["variant"];
   size?: keyof (typeof starStyles)["variants"]["size"];
+  onChange?: (value: number) => void;
+  onClick?: (value: number) => void;
 }
 
 function StarRating({
@@ -50,6 +52,8 @@ function StarRating({
   defaultValue = 0,
   variant,
   size,
+  onChange,
+  onClick,
 }: StarRatingProps) {
   const [value, setValue] = React.useState<number>(defaultValue);
 
@@ -74,30 +78,68 @@ function StarRating({
     }
   };
 
+  const handleClick = (index: number) => {
+    if (!disabled) {
+      const newValue = index + 1;
+      setValue(newValue);
+
+      if (onChange) {
+        onChange(newValue);
+      }
+
+      if (onClick) {
+        onClick(newValue);
+      }
+    }
+  };
+
   return (
     <div
       className={cn("flex items-center cursor-pointer gap-1", wrapperClassName)}
       {...restWrapperProps}
     >
       {Array.from({ length: numStars }, (_, i) => {
-        const isRated = i < value;
-        const styledIconProps: LucideProps = {
-          onMouseEnter: () => handleMouseEnter(i),
-          className: cn(
-            starStyles.base,
-            sizeClassName,
-            {
-              "opacity-50 pointer-events-none": disabled,
-              "!fill-bg !border-bg": !isRated,
-            },
-            variantClassName,
-            iconClassName,
-          ),
-          ...restIconProps,
-        };
+        const isRated = i < Math.floor(value);
+        const fractionalPart =
+          i === Math.floor(value) ? value % 1 : i < value ? 1 : 0;
+
         return (
-          <div key={i}>
-            <IconComponent {...styledIconProps} />
+          <div
+            key={i}
+            className={cn(
+              "relative",
+              {
+                "pointer-events-none": disabled,
+              },
+              sizeClassName
+            )}
+            onMouseEnter={() => handleMouseEnter(i)}
+            onClick={() => handleClick(i)}
+          >
+            <IconComponent
+              className={cn(
+                starStyles.base,
+                "fill-gray-300 text-gray-300",
+                iconClassName
+              )}
+              {...restIconProps}
+            />
+            {(isRated || fractionalPart > 0) && (
+              <div
+                className="absolute top-0 left-0 overflow-hidden"
+                style={{ width: `${fractionalPart * 100}%` }}
+              >
+                <IconComponent
+                  className={cn(
+                    starStyles.base,
+                    "text-yellow-500",
+                    variantClassName,
+                    iconClassName
+                  )}
+                  {...restIconProps}
+                />
+              </div>
+            )}
           </div>
         );
       })}

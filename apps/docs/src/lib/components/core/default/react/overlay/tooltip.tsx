@@ -3,22 +3,28 @@
 import * as React from "react";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 import { cn } from "@/lib/utils";
+import { tv } from "tailwind-variants";
+
+const tooltipVariants = tv({
+  base: 'overflow-hidden rounded-md border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
+  variants: {
+    variant: {
+      default: 'bg-primary text-primary-fg',
+      outline: 'border bg-popover text-popover-fg shadow-md',
+      secondary: 'bg-secondary text-secondary-fg',
+    },
+  },
+  defaultVariants: {
+    variant: 'secondary',
+  },
+});
 
 const TooltipProvider = TooltipPrimitive.Provider;
 
 interface TooltipProps {
   children: React.ReactNode | string;
   content: React.ReactNode;
-  placement?: "top" | "right" | "bottom" | "left";
-  offset?: number;
-  delay?: number;
-  shouldFlip?: boolean;
-  arrow?: boolean;
-}
-
-interface TooltipProps {
-  children: React.ReactNode | string;
-  content: React.ReactNode;
+  variant?: "default" | "outline" | "secondary";
   placement?: "top" | "right" | "bottom" | "left";
   offset?: number;
   delay?: number;
@@ -29,6 +35,7 @@ interface TooltipProps {
 const Tooltip: React.FC<TooltipProps> = ({
   children,
   content,
+  variant,
   placement = "top",
   offset = 10,
   delay = 0,
@@ -48,6 +55,7 @@ const Tooltip: React.FC<TooltipProps> = ({
       <TooltipPrimitive.Root delayDuration={delay} {...props}>
         <TooltipTrigger asChild>{wrappedChildren}</TooltipTrigger>
         <TooltipContent
+          variant={variant}
           placement={placement}
           offset={offset}
           shouldFlip={shouldFlip}
@@ -68,6 +76,7 @@ interface TooltipContentProps
   offset?: number;
   shouldFlip?: boolean;
   arrow?: boolean;
+  variant?: "default" | "outline" | "secondary";
 }
 
 const TooltipContent = React.forwardRef<
@@ -77,23 +86,21 @@ const TooltipContent = React.forwardRef<
   (
     {
       className,
+      variant,
       placement = "top",
       offset = 10,
       shouldFlip = true,
       arrow = false,
       ...props
     },
-    ref,
+    ref
   ) => (
     <TooltipPrimitive.Content
       ref={ref}
       side={placement}
       sideOffset={offset}
       avoidCollisions={shouldFlip}
-      className={cn(
-        "overflow-hidden rounded-md border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
-        className,
-      )}
+      className={cn(tooltipVariants({ variant, className }))}
       {...props}
     >
       {props.children}
@@ -101,7 +108,7 @@ const TooltipContent = React.forwardRef<
         <TooltipPrimitive.Arrow className="fill-current text-popover" />
       )}
     </TooltipPrimitive.Content>
-  ),
+  )
 );
 TooltipContent.displayName = TooltipPrimitive.Content.displayName;
 

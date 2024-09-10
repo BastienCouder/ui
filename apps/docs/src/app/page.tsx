@@ -28,6 +28,7 @@ import {
   Breadcrumbs,
   Breadcrumb,
 } from "@/lib/components/core/default/react/navigation/breadcrumb";
+import { TextField } from "@/lib/components/core/default/react/input/text-field";
 
 export default function HomePage() {
   return (
@@ -132,6 +133,9 @@ export default function HomePage() {
         </AccordionItem>
       </Accordion>
       <Checkbox isDisabled>I accept the terms and conditions</Checkbox>
+      <TextField/>
+      <TextField size='lg'/>
+      <TextField  size={'sm'}/>
     </main>
   );
 }

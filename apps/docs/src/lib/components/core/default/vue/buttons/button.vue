@@ -3,31 +3,22 @@ import { defineProps, withDefaults, computed, type VNode } from 'vue'
 import type { HTMLAttributes, FunctionalComponent } from 'vue'
 import { type PrimitiveProps } from 'radix-vue'
 import { cn } from '@/lib/utils'
-import { tv, VariantProps } from 'tailwind-variants'
-import { LoaderIcon } from "@/lib/icons";
+import { tv, type VariantProps } from 'tailwind-variants'
+import { LoaderIcon } from "@/lib/icons"
 
 const buttonStyles = tv(
   {
     base: "inline-flex gap-2 cursor-pointer items-center justify-center whitespace-nowrap rounded-md leading-normal text-sm shrink-0 font-medium ring-offset-background transition-colors disabled:cursor-default disabled:bg-bg-disabled disabled:text-fg-disabled",
     variants: {
-      variants: {
       variant: {
-        default:
-          "bg-neutral hover:bg-neutral-hover active:bg-neutral-active text-neutral-fg",
-        primary:
-          "bg-primary hover:bg-primary-hover active:bg-primary-active text-primary-fg",
-        secondary:
-          "bg-secondary hover:bg-secondary-hover active:bg-secondary-active text-secondary-fg",
-        quiet:
-          "bg-transparent hover:bg-neutral/10 active:bg-neutral/20 text-fg",
-        outline:
-          "border border-border bg-transparent hover:bg-neutral/10 active:bg-neutral/20 text-fg disabled:border-disabled disabled:bg-transparent",
-        success:
-          "bg-success hover:bg-success-hover active:bg-success-active text-success-fg",
-        warning:
-          "bg-warning hover:bg-warning-hover active:bg-warning-active text-warning-fg",
-        danger:
-          "bg-danger hover:bg-danger-hover active:bg-danger-active text-danger-fg",
+        default: "bg-neutral hover:bg-neutral-hover active:bg-neutral-active text-neutral-fg",
+        primary: "bg-primary hover:bg-primary-hover active:bg-primary-active text-primary-fg",
+        secondary: "bg-secondary hover:bg-secondary-hover active:bg-secondary-active text-secondary-fg",
+        quiet: "bg-transparent hover:bg-neutral/10 active:bg-neutral/20 text-fg",
+        outline: "border border-border bg-transparent hover:bg-neutral/10 active:bg-neutral/20 text-fg disabled:border-disabled disabled:bg-transparent",
+        success: "bg-success hover:bg-success-hover active:bg-success-active text-success-fg",
+        warning: "bg-warning hover:bg-warning-hover active:bg-warning-active text-warning-fg",
+        danger: "bg-danger hover:bg-danger-hover active:bg-danger-active text-danger-fg",
       },
       size: {
         sm: "h-8 px-3 [&_svg]:w-4 [&_svg]:h-4",
@@ -74,8 +65,8 @@ interface Props extends PrimitiveProps {
   suffix?: VNode | FunctionalComponent | string
   class?: HTMLAttributes['class']
   isDisabled?: boolean
-  href?: string;
-  target?: '_blank' | '_self' | '_parent' | '_top' | string;
+  href?: string
+  target?: '_blank' | '_self' | '_parent' | '_top' | string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -94,54 +85,26 @@ const showLoader = computed(() => props.isLoading)
 </script>
 
 <template>
-  <!-- if href-->
-  <template v-if="props.href">
-    <a :href="props.href" :target="props.target" :class="classes" :disabled="props.isDisabled">
-      <span v-if="showLoader">
-        <BeakerIcon aria-label="loading" class="animate-spin" />
-      </span>
-      <span v-else-if="props.prefix">
-        <template v-if="typeof props.prefix === 'string'">
-          {{ props.prefix }}
-        </template>
-        <template v-else>
-          <component :is="props.prefix" />
-        </template>
-      </span>
-      <slot />
-      <span v-if="props.suffix">
-        <template v-if="typeof props.suffix === 'string'">
-          {{ props.suffix }}
-        </template>
-        <template v-else>
-          <component :is="props.suffix" />
-        </template>
-      </span>
-    </a>
-  </template>
-  <!-- else -->
-  <template v-else>
-    <button :class="classes" :disabled="props.isDisabled">
-      <span v-if="showLoader">
-        <LoaderIcon aria-label="loading" class="animate-spin" />
-      </span>
-      <span v-else-if="props.prefix">
-        <template v-if="typeof props.prefix === 'string'">
-          {{ props.prefix }}
-        </template>
-        <template v-else>
-          <component :is="props.prefix" />
-        </template>
-      </span>
-      <slot />
-      <span v-if="props.suffix">
-        <template v-if="typeof props.suffix === 'string'">
-          {{ props.suffix }}
-        </template>
-        <template v-else>
-          <component :is="props.suffix" />
-        </template>
-      </span>
-    </button>
-  </template>
+  <component
+    :is="props.href ? 'a' : 'button'"
+    :href="props.href || undefined"
+    :target="props.target"
+    :class="classes"
+    :disabled="props.isDisabled"
+  >
+    <span v-if="showLoader">
+      <LoaderIcon aria-label="loading" class="animate-spin" />
+    </span>
+    <span v-else-if="props.prefix">
+      <component :is="typeof props.prefix === 'string' ? 'span' : props.prefix">
+        {{ typeof props.prefix === 'string' ? props.prefix : '' }}
+      </component>
+    </span>
+    <slot />
+    <span v-if="props.suffix">
+      <component :is="typeof props.suffix === 'string' ? 'span' : props.suffix">
+        {{ typeof props.suffix === 'string' ? props.suffix : '' }}
+      </component>
+    </span>
+  </component>
 </template>

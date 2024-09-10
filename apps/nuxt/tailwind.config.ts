@@ -7,7 +7,7 @@ const config = {
   content: [
     "./components/**/*.{js,vue,ts}",
     "./layouts/**/*.vue",
-    "./shared/**/*.vue",
+    "./shared/**/*.{js,vue,ts}",
     "./pages/**/*.vue",
     "./plugins/**/*.{js,ts}",
     "./app.vue",

@@ -1,8 +1,7 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
-import { type VariantProps } from "tailwind-variants";
-import { tv } from "tailwind-variants";
-import { LoaderIcon } from "@/lib/icons";
+import { type VariantProps, tv } from "tailwind-variants";
+import { Loader } from "@/lib/icons";
 import { cn } from "@/lib/utils";
 
 const buttonStyles = tv(
@@ -108,7 +107,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {isLoading && (
-          <LoaderIcon aria-label="loading" className="animate-spin" />
+          <Loader aria-label="loading" className="animate-spin" />
         )}
         {prefix}
         {typeof children === "string" ? (

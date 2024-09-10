@@ -13,7 +13,7 @@ const inputContainerStyles = tv({
 });
 
 const inputStyles = tv({
-  base: "w-full rounded-md text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 pl-10 pr-10", // Added padding for prefix and suffix
+  base: "w-full rounded-md text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
   variants: {
     variant: {
       default:
@@ -27,9 +27,9 @@ const inputStyles = tv({
       quiet: "bg-transparent text-input-foreground",
     },
     size: {
-      sm: "h-8 text-sm",
-      md: "h-10 text-base",
-      lg: "h-12 text-lg",
+      sm: "h-8 text-sm  px-2",
+      md: "h-10 text-base px-4",
+      lg: "h-12 text-lg  px-4",
     },
     shape: {
       rectangle: "rounded-md",
@@ -59,7 +59,8 @@ type TextFieldProps = TextFieldRootProps &
     isLoading?: boolean;
     loaderPosition?: "prefix" | "suffix";
     placeholder?: string;
-    contextualHelp?: React.ReactNode; // Nouvelle propriété pour l'aide contextuelle
+    size?: "sm" | "md" | "lg" ;
+    contextualHelp?: React.ReactNode;
   };
 
 export interface InputProps
@@ -88,7 +89,7 @@ const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
           <label className="text-sm font-medium text-gray-700 flex items-center gap-1">
             {label}
             {contextualHelp && (
-              <span className="ml-2">{contextualHelp}</span> // Affichage de l'aide contextuelle
+              <span className="ml-2">{contextualHelp}</span> 
             )}
           </label>
         )}

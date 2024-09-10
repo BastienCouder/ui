@@ -1,14 +1,33 @@
 <script setup lang="ts">
-import type { HTMLAttributes } from 'vue'
-import { cn } from '@/lib/utils'
+import { defineProps } from 'vue';
+import { cn } from '@/lib/utils';
 
-interface SkeletonProps {
-  class?: HTMLAttributes['class']
-}
-
-const props = defineProps<SkeletonProps>()
+const props = defineProps({
+  show: {
+    type: Boolean,
+    default: true,
+  },
+  class: {
+    type: String,
+    required: false,
+  }
+});
 </script>
 
 <template>
-  <div :class="cn('animate-pulse rounded-md bg-muted', props.class)" />
+  <div v-if="!props.show">
+    <slot />
+  </div>
+
+  <div
+    v-else
+    :class="cn(
+      'relative block animate-pulse rounded-md bg-neutral',
+      props.class
+    )"
+  >
+    <div class="invisible">
+      <slot />
+    </div>
+  </div>
 </template>

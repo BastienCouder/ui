@@ -4,5 +4,5 @@ import Button from '~/shared/button.vue';
 </script>
 
 <template>
-  <Button>Button</Button>
+  <Button variant="primary">Button</Button>
 </template>

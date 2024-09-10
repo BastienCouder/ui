@@ -10,7 +10,9 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "lucide-vue": "^0.436.0",
     "nuxt": "^3.13.0",
+    "radix-vue": "^1.9.5",
     "vue": "latest"
   },
   "devDependencies": {

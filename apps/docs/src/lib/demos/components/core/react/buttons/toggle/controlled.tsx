@@ -1,7 +1,7 @@
 "use client";
 
 import { Toggle } from "@/lib/components/core/default/react/buttons/toggle";
-import { PinIcon } from "@/lib/icons";
+import { Pin } from "@/lib/icons";
 import { useState } from "react";
 
 export default function ToggleDemo() {
@@ -9,7 +9,7 @@ export default function ToggleDemo() {
 
   return (
     <Toggle isSelected={isSelected} onPressedChange={setSelected}>
-      <PinIcon className="rotate-45" />
+      <Pin className="rotate-45" />
     </Toggle>
   );
 }

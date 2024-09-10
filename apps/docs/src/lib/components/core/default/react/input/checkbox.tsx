@@ -1,145 +1,122 @@
-"use client";
+'use client'
 
-import * as React from "react";
-import { tv, type VariantProps } from "tailwind-variants";
-import { CheckIcon, MinusIcon } from "@/lib/icons";
-import { focusRing, focusRingGroup } from "@/lib/utils/styles";
+import * as React from 'react'
+import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
+import { Check } from 'lucide-react'
+import { cn } from '@/lib/utils'
+import { tv } from 'tailwind-variants'
 
-const checkboxStyles = tv({
-  slots: {
-    root: "group flex flex-row items-center gap-2 cursor-pointer invalid:text-fg-danger disabled:text-fg-disabled disabled:cursor-default",
-    indicator: [
-      "flex items-center justify-center w-4 h-4 shrink-0 rounded-sm border border-border-control cursor-pointer",
-      "bg-transparent text-transparent group-checked:bg-bg-primary group-checked:text-fg-onPrimary transition-colors duration-75 group-checked:border-transparent",
-      "group-indeterminate:bg-bg-primary group-indeterminate:text-fg-onPrimary",
-      "group-read-only:cursor-default",
-      "group-disabled:cursor-not-allowed group-disabled:border-border-disabled group-disabled:group-checked:text-fg-disabled group-disabled:group-checked:bg-bg-disabled group-disabled:group-indeterminate:bg-bg-disabled",
-      "group-invalid:border-border-danger group-invalid:group-checked:bg-bg-danger-muted group-invalid:group-checked:text-fg-onMutedDanger",
-    ],
-  },
-  variants: {
-    variant: {
-      default: {
-        indicator: focusRingGroup(),
-      },
-      card: {
-        root: [
-          focusRing(),
-          "border p-4 rounded-md flex-row-reverse gap-4 checked:bg-bg-muted disabled:checked:bg-bg-disabled transition-colors disabled:border-border-disabled",
-        ],
-      },
-    },
-  },
-  defaultVariants: {
-    variant: "default",
-  },
-});
+const checkedStyles = tv({
+   base: "ring-offset-background focus-visible:ring-ring peer shrink-0 rounded-sm border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',",
+   variants: {
+     variant: {
+       neutral:
+         "border-fg data-[state=checked]:bg-fg data-[state=checked]:text-bg",
+       primary:
+         "border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-fg",
+       secondary:
+         "border-secondary data-[state=checked]:bg-secondary data-[state=checked]:text-secondary-fg",
+     },
+     size: {
+       sm: "h-4 w-4",
+       md: "h-4 w-4",
+       lg: "h-5 w-5",
+     },
+     shape: {
+       rectangle: "rounded-sm",
+       square: "rounded-none",
+       circle: "rounded-full",
+     },
+   },
+   defaultVariants: {
+     variant: "primary",
+     size: "md",
+     shape: "rectangle",
+   },
+ });
 
-interface CheckboxProps
-  extends Omit<React.ComponentPropsWithoutRef<"input">, "type" | "className">,
-    VariantProps<typeof checkboxStyles> {
-  className?: string;
-  indeterminate?: boolean;
-  isDisabled?: boolean;
-  isReadOnly?: boolean;
-  defaultSelected?: boolean;
-  isSelected?: boolean;
-  checked?: any;
-  onCheckedChange?: React.ChangeEventHandler<HTMLInputElement> | undefined;
-  onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined;
-}
-
-const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
-  (props, ref) => {
-    const {
-      className,
-      variant,
-      children,
-      isDisabled,
-      isReadOnly,
-      defaultSelected,
-      isSelected,
-      onChange,
-      ...restProps
-    } = props;
-    const { root, indicator } = checkboxStyles({ variant });
-
-    const [isChecked, setIsChecked] = React.useState(
-      isSelected ?? restProps.checked ?? defaultSelected ?? false,
-    );
-    const [isIndeterminate, setIsIndeterminate] = React.useState(
-      restProps.indeterminate || false,
-    );
-
-    React.useEffect(() => {
-      if (restProps.checked !== undefined) {
-        setIsChecked(restProps.checked);
-      }
-    }, [restProps.checked]);
-
-    React.useEffect(() => {
-      if (restProps.indeterminate !== undefined) {
-        setIsIndeterminate(restProps.indeterminate);
-      }
-    }, [restProps.indeterminate]);
-
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      if (isDisabled || isReadOnly) return;
-
-      const checked = event.target.checked;
-      setIsChecked(checked);
-      setIsIndeterminate(event.target.indeterminate);
-      if (onChange) {
-        onChange(event);
-      }
-    };
-
-    return (
-      <label className={root({ className })}>
-        <input
-          ref={ref}
-          type="checkbox"
-          {...restProps}
-          checked={isChecked}
-          onChange={handleChange}
-          disabled={isDisabled}
-          readOnly={isReadOnly}
-          className="sr-only"
-        />
-        <div
-          className={indicator({
-            className: isDisabled ? "cursor-not-allowed" : "",
-          })}
-        >
-          {isIndeterminate ? (
-            <MinusIcon className="w-2.5 h-2.5" />
-          ) : (
-            isChecked && (
-              <CheckIcon
-                className={`w-3 h-3 ${isDisabled ? "text-fg-disabled" : "text-primary"}`}
-              />
-            )
-          )}
-        </div>
-        <span
-          className={
-            isDisabled ? "text-fg-disabled" : isReadOnly ? "text-fg-muted" : ""
-          }
-        >
-          {children}
-        </span>
-      </label>
-    );
-  },
-);
-
-Checkbox.displayName = "Checkbox";
-
-type CheckboxContextValue = VariantProps<typeof checkboxStyles>;
-const CheckboxContext = React.createContext<CheckboxContextValue>({});
-const useCheckboxContext = () => {
-  return React.useContext(CheckboxContext);
+ 
+type CheckboxProps = React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root> & {
+  children?: React.ReactNode;
+  labelPosition?: 'left' | 'right';
+  description?: string;
+  disabled?: boolean;
+  card?: boolean;
+  cardClassName?: string;
+  readOnly?: boolean;
+  defaultChecked?: boolean;
+  variant?: 'neutral' | 'primary' | 'secondary';
+  size?: 'sm' | 'md' | 'lg';
+  shape?: 'rectangle' | 'square' | 'circle';
 };
 
-export type { CheckboxProps };
-export { Checkbox, CheckboxContext };
+const Checkbox = React.forwardRef<
+  React.ElementRef<typeof CheckboxPrimitive.Root>,
+  CheckboxProps
+>(({ className, children,variant,size,shape, labelPosition = 'right', description, disabled = false, card = false, cardClassName, readOnly = false, defaultChecked = false, ...props }, ref) => {
+  const [checked, setChecked] = React.useState(defaultChecked);
+
+  const handleCardClick = () => {
+    if (!disabled && !readOnly) {
+      setChecked(!checked);
+      props.onCheckedChange?.(!checked);
+    }
+  };
+
+  const content = (
+    <div className={cn('flex items-start', labelPosition === 'left' ? 'flex-row-reverse' : 'flex-row', disabled && 'opacity-50 cursor-not-allowed')}>
+      <CheckboxPrimitive.Root
+        ref={ref}
+        className={cn(
+          checkedStyles({ variant, size,shape}),
+          className
+        )}
+        disabled={disabled}
+        checked={checked}
+        onCheckedChange={(checked) => !readOnly && setChecked(checked === 'indeterminate' ? false : checked)}
+        {...props}
+      >
+        <CheckboxPrimitive.Indicator
+          className={cn('flex items-center justify-center text-current',)}
+        >
+          <Check className="w-4 h-4" />
+        </CheckboxPrimitive.Indicator>
+      </CheckboxPrimitive.Root>
+      <div className={cn('ml-2', labelPosition === 'left' ? 'mr-2' : 'ml-2')}>
+        {children && (
+          <span>
+            {children}
+          </span>
+        )}
+        {description && (
+          <p className="text-sm text-muted-fg">
+            {description}
+          </p>
+        )}
+      </div>
+    </div>
+  );
+
+  if (card) {
+    return (
+      <div
+        onClick={handleCardClick}
+        className={cn(
+          'inline-block p-4 border rounded-lg cursor-pointer transition-colors',
+          'data-[state=checked]:bg-neutral/20',
+          cardClassName
+        )}
+        style={{ width: 'auto' }}
+        data-state={checked ? 'checked' : 'unchecked'}
+      >
+        {content}
+      </div>
+    );
+  }
+
+  return content;
+});
+
+Checkbox.displayName = CheckboxPrimitive.Root.displayName;
+
+export { Checkbox }

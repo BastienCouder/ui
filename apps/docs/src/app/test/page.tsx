@@ -33,7 +33,6 @@ import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrig
 import { RadioGroup, RadioGroupItem } from "@/lib/components/core/default/react/input/radio-group";
 import { Label } from "@/lib/components/core/default/react/input/label";
 import { Switch } from "@/lib/components/core/default/react/input/switch";
-import NumberField from "@/lib/components/core/default/react/input/number-field";
 import { PasswordField } from "@/lib/components/core/default/react/input/password-field";
 
 export default function TestPage() {
@@ -167,12 +166,6 @@ export default function TestPage() {
   </div>
 </RadioGroup>
 <Switch size="md" shape="rectangle" />
-<NumberField
-  className="custom-class"
-  decrementClassName="custom-decrement-class"
-  incrementClassName="custom-increment-class"
-  inputClassName="custom-input-class"
-/>
 <PasswordField />
     </main>
   );

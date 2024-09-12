@@ -23,7 +23,7 @@ const TooltipProvider = TooltipPrimitive.Provider;
 
 interface TooltipProps {
   children: React.ReactNode | string;
-  content: React.ReactNode;
+  content?: React.ReactNode;
   variant?: "default" | "outline" | "secondary";
   placement?: "top" | "right" | "bottom" | "left";
   offset?: number;
@@ -53,16 +53,22 @@ const Tooltip: React.FC<TooltipProps> = ({
   return (
     <TooltipProvider>
       <TooltipPrimitive.Root delayDuration={delay} {...props}>
-        <TooltipTrigger asChild>{wrappedChildren}</TooltipTrigger>
-        <TooltipContent
-          variant={variant}
-          placement={placement}
-          offset={offset}
-          shouldFlip={shouldFlip}
-          arrow={arrow}
-        >
-          {content}
-        </TooltipContent>
+        {content ? (
+          <>
+            <TooltipTrigger asChild>{wrappedChildren}</TooltipTrigger>
+            <TooltipContent
+              variant={variant}
+              placement={placement}
+              offset={offset}
+              shouldFlip={shouldFlip}
+              arrow={arrow}
+            >
+              {content}
+            </TooltipContent>
+          </>
+        ) : (
+          wrappedChildren
+        )}
       </TooltipPrimitive.Root>
     </TooltipProvider>
   );
@@ -88,7 +94,7 @@ const TooltipContent = React.forwardRef<
       className,
       variant,
       placement = "top",
-      offset = 10,
+      offset = 2,
       shouldFlip = true,
       arrow = false,
       ...props
@@ -111,6 +117,7 @@ const TooltipContent = React.forwardRef<
   )
 );
 TooltipContent.displayName = TooltipPrimitive.Content.displayName;
+const TooltipArrow = TooltipPrimitive.TooltipArrow
 
 const TooltipRoot: React.FC<{ children: React.ReactNode; delay?: number }> = ({
   children,
@@ -131,4 +138,5 @@ export {
   TooltipContent,
   TooltipProvider,
   TooltipRoot,
+  TooltipArrow,
 };

@@ -13,7 +13,7 @@ import {
 } from "react-aria-components";
 import { tv } from "tailwind-variants";
 import { useMediaQuery } from "@/lib/hooks/use-media-query";
-import { XIcon } from "@/lib/icons";
+import { X } from "@/lib/icons";
 import { cn } from "@/lib/utils";
 import { Button, type ButtonProps } from "./react/buttons/button";
 import { MotionDrawerRoot, useMotionDrawer } from "./use-motion-drawer";
@@ -292,7 +292,7 @@ const DismissButton = (props: ButtonProps) => {
       className={cn("absolute right-2 top-2 z-20", props.className)}
       onClick={() => state.close()}
     >
-      {props.children ?? <XIcon />}
+      {props.children ?? <X />}
     </Button>
   );
 };

@@ -11,7 +11,7 @@ import {
   ListStateContext,
 } from "react-aria-components";
 import { tv, type VariantProps } from "tailwind-variants";
-import { CheckIcon, LoaderIcon } from "@/lib/icons";
+import { Check, Loader } from "@/lib/icons";
 import { focusRing } from "@/lib/utils/styles";
 import { Text } from "./text";
 
@@ -69,7 +69,7 @@ const ListBox = <T extends object>({
       <AriaCollection items={props.items}>{children}</AriaCollection>
       {isLoading && (
         <AriaListBoxItem className="flex items-center justify-center py-1.5">
-          <LoaderIcon
+          <Loader
             aria-label="Loading more..."
             className="size-5 animate-spin text-fg-muted"
           />
@@ -113,7 +113,7 @@ const Item = <T extends object>({
             {selectionMode !== "none" && (
               <span className="flex w-8 shrink-0 items-center justify-center">
                 {isSelected && (
-                  <CheckIcon aria-hidden className="size-4 text-fg-accent" />
+                  <Check aria-hidden className="size-4 text-fg-accent" />
                 )}
               </span>
             )}

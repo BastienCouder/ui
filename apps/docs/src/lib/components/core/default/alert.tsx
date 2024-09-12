@@ -1,6 +1,6 @@
 import * as React from "react";
 import { tv, type VariantProps } from "tailwind-variants";
-import { DangerIcon, InfoIcon, SuccessIcon, WarningIcon } from "@/lib/icons";
+import { Danger, Info, Success, Warning} from "@/lib/icons";
 
 const alertStyles = tv({
   slots: {
@@ -46,11 +46,11 @@ const alertStyles = tv({
 });
 
 const icons = {
-  default: <InfoIcon />,
-  success: <SuccessIcon />,
-  warning: <WarningIcon />,
-  danger: <DangerIcon />,
-  info: <InfoIcon />,
+  default: <Info />,
+  success: <Success />,
+  warning: <Warning />,
+  danger: <Danger />,
+  info: <Info />,
 };
 
 interface AlertProps extends AlertRootProps {

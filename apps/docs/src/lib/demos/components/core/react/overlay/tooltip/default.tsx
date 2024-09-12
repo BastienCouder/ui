@@ -10,8 +10,7 @@ export default function TooltipDemo() {
     );
 
     return (
-        <Tooltip
-            content={<Content />} >
+        <Tooltip content={<Content />} >
             <Button>Hover</Button>
         </Tooltip>
     )

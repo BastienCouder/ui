@@ -7,7 +7,7 @@ import {
   type CheckboxProps as AriaCheckboxProps,
 } from "react-aria-components";
 import { tv, type VariantProps } from "tailwind-variants";
-import { CheckIcon, MinusIcon } from "@/lib/icons";
+import { Check, Minus} from "@/lib/icons";
 import { focusRing, focusRingGroup } from "@/lib/utils/styles";
 
 const checkboxStyles = tv({
@@ -59,9 +59,9 @@ const Checkbox = React.forwardRef<
         <>
           <div className={indicator({ className: "" })}>
             {isIndeterminate ? (
-              <MinusIcon className="w-2.5 h-3.5" />
+              <Minus className="w-2.5 h-3.5" />
             ) : (
-              <CheckIcon className="w-3 h-3" />
+              <Check className="w-3 h-3" />
             )}
           </div>
           <span>{children}</span>

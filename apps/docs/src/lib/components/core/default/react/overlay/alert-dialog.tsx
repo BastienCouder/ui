@@ -6,7 +6,55 @@ import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
 import { cn } from "@/lib/utils";
 import { buttonStyles } from "../buttons/button";
 
-const AlertDialog = AlertDialogPrimitive.Root;
+
+interface AlertDialogProps {
+  children: React.ReactNode | string;
+  content?: React.ReactNode;
+  cancelText?: string;
+  okText?: string;
+  className?: string;
+  open?: any;
+  onOpenChange?: any;
+}
+
+const AlertDialog: React.FC<AlertDialogProps> = ({
+  children,
+  content,
+  className,
+  cancelText = "Cancel",
+  okText = "Continue",
+  ...props
+}) => {
+  const wrappedChildren =
+    typeof children === "string" || typeof children === "number" ? (
+      <>{children}</>
+    ) : (
+      children
+    );
+
+  return (
+    <AlertDialogPrimitive.Root {...props}>
+      {content ? (
+        <>
+          <AlertDialogTrigger asChild>{wrappedChildren}</AlertDialogTrigger>
+          <AlertDialogContent
+            className={className}
+          >
+            {content}
+            <AlertDialogFooter>
+              <AlertDialogCancel>{cancelText}</AlertDialogCancel>
+              <AlertDialogAction>{okText}</AlertDialogAction>
+            </AlertDialogFooter>
+
+          </AlertDialogContent>
+        </>
+      ) : (
+        wrappedChildren
+      )}
+    </AlertDialogPrimitive.Root>
+  );
+};
+
 
 const AlertDialogTrigger = AlertDialogPrimitive.Trigger;
 

@@ -12,7 +12,7 @@ import {
   type MenuTriggerProps as AriaMenuTriggerProps,
 } from "react-aria-components";
 import { tv, type VariantProps } from "tailwind-variants";
-import { CheckIcon, ChevronRightIcon } from "@/lib/icons";
+import { Check, ChevronRight } from "@/lib/icons";
 import { Kbd } from "./kbd";
 import { Overlay, type OverlayProps } from "./overlay";
 import { Text } from "./text";
@@ -116,7 +116,7 @@ const MenuItem = <T extends object>({
             {selectionMode !== "none" && (
               <span className="flex w-8 items-center justify-center">
                 {isSelected && (
-                  <CheckIcon aria-hidden className="size-4 text-fg-accent" />
+                  <Check aria-hidden className="size-4 text-fg-accent" />
                 )}
               </span>
             )}
@@ -130,7 +130,7 @@ const MenuItem = <T extends object>({
               {suffix}
               {shortcut && <Kbd>{shortcut}</Kbd>}
               {hasSubmenu && (
-                <ChevronRightIcon aria-hidden className="size-4" />
+                <ChevronRight aria-hidden className="size-4" />
               )}
             </span>
           </>

@@ -20,7 +20,7 @@ import {
   useSlottedContext,
 } from "react-aria-components";
 import { tv } from "tailwind-variants";
-import { ChevronLeftIcon, ChevronRightIcon } from "@/lib/icons";
+import { ChevronLeft, ChevronRight } from "@/lib/icons";
 import { Button, buttonStyles } from "./react/buttons/button";
 import { Heading } from "./heading";
 import { Text } from "./text";
@@ -97,11 +97,11 @@ const Calendar = <T extends DateValue>({
         <>
           <CalendarHeader>
             <Button slot="previous" variant="outline" shape="square" size="sm">
-              <ChevronLeftIcon />
+              <ChevronLeft />
             </Button>
             <Heading className="text-sm" />
             <Button slot="next" variant="outline" shape="square" size="sm">
-              <ChevronRightIcon />
+              <ChevronRight />
             </Button>
           </CalendarHeader>
           <div className="flex items-start gap-4">

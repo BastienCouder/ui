@@ -39,26 +39,32 @@ const Popover: React.FC<PopoverProps> = ({
 
   return (
     <PopoverPrimitive.Root {...props}>
-      <PopoverTrigger asChild>{wrappedChildren}</PopoverTrigger>
-      <PopoverContent
-        placement={placement}
-        offset={offset}
-        shouldFlip={shouldFlip}
-        arrow={arrow}
-        delay={delay}
-        flexContent={flexContent}
-        className={className}
-      >
-        {content}
-      </PopoverContent>
-    </PopoverPrimitive.Root>
+    {content ? (
+      <>
+        <PopoverTrigger asChild>{wrappedChildren}</PopoverTrigger>
+        <PopoverContent
+          placement={placement}
+          offset={offset}
+          shouldFlip={shouldFlip}
+          arrow={arrow}
+          delay={delay}
+          flexContent={flexContent}
+          className={className}
+        >
+          {content}
+        </PopoverContent>
+      </>
+    ) : (
+      wrappedChildren
+    )}
+  </PopoverPrimitive.Root>
   );
 };
 
 const PopoverTrigger = PopoverPrimitive.Trigger;
 
 interface PopoverContentProps
-  extends React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content> {
+extends React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content> {
   placement?: "top" | "right" | "bottom" | "left";
   offset?: number;
   shouldFlip?: boolean;

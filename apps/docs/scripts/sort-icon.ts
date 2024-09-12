@@ -12,7 +12,7 @@ const extractImports = (content: string): string[] => {
   let match;
 
   while ((match = importRegex.exec(content)) !== null) {
-    const icons = match[1].split(',').map(icon => icon.trim());
+    const icons = match && match[1] ? match[1].split(',').map(icon => icon.trim()) : [];
     imports.push(...icons);
   }
 
@@ -26,7 +26,7 @@ const extractExports = (content: string): string[] => {
   let match;
 
   while ((match = exportRegex.exec(content)) !== null) {
-    const icons = match[1].split(',').map(icon => icon.trim());
+    const icons = match && match[1] ? match[1].split(',').map(icon => icon.trim()) : [];
     exports.push(...icons);
   }
 

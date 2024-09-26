@@ -13,8 +13,8 @@ interface AlertDialogProps {
   cancelText?: string;
   okText?: string;
   className?: string;
-  open?: any;
-  onOpenChange?: any;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
 }
 
 const AlertDialog: React.FC<AlertDialogProps> = ({
@@ -93,10 +93,10 @@ const AlertDialogContent = React.forwardRef<
 ));
 AlertDialogContent.displayName = AlertDialogPrimitive.Content.displayName;
 
-const AlertDialogHeader = ({
+const AlertDialogHeader: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   className,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
+}) => (
   <div
     className={cn(
       "flex flex-col space-y-2 text-center sm:text-left",
@@ -110,7 +110,7 @@ AlertDialogHeader.displayName = "AlertDialogHeader";
 const AlertDialogFooter = ({
   className,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
+}: React.HTMLAttributes<HTMLDivElement>): JSX.Element => (
   <div
     className={cn(
       "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",

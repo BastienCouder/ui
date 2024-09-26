@@ -8,30 +8,7 @@ thumbnail:
 
 <ComponentPreview
   name="demos/components/core/react/navigation/pagination/default"
-  preview={`<Pagination>
-    <PaginationContent>
-        <PaginationItem>
-            <PaginationPrevious href="#" />
-        </PaginationItem>
-        <PaginationItem>
-            <PaginationLink href="#">1</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-            <PaginationLink href="#" isActive>
-             2
-            </PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-            <PaginationLink href="#">3</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-            <PaginationEllipsis />
-        </PaginationItem>
-        <PaginationItem>
-            <PaginationNext href="#" />
-        </PaginationItem>
-    </PaginationContent>
-</Pagination>`}
+  preview={`<Paginations totalPages={Math.ceil(data.length / ITEMS_PER_PAGE)} onChange={handlePageChange} />`}
 />
 
 ## Installation
@@ -42,6 +19,7 @@ thumbnail:
 ```bash
 npm install @radix-ui/react-popover
 ```
+
   <Step>Copy and paste the following code into your project.</Step>
   <ComponentSource name={["components/core/default/react/navigation/pagination"]} extension={["tsx"]} />
   <Step>Update the import paths to match your project setup.</Step>

@@ -23,7 +23,10 @@ thumbnail:
 
 <Steps>
   <Step>Copy and paste the following code into your project.</Step>
-  <ComponentSource  name={["components/core/default/react/feedback/skeleton"]} extension={["tsx"]} />
+  <ComponentSource
+    name={["components/core/default/react/feedback/skeleton"]}
+    extension={["tsx"]}
+  />
   <Step>Update the import paths to match your project setup.</Step>
 </Steps>
 
@@ -56,11 +59,3 @@ Use the `show` prop to show/hide the skeleton.
 If you do not pass a fixed size, it will be calculated automatically.
 
 <ComponentPreview name="demos/components/core/react/feedback/skeleton/fixed-size-children" />
-
-## API Reference
-
-`Skeleton` accepts all HTML `div` element props and the following:
-
-| Prop   | Type      | Default | Description                                |
-| ------ | --------- | ------- | ------------------------------------------ |
-| `show` | `boolean` | `true`  | Weather the visual style should be filled. |

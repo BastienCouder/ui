@@ -240,6 +240,10 @@ export const docsConfig: DocsConfig = {
                   "href": "/components/react/overlay/sheet"
                 },
                 {
+                  "title": "Toast",
+                  "href": "/components/react/overlay/toast"
+                },
+                {
                   "title": "Tooltip",
                   "href": "/components/react/overlay/tooltip"
                 }

@@ -18,7 +18,10 @@ thumbnail:
 
 <Steps>
   <Step>Copy and paste the following code into your project.</Step>
-  <ComponentSource name={["components/core/default/react/layout/aspect-ratio"]} extension={["tsx"]}/>
+  <ComponentSource
+    name={["components/core/default/react/layout/aspect-ratio"]}
+    extension={["tsx"]}
+  />
   <Step>Update the import paths to match your project setup.</Step>
 </Steps>
 
@@ -39,10 +42,3 @@ Use the `asChild` prop to change the default rendered element for the one passed
 </AspectRatio>`}
   className="max-w-xs"
 />
-
-## API Reference
-
-| Prop      | Type      | Default | Description                                                                                          |
-| --------- | --------- | ------- | ---------------------------------------------------------------------------------------------------- |
-| `asChild` | `boolean` | `false` | Change the default rendered element for the one passed as a child, merging their props and behavior. |
-| `ratio`   | `number`  | `1`     | The desired ratio                                                                                    |

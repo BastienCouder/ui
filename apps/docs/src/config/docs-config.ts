@@ -12,10 +12,6 @@ export const docsConfig: DocsConfig = {
         {
           "title": "Installation",
           "href": "/docs/installation"
-        },
-        {
-          "title": "Configuration",
-          "href": "/docs/configuration"
         }
       ]
     },

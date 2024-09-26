@@ -131,10 +131,6 @@ export default function HomePage() {
           </AccordionContent>
         </AccordionItem>
       </Accordion>
-      <Checkbox isDisabled>I accept the terms and conditions</Checkbox>
-      <TextField/>
-      <TextField size='lg'/>
-      <TextField  size={'sm'}/>
     </main>
   );
 }

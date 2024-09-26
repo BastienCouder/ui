@@ -9,7 +9,6 @@ import {
 import { ComponentSource } from "@/components/component-source";
 import { DocsList, type DocsListProps } from "@/components/docs/docs-list";
 import { slugify } from "@/utils/string";
-import { Alert } from "@/lib/components/core/default/alert";
 import { cn } from "@/lib/utils";
 import { Code } from "../code";
 
@@ -212,7 +211,6 @@ export const components: React.ComponentPropsWithoutRef<
       <InfoIcon size={15} />
     </div>
   ),
-  Alert,
   Link: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
     <Link
       className={cn("font-medium underline underline-offset-4", className)}

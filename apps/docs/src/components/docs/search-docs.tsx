@@ -2,19 +2,11 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
-import { File , Search } from "@/lib/icons";
+import { File, Search } from "@/lib/icons";
 import {
   Button,
   type ButtonProps,
 } from "@/lib/components/core/default/react/buttons/button";
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from "@/lib/components/core/default/command";
 import { DialogRoot, Dialog } from "@/lib/components/core/default/dialog";
 import { cn } from "@/lib/utils";
 import { docsConfig } from "@/config/docs-config";
@@ -74,7 +66,7 @@ export const SearchDocs = (props: ButtonProps) => {
         type="modal"
         mobileType="modal"
       >
-        <Command>
+        {/* <Command>
           <CommandInput
             autoFocus
             placeholder="Search a component, a block, a hook..."
@@ -134,7 +126,7 @@ export const SearchDocs = (props: ButtonProps) => {
               </CommandGroup>
             ))}
           </CommandList>
-        </Command>
+        </Command> */}
       </Dialog>
     </DialogRoot>
   );

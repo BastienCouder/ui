@@ -22,11 +22,11 @@ export const previews = {
   },
   "demos/components/core/react/buttons/button/shapes": {
     component: React.lazy(() => import("@/lib/demos/components/core/react/buttons/button/shapes")),
-    code: [{"title":"shapes.tsx","code":"import { Button } from \"@/lib/components/core/default/react/buttons/button\";\r\nimport { UploadIcon } from \"@/lib/icons\";\r\n\r\nexport default function ButtonDemo() {\r\n  return (\r\n    <div className=\"flex items-center justify-center gap-4\">\r\n      <Button size=\"sm\" shape=\"square\" aria-label=\"upload\">\r\n        <UploadIcon />\r\n      </Button>\r\n      <Button size=\"md\" shape=\"square\" aria-label=\"upload\">\r\n        <UploadIcon />\r\n      </Button>\r\n      <Button size=\"lg\" shape=\"square\" aria-label=\"upload\">\r\n        <UploadIcon />\r\n      </Button>\r\n      <Button size=\"sm\" shape=\"circle\" aria-label=\"upload\">\r\n        <UploadIcon />\r\n      </Button>\r\n      <Button size=\"md\" shape=\"circle\" aria-label=\"upload\">\r\n        <UploadIcon />\r\n      </Button>\r\n      <Button size=\"lg\" shape=\"circle\" aria-label=\"upload\">\r\n        <UploadIcon />\r\n      </Button>\r\n    </div>\r\n  );\r\n}\r\n"}]
+    code: [{"title":"shapes.tsx","code":"import { Button } from \"@/lib/components/core/default/react/buttons/button\";\r\nimport { Upload } from \"@/lib/icons\";\r\n\r\nexport default function ButtonDemo() {\r\n  return (\r\n    <div className=\"flex items-center justify-center gap-4\">\r\n      <Button size=\"sm\" shape=\"square\" aria-label=\"upload\">\r\n        <Upload />\r\n      </Button>\r\n      <Button size=\"md\" shape=\"square\" aria-label=\"upload\">\r\n        <Upload />\r\n      </Button>\r\n      <Button size=\"lg\" shape=\"square\" aria-label=\"upload\">\r\n        <Upload />\r\n      </Button>\r\n      <Button size=\"sm\" shape=\"circle\" aria-label=\"upload\">\r\n        <Upload />\r\n      </Button>\r\n      <Button size=\"md\" shape=\"circle\" aria-label=\"upload\">\r\n        <Upload />\r\n      </Button>\r\n      <Button size=\"lg\" shape=\"circle\" aria-label=\"upload\">\r\n        <Upload />\r\n      </Button>\r\n    </div>\r\n  );\r\n}\r\n"}]
   },
   "demos/components/core/react/buttons/button/prefix-and-suffix": {
     component: React.lazy(() => import("@/lib/demos/components/core/react/buttons/button/prefix-and-suffix")),
-    code: [{"title":"prefix-and-suffix.tsx","code":"import { Button } from \"@/lib/components/core/default/react/buttons/button\";\r\nimport { UploadIcon } from \"@/lib/icons\";\r\n\r\nexport default function ButtonDemo() {\r\n  return (\r\n    <div className=\"flex items-center gap-2\">\r\n      <Button prefix={<UploadIcon />}>Upload</Button>\r\n      <Button suffix={<UploadIcon />}>Upload</Button>\r\n    </div>\r\n  );\r\n}\r\n"}]
+    code: [{"title":"prefix-and-suffix.tsx","code":"import { Button } from \"@/lib/components/core/default/react/buttons/button\";\r\nimport { Upload } from \"@/lib/icons\";\r\n\r\nexport default function ButtonDemo() {\r\n  return (\r\n    <div className=\"flex items-center gap-2\">\r\n      <Button prefix={<Upload />}>Upload</Button>\r\n      <Button suffix={<Upload />}>Upload</Button>\r\n    </div>\r\n  );\r\n}\r\n"}]
   },
   "demos/components/core/react/buttons/button/loading": {
     component: React.lazy(() => import("@/lib/demos/components/core/react/buttons/button/loading")),
@@ -38,7 +38,7 @@ export const previews = {
   },
   "demos/components/core/react/buttons/button/link-button": {
     component: React.lazy(() => import("@/lib/demos/components/core/react/buttons/button/link-button")),
-    code: [{"title":"link-button.tsx","code":"import { Button } from \"@/lib/components/core/default/react/buttons/button\";\r\nimport { LogInIcon } from \"@/lib/icons\";\r\n\r\nexport default function ButtonDemo() {\r\n  return (\r\n    <Button href=\"/login\" prefix={<LogInIcon />} target=\"_blank\">\r\n      Login\r\n    </Button>\r\n  );\r\n}\r\n"}]
+    code: [{"title":"link-button.tsx","code":"import { Button } from \"@/lib/components/core/default/react/buttons/button\";\r\nimport { SignIn } from \"@/lib/icons\";\r\n\r\nexport default function ButtonDemo() {\r\n  return (\r\n    <Button href=\"/login\" prefix={<SignIn />} target=\"_blank\">\r\n      Login\r\n    </Button>\r\n  );\r\n}\r\n"}]
   },
   "demos/components/core/react/buttons/star-rating/default": {
     component: React.lazy(() => import("@/lib/demos/components/core/react/buttons/star-rating/default")),
@@ -106,7 +106,7 @@ export const previews = {
   },
   "demos/components/core/react/data-display/avatar/composition": {
     component: React.lazy(() => import("@/lib/demos/components/core/react/data-display/avatar/composition")),
-    code: [{"title":"composition.tsx","code":"import React from \"react\";\r\nimport { UserIcon } from \"@/lib/icons\";\r\nimport {\r\n  AvatarFallback,\r\n  AvatarImage,\r\n  AvatarPlaceholder,\r\n  AvatarRoot,\r\n} from \"@/lib/components/core/default/react/data-display/avatar\";\r\n\r\nexport default function AvatarDemo() {\r\n  return (\r\n    <AvatarRoot className=\"bg-white/70\">\r\n      <AvatarImage src=\"/images/profile-default.png\" alt=\"@bastiencouder\" />\r\n      <AvatarFallback>B</AvatarFallback>\r\n      <AvatarPlaceholder>\r\n        <UserIcon className=\"size-5\" />\r\n      </AvatarPlaceholder>\r\n    </AvatarRoot>\r\n  );\r\n}\r\n"}]
+    code: [{"title":"composition.tsx","code":"import React from \"react\";\r\nimport { User2 } from \"@/lib/icons\";\r\nimport {\r\n  AvatarFallback,\r\n  AvatarImage,\r\n  AvatarPlaceholder,\r\n  AvatarRoot,\r\n} from \"@/lib/components/core/default/react/data-display/avatar\";\r\n\r\nexport default function AvatarDemo() {\r\n  return (\r\n    <AvatarRoot className=\"bg-white/70\">\r\n      <AvatarImage src=\"/images/profile-default.png\" alt=\"@bastiencouder\" />\r\n      <AvatarFallback>B</AvatarFallback>\r\n      <AvatarPlaceholder>\r\n        <User2 className=\"size-5\" />\r\n      </AvatarPlaceholder>\r\n    </AvatarRoot>\r\n  );\r\n}\r\n"}]
   },
   "demos/components/core/react/data-display/badge/default": {
     component: React.lazy(() => import("@/lib/demos/components/core/react/data-display/badge/default")),
@@ -122,7 +122,7 @@ export const previews = {
   },
   "demos/components/core/react/data-display/badge/icon": {
     component: React.lazy(() => import("@/lib/demos/components/core/react/data-display/badge/icon")),
-    code: [{"title":"icon.tsx","code":"import { Badge } from \"@/lib/components/core/default/react/data-display/badge\";\r\nimport { ShieldIcon } from \"@/lib/icons\";\r\n\r\nexport default function BadgeDemo() {\r\n  return (\r\n    <div className=\"flex items-center gap-2\">\r\n      <Badge icon={<ShieldIcon />} size=\"sm\">\r\n        Badge\r\n      </Badge>\r\n      <Badge icon={<ShieldIcon />} size=\"md\">\r\n        Badge\r\n      </Badge>\r\n      <Badge icon={<ShieldIcon />} size=\"lg\">\r\n        Badge\r\n      </Badge>\r\n    </div>\r\n  );\r\n}\r\n"}]
+    code: [{"title":"icon.tsx","code":"import { Badge } from \"@/lib/components/core/default/react/data-display/badge\";\r\nimport { Shield } from \"@/lib/icons\";\r\n\r\nexport default function BadgeDemo() {\r\n  return (\r\n    <div className=\"flex items-center gap-2\">\r\n      <Badge icon={<Shield />} size=\"sm\">\r\n        Badge\r\n      </Badge>\r\n      <Badge icon={<Shield />} size=\"md\">\r\n        Badge\r\n      </Badge>\r\n      <Badge icon={<Shield />} size=\"lg\">\r\n        Badge\r\n      </Badge>\r\n    </div>\r\n  );\r\n}\r\n"}]
   },
   "demos/components/core/react/data-display/card/default": {
     component: React.lazy(() => import("@/lib/demos/components/core/react/data-display/card/default")),

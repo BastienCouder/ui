@@ -6,7 +6,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu } from "@/lib/icons";
 import { Button } from "@/lib/components/core/default/react/buttons/button";
-import { Dialog, DialogRoot } from "@/lib/components/core/default/dialog";
 import { useScrolled } from "@/lib/hooks/use-scrolled";
 import { cn } from "@/lib/utils";
 import { focusRing } from "@/lib/utils/styles";
@@ -54,7 +53,7 @@ export const Header = () => {
             className={cn(
               "relative flex items-center gap-6 overflow-hidden rounded-md bg-transparent px-4 py-1 transition-[padding,background-color] duration-300 ease-out",
               scrolled &&
-                "pointer-events-auto bg-bg-muted pl-14 shadow-md bg-neutral/70",
+              "pointer-events-auto bg-bg-muted pl-14 shadow-md bg-neutral/70",
             )}
           >
             <Link
@@ -122,25 +121,6 @@ export const Header = () => {
           {/* <SearchDocs className="flex-1" size="sm">
             <span className="mr-4 flex-1 text-left">Search...</span>
           </SearchDocs>*/}
-          <DialogRoot>
-            <Button
-              variant="quiet"
-              size="sm"
-              shape="square"
-              aria-label="Open menu"
-            >
-              <Menu />
-            </Button>
-            <Dialog type="drawer">
-              {({ close }) => (
-                <Nav
-                  direction="col"
-                  items={[{ label: "Home", href: "/" }, ...config.nav.links]}
-                  onNavItemClick={close}
-                />
-              )}
-            </Dialog>
-          </DialogRoot>
         </div>
       </div>
     </header>
@@ -177,8 +157,8 @@ const Nav = (props: NavProps) => {
                 focusRing(),
                 "flex items-center justify-center gap-2 rounded px-4 py-1 text-sm font-medium text-fg/60 transition-colors hover:text-fg",
                 pathname.startsWith(item.href) &&
-                  item.href !== "/" &&
-                  "bg-bg-inverse/10 text-fg",
+                item.href !== "/" &&
+                "bg-bg-inverse/10 text-fg",
                 direction === "col" && "text-md w-full py-2",
               )}
               href={item.href}

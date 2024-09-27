@@ -20,6 +20,22 @@ export const docsConfig: DocsConfig = {
       "slug": "components",
       "items": [
         {
+          "title": "Angular",
+          "href": "/components/angular",
+          "items": [
+            {
+              "title": "Buttons",
+              "href": "/components/angular/buttons",
+              "items": [
+                {
+                  "title": "Button",
+                  "href": "/components/angular/buttons/button"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "title": "React",
           "href": "/components/react",
           "items": [
@@ -226,6 +242,22 @@ export const docsConfig: DocsConfig = {
                 {
                   "title": "Tooltip",
                   "href": "/components/react/overlay/tooltip"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Vue",
+          "href": "/components/vue",
+          "items": [
+            {
+              "title": "Buttons",
+              "href": "/components/vue/buttons",
+              "items": [
+                {
+                  "title": "Button",
+                  "href": "/components/vue/buttons/button"
                 }
               ]
             }

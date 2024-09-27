@@ -4,6 +4,10 @@
 import React from "react";
 
 export const previews = {
+  "demos/components/core/angular/buttons/button/default": {
+    component: React.lazy(() => import("@/lib/demos/components/core/react/buttons/button/default")),
+    code: [{"title":"default.ts","code":"import { Component } from \"@angular/core\";\r\nimport { HlmButtonModule } from \"@/lib/components/core/default/angular/button/hlm-button.module\";\r\n\r\n@Component({\r\n  selector: \"button-preview\",\r\n  standalone: true,\r\n  imports: [HlmButtonModule],\r\n  template: `<Button hlmBtn>Button</Button>`,\r\n})\r\nexport class ButtonPreviewComponent {}\r\n"}]
+  },
   "demos/components/core/react/buttons/button/default": {
     component: React.lazy(() => import("@/lib/demos/components/core/react/buttons/button/default")),
     code: [{"title":"default.tsx","code":"import { Button } from \"@/lib/components/core/default/react/buttons/button\";\r\n\r\nexport default function ButtonDemo() {\r\n  return <Button>Button</Button>;\r\n}\r\n"}]
@@ -387,5 +391,37 @@ export const previews = {
   "demos/components/core/react/overlay/tooltip/default": {
     component: React.lazy(() => import("@/lib/demos/components/core/react/overlay/tooltip/default")),
     code: [{"title":"default.tsx","code":"\"use client\";\r\n\r\nimport { Button } from \"@/lib/components/core/default/react/buttons/button\";\r\nimport { Tooltip } from \"@/lib/components/core/default/react/overlay/tooltip\";\r\n\r\nexport default function TooltipDemo() {\r\n\r\n    const Content = () => (\r\n        <p>Add to library</p>\r\n    );\r\n\r\n    return (\r\n        <Tooltip content={<Content />} >\r\n            <Button>Hover</Button>\r\n        </Tooltip>\r\n    )\r\n}\r\n"}]
+  },
+  "demos/components/core/vue/buttons/button/default": {
+    component: React.lazy(() => import("@/lib/demos/components/core/react/buttons/button/default")),
+    code: [{"title":"default.vue","code":"<script setup lang=\"ts\">\r\nimport Button from '@/lib/components/core/default/vue/button.vue';\r\n</script>\r\n\r\n<template>\r\n  <Button>Button</Button>\r\n</template>"}]
+  },
+  "demos/components/core/vue/buttons/button/variants": {
+    component: React.lazy(() => import("@/lib/demos/components/core/react/buttons/button/variants")),
+    code: [{"title":"variants.vue","code":"<script setup lang=\"ts\">\r\nimport Button from '@/lib/components/core/default/vue/button.vue';\r\n\r\nconst variants = [\r\n  \"default\",\r\n  \"primary\",\r\n  \"secondary\",\r\n  \"outline\",\r\n  \"quiet\",\r\n  \"success\",\r\n  \"warning\",\r\n  \"danger\",\r\n] as const;\r\n</script>\r\n\r\n\r\n<template>\r\n  <div class=\"grid grid-cols-4 gap-2\">\r\n    <Button v-for=\"variant in variants\" :key=\"variant\" :variant=\"variant\">\r\n      {{ variant }}\r\n    </Button>\r\n  </div>\r\n</template>\r\n"}]
+  },
+  "demos/components/core/vue/buttons/button/sizes": {
+    component: React.lazy(() => import("@/lib/demos/components/core/react/buttons/button/sizes")),
+    code: [{"title":"sizes.vue","code":"<script setup lang=\"ts\">\r\nimport Button from '@/lib/components/core/default/vue/button.vue';\r\n</script>\r\n\r\n<template>\r\n    <div className=\"flex w-full items-center justify-center gap-4\">\r\n      <Button size=\"sm\">Button</Button>\r\n      <Button size=\"md\">Button</Button>\r\n      <Button size=\"lg\">Button</Button>\r\n    </div>\r\n</template>"}]
+  },
+  "demos/components/core/vue/buttons/button/shapes": {
+    component: React.lazy(() => import("@/lib/demos/components/core/react/buttons/button/shapes")),
+    code: [{"title":"shapes.vue","code":"<script setup lang=\"ts\">\r\nimport Button from '@/lib/components/core/default/vue/button.vue';\r\nimport { UploadIcon } from \"@/lib/icons\";\r\n</script>\r\n\r\n<template>\r\n  <div className=\"flex items-center justify-center gap-4\">\r\n    <Button size=\"sm\" shape=\"square\" aria-label=\"upload\">\r\n      <UploadIcon />\r\n    </Button>\r\n    <Button size=\"md\" shape=\"square\" aria-label=\"upload\">\r\n      <UploadIcon />\r\n    </Button>\r\n    <Button size=\"lg\" shape=\"square\" aria-label=\"upload\">\r\n      <UploadIcon />\r\n    </Button>\r\n    <Button size=\"sm\" shape=\"circle\" aria-label=\"upload\">\r\n      <UploadIcon />\r\n    </Button>\r\n    <Button size=\"md\" shape=\"circle\" aria-label=\"upload\">\r\n      <UploadIcon />\r\n    </Button>\r\n    <Button size=\"lg\" shape=\"circle\" aria-label=\"upload\">\r\n      <UploadIcon />\r\n    </Button>\r\n  </div>\r\n</template>"}]
+  },
+  "demos/components/core/vue/buttons/button/prefix-and-suffix": {
+    component: React.lazy(() => import("@/lib/demos/components/core/react/buttons/button/prefix-and-suffix")),
+    code: [{"title":"prefix-and-suffix.vue","code":"<script setup lang=\"ts\">\r\nimport Button from '@/lib/components/core/default/vue/button.vue';\r\nimport { UploadIcon } from \"@/lib/icons\";\r\n</script>\r\n\r\n<template>\r\n  <div className=\"flex items-center gap-2\">\r\n    <Button :prefix=\"UploadIcon\">\r\n      Button\r\n    </Button>\r\n    <Button :suffix=\"UploadIcon\">\r\n      Button\r\n    </Button>\r\n  </div>\r\n</template>\r\n"}]
+  },
+  "demos/components/core/vue/buttons/button/loading": {
+    component: React.lazy(() => import("@/lib/demos/components/core/react/buttons/button/loading")),
+    code: [{"title":"loading.vue","code":"<script setup lang=\"ts\">\r\nimport Button from '@/lib/components/core/default/vue/button.vue';\r\nimport { ref } from 'vue';\r\nconst someVariable = ref(5);\r\n</script>\r\n\r\n<template>\r\n  <div className=\"flex w-full items-center justify-center gap-2\">\r\n    <Button size=\"sm\" :isLoading=\"someVariable === 5\">\r\n      Button\r\n    </Button>\r\n    <Button size=\"md\" isLoading>\r\n      Button\r\n    </Button>\r\n    <Button size=\"lg\" isLoading>\r\n      Button\r\n    </Button>\r\n  </div>\r\n</template>\r\n"}]
+  },
+  "demos/components/core/vue/buttons/button/disabled": {
+    component: React.lazy(() => import("@/lib/demos/components/core/react/buttons/button/disabled")),
+    code: [{"title":"disabled.vue","code":"<script setup lang=\"ts\">\r\nimport Button from '@/lib/components/core/default/vue/button.vue';\r\nimport { ref } from 'vue';\r\nconst someVariable = ref(5);\r\n</script>\r\n\r\n<template>\r\n  <Button :isDisabled=\"someVariable === 5\">Button</Button>\r\n</template>\r\n"}]
+  },
+  "demos/components/core/vue/buttons/button/link-button": {
+    component: React.lazy(() => import("@/lib/demos/components/core/react/buttons/button/link-button")),
+    code: [{"title":"link-button.vue","code":"<script setup lang=\"ts\">\r\nimport Button from '@/lib/components/core/default/vue/button.vue';\r\nimport { LinkIcon } from '@/lib/icons';\r\n</script>\r\n\r\n<template>\r\n  <Button href=\"/login\" target=\"_blank\" :prefix=\"LinkIcon\">\r\n    Login\r\n  </Button>\r\n</template>"}]
   },
 };

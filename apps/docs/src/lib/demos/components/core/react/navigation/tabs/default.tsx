@@ -1,19 +1,31 @@
 "use client";
 
-import { Tabs, TabList, Tab, TabContent} from "@/lib/components/core/default/react/navigation/tabs";
-import { Button } from "@/lib/components/core/default/react/buttons/button";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/lib/components/core/default/react/data-display/card";
+import { Button } from "@/lib/components/core/default/react/buttons/button"
+import {
+   Card,
+   CardContent,
+   CardDescription,
+   CardFooter,
+   CardHeader,
+   CardTitle,
+} from "@/lib/components/core/default/react/data-display/card"
+import { Label } from "@/lib/components/core/default/react/input/label"
+import {
+   Tabs,
+   TabsContent,
+   TabsList,
+   TabsTrigger,
+} from "@/lib/components/core/default/react/navigation/tabs"
 import { TextField } from "@/lib/components/core/default/react/input/text-field";
-import { Label } from "@/lib/components/core/default/react/input/label";
 
 export default function TabsDemo() {
    return (
       <Tabs defaultValue="account" className="w-[400px]">
-         <TabList className="grid w-full grid-cols-2">
-            <Tab value="account">Account</Tab>
-            <Tab value="password">Password</Tab>
-         </TabList>
-         <TabContent value="account">
+         <TabsList className="grid w-full grid-cols-2">
+            <TabsTrigger value="account">Account</TabsTrigger>
+            <TabsTrigger value="password">Password</TabsTrigger>
+         </TabsList>
+         <TabsContent value="account">
             <Card>
                <CardHeader>
                   <CardTitle>Account</CardTitle>
@@ -28,15 +40,15 @@ export default function TabsDemo() {
                   </div>
                   <div className="space-y-1">
                      <Label htmlFor="username">Username</Label>
-                     <TextField id="username" defaultValue="~peduarte" />
+                     <TextField id="username" defaultValue="@peduarte" />
                   </div>
                </CardContent>
                <CardFooter>
                   <Button>Save changes</Button>
                </CardFooter>
             </Card>
-         </TabContent>
-         <TabContent value="password">
+         </TabsContent>
+         <TabsContent value="password">
             <Card>
                <CardHeader>
                   <CardTitle>Password</CardTitle>
@@ -58,7 +70,7 @@ export default function TabsDemo() {
                   <Button>Save password</Button>
                </CardFooter>
             </Card>
-         </TabContent>
+         </TabsContent>
       </Tabs>
    )
 }

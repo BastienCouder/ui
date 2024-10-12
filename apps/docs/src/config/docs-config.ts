@@ -204,6 +204,10 @@ export const docsConfig: DocsConfig = {
                 {
                   "title": "Tabs",
                   "href": "/components/react/navigation/tabs"
+                },
+                {
+                  "title": "Toc",
+                  "href": "/components/react/navigation/toc"
                 }
               ]
             },

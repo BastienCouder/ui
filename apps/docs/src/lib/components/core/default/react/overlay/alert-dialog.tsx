@@ -6,7 +6,6 @@ import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
 import { cn } from "@/lib/utils";
 import { buttonStyles } from "../buttons/button";
 
-
 interface AlertDialogProps {
   children: React.ReactNode | string;
   content?: React.ReactNode;

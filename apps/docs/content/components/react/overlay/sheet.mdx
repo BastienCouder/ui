@@ -26,4 +26,32 @@ npm install @radix-ui/react-dialog
   <Step>Update the import paths to match your project setup.</Step>
 </Steps>
 
-in progress...
+## Options
+
+### Side
+
+Use the `side` prop to control the side from which the sheet will appear. By default, it opens from the right.
+
+<ComponentPreview name="demos/components/core/react/overlay/sheet/side" 
+preview={`<Sheet content={<Content />} side="left"> 
+  <Button variant="outline">Open Left</Button> 
+</Sheet>`} 
+/>
+
+### Composition
+
+Here’s a full example combining all the components: SheetTrigger, SheetContent, SheetHeader, SheetFooter, SheetClose, and SheetOverlay.
+
+<ComponentPreview name="demos/components/core/react/overlay/sheet/composition" 
+preview={`<Sheet>
+  <SheetTrigger>Open</SheetTrigger>
+  <SheetContent>
+    <SheetHeader>
+      <SheetTitle>Are you absolutely sure?</SheetTitle>
+      <SheetDescription>
+        This action cannot be undone. This will permanently delete your account
+        and remove your data from our servers.
+      </SheetDescription>
+    </SheetHeader>
+  </SheetContent>
+</Sheet>`} />

@@ -26,4 +26,42 @@ npm install @radix-ui/react-popover
   <Step>Update the import paths to match your project setup.</Step>
 </Steps>
 
-in progress...
+## Options
+
+### Placement
+
+Use the `placement` prop to control the side from which the popover will appear. By default, it opens from the bottom.
+
+<ComponentPreview name="demos/components/core/react/overlay/popover/placement" 
+preview={`<Popover content={<Content />} placement="top"> 
+  <Button variant="outline">Open Popover Top</Button> 
+</Popover>`} />
+
+### Offset
+
+Use the `offset` prop to adjust the distance between the popover and its trigger.
+
+<ComponentPreview name="demos/components/core/react/overlay/popover/offset" 
+preview={`<Popover content={<Content />} offset={20}> 
+  <Button variant="outline">Open Popover with Offset</Button> 
+</Popover>`} />
+
+### Arrow
+
+Use the arrow prop to add an arrow pointing to the trigger element.
+
+<ComponentPreview name="demos/components/core/react/overlay/popover/arrow" 
+preview={`<Popover content={<Content />} arrow> 
+  <Button variant="outline">Open Popover with Arrow</Button> 
+</Popover>`} />
+
+### Composition
+
+Here’s a full example combining all the components: PopoverTrigger, PopoverContent, and Popover.
+
+<ComponentPreview name="demos/components/core/react/overlay/popover/composition" 
+preview={`<Popover>
+  <PopoverTrigger>Open</PopoverTrigger>
+  <PopoverContent>Place content for the popover here.</PopoverContent>
+</Popover>`} 
+/>

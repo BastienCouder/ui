@@ -59,4 +59,23 @@ export default function RootLayout({ children }: RootLayoutProps) {
 }
 ```
 
-in progress...
+## Options
+
+### Variants
+
+Use the `variant` prop to customize the style of the toast. You can choose between default, primary, secondary, and danger variants.
+
+<ComponentPreview name="demos/components/core/react/overlay/toast/variant" 
+preview={`<Button variant="outline" onClick={() => { toast({ title: "Info", description: "This is an info message." }); }}
+    Show Info Toast
+</Button>`} />
+
+### Custom Action
+
+Use the `ToastAction` component to add an action to the toast, like an "Undo" button.
+
+<ComponentPreview name="demos/components/core/react/overlay/toast/action" 
+preview={`<Button variant="outline" onClick={() => { toast({ title: "Action Required", description: "This message has an action button.", action: <ToastAction altText="Undo the action">Undo</ToastAction>, }); }}
+Show Toast with Action
+</Button>`}
+/>

@@ -6,10 +6,10 @@ import { TextField } from "@/lib/components/core/default/react/input/text-field"
 import { Popover } from "@/lib/components/core/default/react/overlay/popover";
 
 const placements = [
+   "top",
    "right",
    "bottom",
    "left",
-   "top"
 ] as const;
 
 export default function PopoverDemo() {
@@ -62,7 +62,7 @@ export default function PopoverDemo() {
     return (
       <div className="grid grid-cols-2 gap-2">
         {placements.map((placement) => (
-        <Popover key={placement} content={<Content />} className="w-80" >
+        <Popover key={placement} placement={placement} content={<Content />} className="w-80" >
             <Button>{placement}</Button>
         </Popover>
         ))}

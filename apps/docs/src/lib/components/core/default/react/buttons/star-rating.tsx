@@ -111,7 +111,7 @@ function StarRating({
               {
                 "pointer-events-none": disabled,
               },
-              sizeClassName
+              sizeClassName,
             )}
             onMouseEnter={() => handleMouseEnter(i)}
             onClick={() => handleClick(i)}
@@ -120,7 +120,7 @@ function StarRating({
               className={cn(
                 starStyles.base,
                 "fill-gray-300 text-gray-300",
-                iconClassName
+                iconClassName,
               )}
               {...restIconProps}
             />
@@ -134,7 +134,7 @@ function StarRating({
                     starStyles.base,
                     "text-yellow-500",
                     variantClassName,
-                    iconClassName
+                    iconClassName,
                   )}
                   {...restIconProps}
                 />

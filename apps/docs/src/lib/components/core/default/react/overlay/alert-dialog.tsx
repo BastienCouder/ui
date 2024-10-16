@@ -36,15 +36,12 @@ const AlertDialog: React.FC<AlertDialogProps> = ({
       {content ? (
         <>
           <AlertDialogTrigger asChild>{wrappedChildren}</AlertDialogTrigger>
-          <AlertDialogContent
-            className={className}
-          >
+          <AlertDialogContent className={className}>
             {content}
             <AlertDialogFooter>
               <AlertDialogCancel>{cancelText}</AlertDialogCancel>
               <AlertDialogAction>{okText}</AlertDialogAction>
             </AlertDialogFooter>
-
           </AlertDialogContent>
         </>
       ) : (
@@ -53,7 +50,6 @@ const AlertDialog: React.FC<AlertDialogProps> = ({
     </AlertDialogPrimitive.Root>
   );
 };
-
 
 const AlertDialogTrigger = AlertDialogPrimitive.Trigger;
 

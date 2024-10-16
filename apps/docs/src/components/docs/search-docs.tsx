@@ -40,7 +40,5 @@ export const SearchDocs = (props: ButtonProps) => {
     command();
   }, []);
 
-  return (
-    <></>
-  );
+  return <></>;
 };

@@ -13,10 +13,7 @@ import { Popover } from "@/lib/components/core/default/react/overlay/popover";
 import { Tooltip } from "@/lib/components/core/default/react/overlay/tooltip";
 import { Header } from "@/components/header";
 import { Divider } from "@/lib/components/core/default/react/data-display/divider";
-import {
-  ChevronRightCircle,
-  X,
-} from "@/lib/icons";
+import { ChevronRightCircle, X } from "@/lib/icons";
 import { Checkbox } from "@/lib/components/core/default/react/input/checkbox";
 import {
   Accordion,
@@ -29,12 +26,26 @@ import {
   Breadcrumb,
 } from "@/lib/components/core/default/react/navigation/breadcrumb";
 import { StarRating } from "@/lib/components/core/default/react/buttons/star-rating";
-import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/lib/components/core/default/react/input/select";
-import { RadioGroup, RadioGroupItem } from "@/lib/components/core/default/react/input/radio-group";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/lib/components/core/default/react/input/select";
+import {
+  RadioGroup,
+  RadioGroupItem,
+} from "@/lib/components/core/default/react/input/radio-group";
 import { Label } from "@/lib/components/core/default/react/input/label";
 import { Switch } from "@/lib/components/core/default/react/input/switch";
 import { PasswordField } from "@/lib/components/core/default/react/input/password-field";
-import { Pagination, Paginations } from "@/lib/components/core/default/react/navigation/pagination";
+import {
+  Pagination,
+  Paginations,
+} from "@/lib/components/core/default/react/navigation/pagination";
 
 const generateFakeData = (numItems: number) => {
   return Array.from({ length: numItems }, (_, index) => ({
@@ -73,11 +84,7 @@ export default function TestPage() {
           <Button>hover</Button>
         </Tooltip>
       </div>
-      <Popover
-        content={<Header />}
-        shouldFlip={true}
-        className="w-full"
-      >
+      <Popover content={<Header />} shouldFlip={true} className="w-full">
         <Button>Cliquer moi</Button>
       </Popover>
       <h1>Fake Data Pagination</h1>
@@ -86,7 +93,10 @@ export default function TestPage() {
           <li key={item.id}>{item.name}</li>
         ))}
       </ul>
-      <Paginations totalPages={Math.ceil(data.length / ITEMS_PER_PAGE)} onChange={handlePageChange} />
+      <Paginations
+        totalPages={Math.ceil(data.length / ITEMS_PER_PAGE)}
+        onChange={handlePageChange}
+      />
       <div className="flex space-x-6 border p-4"></div>
       {/* <div className="flex items-center gap-4">
         <ToggleGroup type="multiple">
@@ -165,9 +175,16 @@ export default function TestPage() {
         </AccordionItem>
       </Accordion>
 
-      <StarRating defaultValue={8.42} numStars={10} disabled onChange={(value: number) => { }} />
+      <StarRating
+        defaultValue={8.42}
+        numStars={10}
+        disabled
+        onChange={(value: number) => {}}
+      />
       <StarRating defaultValue={7.62} numStars={20} disabled />
-      <Checkbox labelPosition="right" defaultChecked size="lg">I accept the terms and conditions</Checkbox>
+      <Checkbox labelPosition="right" defaultChecked size="lg">
+        I accept the terms and conditions
+      </Checkbox>
       <Select>
         <SelectTrigger className="w-[180px]" size="md">
           <SelectValue placeholder="Select a fruit" />

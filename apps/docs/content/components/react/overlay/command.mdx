@@ -61,4 +61,49 @@ npm install @radix-ui/react-dialog cmdk
   <Step>Update the import paths to match your project setup.</Step>
 </Steps>
 
-in progress...
+### Examples
+
+<ComponentPreview
+  name="demos/components/core/react/overlay/command/dialog"
+  preview={`<p className="text-muted-foreground text-sm">
+    Press
+    {' '}
+    <kbd className="bg-muted text-muted-foreground pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border px-1.5 font-mono text-[10px] font-medium opacity-100">
+        <span className="text-xs">⌘</span>
+        J
+    </kbd>
+</p>`}
+/>
+
+To show the command menu in a dialog, use the `<CommandDialog />` component.
+
+```tsx
+export function CommandMenu() {
+  const [open, setOpen] = React.useState(false)
+ 
+  React.useEffect(() => {
+    const down = (e: KeyboardEvent) => {
+      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault()
+        setOpen((open) => !open)
+      }
+    }
+    document.addEventListener("keydown", down)
+    return () => document.removeEventListener("keydown", down)
+  }, [])
+ 
+  return (
+    <CommandDialog open={open} onOpenChange={setOpen}>
+      <CommandInput placeholder="Type a command or search..." />
+      <CommandList>
+        <CommandEmpty>No results found.</CommandEmpty>
+        <CommandGroup heading="Suggestions">
+          <CommandItem>Calendar</CommandItem>
+          <CommandItem>Search Emoji</CommandItem>
+          <CommandItem>Calculator</CommandItem>
+        </CommandGroup>
+      </CommandList>
+    </CommandDialog>
+  )
+}
+```

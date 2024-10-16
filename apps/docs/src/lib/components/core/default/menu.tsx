@@ -129,9 +129,7 @@ const MenuItem = <T extends object>({
               </span>
               {suffix}
               {shortcut && <Kbd>{shortcut}</Kbd>}
-              {hasSubmenu && (
-                <ChevronRight aria-hidden className="size-4" />
-              )}
+              {hasSubmenu && <ChevronRight aria-hidden className="size-4" />}
             </span>
           </>
         ),

@@ -106,9 +106,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={isDisabled || isLoading}
         {...props}
       >
-        {isLoading && (
-          <Loader aria-label="loading" className="animate-spin" />
-        )}
+        {isLoading && <Loader aria-label="loading" className="animate-spin" />}
         {prefix}
         {typeof children === "string" ? (
           <span className="truncate">{children}</span>

@@ -9,7 +9,7 @@ const COMPONENTS_BASE_PATH = path.join(process.cwd(), "content/components");
 // Function to generate navigation items recursively
 const generateNavItems = (
   basePath: string,
-  relativePath = ""
+  relativePath = "",
 ): (Item | SubCategory)[] => {
   const items: (Item | SubCategory)[] = [];
 
@@ -23,7 +23,7 @@ const generateNavItems = (
       if (stat.isDirectory()) {
         const subItems = generateNavItems(
           entryPath,
-          path.join(relativePath, entry)
+          path.join(relativePath, entry),
         );
         if (subItems.length > 0) {
           items.push({
@@ -88,7 +88,7 @@ export const docsConfig: DocsConfig = ${JSON.stringify(docsConfig, null, 2)};
 rimraf.sync(path.join(process.cwd(), "src", "config", "docs-config.ts"));
 fs.writeFileSync(
   path.join(process.cwd(), "src", "config", "docs-config.ts"),
-  index
+  index,
 );
 
 console.log("\x1b[32m✓\x1b[0m Created docs-config file.");

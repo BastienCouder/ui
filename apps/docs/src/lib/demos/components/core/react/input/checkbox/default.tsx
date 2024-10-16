@@ -1,17 +1,17 @@
-'use client'
+"use client";
 
-import { Checkbox } from "@/lib/components/core/default/react/input/checkbox"
+import { Checkbox } from "@/lib/components/core/default/react/input/checkbox";
 
 export default function CheckboxDemo() {
-   return (
-      <div className="flex items-center space-x-2">
-         <Checkbox id="terms" />
-         <label
-            htmlFor="terms"
-            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-         >
-            Accept terms and conditions
-         </label>
-      </div>
-   )
+  return (
+    <div className="flex items-center space-x-2">
+      <Checkbox id="terms" />
+      <label
+        htmlFor="terms"
+        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+      >
+        Accept terms and conditions
+      </label>
+    </div>
+  );
 }

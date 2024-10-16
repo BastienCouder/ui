@@ -122,9 +122,10 @@ const BreadcrumbItem = React.forwardRef<HTMLLIElement, BreadcrumbProps>(
         {!isLast && separatorIcon && (
           <div
             className={cn(
-              `flex items-center ${orientation === "vertical"
-                ? "mt-2 flex justify-center w-full"
-                : "ml-2"
+              `flex items-center ${
+                orientation === "vertical"
+                  ? "mt-2 flex justify-center w-full"
+                  : "ml-2"
               }`,
             )}
           >
@@ -167,9 +168,10 @@ const BreadcrumbLink = React.forwardRef<
         ref={ref}
         href={href}
         className={cn(
-          `flex items-center gap-2 ${href && !disabled
-            ? "transition-colors hover:text-foreground"
-            : "font-normal text-foreground"
+          `flex items-center gap-2 ${
+            href && !disabled
+              ? "transition-colors hover:text-foreground"
+              : "font-normal text-foreground"
           } ${disabled ? "pointer-events-none text-disabled-fg" : ""}`,
           itemClasses,
           className,
@@ -210,7 +212,8 @@ const Breadcrumb = React.forwardRef<HTMLLIElement, BreadcrumbProps>(
       <li
         ref={ref}
         className={cn(
-          `flex items-center ${orientation === "vertical" ? "flex-col" : "flex-row"
+          `flex items-center ${
+            orientation === "vertical" ? "flex-col" : "flex-row"
           } ${disabled ? "opacity-50 cursor-not-allowed" : ""}`,
           className,
         )}
@@ -219,9 +222,10 @@ const Breadcrumb = React.forwardRef<HTMLLIElement, BreadcrumbProps>(
           href={href}
           {...props}
           className={cn(
-            `flex items-center gap-2 ${href && !disabled
-              ? "transition-colors hover:text-foreground"
-              : "font-normal text-foreground"
+            `flex items-center gap-2 ${
+              href && !disabled
+                ? "transition-colors hover:text-foreground"
+                : "font-normal text-foreground"
             } ${disabled ? "pointer-events-none text-disabled-fg" : ""}`,
             itemClasses,
             itemClassName,
@@ -232,9 +236,10 @@ const Breadcrumb = React.forwardRef<HTMLLIElement, BreadcrumbProps>(
         {!isLast && separatorIcon && (
           <div
             className={cn(
-              `flex items-center ${orientation === "vertical"
-                ? "mt-2 flex justify-center w-full"
-                : "ml-2"
+              `flex items-center ${
+                orientation === "vertical"
+                  ? "mt-2 flex justify-center w-full"
+                  : "ml-2"
               }`,
               itemClasses,
             )}

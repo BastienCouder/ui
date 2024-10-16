@@ -53,7 +53,7 @@ export const Header = () => {
             className={cn(
               "relative flex items-center gap-6 overflow-hidden rounded-md bg-transparent px-4 py-1 transition-[padding,background-color] duration-300 ease-out",
               scrolled &&
-              "pointer-events-auto bg-bg-muted pl-14 shadow-md bg-neutral/70",
+                "pointer-events-auto bg-bg-muted pl-14 shadow-md bg-neutral/70",
             )}
           >
             <Link
@@ -157,8 +157,8 @@ const Nav = (props: NavProps) => {
                 focusRing(),
                 "flex items-center justify-center gap-2 rounded px-4 py-1 text-sm font-medium text-fg/60 transition-colors hover:text-fg",
                 pathname.startsWith(item.href) &&
-                item.href !== "/" &&
-                "bg-bg-inverse/10 text-fg",
+                  item.href !== "/" &&
+                  "bg-bg-inverse/10 text-fg",
                 direction === "col" && "text-md w-full py-2",
               )}
               href={item.href}

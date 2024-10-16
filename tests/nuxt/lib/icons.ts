@@ -1,3 +1,3 @@
-import LoaderIcon from './icons/loader.vue';
+import LoaderIcon from "./icons/loader.vue";
 
 export { LoaderIcon };

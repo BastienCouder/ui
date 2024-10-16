@@ -1,12 +1,12 @@
 "use client";
 
-import { Terminal } from "lucide-react"
+import { Terminal } from "lucide-react";
 
 import {
   Alert,
   AlertDescription,
   AlertTitle,
-} from "@/lib/components/core/default/react/data-display/alert"
+} from "@/lib/components/core/default/react/data-display/alert";
 
 export default function AlertDemo() {
   return (
@@ -17,5 +17,5 @@ export default function AlertDemo() {
         You can add components to your app using the cli.
       </AlertDescription>
     </Alert>
-  )
+  );
 }

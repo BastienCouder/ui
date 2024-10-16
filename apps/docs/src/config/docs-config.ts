@@ -86,6 +86,10 @@ export const docsConfig: DocsConfig = {
                   "href": "/components/react/data-display/divider"
                 },
                 {
+                  "title": "Marquee",
+                  "href": "/components/react/data-display/marquee"
+                },
+                {
                   "title": "Separator",
                   "href": "/components/react/data-display/separator"
                 },

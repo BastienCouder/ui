@@ -4,7 +4,6 @@ import {
   TableOfContents,
   TableOfContent,
   TableOfContentsTitle,
-  TableOfContentsList,
 } from "@/lib/components/core/default/react/navigation/toc";
 
 export default function TocDemo() {

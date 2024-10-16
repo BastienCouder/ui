@@ -4,10 +4,10 @@ import { Button } from "@/lib/components/core/default/react/buttons/button";
 import { Tooltip } from "@/lib/components/core/default/react/overlay/tooltip";
 
 const placements = [
+    "top",
     "right",
     "bottom",
     "left",
-    "top"
 ] as const;
 
 export default function TooltipDemo() {

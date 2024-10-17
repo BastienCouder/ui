@@ -40,206 +40,152 @@ export const docsConfig: DocsConfig = {
           "href": "/components/react",
           "items": [
             {
-              "title": "Buttons",
-              "href": "/components/react/buttons",
-              "items": [
-                {
-                  "title": "Button",
-                  "href": "/components/react/buttons/button"
-                },
-                {
-                  "title": "Star rating",
-                  "href": "/components/react/buttons/star-rating"
-                },
-                {
-                  "title": "Toggle",
-                  "href": "/components/react/buttons/toggle"
-                }
-              ]
+              "title": "Alert dialog",
+              "href": "/components/react/alert-dialog"
             },
             {
-              "title": "Data-display",
-              "href": "/components/react/data-display",
-              "items": [
-                {
-                  "title": "Alert",
-                  "href": "/components/react/data-display/alert"
-                },
-                {
-                  "title": "Avatar",
-                  "href": "/components/react/data-display/avatar"
-                },
-                {
-                  "title": "Badge",
-                  "href": "/components/react/data-display/badge"
-                },
-                {
-                  "title": "Card",
-                  "href": "/components/react/data-display/card"
-                },
-                {
-                  "title": "Collapsible",
-                  "href": "/components/react/data-display/collapsible"
-                },
-                {
-                  "title": "Divider",
-                  "href": "/components/react/data-display/divider"
-                },
-                {
-                  "title": "Separator",
-                  "href": "/components/react/data-display/separator"
-                },
-                {
-                  "title": "Table",
-                  "href": "/components/react/data-display/table"
-                },
-                {
-                  "title": "Timeline",
-                  "href": "/components/react/data-display/timeline"
-                }
-              ]
+              "title": "Alert",
+              "href": "/components/react/alert"
             },
             {
-              "title": "Draggable",
-              "href": "/components/react/draggable",
-              "items": [
-                {
-                  "title": "Resizable",
-                  "href": "/components/react/draggable/resizable"
-                }
-              ]
+              "title": "Aspect ratio",
+              "href": "/components/react/aspect-ratio"
             },
             {
-              "title": "Feedback",
-              "href": "/components/react/feedback",
-              "items": [
-                {
-                  "title": "Skeleton",
-                  "href": "/components/react/feedback/skeleton"
-                },
-                {
-                  "title": "Slider",
-                  "href": "/components/react/feedback/slider"
-                }
-              ]
+              "title": "Avatar",
+              "href": "/components/react/avatar"
+            },
+            {
+              "title": "Badge",
+              "href": "/components/react/badge"
+            },
+            {
+              "title": "Breadcrumbs",
+              "href": "/components/react/breadcrumbs"
+            },
+            {
+              "title": "Button",
+              "href": "/components/react/button"
+            },
+            {
+              "title": "Card",
+              "href": "/components/react/card"
+            },
+            {
+              "title": "Checkbox",
+              "href": "/components/react/checkbox"
+            },
+            {
+              "title": "Collapsible",
+              "href": "/components/react/collapsible"
+            },
+            {
+              "title": "Command",
+              "href": "/components/react/command"
+            },
+            {
+              "title": "Dialog",
+              "href": "/components/react/dialog"
+            },
+            {
+              "title": "Divider",
+              "href": "/components/react/divider"
+            },
+            {
+              "title": "Drawer",
+              "href": "/components/react/drawer"
             },
             {
               "title": "Form",
-              "href": "/components/react/form",
-              "items": [
-                {
-                  "title": "Form",
-                  "href": "/components/react/form/form"
-                }
-              ]
+              "href": "/components/react/form"
             },
             {
-              "title": "Input",
-              "href": "/components/react/input",
-              "items": [
-                {
-                  "title": "Checkbox",
-                  "href": "/components/react/input/checkbox"
-                },
-                {
-                  "title": "Label",
-                  "href": "/components/react/input/label"
-                },
-                {
-                  "title": "Multi select",
-                  "href": "/components/react/input/multi-select"
-                },
-                {
-                  "title": "Radio group",
-                  "href": "/components/react/input/radio-group"
-                },
-                {
-                  "title": "Select",
-                  "href": "/components/react/input/select"
-                },
-                {
-                  "title": "Switch",
-                  "href": "/components/react/input/switch"
-                },
-                {
-                  "title": "Text field",
-                  "href": "/components/react/input/text-field"
-                },
-                {
-                  "title": "Textarea",
-                  "href": "/components/react/input/textarea"
-                }
-              ]
+              "title": "Label",
+              "href": "/components/react/label"
             },
             {
-              "title": "Layout",
-              "href": "/components/react/layout",
-              "items": [
-                {
-                  "title": "Aspect ratio",
-                  "href": "/components/react/layout/aspect-ratio"
-                },
-                {
-                  "title": "Scroll area",
-                  "href": "/components/react/layout/scroll-area"
-                }
-              ]
+              "title": "Multi select",
+              "href": "/components/react/multi-select"
             },
             {
-              "title": "Navigation",
-              "href": "/components/react/navigation",
-              "items": [
-                {
-                  "title": "Breadcrumbs",
-                  "href": "/components/react/navigation/breadcrumbs"
-                },
-                {
-                  "title": "Pagination",
-                  "href": "/components/react/navigation/pagination"
-                },
-                {
-                  "title": "Stepper",
-                  "href": "/components/react/navigation/stepper"
-                },
-                {
-                  "title": "Tabs",
-                  "href": "/components/react/navigation/tabs"
-                }
-              ]
+              "title": "Pagination",
+              "href": "/components/react/pagination"
             },
             {
-              "title": "Overlay",
-              "href": "/components/react/overlay",
-              "items": [
-                {
-                  "title": "Alert dialog",
-                  "href": "/components/react/overlay/alert-dialog"
-                },
-                {
-                  "title": "Command",
-                  "href": "/components/react/overlay/command"
-                },
-                {
-                  "title": "Dialog",
-                  "href": "/components/react/overlay/dialog"
-                },
-                {
-                  "title": "Drawer",
-                  "href": "/components/react/overlay/drawer"
-                },
-                {
-                  "title": "Popover",
-                  "href": "/components/react/overlay/popover"
-                },
-                {
-                  "title": "Sheet",
-                  "href": "/components/react/overlay/sheet"
-                },
-                {
-                  "title": "Tooltip",
-                  "href": "/components/react/overlay/tooltip"
-                }
-              ]
+              "title": "Popover",
+              "href": "/components/react/popover"
+            },
+            {
+              "title": "Radio group",
+              "href": "/components/react/radio-group"
+            },
+            {
+              "title": "Resizable",
+              "href": "/components/react/resizable"
+            },
+            {
+              "title": "Scroll area",
+              "href": "/components/react/scroll-area"
+            },
+            {
+              "title": "Select",
+              "href": "/components/react/select"
+            },
+            {
+              "title": "Separator",
+              "href": "/components/react/separator"
+            },
+            {
+              "title": "Sheet",
+              "href": "/components/react/sheet"
+            },
+            {
+              "title": "Skeleton",
+              "href": "/components/react/skeleton"
+            },
+            {
+              "title": "Slider",
+              "href": "/components/react/slider"
+            },
+            {
+              "title": "Star rating",
+              "href": "/components/react/star-rating"
+            },
+            {
+              "title": "Stepper",
+              "href": "/components/react/stepper"
+            },
+            {
+              "title": "Switch",
+              "href": "/components/react/switch"
+            },
+            {
+              "title": "Table",
+              "href": "/components/react/table"
+            },
+            {
+              "title": "Tabs",
+              "href": "/components/react/tabs"
+            },
+            {
+              "title": "Text field",
+              "href": "/components/react/text-field"
+            },
+            {
+              "title": "Textarea",
+              "href": "/components/react/textarea"
+            },
+            {
+              "title": "Timeline",
+              "href": "/components/react/timeline"
+            },
+            {
+              "title": "Toggle",
+              "href": "/components/react/toggle"
+            },
+            {
+              "title": "Tooltip",
+              "href": "/components/react/tooltip"
             }
           ]
         },

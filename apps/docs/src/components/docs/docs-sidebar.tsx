@@ -94,7 +94,7 @@ const Category = ({ title, slug, items, pathname }: CategoryProps) => {
                                     <>
                                       <span
                                         className={cn(
-                                          "border-muted block cursor-not-allowed border-l py-1 pl-4 text-disabled-fg",
+                                          "border-bg-muted block cursor-not-allowed border-l py-1 pl-4 text-disabled-fg",
                                         )}
                                       >
                                         {subItem.title}
@@ -110,9 +110,9 @@ const Category = ({ title, slug, items, pathname }: CategoryProps) => {
                                       <Link
                                         href={subItem.href}
                                         className={cn(
-                                          "border-muted text-primary group block border-l py-1 pl-4 transition-colors",
+                                          "border-bg-muted text-fg group block border-l pl-4 transition-colors",
                                           {
-                                            "border-fg font-medium text-fg":
+                                            "border-muted font-medium text-primary":
                                               pathname === subItem.href,
                                           },
                                         )}
@@ -126,39 +126,6 @@ const Category = ({ title, slug, items, pathname }: CategoryProps) => {
                                           )}
                                         </span>
                                       </Link>
-                                      <ul className="list-none">
-                                        {subItem.items &&
-                                          subItem.items.length > 0 && (
-                                            <>
-                                              {subItem.items.map(
-                                                (item, subIndex) => (
-                                                  <li key={subIndex}>
-                                                    <Link
-                                                      href={item.href}
-                                                      className={cn(
-                                                        "border-muted hover:text-foreground group block py-1 pl-8 text-fg-disabled transition-colors",
-                                                        {
-                                                          "border-fg font-medium text-fg":
-                                                            pathname ===
-                                                            item.href,
-                                                        },
-                                                      )}
-                                                    >
-                                                      <span className="block transition-transform duration-100 group-hover:translate-x-0.5">
-                                                        {item.title}
-                                                        {item.label && (
-                                                          <span className="ml-4 rounded-md border bg-bg-muted px-1.5 py-0.5 text-xs leading-none text-fg-muted">
-                                                            {item.label}
-                                                          </span>
-                                                        )}
-                                                      </span>
-                                                    </Link>
-                                                  </li>
-                                                ),
-                                              )}
-                                            </>
-                                          )}
-                                      </ul>
                                     </>
                                   )}
                                 </li>

@@ -19,7 +19,10 @@ thumbnail:
 
 <Steps>
   <Step>Copy and paste the following code into your project.</Step>
-  <ComponentSource name={["components/core/default/react/navigation/breadcrumb"]} extension={["tsx"]}  />
+  <ComponentSource
+    name={["components/core/default/react/navigation/breadcrumb"]}
+    extension={["tsx"]}
+  />
   <Step>Update the import paths to match your project setup.</Step>
 </Steps>
 
@@ -47,7 +50,6 @@ Use the `size` prop to control the size of the `Breadcrumb`. The default variant
   <Breadcrumb>Breadcrumbs</Breadcrumb>
 </Breadcrumbs>`}
 />
-
 
 ### Orientation
 
@@ -80,7 +82,6 @@ Use the `separatorIcon` prop to change the separator icon of the breadcrumbs.
 </Breadcrumbs>`}
 />
 
-
 ### Disabled
 
 Use the `disabled` prop to disable the breadcrumbs.
@@ -112,49 +113,3 @@ If you need to customize things further, you can drop down to the composition le
   </BreadcrumbItem>
 </Breadcrumbs>`}
 />
-
-## API Reference
-
-### Breadcrumbs
-
-| Prop           | Type                                  | Default | Description                                                                  |
-| -------------- | ------------------------------------- | ------- | ---------------------------------------------------------------------------- |
-| `disabled`   | `boolean`                             | -       | Whether the breadcrumbs are disabled.                                        |
-| `items`        | `boolean`                             | -       | Item objects in the collection.                                              |
-| `dependencies` | `boolean`                             | -       | Values that should invalidate the item cache when using dynamic collections. |
-| `children`     | `ReactNode \| (item: T) => ReactNode` | -       | The contents of the collection.                                              |
-| `className`    | `string`                              | -       | The CSS className for the element.                                           |
-| `style`        | `CSSProperties`                       | -       | The inline style for the element.                                            |
-
-| Event      | Type                 | Description                                          |
-| ---------- | -------------------- | ---------------------------------------------------- |
-| `onAction` | `(key: Key) => void` | Handler that is called when a breadcrumb is clicked. |
-
-### Breadcrumb
-
-| Prop             | Type                                                                                              | Default | Description                                                                                               |
-| ---------------- | ------------------------------------------------------------------------------------------------- | ------- | --------------------------------------------------------------------------------------------------------- |
-| `id`             | `boolean`                                                                                         | -       | A unique id for the breadcrumb, which will be passed to onAction when the breadcrumb is pressed.          |
-| `isDisabled`     | `boolean`                                                                                         | -       | Whether the link is disabled.                                                                             |
-| `autoFocus`      | `boolean`                                                                                         | -       | Whether the element should receive focus on render.                                                       |
-| `href`           | `Href`                                                                                            | -       | A URL to link to.                                                                                         |
-| `hrefLang`       | `string`                                                                                          | -       | Hints at the human language of the linked URL.                                                            |
-| `target`         | `HTMLAttributeAnchorTarget`                                                                       | -       | The target window for the link.                                                                           |
-| `rel`            | `string`                                                                                          | -       | The relationship between the linked resource and the current page.                                        |
-| `download`       | `boolean \| string`                                                                               | -       | Causes the browser to download the linked URL. A string may be provided to suggest a file name.           |
-| `ping`           | `string`                                                                                          | -       | A space-separated list of URLs to ping when the link is followed.                                         |
-| `referrerPolicy` | `HTMLAttributeReferrerPolicy`                                                                     | -       | How much of the referrer to send when following the link.                                                 |
-| `routerOptions`  | `RouterOptions`                                                                                   | -       | Options for the configured client side router.                                                            |
-| `children`       | `ReactNode \| (values: LinkRenderProps & {defaultChildren: ReactNode \| undefined}) => ReactNode` | -       | The children of the component. A function may be provided to alter the children based on component state. |
-| `className`      | `string`                                                                                          | -       | The CSS className for the element.                                                                        |
-| `style`          | `CSSProperties`                                                                                   | -       | The inline style for the element.                                                                         |
-
-| Event      | Type                 | Description                                          |
-| ---------- | -------------------- | ---------------------------------------------------- |
-| `onAction` | `(key: Key) => void` | Handler that is called when a breadcrumb is clicked. |
-
-| Data attribute                                     | Description                                                                  |
-| -------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `[data-disabled]`                                  | Whether the color field is disabled.                                         |
-| `[data-invalid]`                                   | Whether the color field is invalid.                                          |
-| `[data-channel="hex \| hue \| saturation \| ..."]` | The color channel that this field edits, or "hex" if no channel prop is set. |

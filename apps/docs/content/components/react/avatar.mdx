@@ -15,7 +15,10 @@ thumbnail:
 
 <Steps>
   <Step>Copy and paste the following code into your project.</Step>
-  <ComponentSource name={["components/core/default/react/data-display/avatar"]} extension={["tsx"]} />
+  <ComponentSource
+    name={["components/core/default/react/data-display/avatar"]}
+    extension={["tsx"]}
+  />
   <Step>Update the import paths to match your project setup.</Step>
 </Steps>
 
@@ -60,15 +63,3 @@ If you need to customize things further, you can drop down to the composition le
   </AvatarPlaceholder>
 </AvatarRoot>`}
 />
-
-## API Reference
-
-`Avatar` accepts all image attributes.
-
-| Prop       | Type                   | Default    | Description                                                                                 |
-| ---------- | ---------------------- | ---------- | ------------------------------------------------------------------------------------------- |
-| `src*`     | `string`               | -          | Specifies the path to the image                                                             |
-| `alt`      | `string`               | -          | Specifies an alternate text for the image, if the image for some reason cannot be displayed |
-| `shape`    | `'circle' \| 'square'` | `'circle'` | The shape of the avatar.                                                                    |
-| `size`     | `'sm' \| 'md' \| 'lg'` | `'md'`     | The size of the avatar.                                                                     |
-| `fallback` | `ReactNode`            | -          | The fallback element to render when an image is not available.                              |

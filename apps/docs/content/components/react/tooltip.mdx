@@ -2,14 +2,13 @@
 title: Tooltip
 description: A tooltip is a transient view that appears above other content on the screen when a user interacts with a control.
 thumbnail:
-  image: /previews/components/core/avatar.jpeg
-  video: /previews/components/core/avatar.mp4
+  image: /previews/components/core/tooltip.jpeg
+  video: /previews/components/core/tooltip.mp4
 ---
 
 <ComponentPreview
   name="demos/components/core/react/overlay/tooltip/default"
-  preview={`<Tooltip
-    content={<Content />} >
+  preview={`<Tooltip content="This is a tooltip">
     <Button>Hover</Button>
 </Tooltip>`}
 />
@@ -17,14 +16,80 @@ thumbnail:
 ## Installation
 
 <Steps>
-<Step>Install the following dependencies:</Step>
-
-```bash
-npm install @radix-ui/react-tooltip
-```
   <Step>Copy and paste the following code into your project.</Step>
-  <ComponentSource name={["components/core/default/react/overlay/tooltip"]} extension={["tsx"]} />
+  <ComponentSource
+    name={["components/core/default/react/overlay/tooltip"]}
+    extension={["tsx"]}
+  />
   <Step>Update the import paths to match your project setup.</Step>
 </Steps>
 
-in progress...
+## Options
+
+### Variant
+
+Use the `variant` prop to customize the tooltip style.
+
+<ComponentPreview
+  name="demos/components/core/react/overlay/tooltip/variant"
+  preview={`<Tooltip content="This is a default tooltip" variant="default">
+    <Button>Hover</Button>
+</Tooltip>`}
+/>
+
+### Placement
+
+Use the `placement` prop to change the tooltip's position.
+
+<ComponentPreview
+  name="demos/components/core/react/overlay/tooltip/placement"
+  preview={`<Tooltip content="Tooltip on the right" placement="right">
+    <Button>Hover me</Button>
+</Tooltip>`}
+/>
+
+### Offset
+
+Use the `offset` prop to adjust the distance between the tooltip and the trigger.
+
+<ComponentPreview
+  name="demos/components/core/react/overlay/tooltip/offset"
+  preview={`<Tooltip content="This tooltip is 20px away" offset={20}>
+    <Button>Hover me</Button>
+</Tooltip>`}
+/>
+
+### Arrow
+
+Use the `arrow` prop to add an arrow to the tooltip.
+
+<ComponentPreview
+  name="demos/components/core/react/overlay/tooltip/arrow"
+  preview={`<Tooltip content="This tooltip has an arrow" arrow>
+    <Button>Hover me</Button>
+</Tooltip>`}
+/>
+
+### Delay
+
+Use the `delay` prop to add a delay before the tooltip appears.
+
+<ComponentPreview
+  name="demos/components/core/react/overlay/tooltip/delay"
+  preview={`<Tooltip content="This tooltip appears after a delay" delay={300}>
+    <Button>Hover me</Button>
+</Tooltip>`}
+/>
+
+### Composition
+
+<ComponentPreview name="demos/components/core/react/overlay/tooltip/composition" 
+preview={`<Tooltip>
+    <TooltipTrigger asChild>
+      <Button>Hover</Button>
+    </TooltipTrigger>
+    <TooltipContent>
+        <p>Add to library</p>
+        <TooltipArrow />
+    </TooltipContent>
+</Tooltip>`} />

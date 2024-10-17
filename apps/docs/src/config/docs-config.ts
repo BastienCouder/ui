@@ -48,40 +48,46 @@ export const docsConfig: DocsConfig = {
               "href": "/components/react/alert"
             },
             {
-              "title": "Aspect ratio",
-              "href": "/components/react/aspect-ratio"
-            },
-            {
-              "title": "Avatar",
-              "href": "/components/react/avatar"
-            },
-            {
-              "title": "Badge",
-              "href": "/components/react/badge"
-            },
-            {
-              "title": "Breadcrumbs",
-              "href": "/components/react/breadcrumbs"
-            },
-            {
-              "title": "Button",
-              "href": "/components/react/button"
-            },
-            {
-              "title": "Card",
-              "href": "/components/react/card"
-            },
-            {
-              "title": "Checkbox",
-              "href": "/components/react/checkbox"
-            },
-            {
-              "title": "Collapsible",
-              "href": "/components/react/collapsible"
-            },
-            {
-              "title": "Command",
-              "href": "/components/react/command"
+              "title": "Data-display",
+              "href": "/components/react/data-display",
+              "items": [
+                {
+                  "title": "Alert",
+                  "href": "/components/react/data-display/alert"
+                },
+                {
+                  "title": "Avatar",
+                  "href": "/components/react/data-display/avatar"
+                },
+                {
+                  "title": "Badge",
+                  "href": "/components/react/data-display/badge"
+                },
+                {
+                  "title": "Card",
+                  "href": "/components/react/data-display/card"
+                },
+                {
+                  "title": "Collapsible",
+                  "href": "/components/react/data-display/collapsible"
+                },
+                {
+                  "title": "Divider",
+                  "href": "/components/react/data-display/divider"
+                },
+                {
+                  "title": "Separator",
+                  "href": "/components/react/data-display/separator"
+                },
+                {
+                  "title": "Table",
+                  "href": "/components/react/data-display/table"
+                },
+                {
+                  "title": "Timeline",
+                  "href": "/components/react/data-display/timeline"
+                }
+              ]
             },
             {
               "title": "Dialog",
@@ -140,52 +146,60 @@ export const docsConfig: DocsConfig = {
               "href": "/components/react/sheet"
             },
             {
-              "title": "Skeleton",
-              "href": "/components/react/skeleton"
+              "title": "Navigation",
+              "href": "/components/react/navigation",
+              "items": [
+                {
+                  "title": "Breadcrumbs",
+                  "href": "/components/react/navigation/breadcrumbs"
+                },
+                {
+                  "title": "Pagination",
+                  "href": "/components/react/navigation/pagination"
+                },
+                {
+                  "title": "Stepper",
+                  "href": "/components/react/navigation/stepper"
+                },
+                {
+                  "title": "Tabs",
+                  "href": "/components/react/navigation/tabs"
+                }
+              ]
             },
             {
-              "title": "Slider",
-              "href": "/components/react/slider"
-            },
-            {
-              "title": "Star rating",
-              "href": "/components/react/star-rating"
-            },
-            {
-              "title": "Stepper",
-              "href": "/components/react/stepper"
-            },
-            {
-              "title": "Switch",
-              "href": "/components/react/switch"
-            },
-            {
-              "title": "Table",
-              "href": "/components/react/table"
-            },
-            {
-              "title": "Tabs",
-              "href": "/components/react/tabs"
-            },
-            {
-              "title": "Text field",
-              "href": "/components/react/text-field"
-            },
-            {
-              "title": "Textarea",
-              "href": "/components/react/textarea"
-            },
-            {
-              "title": "Timeline",
-              "href": "/components/react/timeline"
-            },
-            {
-              "title": "Toggle",
-              "href": "/components/react/toggle"
-            },
-            {
-              "title": "Tooltip",
-              "href": "/components/react/tooltip"
+              "title": "Overlay",
+              "href": "/components/react/overlay",
+              "items": [
+                {
+                  "title": "Alert dialog",
+                  "href": "/components/react/overlay/alert-dialog"
+                },
+                {
+                  "title": "Command",
+                  "href": "/components/react/overlay/command"
+                },
+                {
+                  "title": "Dialog",
+                  "href": "/components/react/overlay/dialog"
+                },
+                {
+                  "title": "Drawer",
+                  "href": "/components/react/overlay/drawer"
+                },
+                {
+                  "title": "Popover",
+                  "href": "/components/react/overlay/popover"
+                },
+                {
+                  "title": "Sheet",
+                  "href": "/components/react/overlay/sheet"
+                },
+                {
+                  "title": "Tooltip",
+                  "href": "/components/react/overlay/tooltip"
+                }
+              ]
             }
           ]
         },

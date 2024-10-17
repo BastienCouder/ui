@@ -124,23 +124,23 @@ interface TimelineContentProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof timelineContentVariants> {
   status?: "done" | "default";
-    }
+}
 
-    const TimelineContent = React.forwardRef<HTMLDivElement, TimelineContentProps>(
-      ({ className, status, side, ...props }, ref) => {
-        const textClass = status === "done" ? "text-fg" : "text-muted-fg";
-    
-        return (
-          <div
-            className={cn(timelineContentVariants({ side }), textClass, className)}
-            ref={ref}
-            {...props}
-          />
-        );
-      },
+const TimelineContent = React.forwardRef<HTMLDivElement, TimelineContentProps>(
+  ({ className, status, side, ...props }, ref) => {
+    const textClass = status === "done" ? "text-fg" : "text-muted-fg";
+
+    return (
+      <div
+        className={cn(timelineContentVariants({ side }), textClass, className)}
+        ref={ref}
+        {...props}
+      />
     );
-    TimelineContent.displayName = "TimelineContent";
-    
+  },
+);
+TimelineContent.displayName = "TimelineContent";
+
 const timelineHeadingVariants = tv({
   base: "row-start-1 row-end-1 line-clamp-1 max-w-full truncate",
   variants: {
@@ -149,13 +149,14 @@ const timelineHeadingVariants = tv({
       left: "col-start-1 col-end-2 ml-auto text-right",
     },
     variant: {
-      primary: "text-base font-medium text-primary",
+      neutral: "text-sm font-medium text-fg",
+      primary: "text-sm font-medium text-primary",
       secondary: "text-sm font-light text-muted-fg",
     },
   },
   defaultVariants: {
     side: "right",
-    variant: "primary",
+    variant: "neutral",
   },
 });
 
@@ -170,10 +171,7 @@ const TimelineHeading = React.forwardRef<
   <p
     role="heading"
     aria-level={variant === "primary" ? 2 : 3}
-    className={cn(
-      timelineHeadingVariants({ side, variant }), 
-      className
-    )}
+    className={cn(timelineHeadingVariants({ side, variant }), className)}
     ref={ref}
     {...props}
   />

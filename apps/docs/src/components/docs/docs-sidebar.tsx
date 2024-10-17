@@ -8,7 +8,7 @@ import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/lib/components/core/default/collapsible";
+} from "@/lib/components/core/default/react/data-display/collapsible";
 import { cn } from "@/lib/utils";
 import type { Category as TCategory, DocsNav } from "@/types/docs-nav";
 

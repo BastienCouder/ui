@@ -1,0 +1,33 @@
+---
+title: Marquee
+description: Scrolls content.
+thumbnail:
+  image: /previews/components/core/separator.jpeg
+---
+
+<ComponentPreview
+  name="demos/components/core/react/data-display/marquee/default"
+  extension={"tsx"}
+  preview={`<div className="bg-bg relative flex size-full flex-col items-center justify-center overflow-hidden rounded-lg border py-20 md:shadow-xl">
+    <Marquee pauseOnHover className="[--duration:20s]">
+        {firstRow.map(review => (
+            <ReviewCard key={review.username} {...review} />
+        ))}
+    </Marquee>
+    <Marquee reverse pauseOnHover className="[--duration:20s]">
+        {secondRow.map(review => (
+            <ReviewCard key={review.username} {...review} />
+            ))}
+    </Marquee>
+</div>`}
+/>
+
+## Installation
+
+Copy and paste the following code into your project.
+<br/>
+  <ComponentSource
+    name={["components/core/default/react/data-display/marquee"]}
+    extension={["tsx"]}
+  />
+

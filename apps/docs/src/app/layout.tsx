@@ -13,6 +13,7 @@ import {
 import "@/styles/globals.css";
 import { siteConfig } from "@/config";
 import { Providers } from "./providers";
+import { Toaster } from "@/lib/components/core/default/react/overlay/toaster";
 
 const config = siteConfig.global;
 
@@ -74,7 +75,7 @@ export default function RootLayout({
         <Analytics />
         <Providers>
           <Header />
-
+          <Toaster />
           <main>{children}</main>
           {/* <Footer /> */}
           {/* <LayoutColumnsGrid /> */}

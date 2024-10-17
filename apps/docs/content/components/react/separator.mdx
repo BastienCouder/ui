@@ -7,7 +7,7 @@ thumbnail:
 
 <ComponentPreview
   name="demos/components/core/react/data-display/separator/default"
-   extension={"tsx"}
+  extension={"tsx"}
   preview={`<div className="space-y-2 rounded-md border p-4">
   <div>
     <h3 className="font-bold">UI</h3>
@@ -30,7 +30,10 @@ thumbnail:
 
 <Steps>
   <Step>Copy and paste the following code into your project.</Step>
-  <ComponentSource  name={["components/core/default/react/data-display/separator"]} extension={["tsx"]} />
+  <ComponentSource
+    name={["components/core/default/react/data-display/separator"]}
+    extension={["tsx"]}
+  />
   <Step>Update the import paths to match your project setup.</Step>
 </Steps>
 
@@ -55,12 +58,3 @@ Use the `orientation` prop to change the direction of the separator.
   </div>
 </div>`}
 />
-
-### API Reference
-
-| Prop          | Type                         | Default        | Description                        |
-| ------------- | ---------------------------- | -------------- | ---------------------------------- |
-| `elementType` | `string`                     | -              | The HTML element type to render.   |
-| `orientation` | `'horizontal' \| 'vertical'` | `'horizontal'` | The orientation of the separator.  |
-| `className`   | `string`                     | -              | The CSS className for the element. |
-| `style`       | `CSSProperties`              | -              | The inline style for the element.  |

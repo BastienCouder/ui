@@ -7,7 +7,7 @@ thumbnail:
 
 <ComponentPreview
   name="demos/components/core/react/draggable/resizable/default"
-   extension={"tsx"}
+  extension={"tsx"}
   preview={`<ResizablePanelGroup direction="horizontal" className="max-w-md rounded-lg border">
   <ResizablePanel defaultSize={50}>
     <div className="flex h-[200px] items-center justify-center p-6">
@@ -37,7 +37,10 @@ thumbnail:
 
 <Steps>
   <Step>Copy and paste the following code into your project.</Step>
-  <ComponentSource  name={["components/core/default/react/draggable/resizable"]} extension={["tsx"]} />
+  <ComponentSource
+    name={["components/core/default/react/draggable/resizable"]}
+    extension={["tsx"]}
+  />
   <Step>Update the import paths to match your project setup.</Step>
 </Steps>
 
@@ -84,12 +87,3 @@ Use the `withHandle` prop to change the direction of the resizable panel group.
   </ResizablePanel>
 </ResizablePanelGroup>`}
 />
-
-### API Reference
-
-| Prop          | Type                         | Default        | Description                        |
-| ------------- | ---------------------------- | -------------- | ---------------------------------- |
-| `elementType` | `string`                     | -              | The HTML element type to render.   |
-| `orientation` | `'horizontal' \| 'vertical'` | `'horizontal'` | The orientation of the separator.  |
-| `className`   | `string`                     | -              | The CSS className for the element. |
-| `style`       | `CSSProperties`              | -              | The inline style for the element.  |

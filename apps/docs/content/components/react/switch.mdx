@@ -18,16 +18,77 @@ links:
 
 ## Installation
 
-<Steps>
-<Step>Install the following dependencies:</Step>
+Install the following dependencies:
 
 ```bash
 npm install @radix-ui/react-switch
 ```
-  <Step>Copy and paste the following code into your project.</Step>
-  <ComponentSource  name={["components/core/default/react/input/switch"]} extension={["tsx"]} />
-  <Step>Update the import paths to match your project setup.</Step>
+Copy and paste the following code into your project.
+<br/>
+<ComponentSource  name={["components/core/default/react/input/switch"]} extension={["tsx"]} />
 
-</Steps>
+## Options
 
-in progress...
+### Variant
+
+Use the `variant` prop to customize the switch style.
+
+<ComponentPreview name="demos/components/core/react/input/switch/variant" 
+preview={`<div className="flex items-center space-x-2"> 
+  <Switch variant="neutral" id="neutral-switch" /> 
+  <Label htmlFor="neutral-switch">Neutral</Label>
+</div> 
+<div className="flex items-center space-x-2"> 
+  <Switch variant="primary" id="primary-switch" /> 
+  <Label htmlFor="primary-switch">Primary</Label> 
+</div> 
+<div className="flex items-center space-x-2"> 
+  <Switch variant="secondary" id="secondary-switch" /> 
+  <Label htmlFor="secondary-switch">Secondary</Label>
+</div>`} />
+
+### Size
+
+Use the `size` prop to adjust the size of the switch.
+
+<ComponentPreview name="demos/components/core/react/input/switch/size" 
+preview={`<div className="flex items-center space-x-2"> 
+  <Switch size="sm" id="small-switch" /> 
+  <Label htmlFor="small-switch">Small</Label>
+</div> 
+<div className="flex items-center space-x-2"> 
+  <Switch size="md" id="medium-switch" /> 
+  <Label htmlFor="medium-switch">Medium</Label> 
+</div> 
+<div className="flex items-center space-x-2"> 
+  <Switch size="lg" id="large-switch" /> 
+  <Label htmlFor="large-switch">Large</Label> 
+</div>`} />
+
+### Shape
+
+Use the `shape` prop to customize the shape of the switch.
+
+<ComponentPreview name="demos/components/core/react/input/switch/shape" 
+preview={`<div className="flex items-center space-x-2"> 
+  <Switch shape="rectangle" id="rectangle-switch" /> 
+  <Label htmlFor="rectangle-switch">Rectangle</Label>
+</div>
+<div className="flex items-center space-x-2">
+  <Switch shape="circle" id="circle-switch" />
+  <Label htmlFor="circle-switch">Circle</Label>
+</div> 
+<div className="flex items-center space-x-2"> 
+  <Switch shape="square" id="square-switch" /> 
+  <Label htmlFor="square-switch">Square</Label> 
+</div>`} />
+
+### Disabled
+
+Use the disabled prop to disable the switch.
+
+<ComponentPreview name="demos/components/core/react/input/switch/disabled" 
+preview={`<div className="flex items-center space-x-2"> 
+  <Switch disabled id="disabled-switch" /> 
+  <Label htmlFor="disabled-switch">Disabled</Label>
+</div>`} />

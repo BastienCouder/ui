@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo --port 3000",
+    "dev": "next dev --turbo --port 7000",
     "build": "pnpm run build:docs-config && pnpm run build:previews && next build",
     "build:previews": "tsx ./scripts/build-previews.ts",
     "build:icons": "tsx ./scripts/build-icon.ts",
@@ -64,7 +64,7 @@
     "input-otp": "^1.2.4",
     "lucide-react": "^0.311.0",
     "mdast-util-toc": "^7.0.0",
-    "next": "14.2.9",
+    "next": "14.1",
     "next-intl": "^3.17.2",
     "next-mdx-remote": "^4.4.1",
     "next-themes": "^0.2.1",

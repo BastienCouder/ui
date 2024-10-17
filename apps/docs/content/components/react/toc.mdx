@@ -1,0 +1,82 @@
+---
+title: Toc
+description: A list for the content of a document.
+thumbnail:
+  image: /previews/components/core/breadcrumbs.jpeg
+  video: /previews/components/core/breadcrumbs.mp4
+---
+
+<ComponentPreview
+  name="demos/components/core/react/navigation/toc/default"
+  preview={`<TableOfContents>
+    <TableOfContentsTitle>Table of Contents</TableOfContentsTitle>
+    <TableOfContent href="#first-section">
+        First Section
+    </TableOfContent>
+    <TableOfContent href="#second-section">
+        Second Section
+    </TableOfContent>
+    <TableOfContent href="#third-section">
+        Third Section
+    </TableOfContent>
+</TableOfContents>`}
+/>
+
+## Installation
+
+<Steps>
+  <Step>Copy and paste the following code into your project.</Step>
+  <ComponentSource
+    name={["components/core/default/react/navigation/toc"]}
+    extension={["tsx"]}
+  />
+  <Step>Update the import paths to match your project setup.</Step>
+</Steps>
+
+
+## Options
+
+### Nested
+
+Use the `nested` prop to nest the table of contents.
+
+<ComponentPreview
+  name="demos/components/core/react/navigation/toc/nested"
+  preview={`<TableOfContents>
+    <TableOfContentsTitle>Table of Contents</TableOfContentsTitle>
+    <TableOfContent href="#first-section-nested">
+        First Nested Section
+    </TableOfContent>
+    <TableOfContentsList indent>
+        <TableOfContent href="#first-nested-section-nested">
+            First Nested Section
+        </TableOfContent>
+        <TableOfContent href="#second-nested-section-nested" indent>
+            Second Nested Section
+        </TableOfContent>
+    </TableOfContentsList>
+    <TableOfContent href="#third-section-nested">
+        Third Section
+    </TableOfContent>
+</TableOfContents>`}
+/>
+
+### Active Item
+
+Use the `IsActive` prop to highlight the active item.
+
+<ComponentPreview
+  name="demos/components/core/react/navigation/toc/active"
+  preview={`<TableOfContents>
+    <TableOfContentsTitle>Active Item Table of Contents</TableOfContentsTitle>
+    <TableOfContent href="#first-section">
+        First Section
+    </TableOfContent>
+    <TableOfContent isActive href="#second-section" indent>
+        Second Section
+    </TableOfContent>
+    <TableOfContent href="#third-section">
+        Third Section
+    </TableOfContent>
+</TableOfContents>`}
+/>

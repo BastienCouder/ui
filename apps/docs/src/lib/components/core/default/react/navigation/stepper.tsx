@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Check , Loader2, X,  } from "@/lib/icons";
+import { Check, Loader2, X } from "@/lib/icons";
 import { cn } from "@/lib/utils";
 import { Button } from "../buttons/button";
 import { Collapsible, CollapsibleContent } from "../data-display/collapsible";
@@ -776,9 +776,9 @@ function StepButtonContainer({
         "size-[var(--step-icon-size)]",
         "flex items-center justify-center rounded-full border-2",
         "data-[clickable=true]:pointer-events-auto",
-        "data-[active=true]:bg-primary data-[active=true]:border-primary data-[active=true]:text-primary-foreground",
+        "data-[active=true]:bg-primary data-[active=true]:border-primary data-[active=true]:text-primary-fg",
         "data-[current=true]:border-primary data-[current=true]:bg-secondary",
-        "data-[invalid=true]:bg-danger data-[invalid=true]:border-danger data-[invalid=true]:text-danger-foreground",
+        "data-[invalid=true]:bg-danger data-[invalid=true]:border-danger data-[invalid=true]:text-danger-fg",
         styles?.["step-button-container"],
       )}
       aria-current={isCurrentStep ? "step" : undefined}
@@ -840,8 +840,14 @@ const StepIcon = React.forwardRef<HTMLDivElement, StepIconProps>(
     } = props;
 
     const Icon = React.useMemo(() => CustomIcon || null, [CustomIcon]);
-    const ErrorIcon = React.useMemo(() => CustomErrorIcon || null, [CustomErrorIcon]);
-    const CheckIcon = React.useMemo(() => CustomCheckIcon || Check, [CustomCheckIcon]);
+    const ErrorIcon = React.useMemo(
+      () => CustomErrorIcon || null,
+      [CustomErrorIcon],
+    );
+    const CheckIcon = React.useMemo(
+      () => CustomCheckIcon || Check,
+      [CustomCheckIcon],
+    );
 
     return React.useMemo(() => {
       if (isCompletedStep) {

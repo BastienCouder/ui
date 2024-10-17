@@ -60,7 +60,8 @@ export default async function Page({ params }: PageProps) {
             "xl:grid xl:grid-cols-[1fr_220px]": !!doc.toc.items,
           })}
         >
-          <div className="mx-auto w-full min-w-0 pt-6 space-y-2">
+          <div className="mx-auto w-full min-w-0 pt-4 md:pt-6 space-y-2">
+            <div className="hidden md:block">
             {metadata.breadcrumbs.length > 1 && (
               <Breadcrumbs>
                 {metadata.breadcrumbs.map((item, index) => (
@@ -76,7 +77,7 @@ export default async function Page({ params }: PageProps) {
                   </Breadcrumb>
                 ))}
               </Breadcrumbs>
-            )}
+            )}</div>
             <div className="flex gap-4">
               <h1 className={`text-4xl font-bold text-primary`}>
                 {metadata.title}

@@ -6,7 +6,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu } from "@/lib/icons";
 import { Button } from "@/lib/components/core/default/react/buttons/button";
-import { Dialog, DialogRoot } from "@/lib/components/core/default/dialog";
 import { useScrolled } from "@/lib/hooks/use-scrolled";
 import { cn } from "@/lib/utils";
 import { focusRing } from "@/lib/utils/styles";
@@ -20,7 +19,7 @@ export const Header = () => {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 flex h-14 rounded-md max-md:border-b max-md:bg-bg md:h-16",
+        "sticky top-0 z-50 flex h-14 rounded-md  max-md:bg-bg md:h-16",
         scrolled && "pointer-events-none",
       )}
     >
@@ -122,25 +121,6 @@ export const Header = () => {
           {/* <SearchDocs className="flex-1" size="sm">
             <span className="mr-4 flex-1 text-left">Search...</span>
           </SearchDocs>*/}
-          <DialogRoot>
-            <Button
-              variant="quiet"
-              size="sm"
-              shape="square"
-              aria-label="Open menu"
-            >
-              <Menu />
-            </Button>
-            <Dialog type="drawer">
-              {({ close }) => (
-                <Nav
-                  direction="col"
-                  items={[{ label: "Home", href: "/" }, ...config.nav.links]}
-                  onNavItemClick={close}
-                />
-              )}
-            </Dialog>
-          </DialogRoot>
         </div>
       </div>
     </header>

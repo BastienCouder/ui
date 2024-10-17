@@ -8,23 +8,8 @@ thumbnail:
 
 <ComponentPreview
   name="demos/components/core/react/overlay/alert-dialog/default"
-  preview={`<AlertDialog>
-    <AlertDialogTrigger asChild>
-        <Button variant="outline">Show Dialog</Button>
-    </AlertDialogTrigger>
-    <AlertDialogContent>
-        <AlertDialogHeader>
-            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-            <AlertDialogDescription>
-                This action cannot be undone. This will permanently delete your
-                account and remove your data from our servers.
-            </AlertDialogDescription>
-        </AlertDialogHeader>
-        <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction>Continue</AlertDialogAction>
-        </AlertDialogFooter>
-    </AlertDialogContent>
+  preview={`<AlertDialog content={<Content/>} cancelText='Cancel' okText='Continue'>
+  <Button variant="outline">Show Dialog</Button>
 </AlertDialog>`}
 />
 
@@ -41,4 +26,35 @@ npm install @radix-ui/react-alert-dialog
   <Step>Update the import paths to match your project setup.</Step>
 </Steps>
 
-in progress...
+## Options
+
+### Cancel and Confirm Text
+
+Use the `cancelText` and okText props to customize the text of the cancel and confirm buttons.
+
+<ComponentPreview name="demos/components/core/react/overlay/alert-dialog/text" 
+preview={`<AlertDialog content={<Content />} cancelText="No" okText="Yes"> 
+  <Button variant="outline">Show Dialog</Button> 
+</AlertDialog>`} />
+
+### Full Example
+
+Here’s a full example combining all the components: AlertDialogTrigger, AlertDialogContent, AlertDialogHeader, AlertDialogFooter, AlertDialogCancel, and AlertDialogAction.
+
+<ComponentPreview name="demos/components/core/react/overlay/alert-dialog/composition" 
+preview={`<AlertDialog>
+  <AlertDialogTrigger>Open</AlertDialogTrigger>
+  <AlertDialogContent>
+    <AlertDialogHeader>
+      <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+      <AlertDialogDescription>
+        This action cannot be undone. This will permanently delete your account
+        and remove your data from our servers.
+      </AlertDialogDescription>
+    </AlertDialogHeader>
+    <AlertDialogFooter>
+      <AlertDialogCancel>Cancel</AlertDialogCancel>
+      <AlertDialogAction>Continue</AlertDialogAction>
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>`} />

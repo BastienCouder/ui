@@ -6,7 +6,50 @@ import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
 import { cn } from "@/lib/utils";
 import { buttonStyles } from "../buttons/button";
 
-const AlertDialog = AlertDialogPrimitive.Root;
+interface AlertDialogProps {
+  children: React.ReactNode | string;
+  content?: React.ReactNode;
+  cancelText?: string;
+  okText?: string;
+  className?: string;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
+}
+
+const AlertDialog: React.FC<AlertDialogProps> = ({
+  children,
+  content,
+  className,
+  cancelText = "Cancel",
+  okText = "Continue",
+  ...props
+}) => {
+  const wrappedChildren =
+    typeof children === "string" || typeof children === "number" ? (
+      <>{children}</>
+    ) : (
+      children
+    );
+
+  return (
+    <AlertDialogPrimitive.Root {...props}>
+      {content ? (
+        <>
+          <AlertDialogTrigger asChild>{wrappedChildren}</AlertDialogTrigger>
+          <AlertDialogContent className={className}>
+            {content}
+            <AlertDialogFooter>
+              <AlertDialogCancel>{cancelText}</AlertDialogCancel>
+              <AlertDialogAction>{okText}</AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </>
+      ) : (
+        wrappedChildren
+      )}
+    </AlertDialogPrimitive.Root>
+  );
+};
 
 const AlertDialogTrigger = AlertDialogPrimitive.Trigger;
 
@@ -45,10 +88,10 @@ const AlertDialogContent = React.forwardRef<
 ));
 AlertDialogContent.displayName = AlertDialogPrimitive.Content.displayName;
 
-const AlertDialogHeader = ({
+const AlertDialogHeader: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   className,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
+}) => (
   <div
     className={cn(
       "flex flex-col space-y-2 text-center sm:text-left",
@@ -62,7 +105,7 @@ AlertDialogHeader.displayName = "AlertDialogHeader";
 const AlertDialogFooter = ({
   className,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
+}: React.HTMLAttributes<HTMLDivElement>): JSX.Element => (
   <div
     className={cn(
       "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",

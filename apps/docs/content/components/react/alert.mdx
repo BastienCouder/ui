@@ -25,4 +25,19 @@ thumbnail:
   <Step>Update the import paths to match your project setup.</Step>
 </Steps>
 
-in progress...
+## Options
+
+### Destructive
+
+An alert with a destructive variant. The title says 'Delete this item?' and the description is 'This action cannot be undone.'.
+
+<ComponentPreview
+  name="demos/components/core/react/data-display/alert/danger"
+  preview={`<Alert variant="danger">
+    <AlertCircle className="size-4" />
+    <AlertTitle>Error</AlertTitle>
+    <AlertDescription>
+        Your session has expired. Please log in again.
+    </AlertDescription>
+</Alert>`}
+/>

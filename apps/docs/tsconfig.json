@@ -33,6 +33,6 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "content/components/react/data-display/timeline.mdx"  ],
+, "content/components/react/timeline.mdx"  ],
 "exclude": ["node_modules", "./src/lib/demos/components/core/angular","./src/lib/demos/components/core/vue","./src/lib/components/core/default/angular","./src/lib/components/core/default/vue"]
 }

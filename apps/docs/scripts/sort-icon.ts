@@ -1,9 +1,9 @@
-import * as fs from 'fs';
-import * as path from 'path';
+import * as fs from "fs";
+import * as path from "path";
 
 // Lire le fichier existant
-const filePath = path.resolve(__dirname, 'icons.ts');
-const fileContent = fs.readFileSync(filePath, 'utf-8');
+const filePath = path.resolve(__dirname, "icons.ts");
+const fileContent = fs.readFileSync(filePath, "utf-8");
 
 // Fonction pour extraire les importations
 const extractImports = (content: string): string[] => {
@@ -12,7 +12,8 @@ const extractImports = (content: string): string[] => {
   let match;
 
   while ((match = importRegex.exec(content)) !== null) {
-    const icons = match[1].split(',').map(icon => icon.trim());
+    const icons =
+      match && match[1] ? match[1].split(",").map((icon) => icon.trim()) : [];
     imports.push(...icons);
   }
 
@@ -26,7 +27,8 @@ const extractExports = (content: string): string[] => {
   let match;
 
   while ((match = exportRegex.exec(content)) !== null) {
-    const icons = match[1].split(',').map(icon => icon.trim());
+    const icons =
+      match && match[1] ? match[1].split(",").map((icon) => icon.trim()) : [];
     exports.push(...icons);
   }
 
@@ -40,16 +42,16 @@ const exports = extractExports(fileContent);
 // Générer le nouveau contenu trié
 const sortedContent = `
 import {
-  ${imports.join(',\n  ')}
+  ${imports.join(",\n  ")}
 } from "lucide-react";
 import { Loader } from "react-feather";
 
 export {
-  ${exports.join(',\n  ')}
+  ${exports.join(",\n  ")}
 };
 `;
 
 // Écrire le nouveau contenu dans le fichier
 fs.writeFileSync(filePath, sortedContent.trim());
 
-console.log('Le fichier icons.ts a été trié par ordre alphabétique.');
+console.log("Le fichier icons.ts a été trié par ordre alphabétique.");

@@ -39,7 +39,10 @@ thumbnail:
 
 <Steps>
   <Step>Copy and paste the following code into your project.</Step>
-  <ComponentSource name={["components/core/default/react/layout/scroll-area"]} extension={["tsx"]} />
+  <ComponentSource
+    name={["components/core/default/react/layout/scroll-area"]}
+    extension={["tsx"]}
+  />
   <Step>Update the import paths to match your project setup.</Step>
 </Steps>
 
@@ -174,14 +177,3 @@ Control the scrollable axes using the `scrollbars` prop.
   </ScrollArea>
 </div>`}
 />
-
-## API Reference
-
-`ScrollArea` accepts all HTML div element props and the following:
-
-| Prop              | Type                                        | Default      | Description                                                                                                                                                                                |
-| ----------------- | ------------------------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `type`            | `'auto' \| 'always' \| 'scroll' \| 'hover'` | `'hover'`    | Describes the nature of scrollbar visibility.                                                                                                                                              |
-| `scrollHideDelay` | `number`                                    | `600`        | If type is set to either 'scroll' or 'hover', this prop determines the length of time, in milliseconds, before the scrollbars are hidden after the user stops interacting with scrollbars. |
-| `dir`             | `'ltr' \| 'rtl'`                            | `600`        | The reading direction of the scroll area                                                                                                                                                   |
-| `scrollbars`      | `'vertical' \| 'horizontal' \| 'both'`      | `'vertical'` | Controls the scrollable axes.                                                                                                                                                              |

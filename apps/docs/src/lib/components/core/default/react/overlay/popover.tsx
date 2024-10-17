@@ -39,18 +39,24 @@ const Popover: React.FC<PopoverProps> = ({
 
   return (
     <PopoverPrimitive.Root {...props}>
-      <PopoverTrigger asChild>{wrappedChildren}</PopoverTrigger>
-      <PopoverContent
-        placement={placement}
-        offset={offset}
-        shouldFlip={shouldFlip}
-        arrow={arrow}
-        delay={delay}
-        flexContent={flexContent}
-        className={className}
-      >
-        {content}
-      </PopoverContent>
+      {content ? (
+        <>
+          <PopoverTrigger asChild>{wrappedChildren}</PopoverTrigger>
+          <PopoverContent
+            placement={placement}
+            offset={offset}
+            shouldFlip={shouldFlip}
+            arrow={arrow}
+            delay={delay}
+            flexContent={flexContent}
+            className={className}
+          >
+            {content}
+          </PopoverContent>
+        </>
+      ) : (
+        wrappedChildren
+      )}
     </PopoverPrimitive.Root>
   );
 };
@@ -76,7 +82,7 @@ const PopoverContent = React.forwardRef<
       className,
       placement = "bottom",
       offset = 10,
-      shouldFlip = true,
+      shouldFlip = false,
       arrow = false,
       delay = 0,
       flexContent = "center",

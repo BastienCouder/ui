@@ -6,7 +6,7 @@ import { type VariantProps, tv } from "tailwind-variants";
 
 const scrollAreaStyles = tv({
   slots: {
-    root: "flex flex-col h-full w-full overflow-hidden relative",
+    root: "flex flex-col h-full w-full overflow-hidden",
     viewport: "h-full w-full flex flex-col [&>*]:!block [&>*]:w-fit [&>*]:grow",
     scrollbar:
       "flex touch-none select-none flex-col data-[orientation=horizontal]:flex-row data-[orientation=vertical]:flex-col rounded-full m-1",

@@ -31,9 +31,8 @@ import {
   TableCell,
   TableHead,
   TableRow,
-  TableBody,
-  TableHeader
 } from "@/lib/components/core/default/react/data-display/table";
+import { TableBody, TableHeader } from "@/lib/components/core/default/table";
 
 const data: Payment[] = [
   {

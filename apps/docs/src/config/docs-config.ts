@@ -167,6 +167,10 @@ export const docsConfig: DocsConfig = {
               "href": "/components/react/feedback",
               "items": [
                 {
+                  "title": "Combobox",
+                  "href": "/components/react/feedback/combobox"
+                },
+                {
                   "title": "Skeleton",
                   "href": "/components/react/feedback/skeleton"
                 },
@@ -333,6 +337,10 @@ export const docsConfig: DocsConfig = {
                 {
                   "title": "Drawer",
                   "href": "/components/react/overlay/drawer"
+                },
+                {
+                  "title": "Dropdown",
+                  "href": "/components/react/overlay/dropdown"
                 },
                 {
                   "title": "Popover",

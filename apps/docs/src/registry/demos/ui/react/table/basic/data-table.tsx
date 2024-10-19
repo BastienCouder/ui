@@ -5,14 +5,9 @@ import {
   TableCell,
   TableHead,
   TableRow,
-<<<<<<< HEAD:apps/docs/src/lib/demos/components/core/react/data-display/table/basic/data-table.tsx
-} from "@/lib/components/core/default/react/data-display/table";
-import { TableBody, TableHeader } from "@/lib/components/core/default/table";
-=======
   TableBody,
   TableHeader,
 } from "@/registry/ui/react/table";
->>>>>>> registry:apps/docs/src/registry/demos/ui/react/table/basic/data-table.tsx
 import {
   ColumnDef,
   flexRender,

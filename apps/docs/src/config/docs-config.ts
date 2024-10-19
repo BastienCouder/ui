@@ -74,10 +74,6 @@ export const docsConfig: DocsConfig = {
               "href": "/components/react/collapsible"
             },
             {
-              "title": "Combobox",
-              "href": "/components/react/combobox"
-            },
-            {
               "title": "Command",
               "href": "/components/react/command"
             },
@@ -92,10 +88,6 @@ export const docsConfig: DocsConfig = {
             {
               "title": "Drawer",
               "href": "/components/react/drawer"
-            },
-            {
-              "title": "Dropdown",
-              "href": "/components/react/dropdown"
             },
             {
               "title": "Form",

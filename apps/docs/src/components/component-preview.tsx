@@ -58,12 +58,12 @@ export const ComponentPreview = ({
       )}
     >
       <div className="relative">
-        <ScrollArea
+        <div
           className={cn("flex items-center justify-center", {
             "max-h-[800px]": aspect === "default",
           })}
         >
-          <div className="flex min-h-40 items-center justify-center px-4 pt-4 pb-2">
+          <div className="w-full flex min-h-40 items-center justify-center px-4 pt-4 pb-2">
             <div
               className={cn(
                 "flex w-full items-center justify-center",
@@ -73,7 +73,7 @@ export const ComponentPreview = ({
               {component}
             </div>
           </div>
-        </ScrollArea>
+        </div>
       </div>
       <CodeBlock
         files={code.map((file) => ({

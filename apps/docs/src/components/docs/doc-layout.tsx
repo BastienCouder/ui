@@ -3,7 +3,7 @@ import { docsConfig } from "@/config/docs-config";
 import { ScrollArea } from "@/registry/ui/react/scroll-area";
 import { Sheet } from "@/registry/ui/react/sheet";
 import { ChevronRight } from "lucide-react";
-import { CommandMenu } from "../command-menu";
+import { CommandMenu } from "../commande-menu";
 
 interface DocsLayoutProps {
   children: React.ReactNode;

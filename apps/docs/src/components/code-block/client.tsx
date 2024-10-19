@@ -91,7 +91,7 @@ const CodeBlockClient = ({
               (previewStr && !isExpanded
                 ? previewStr
                 : files.find(({ fileName }) => fileName === activeTab)
-                    ?.codeStr)!
+                  ?.codeStr)!
             }
           />
         </div>

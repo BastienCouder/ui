@@ -6,7 +6,7 @@ import { type VariantProps, tv } from "tailwind-variants";
 
 const scrollAreaStyles = tv({
   slots: {
-    root: "flex flex-col h-full w-full overflow-hidden",
+    root: "flex flex-col h-full w-full overflow-hidden relative",
     viewport: "h-full w-full flex flex-col [&>*]:!block [&>*]:w-fit [&>*]:grow",
     scrollbar:
       "flex touch-none select-none flex-col data-[orientation=horizontal]:flex-row data-[orientation=vertical]:flex-col rounded-full m-1",
@@ -51,8 +51,8 @@ const scrollAreaStyles = tv({
 
 interface ScrollAreaProps
   extends ScrollAreaRootProps,
-    Omit<ScrollAreaViewPortProps, "dir">,
-    VariantProps<typeof scrollAreaStyles> {
+  Omit<ScrollAreaViewPortProps, "dir">,
+  VariantProps<typeof scrollAreaStyles> {
   scrollbars?: "vertical" | "horizontal" | "both";
   ref?: React.ForwardedRef<HTMLDivElement>;
 }
@@ -119,7 +119,7 @@ const ScrollAreaViewPort = ({
 
 interface ScrollAreaScrollbarProps
   extends Omit<ScrollAreaPrimitive.ScrollAreaScrollbarProps, "variant">,
-    VariantProps<typeof scrollAreaStyles> {}
+  VariantProps<typeof scrollAreaStyles> { }
 const ScrollAreaScrollbar = ({
   className,
   size,

@@ -32,7 +32,7 @@
     "next.config.mjs",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts",
-    "content/components/react/data-display/timeline.mdx"  ],
+    ".next/types/**/*.ts"
+, "content/components/react/data-display/timeline.mdx"  ],
 "exclude": ["node_modules", "src/registry/demos/ui/angular","src/registry/demos/ui/vue","src/registry/ui/angular","src/registry/ui/vue"]
 }

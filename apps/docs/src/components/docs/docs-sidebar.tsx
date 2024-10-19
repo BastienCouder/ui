@@ -4,14 +4,6 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronRight } from "@/lib/icons";
-<<<<<<< HEAD
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/lib/components/core/default/collapsible";
-=======
->>>>>>> registry
 import { cn } from "@/lib/utils";
 import type { Category as TCategory, DocsNav } from "@/types/docs-nav";
 import {

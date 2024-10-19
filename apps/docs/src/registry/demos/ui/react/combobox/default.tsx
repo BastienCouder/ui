@@ -3,7 +3,7 @@
 import * as React from 'react'
 import { Check, ChevronsUpDown } from 'lucide-react'
 
-import { Button } from '@/lib/components/core/default/react/buttons/button'
+import { Button } from '@/registry/ui/react/button'
 import {
    Command,
    CommandEmpty,
@@ -11,12 +11,12 @@ import {
    CommandInput,
    CommandItem,
    CommandList,
-} from '@/lib/components/core/default/react/overlay/command'
+} from '@/registry/ui/react/command'
 import {
    Popover,
    PopoverContent,
    PopoverTrigger,
-} from '@/lib/components/core/default/react/overlay/popover'
+} from '@/registry/ui/react/popover'
 import { cn } from '@/lib/utils'
 
 const frameworks = [

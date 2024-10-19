@@ -15,7 +15,7 @@ import {
     Users,
  } from 'lucide-react'
  
- import { Button } from '@/lib/components/core/default/react/buttons/button'
+ import { Button } from '@/registry/ui/react/button'
  import {
     DropdownMenu,
     DropdownMenuContent,
@@ -29,7 +29,7 @@ import {
     DropdownMenuSubContent,
     DropdownMenuSubTrigger,
     DropdownMenuTrigger,
- } from '@/lib/components/core/default/react/overlay/dropdown'
+ } from '@/registry/ui/react/dropdown'
  
  export default function DropdownMenuDemo() {
     return (

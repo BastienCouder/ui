@@ -60,25 +60,6 @@ export default async function Page({ params }: PageProps) {
             "xl:grid xl:grid-cols-[1fr_220px]": !!doc.toc.items,
           })}
         >
-<<<<<<< HEAD
-          <div className="mx-auto w-full min-w-0 pt-6 space-y-2">
-            {metadata.breadcrumbs.length > 1 && (
-              <Breadcrumbs>
-                {metadata.breadcrumbs.map((item, index) => (
-                  <Breadcrumb
-                    key={item.href}
-                    href={
-                      index < metadata.breadcrumbs.length - 1
-                        ? item.href
-                        : undefined
-                    }
-                  >
-                    {item.label}
-                  </Breadcrumb>
-                ))}
-              </Breadcrumbs>
-            )}
-=======
           <div className="mx-auto w-full min-w-0 pt-4 md:pt-6 space-y-2">
             <div className="hidden md:block">
               {metadata.breadcrumbs.length > 1 && (
@@ -98,7 +79,6 @@ export default async function Page({ params }: PageProps) {
                 </Breadcrumbs>
               )}
             </div>
->>>>>>> registry
             <div className="flex gap-4">
               <h1 className={`text-4xl font-bold text-primary`}>
                 {metadata.title}

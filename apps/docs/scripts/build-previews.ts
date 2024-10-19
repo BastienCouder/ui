@@ -62,7 +62,7 @@ const adjustRelativePath = (relativePath: string) => {
 };
 allPreviews.forEach(({ relativePath }) => {
   const adjustedRelativePath = adjustRelativePath(relativePath); // Ajuster le chemin relativePath
-  const fullPath = path.join(process.cwd(), "src", "lib", relativePath);
+  const fullPath = path.join(process.cwd(), "src", "registry", relativePath);
   let code = [];
 
   // si c'est un répertoire, obtenir tous les fichiers
@@ -100,7 +100,7 @@ allPreviews.forEach(({ relativePath }) => {
 
   // Toujours s'assurer que le composant est chargé avec React.lazy
   index += `  "${relativePath}": {\n`;
-  index += `    component: React.lazy(() => import("@/lib/${adjustedRelativePath}")),\n`;
+  index += `    component: React.lazy(() => import("@/registry/${adjustedRelativePath}")),\n`;
   index += `    code: ${JSON.stringify(code)}\n`;
   index += `  },\n`;
 });

@@ -1,0 +1,82 @@
+---
+title: Tabs
+description: Tabs are a set of interactive elements used to navigate between different sections of a page.
+thumbnail:
+  image: /previews/components/core/avatar.jpeg
+  video: /previews/components/core/avatar.mp4
+---
+
+<ComponentPreview
+  name="demos/ui/react/tabs/default"
+  preview={`<Tabs defaultValue="account" className="w-[400px]">
+         <TabList className="grid w-full grid-cols-2">
+            <Tab value="account">Account</Tab>
+            <Tab value="password">Password</Tab>
+         </TabList>
+         <TabContent value="account">
+            <Card>
+               <CardHeader>
+                  <CardTitle>Account</CardTitle>
+                  <CardDescription>
+                     Make changes to your account here. Click save when you're done.
+                  </CardDescription>
+               </CardHeader>
+               <CardContent className="space-y-2">
+                  <div className="space-y-1">
+                     <Label htmlFor="name">Name</Label>
+                     <TextField id="name" defaultValue="Pedro Duarte" />
+                  </div>
+                  <div className="space-y-1">
+                     <Label htmlFor="username">Username</Label>
+                     <TextField id="username" defaultValue="~peduarte" />
+                  </div>
+               </CardContent>
+               <CardFooter>
+                  <Button>Save changes</Button>
+               </CardFooter>
+            </Card>
+         </TabContent>
+         <TabContent value="password">
+            <Card>
+               <CardHeader>
+                  <CardTitle>Password</CardTitle>
+                  <CardDescription>
+                     Change your password here. After saving, you'll be logged out.
+                  </CardDescription>
+               </CardHeader>
+               <CardContent className="space-y-2">
+                  <div className="space-y-1">
+                     <Label htmlFor="current">Current password</Label>
+                     <TextField id="current" type="password" />
+                  </div>
+                  <div className="space-y-1">
+                     <Label htmlFor="new">New password</Label>
+                     <TextField id="new" type="password" />
+                  </div>
+               </CardContent>
+               <CardFooter>
+                  <Button>Save password</Button>
+               </CardFooter>
+            </Card>
+         </TabContent>
+      </Tabs>`}
+/>
+
+## Installation
+
+Install the following dependencies:
+
+```bash
+npm install @radix-ui/react-tabs
+```
+<<<<<<< HEAD:apps/docs/content/components/react/navigation/tabs.mdx
+Copy and paste the following code into your project.<br/>
+  <ComponentSource name={["components/core/default/react/navigation/tabs"]} extension={["tsx"]} />
+=======
+  <Step>Copy and paste the following code into your project.</Step>
+  <ComponentSource name={["ui/react/tabs"]} extension={["tsx"]} />
+  <Step>Update the import paths to match your project setup.</Step>
+</Steps>
+>>>>>>> registry:apps/docs/content/components/react/tabs.mdx
+
+in progress...

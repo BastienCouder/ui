@@ -4,14 +4,14 @@ import React from "react";
 import Link from "next/link";
 import { useInView } from "framer-motion";
 import { getAspectFromType } from "@/utils/docs";
-import { useDebounce } from "@/lib/hooks/use-debounce";
+import { useDebounce } from "@/hooks/use-debounce";
 import { cn } from "@/lib/utils";
 import { truncateOnWord } from "@/lib/utils/string";
 import type { DocMetadata } from "@/types/docs";
-import { Badge } from "@/lib/components/core/default/react/data-display/badge";
-import { AspectRatio } from "@/lib/components/core/default/react/layout/aspect-ratio";
-import { ScrollArea } from "@/lib/components/core/default/react/layout/scroll-area";
-import { Tooltip } from "@/lib/components/core/default/react/overlay/tooltip";
+import { Badge } from "@/registry/ui/react/badge";
+import { AspectRatio } from "@/registry/ui/react/aspect-ratio";
+import { ScrollArea } from "@/registry/ui/react/scroll-area";
+import { Tooltip } from "@/registry/ui/react/tooltip";
 
 export const DocCard = ({
   doc,

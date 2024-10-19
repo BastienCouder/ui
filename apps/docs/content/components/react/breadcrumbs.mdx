@@ -1,0 +1,112 @@
+---
+title: Breadcrumb
+description: Breadcrumb display a hierarchy of links to the current page or resource in an application.
+thumbnail:
+  image: /previews/components/core/breadcrumbs.jpeg
+  video: /previews/components/core/breadcrumbs.mp4
+---
+
+<ComponentPreview
+  name="demos/ui/react/breadcrumb/default"
+  preview={`<Breadcrumbs>
+  <Breadcrumb href="#">Home</Breadcrumb>
+  <Breadcrumb href="#">Components</Breadcrumb>
+  <Breadcrumb href="#">Breadcrumbs</Breadcrumb>
+</Breadcrumbs>`}
+/>
+
+## Installation
+
+Copy and paste the following code into your project.<br/>
+  <ComponentSource
+    name={["ui/react/breadcrumb"]}
+    extension={["tsx"]}
+  />
+
+## Options
+
+### Size
+
+Use the `size` prop to control the size of the `Breadcrumb`. The default variant is `sm`.
+
+<ComponentPreview
+  name="demos/ui/react/breadcrumb/sizes"
+  preview={`<Breadcrumbs size="sm">
+  <Breadcrumb href="#">Home</Breadcrumb>
+  <Breadcrumb href="#">Components</Breadcrumb>
+  <Breadcrumb>Breadcrumbs</Breadcrumb>
+</Breadcrumbs>
+<Breadcrumbs size="md">
+  <Breadcrumb href="#">Home</Breadcrumb>
+  <Breadcrumb href="#">Components</Breadcrumb>
+  <Breadcrumb>Breadcrumbs</Breadcrumb>
+</Breadcrumbs>
+<Breadcrumbs size="lg">
+  <Breadcrumb href="#">Home</Breadcrumb>
+  <Breadcrumb href="#">Components</Breadcrumb>
+  <Breadcrumb>Breadcrumbs</Breadcrumb>
+</Breadcrumbs>`}
+/>
+
+### Orientation
+
+Use the `orientation` prop to change the direction of the breadcrumbs.
+
+<ComponentPreview
+  name="demos/ui/react/breadcrumb/orientation"
+  preview={`<Breadcrumbs orientation="vertical">
+  <Breadcrumb href="#">Home</Breadcrumb>
+  <Breadcrumb href="#">Components</Breadcrumb>
+  <Breadcrumb>Breadcrumbs</Breadcrumb>
+</Breadcrumbs>
+<Breadcrumbs orientation="horizontal">
+  <Breadcrumb href="#">Home</Breadcrumb>
+  <Breadcrumb href="#">Components</Breadcrumb>
+  <Breadcrumb>Breadcrumbs</Breadcrumb>
+</Breadcrumbs>`}
+/>
+
+### Custom separator
+
+Use the `separatorIcon` prop to change the separator icon of the breadcrumbs.
+
+<ComponentPreview
+  name="demos/ui/react/breadcrumb/separator"
+  preview={`<Breadcrumbs separatorIcon={<X/>}>
+  <Breadcrumb href="#">Home</Breadcrumb>
+  <Breadcrumb href="#">Components</Breadcrumb>
+  <Breadcrumb>Breadcrumbs</Breadcrumb>
+</Breadcrumbs>`}
+/>
+
+### Disabled
+
+Use the `disabled` prop to disable the breadcrumbs.
+
+<ComponentPreview
+  name="demos/ui/react/breadcrumb/disabled"
+  preview={`<Breadcrumbs>
+  <Breadcrumb href="#">Home</Breadcrumb>
+  <Breadcrumb href="#">Components</Breadcrumb>
+  <Breadcrumb disabled>Breadcrumbs</Breadcrumb>
+</Breadcrumbs>`}
+/>
+
+## Composition
+
+If you need to customize things further, you can drop down to the composition level.
+
+<ComponentPreview
+  name="demos/ui/react/breadcrumb/composition"
+  preview={`<Breadcrumbs>
+  <BreadcrumbItem>
+    <BreadcrumbLink href="#">Home</BreadcrumbLink>
+  </BreadcrumbItem>
+  <BreadcrumbItem>
+    <BreadcrumbLink href="#">Components</BreadcrumbLink>
+  </BreadcrumbItem>
+  <BreadcrumbItem>
+    <BreadcrumbLink>Breadcrumbs</BreadcrumbLink>
+  </BreadcrumbItem>
+</Breadcrumbs>`}
+/>

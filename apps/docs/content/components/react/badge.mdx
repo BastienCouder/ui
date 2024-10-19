@@ -1,0 +1,72 @@
+---
+title: Badge
+description: Displays a badge or a component that looks like a badge.
+thumbnail:
+  image: /previews/components/core/badge.jpeg
+  video: /previews/components/core/badge.mp4
+---
+
+<ComponentPreview name="demos/ui/react/badge/default" />
+
+## Installation
+
+Copy and paste the following code into your project.<br/>
+  <ComponentSource
+    name={["ui/react/badge"]}
+    extension={["tsx"]}
+  />
+
+## Options
+
+### Variant
+
+Use the `variant` prop to control the visual style of the `Badge`. The default variant is `primary`.
+
+<ComponentPreview
+  name="demos/ui/react/badge/variants"
+  preview={`<Flex>
+  <Badge variant="neutral">Neutral</Badge>
+  <Badge variant="outline">Outline</Badge>
+  <Badge variant="primary">Primary</Badge>
+</Flex>
+<Flex>
+  <Badge variant="success">Success</Badge>
+  <Badge variant="danger">Danger</Badge>
+  <Badge variant="warning">Warning</Badge>
+  <Badge variant="accent">Accent</Badge>
+</Flex>`}
+/>
+
+### Size
+
+Use the `size` prop to control the size of the `Badge`. The default variant is `sm`.
+
+<ComponentPreview
+  name="demos/ui/react/badge/sizes"
+  preview={`<Badge variant="primary" size="sm">
+  Small
+</Badge>
+<Badge variant="primary" size="md">
+  Medium
+</Badge>
+<Badge variant="primary" size="lg">
+  Large
+</Badge>`}
+/>
+
+### Icon
+
+To add additional context for the `Badge`, use the `icon` prop to add an icon.
+
+<ComponentPreview
+  name="demos/ui/react/badge/icon"
+  preview={`<Badge icon={<ShieldIcon />} size="sm">
+  Badge
+</Badge>
+<Badge icon={<ShieldIcon />} size="md">
+  Badge
+</Badge>
+<Badge icon={<ShieldIcon />} size="lg">
+  Badge
+</Badge>`}
+/>

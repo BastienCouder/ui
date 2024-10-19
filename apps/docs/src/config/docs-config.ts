@@ -24,14 +24,8 @@ export const docsConfig: DocsConfig = {
           "href": "/components/angular",
           "items": [
             {
-              "title": "Buttons",
-              "href": "/components/angular/buttons",
-              "items": [
-                {
-                  "title": "Button",
-                  "href": "/components/angular/buttons/button"
-                }
-              ]
+              "title": "Button",
+              "href": "/components/angular/button"
             }
           ]
         },
@@ -40,24 +34,11 @@ export const docsConfig: DocsConfig = {
           "href": "/components/react",
           "items": [
             {
-              "title": "Buttons",
-              "href": "/components/react/buttons",
-              "items": [
-                {
-                  "title": "Button",
-                  "href": "/components/react/buttons/button"
-                },
-                {
-                  "title": "Star rating",
-                  "href": "/components/react/buttons/star-rating"
-                },
-                {
-                  "title": "Toggle",
-                  "href": "/components/react/buttons/toggle"
-                }
-              ]
+              "title": "Alert dialog",
+              "href": "/components/react/alert-dialog"
             },
             {
+<<<<<<< HEAD
               "title": "Data-display",
               "href": "/components/react/data-display",
               "items": [
@@ -152,6 +133,48 @@ export const docsConfig: DocsConfig = {
             },
             {
 <<<<<<< HEAD
+=======
+              "title": "Alert",
+              "href": "/components/react/alert"
+            },
+            {
+              "title": "Aspect ratio",
+              "href": "/components/react/aspect-ratio"
+            },
+            {
+              "title": "Avatar",
+              "href": "/components/react/avatar"
+            },
+            {
+              "title": "Badge",
+              "href": "/components/react/badge"
+            },
+            {
+              "title": "Breadcrumbs",
+              "href": "/components/react/breadcrumbs"
+            },
+            {
+              "title": "Button",
+              "href": "/components/react/button"
+            },
+            {
+              "title": "Card",
+              "href": "/components/react/card"
+            },
+            {
+              "title": "Checkbox",
+              "href": "/components/react/checkbox"
+            },
+            {
+              "title": "Collapsible",
+              "href": "/components/react/collapsible"
+            },
+            {
+              "title": "Command",
+              "href": "/components/react/command"
+            },
+            {
+>>>>>>> registry
               "title": "Dialog",
               "href": "/components/react/dialog"
             },
@@ -162,6 +185,7 @@ export const docsConfig: DocsConfig = {
             {
               "title": "Drawer",
               "href": "/components/react/drawer"
+<<<<<<< HEAD
 =======
               "title": "Feedback",
               "href": "/components/react/feedback",
@@ -180,70 +204,23 @@ export const docsConfig: DocsConfig = {
                 }
               ]
 >>>>>>> parent of 15ea6e0 (docs)
+=======
+>>>>>>> registry
             },
             {
               "title": "Form",
-              "href": "/components/react/form",
-              "items": [
-                {
-                  "title": "Form",
-                  "href": "/components/react/form/form"
-                }
-              ]
+              "href": "/components/react/form"
             },
             {
-              "title": "Input",
-              "href": "/components/react/input",
-              "items": [
-                {
-                  "title": "Checkbox",
-                  "href": "/components/react/input/checkbox"
-                },
-                {
-                  "title": "Label",
-                  "href": "/components/react/input/label"
-                },
-                {
-                  "title": "Multi select",
-                  "href": "/components/react/input/multi-select"
-                },
-                {
-                  "title": "Radio group",
-                  "href": "/components/react/input/radio-group"
-                },
-                {
-                  "title": "Select",
-                  "href": "/components/react/input/select"
-                },
-                {
-                  "title": "Switch",
-                  "href": "/components/react/input/switch"
-                },
-                {
-                  "title": "Text field",
-                  "href": "/components/react/input/text-field"
-                },
-                {
-                  "title": "Textarea",
-                  "href": "/components/react/input/textarea"
-                }
-              ]
+              "title": "Hover card",
+              "href": "/components/react/hover-card"
             },
             {
-              "title": "Layout",
-              "href": "/components/react/layout",
-              "items": [
-                {
-                  "title": "Aspect ratio",
-                  "href": "/components/react/layout/aspect-ratio"
-                },
-                {
-                  "title": "Scroll area",
-                  "href": "/components/react/layout/scroll-area"
-                }
-              ]
+              "title": "Label",
+              "href": "/components/react/label"
             },
             {
+<<<<<<< HEAD
               "title": "Navigation",
               "href": "/components/react/navigation",
               "items": [
@@ -267,6 +244,20 @@ export const docsConfig: DocsConfig = {
             },
             {
 <<<<<<< HEAD
+=======
+              "title": "Marquee",
+              "href": "/components/react/marquee"
+            },
+            {
+              "title": "Multi select",
+              "href": "/components/react/multi-select"
+            },
+            {
+              "title": "Pagination",
+              "href": "/components/react/pagination"
+            },
+            {
+>>>>>>> registry
               "title": "Popover",
               "href": "/components/react/popover"
             },
@@ -295,6 +286,7 @@ export const docsConfig: DocsConfig = {
               "href": "/components/react/sheet"
             },
             {
+<<<<<<< HEAD
               "title": "Navigation",
               "href": "/components/react/navigation",
               "items": [
@@ -355,6 +347,66 @@ export const docsConfig: DocsConfig = {
                   "href": "/components/react/overlay/tooltip"
                 }
               ]
+=======
+              "title": "Skeleton",
+              "href": "/components/react/skeleton"
+            },
+            {
+              "title": "Slider",
+              "href": "/components/react/slider"
+            },
+            {
+              "title": "Star rating",
+              "href": "/components/react/star-rating"
+            },
+            {
+              "title": "Stepper",
+              "href": "/components/react/stepper"
+            },
+            {
+              "title": "Switch",
+              "href": "/components/react/switch"
+            },
+            {
+              "title": "Table",
+              "href": "/components/react/table"
+            },
+            {
+              "title": "Tabs",
+              "href": "/components/react/tabs"
+            },
+            {
+              "title": "Text field",
+              "href": "/components/react/text-field"
+            },
+            {
+              "title": "Textarea",
+              "href": "/components/react/textarea"
+            },
+            {
+              "title": "Timeline",
+              "href": "/components/react/timeline"
+            },
+            {
+              "title": "Toast",
+              "href": "/components/react/toast"
+            },
+            {
+              "title": "Toc",
+              "href": "/components/react/toc"
+            },
+            {
+              "title": "Toggle",
+              "href": "/components/react/toggle"
+            },
+            {
+              "title": "Tooltip",
+              "href": "/components/react/tooltip"
+            },
+            {
+              "title": "Tree",
+              "href": "/components/react/tree"
+>>>>>>> registry
             }
           ]
         },
@@ -363,14 +415,8 @@ export const docsConfig: DocsConfig = {
           "href": "/components/vue",
           "items": [
             {
-              "title": "Buttons",
-              "href": "/components/vue/buttons",
-              "items": [
-                {
-                  "title": "Button",
-                  "href": "/components/vue/buttons/button"
-                }
-              ]
+              "title": "Button",
+              "href": "/components/vue/button"
             }
           ]
         }

@@ -19,11 +19,11 @@ module.exports = {
   },
   ignorePatterns: [
     // Ignore dotfiles
-    "src/lib/components/core/default/angular/**/*",
-    "src/lib/components/core/default/vue/**/*",
-    "src/lib/demos/components/core/angular/**/*",
-    "src/lib/demos/components/core/vue/**/*",
-    "src/lib/demos/hooks/**/*",
+    "src/registry/ui/angular/**/*",
+    "src/registry/ui/vue/**/*",
+    "src/registry/demos/ui/angular/**/*",
+    "src/registry/demos/ui/vue/**/*",
+    "src/registry/demos/hooks/**/*",
     "src/navigation.js",
   ],
   plugins: [

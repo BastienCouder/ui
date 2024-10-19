@@ -7,7 +7,7 @@ thumbnail:
 ---
 
 <ComponentPreview
-  name="demos/components/core/react/overlay/toast/default"
+  name="demos/ui/react/toast/default"
   preview={`<Button
     variant="outline"
     onClick={() => {
@@ -31,13 +31,21 @@ Install the following dependencies:
 ```bash
 npm install @radix-ui/react-toast
 ```
+<<<<<<< HEAD
 Copy and paste the following code into your project.<br/>
   <ComponentSource name={["components/core/default/react/overlay/toast","components/core/default/react/overlay/toaster","components/core/default/react/overlay/use-toast" ]} extension={["tsx","tsx","tsx"]} />
 
 Add the Toaster component
+=======
+  <Step>Copy and paste the following code into your project.</Step>
+  <ComponentSource name={["ui/react/toast","ui/react/toaster","ui/react/use-toast" ]} extension={["tsx","tsx","tsx"]} />
+  <Step>Update the import paths to match your project setup.</Step>
+  <Step>Add the Toaster component</Step>
+</Steps>
+>>>>>>> registry
 
 ```tsx
-import { Toaster } from "@/lib/components/core/default/react/overlay/toaster";
+import { Toaster } from "@/lib/components/react/overlay/toaster";
 
 import { ReactNode } from "react";
 
@@ -63,7 +71,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 
 Use the `variant` prop to customize the style of the toast. You can choose between default, primary, secondary, and danger variants.
 
-<ComponentPreview name="demos/components/core/react/overlay/toast/variant" 
+<ComponentPreview name="demos/ui/react/toast/variant" 
 preview={`<Button variant="outline" onClick={() => { toast({ title: "Info", description: "This is an info message." }); }}
     Show Info Toast
 </Button>`} />
@@ -72,7 +80,7 @@ preview={`<Button variant="outline" onClick={() => { toast({ title: "Info", desc
 
 Use the `ToastAction` component to add an action to the toast, like an "Undo" button.
 
-<ComponentPreview name="demos/components/core/react/overlay/toast/action" 
+<ComponentPreview name="demos/ui/react/toast/action" 
 preview={`<Button variant="outline" onClick={() => { toast({ title: "Action Required", description: "This message has an action button.", action: <ToastAction altText="Undo the action">Undo</ToastAction>, }); }}
 Show Toast with Action
 </Button>`}

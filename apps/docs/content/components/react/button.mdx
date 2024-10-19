@@ -1,0 +1,110 @@
+---
+title: Button
+description: A button allows a user to perform an action, with mouse, touch, and keyboard interactions.
+thumbnail:
+  image: /previews/components/core/button.jpeg
+  video: /previews/components/core/button.mp4
+links:
+  [
+    { href: "/ui/angular/button", label: "angular" },
+    { href: "/ui/vue/button", label: "vue" },
+  ]
+---
+
+<ComponentPreview
+  name="demos/ui/react/button/default"
+  preview={`<Button>button</Button>`}
+  extension={"tsx"}
+/>
+
+## Installation
+
+Copy and paste the following code into your project.
+  <ComponentSource
+    name={["ui/react/button"]}
+    extension={["tsx"]}
+  />
+
+## Usage
+
+Button allow users to initiate an action or command with mouse, touch or keyboard interaction.<br/>
+The button's label indicates the purpose of the action to the user. You may also include an icon for additional context.
+
+## Options
+
+### Variant
+
+Use the `variant` prop to control the visual style of the button.<br/>
+The default variant is `"default"`.
+
+<ComponentPreview
+  name="demos/ui/react/button/variants"
+  preview={`<Button variant="default">default</Button>
+<Button variant="primary">primary</Button>
+<Button variant="secondary">secondary</Button>
+<Button variant="outline">outline</Button>
+<Button variant="quiet">quiet</Button>
+<Button variant="success">success</Button>
+<Button variant="warning">warning</Button>
+<Button variant="danger">danger</Button>`}
+/>
+
+### Size
+
+Use the `size` prop to control the size of the button.<br/>
+The default size is `"md"`.
+
+<ComponentPreview
+  name="demos/ui/react/button/sizes"
+  preview={`<Button size="sm">Button</Button>
+<Button size="md">Button</Button>
+<Button size="lg">Button</Button>`}
+/>
+
+### Shape
+
+Use the `shape` prop to control the shape of the button. The default variant is `"rectangle"`.<br/>
+Icon-only buttons should include an `aria-label`.
+
+<ComponentPreview
+  name="demos/ui/react/button/shapes"
+  preview={`<Button shape="square"><UplaodIcon /></UplaodIcon>
+<Button shape="circular"><UplaodIcon /></Button>`}
+/>
+
+### Prefix and suffix
+
+To add additional context for a button label, such as a search icon next to the label for a search field submit, use the `prefix` and `suffix` props. Leading visuals always appear locked to the button label, even if the button is full width.
+
+<ComponentPreview
+  name="demos/ui/react/button/prefix-and-suffix"
+  preview={`<Button prefix={<UplaodIcon />}>Upload</Button>
+<Button suffix={<UplaodIcon />}>Upload</Button>`}
+/>
+
+### Loading
+
+Use the `isLoading` prop to control the loading state of the button, if you need to wait for a button's action to be completed.
+
+<ComponentPreview
+  name="demos/ui/react/button/loading"
+  preview={`<Button isLoading>Button</Button>`}
+/>
+
+### Disabled
+
+Use the `isDisabled` prop to disable the button.
+
+<ComponentPreview
+  name="demos/ui/react/button/disabled"
+  preview={`<Button isDisabled>Button</Button>`}
+/>
+
+### Link button
+
+To use a button as a link, use the `href` prop the button will automatically render a link that visually looks like a button.
+
+<ComponentPreview
+  name="demos/ui/react/button/link-button"
+  preview={`<Button href="/login">Login</Button>`}
+/>

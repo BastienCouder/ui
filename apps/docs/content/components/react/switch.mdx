@@ -1,0 +1,103 @@
+---
+title: Switch
+description: A switch component that allows users to toggle between two states.
+component: true
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/slider
+  api: https://www.radix-ui.com/docs/primitives/components/slider#api-reference
+---
+
+<ComponentPreview
+  name="demos/ui/react/switch/default"
+  extension={"tsx"}
+  preview={`<div className="flex items-center space-x-2">
+    <Switch id="airplane-mode" />
+    <Label htmlFor="airplane-mode">Airplane Mode</Label>
+</div>`}
+/>
+
+## Installation
+
+<Steps>
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @radix-ui/react-switch
+```
+<<<<<<< HEAD:apps/docs/content/components/react/input/switch.mdx
+  <Step>Copy and paste the following code into your project.</Step>
+  <ComponentSource  name={["components/core/default/react/input/switch"]} extension={["tsx"]} />
+  <Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+=======
+Copy and paste the following code into your project.
+<br/>
+<ComponentSource  name={["ui/react/switch"]} extension={["tsx"]} />
+>>>>>>> registry:apps/docs/content/components/react/switch.mdx
+
+## Options
+
+### Variant
+
+Use the `variant` prop to customize the switch style.
+
+<ComponentPreview name="demos/ui/react/switch/variant" 
+preview={`<div className="flex items-center space-x-2"> 
+  <Switch variant="neutral" id="neutral-switch" /> 
+  <Label htmlFor="neutral-switch">Neutral</Label>
+</div> 
+<div className="flex items-center space-x-2"> 
+  <Switch variant="primary" id="primary-switch" /> 
+  <Label htmlFor="primary-switch">Primary</Label> 
+</div> 
+<div className="flex items-center space-x-2"> 
+  <Switch variant="secondary" id="secondary-switch" /> 
+  <Label htmlFor="secondary-switch">Secondary</Label>
+</div>`} />
+
+### Size
+
+Use the `size` prop to adjust the size of the switch.
+
+<ComponentPreview name="demos/ui/react/switch/size" 
+preview={`<div className="flex items-center space-x-2"> 
+  <Switch size="sm" id="small-switch" /> 
+  <Label htmlFor="small-switch">Small</Label>
+</div> 
+<div className="flex items-center space-x-2"> 
+  <Switch size="md" id="medium-switch" /> 
+  <Label htmlFor="medium-switch">Medium</Label> 
+</div> 
+<div className="flex items-center space-x-2"> 
+  <Switch size="lg" id="large-switch" /> 
+  <Label htmlFor="large-switch">Large</Label> 
+</div>`} />
+
+### Shape
+
+Use the `shape` prop to customize the shape of the switch.
+
+<ComponentPreview name="demos/ui/react/switch/shape" 
+preview={`<div className="flex items-center space-x-2"> 
+  <Switch shape="rectangle" id="rectangle-switch" /> 
+  <Label htmlFor="rectangle-switch">Rectangle</Label>
+</div>
+<div className="flex items-center space-x-2">
+  <Switch shape="circle" id="circle-switch" />
+  <Label htmlFor="circle-switch">Circle</Label>
+</div> 
+<div className="flex items-center space-x-2"> 
+  <Switch shape="square" id="square-switch" /> 
+  <Label htmlFor="square-switch">Square</Label> 
+</div>`} />
+
+### Disabled
+
+Use the disabled prop to disable the switch.
+
+<ComponentPreview name="demos/ui/react/switch/disabled" 
+preview={`<div className="flex items-center space-x-2"> 
+  <Switch disabled id="disabled-switch" /> 
+  <Label htmlFor="disabled-switch">Disabled</Label>
+</div>`} />

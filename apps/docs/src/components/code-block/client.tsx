@@ -10,15 +10,15 @@ import {
   TabList,
   TabPanel,
   type TabsProps,
-} from "@/lib/components/core/default/tabs";
+} from "@/registry/ui/tabs";
 import {
   Button,
   ButtonProps,
-} from "@/lib/components/core/default/react/buttons/button";
+} from "@/registry/ui/react/button";
 import {
   ScrollArea,
   ScrollAreaProps,
-} from "@/lib/components/core/default/react/layout/scroll-area";
+} from "@/registry/ui/react/scroll-area";
 import { cn } from "@/lib/utils";
 
 const codeBlockStyles = tv({

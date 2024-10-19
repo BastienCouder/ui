@@ -1,0 +1,57 @@
+---
+title: Star Rating
+description: A component to show ratings of products as well as taking input for rating
+thumbnail:
+  image: /previews/components/core/button.jpeg
+  video: /previews/components/core/button.mp4
+---
+
+<ComponentPreview
+  name="demos/ui/react/star-rating/default"
+  preview={`<StarRating defaultValue={3} />`}
+  extension={"tsx"}
+/>
+
+## Installation
+
+Copy and paste the following code into your project.<br/>
+  <ComponentSource
+    name={["ui/react/star-rating"]}
+    extension={["tsx"]}
+  />
+
+## Options
+
+### Colored icons
+
+Use the `iconProps` prop to control the visual style of the button.<br/>
+
+<ComponentPreview
+  name="demos/ui/react/star-rating/color"
+  preview={`<StarRating defaultValue={3} iconProps={{ className: 'fill-red-500 stroke-red-500' }} />`}
+/>
+
+### Colored icons
+
+Use the `icon` prop to control the visual style of the button.<br/>
+
+<ComponentPreview
+  name="demos/ui/react/star-rating/icon"
+  preview={`<StarRating defaultValue={3} icon={Heart} />`}
+/>
+
+### Disabled
+
+Use the `disabled` prop to prevent interaction with the star rating.<br/>
+
+<ComponentPreview
+  name="demos/ui/react/star-rating/disabled"
+  preview={`<StarRating defaultValue={3} disabled />`}
+/>
+
+### Decimal point
+
+<ComponentPreview
+  name="demos/ui/react/star-rating/decimal-point"
+  preview={`<StarRating defaultValue={3.68} disabled />`}
+/>

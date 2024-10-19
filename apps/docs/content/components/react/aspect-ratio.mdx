@@ -1,0 +1,41 @@
+---
+title: Aspect Ratio
+description: Displays content within a desired ratio.
+thumbnail:
+  image: /previews/components/core/aspect-ratio.jpeg
+---
+
+<ComponentPreview
+  name="demos/ui/react/aspect-ratio/default"
+  extension={"tsx"}
+  preview={`<AspectRatio ratio={16 / 9}>
+  <Image />
+</AspectRatio>`}
+  className="max-w-xs"
+/>
+
+## Installation
+
+Copy and paste the following code into your project.<br/>
+  <ComponentSource
+    name={["ui/react/aspect-ratio"]}
+    extension={["tsx"]}
+  />
+  
+## Usage
+
+Use the `AspectRatio` component to display content within a desired ratio.
+
+## Options
+
+### AsChild
+
+Use the `asChild` prop to change the default rendered element for the one passed as a child, merging their props and behavior.
+
+<ComponentPreview
+  name="demos/ui/react/aspect-ratio/as-child"
+  preview={`<AspectRatio ratio={16 / 9} asChild>
+  <Image />
+</AspectRatio>`}
+  className="max-w-xs"
+/>

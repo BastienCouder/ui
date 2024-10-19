@@ -1,0 +1,52 @@
+---
+title: Collapsible
+description: A collapsible component that allows users to toggle the visibility of content.
+thumbnail:
+  image: /previews/components/core/avatar.jpeg
+  video: /previews/components/core/avatar.mp4
+---
+
+<ComponentPreview
+  name="demos/ui/react/collapsible/default"
+  preview={`<Collapsible
+    open={isOpen}
+    onOpenChange={setIsOpen}
+    className="w-[350px] space-y-2"
+>
+    <div className="flex items-center justify-between space-x-4 px-4">
+    <h4 className="text-sm font-semibold">
+        @peduarte starred 3 repositories
+    </h4>
+    <CollapsibleTrigger asChild>
+        <Button variant="quiet" size="sm" className="w-9 p-0">
+        <ChevronsUpDown className="h-4 w-4" />
+        <span className="sr-only">Toggle</span>
+        </Button>
+    </CollapsibleTrigger>
+    </div>
+    <div className="rounded-md border px-4 py-3 font-mono text-sm">
+    @radix-ui/primitives
+    </div>
+    <CollapsibleContent className="space-y-2">
+    <div className="rounded-md border px-4 py-3 font-mono text-sm">
+        @radix-ui/colors
+    </div>
+    <div className="rounded-md border px-4 py-3 font-mono text-sm">
+        @stitches/react
+    </div>
+    </CollapsibleContent>
+</Collapsible>`}
+/>
+
+## Installation
+
+<<<<<<< HEAD:apps/docs/content/components/react/data-display/collapsible.mdx
+Copy and paste the following code into your project.
+  <ComponentSource name={["components/core/default/react/data-display/collapsible"]} extension={["tsx"]} />
+=======
+<Steps>
+  <Step>Copy and paste the following code into your project.</Step>
+  <ComponentSource name={["ui/react/collapsible"]} extension={["tsx"]} />
+  <Step>Update the import paths to match your project setup.</Step>
+</Steps>
+>>>>>>> registry:apps/docs/content/components/react/collapsible.mdx

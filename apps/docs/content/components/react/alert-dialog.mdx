@@ -1,0 +1,60 @@
+---
+title: Alert Dialog
+description: An alert dialog is a transient view that appears above other content on the screen when a user interacts with a control.
+thumbnail:
+  image: /previews/components/core/avatar.jpeg
+  video: /previews/components/core/avatar.mp4
+---
+
+<ComponentPreview
+  name="demos/ui/react/alert-dialog/default"
+  preview={`<AlertDialog content={<Content/>} cancelText='Cancel' okText='Continue'>
+  <Button variant="outline">Show Dialog</Button>
+</AlertDialog>`}
+/>
+
+## Installation
+
+<Steps>
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @radix-ui/react-alert-dialog
+```
+  <Step>Copy and paste the following code into your project.</Step>
+  <ComponentSource name={["ui/react/alert-dialog"]} extension={["tsx"]} />
+  <Step>Update the import paths to match your project setup.</Step>
+</Steps>
+
+## Options
+
+### Cancel and Confirm Text
+
+Use the `cancelText` and okText props to customize the text of the cancel and confirm buttons.
+
+<ComponentPreview name="demos/ui/react/alert-dialog/text" 
+preview={`<AlertDialog content={<Content />} cancelText="No" okText="Yes"> 
+  <Button variant="outline">Show Dialog</Button> 
+</AlertDialog>`} />
+
+### Full Example
+
+Here’s a full example combining all the components: AlertDialogTrigger, AlertDialogContent, AlertDialogHeader, AlertDialogFooter, AlertDialogCancel, and AlertDialogAction.
+
+<ComponentPreview name="demos/ui/react/alert-dialog/composition" 
+preview={`<AlertDialog>
+  <AlertDialogTrigger>Open</AlertDialogTrigger>
+  <AlertDialogContent>
+    <AlertDialogHeader>
+      <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+      <AlertDialogDescription>
+        This action cannot be undone. This will permanently delete your account
+        and remove your data from our servers.
+      </AlertDialogDescription>
+    </AlertDialogHeader>
+    <AlertDialogFooter>
+      <AlertDialogCancel>Cancel</AlertDialogCancel>
+      <AlertDialogAction>Continue</AlertDialogAction>
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>`} />

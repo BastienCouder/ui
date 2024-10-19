@@ -34,5 +34,5 @@
     "**/*.tsx",
     ".next/types/**/*.ts"
 , "content/components/react/data-display/timeline.mdx"  ],
-"exclude": ["node_modules", "./src/lib/demos/components/core/angular","./src/lib/demos/components/core/vue","./src/lib/components/core/default/angular","./src/lib/components/core/default/vue"]
+"exclude": ["node_modules", "src/registry/demos/ui/angular","src/registry/demos/ui/vue","src/registry/ui/angular","src/registry/ui/vue"]
 }

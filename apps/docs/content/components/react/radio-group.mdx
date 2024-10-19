@@ -1,0 +1,122 @@
+---
+title: Radio Group
+description: A radio group component that allows users to select one option from a list of choices.
+thumbnail:
+  image: /previews/components/core/radio-group.jpeg
+  video: /previews/components/core/radio-group.mp4
+---
+
+<ComponentPreview
+  name="demos/ui/react/radio-group/default"
+  preview={`<RadioGroup defaultValue="comfortable">
+    <div className="flex items-center space-x-2">
+      <RadioGroupItem value="default" id="r1" />
+      <Label htmlFor="r1">Default</Label>
+    </div>
+    <div className="flex items-center space-x-2">
+      <RadioGroupItem value="comfortable" id="r2" />
+      <Label htmlFor="r2">Comfortable</Label>
+    </div>
+    <div className="flex items-center space-x-2">
+      <RadioGroupItem value="compact" id="r3" />
+      <Label htmlFor="r3">Compact</Label>
+    </div>
+  </RadioGroup>`}
+/>
+
+## Installation
+
+<Steps>
+  <Step>Copy and paste the following code into your project.</Step>
+  <ComponentSource
+    name={["ui/react/radio-group"]}
+    extension={["tsx"]}
+  />
+  <Step>Update the import paths to match your project setup.</Step>
+</Steps>
+
+## Options
+
+### Variant
+
+Use the `variant` prop to customize the radio button style.
+
+<ComponentPreview
+  name="demos/ui/react/radio-group/variant"
+  preview={`<RadioGroup defaultValue="default">
+    <div className="flex items-center space-x-2">
+      <RadioGroupItem value="default" id="r1" variant="neutral" />
+      <Label htmlFor="r1">Neutral</Label>
+    </div>
+    <div className="flex items-center space-x-2">
+      <RadioGroupItem value="primary" id="r2" variant="primary" />
+      <Label htmlFor="r2">Primary</Label>
+    </div>
+    <div className="flex items-center space-x-2">
+      <RadioGroupItem value="secondary" id="r3" variant="secondary" />
+      <Label htmlFor="r3">Secondary</Label>
+    </div>
+  </RadioGroup>`}
+/>
+
+### Size
+
+Use the `size` prop to adjust the size of the radio buttons.
+
+<ComponentPreview
+  name="demos/ui/react/radio-group/size"
+  preview={`<RadioGroup defaultValue="comfortable">
+    <div className="flex items-center space-x-2">
+      <RadioGroupItem value="small" id="r1" size="sm" />
+      <Label htmlFor="r1">Small</Label>
+    </div>
+    <div className="flex items-center space-x-2">
+      <RadioGroupItem value="medium" id="r2" size="md" />
+      <Label htmlFor="r2">Medium</Label>
+    </div>
+    <div className="flex items-center space-x-2">
+      <RadioGroupItem value="large" id="r3" size="lg" />
+      <Label htmlFor="r3">Large</Label>
+    </div>
+  </RadioGroup>`}
+/>
+
+### Shape
+
+Use the `shape` prop to customize the shape of the radio buttons.
+
+<ComponentPreview
+  name="demos/ui/react/radio-group/shape"
+  preview={`<RadioGroup defaultValue="circle">
+    <div className="flex items-center space-x-2">
+      <RadioGroupItem value="rectangle" id="r1" shape="rectangle" />
+      <Label htmlFor="r1">Rectangle</Label>
+    </div>
+    <div className="flex items-center space-x-2">
+      <RadioGroupItem value="square" id="r2" shape="square" />
+      <Label htmlFor="r2">Square</Label>
+    </div>
+    <div className="flex items-center space-x-2">
+      <RadioGroupItem value="circle" id="r3" shape="circle" />
+      <Label htmlFor="r3">Circle</Label>
+    </div>
+  </RadioGroup>`}
+/>
+
+### Disabled
+
+Use the `disabled` prop to disable individual radio buttons.
+
+<ComponentPreview
+  name="demos/ui/react/radio-group/disabled"
+  preview={`<RadioGroup defaultValue="default">
+    <div className="flex items-center space-x-2">
+      <RadioGroupItem value="default" id="r1" disabled />
+      <Label htmlFor="r1">Default (disabled)</Label>
+    </div>
+    <div className="flex items-center space-x-2">
+      <RadioGroupItem value="comfortable" id="r2" />
+      <Label htmlFor="r2">Comfortable</Label>
+    </div>
+  </RadioGroup>`}
+/>

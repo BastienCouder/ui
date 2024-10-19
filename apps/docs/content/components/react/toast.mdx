@@ -1,0 +1,81 @@
+---
+title: Toast
+description: Toasts are used to display messages to the user in a non-intrusive way.
+thumbnail:
+  image: /previews/components/core/avatar.jpeg
+  video: /previews/components/core/avatar.mp4
+---
+
+<ComponentPreview
+  name="demos/ui/react/toast/default"
+  preview={`<Button
+    variant="outline"
+    onClick={() => {
+        toast({
+            title: "Scheduled: Catch up ",
+            description: "Friday, February 10, 2023 at 5:57 PM",
+            action: (
+                <ToastAction altText="Goto schedule to undo">Undo</ToastAction>
+            ),
+        })
+    }}
+>
+    Add to calendar
+</Button>`}
+/>
+
+## Installation
+
+<Steps>
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @radix-ui/react-toast
+```
+  <Step>Copy and paste the following code into your project.</Step>
+  <ComponentSource name={["ui/react/toast","ui/react/toaster","ui/react/use-toast" ]} extension={["tsx","tsx","tsx"]} />
+  <Step>Update the import paths to match your project setup.</Step>
+  <Step>Add the Toaster component</Step>
+</Steps>
+
+```tsx
+import { Toaster } from "@/lib/components/react/overlay/toaster";
+
+import { ReactNode } from "react";
+
+interface RootLayoutProps {
+    children: ReactNode;
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
+    return (
+        <html lang="en">
+            <body>
+                <main>{children}</main>
+                <Toaster />
+            </body>
+        </html>
+    )
+}
+```
+
+## Options
+
+### Variants
+
+Use the `variant` prop to customize the style of the toast. You can choose between default, primary, secondary, and danger variants.
+
+<ComponentPreview name="demos/ui/react/toast/variant" 
+preview={`<Button variant="outline" onClick={() => { toast({ title: "Info", description: "This is an info message." }); }}
+    Show Info Toast
+</Button>`} />
+
+### Custom Action
+
+Use the `ToastAction` component to add an action to the toast, like an "Undo" button.
+
+<ComponentPreview name="demos/ui/react/toast/action" 
+preview={`<Button variant="outline" onClick={() => { toast({ title: "Action Required", description: "This message has an action button.", action: <ToastAction altText="Undo the action">Undo</ToastAction>, }); }}
+Show Toast with Action
+</Button>`}
+/>

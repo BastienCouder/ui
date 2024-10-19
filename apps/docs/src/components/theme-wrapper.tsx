@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { useMounted } from "@/lib/hooks/use-mounted";
+import { useMounted } from "@/hooks/use-mounted";
 import { useTheme } from "next-themes";
 
 interface ThemeWrapperProps extends React.ComponentProps<"div"> {

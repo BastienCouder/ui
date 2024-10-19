@@ -1,0 +1,48 @@
+---
+title: Dialog
+description: A dialog is a transient view that appears above other content on the screen when a user interacts with a control.
+thumbnail:
+  image: /previews/components/core/avatar.jpeg
+  video: /previews/components/core/avatar.mp4
+---
+
+<ComponentPreview
+  name="demos/ui/react/dialog/default"
+  preview={`<Dialog content={<Content/>} className="sm:max-w-[425px]">
+    <Button variant="outline">Edit Profile</Button>
+</Dialog>`}
+/>
+
+## Installation
+
+<Steps>
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install @radix-ui/react-dialog
+```
+  <Step>Copy and paste the following code into your project.</Step>
+  <ComponentSource name={["ui/react/dialog"]} extension={["tsx"]} />
+  <Step>Update the import paths to match your project setup.</Step>
+</Steps>
+
+## Options
+
+### Composition
+
+Here’s a full example combining all the components: DialogTrigger, DialogContent, DialogHeader, DialogFooter, DialogTitle, DialogDescription, and DialogClose.
+
+<ComponentPreview name="demos/ui/react/dialog/composition" 
+preview={`<Dialog>
+  <DialogTrigger>Open</DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Are you absolutely sure?</DialogTitle>
+      <DialogDescription>
+        This action cannot be undone. This will permanently delete your account
+        and remove your data from our servers.
+      </DialogDescription>
+    </DialogHeader>
+  </DialogContent>
+</Dialog>`} 
+/>

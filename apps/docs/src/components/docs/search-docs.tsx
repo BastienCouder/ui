@@ -6,7 +6,7 @@ import { File, Search } from "@/lib/icons";
 import {
   Button,
   type ButtonProps,
-} from "@/lib/components/core/default/react/buttons/button";
+} from "@/registry/ui/react/button";
 import { cn } from "@/lib/utils";
 import { docsConfig } from "@/config/docs-config";
 

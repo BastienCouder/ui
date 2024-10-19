@@ -13,7 +13,7 @@ import {
 import "@/styles/globals.css";
 import { siteConfig } from "@/config";
 import { Providers } from "./providers";
-import { Toaster } from "@/lib/components/core/default/react/overlay/toaster";
+import { Toaster } from "@/registry/ui/react/toaster";
 
 const config = siteConfig.global;
 

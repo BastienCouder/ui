@@ -1,0 +1,146 @@
+---
+title: Slider
+description: An input where the user selects a value from within a given range.
+component: true
+links:
+  doc: https://www.radix-ui.com/docs/primitives/components/slider
+  api: https://www.radix-ui.com/docs/primitives/components/slider#api-reference
+---
+
+<ComponentPreview
+  name="demos/ui/react/slider/default"
+  extension={"tsx"}
+  preview={`<Slider
+defaultValue={[50]}
+max={100}
+step={1}
+className="w-3"/>`}
+/>
+
+## Installation
+
+<Steps>
+<Step>Install the following dependencies:</Step>
+
+```bash
+ npm i @radix-ui/react-slider
+```
+  <Step>Copy and paste the following code into your project.</Step>
+  <ComponentSource  name={["ui/react/slider"]} extension={["tsx"]} />
+  <Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+## Usage
+
+Use the `Slider` component to allow users to select a value from within a given range.
+
+## Options
+
+### Disabled
+
+Use the `disabled` prop to disable the slider.
+
+<ComponentPreview name="demos/ui/react/slider/disabled"
+preview={`<Slider
+defaultValue={[50]}
+max={100}
+step={1}
+className='w-3/5'
+disabled />`}
+/>
+
+### Inverted 
+
+Use the `inverted` prop to invert the slider.
+
+<ComponentPreview name="demos/ui/react/slider/inverted"
+preview={`<Slider
+defaultValue={[50]}
+max={100}
+step={1}
+className='w-3/5'
+inverted />`}
+/>
+
+### Orientation
+
+Use the `orientation` prop to change the direction of the slider.
+
+<ComponentPreview name="demos/ui/react/slider/orientation"
+preview={`<Slider
+defaultValue={[50]}
+max={100}
+step={1}
+className='w-3/5'
+orientation="vertical" />`}
+/>
+
+### Range
+
+Use the `range` prop to enable a range slider.
+
+<ComponentPreview name="demos/ui/react/slider/range"
+preview={`<Slider
+defaultValue={[25, 75]}
+max={100}
+step={1}
+className='w-3/5'
+orientation="vertical" />`}
+/>
+
+### Tick Marks
+
+Use the `showSteps` prop to define tick marks' style.
+NOTE: The tick marks' positions are not 100% accurate!
+
+#### Half Tick Marks
+
+<ComponentPreview name="demos/ui/react/slider/half-tick-marks"
+preview={`<Slider
+defaultValue={[2]}
+max={5}
+step={1}
+className='w-3/5'
+showSteps="half" />`}
+/>
+
+#### Full Tick Marks
+
+<ComponentPreview name="demos/ui/react/slider/full-tick-marks"
+preview={`<Slider
+defaultValue={[2]}
+max={5}
+step={1}
+className='w-3/5'
+showSteps="full" />`}
+/>
+
+### Format Label
+
+Use the `formatLabel` prop to define how the value is shown on popover.
+
+<ComponentPreview name="demos/ui/react/slider/format-label" 
+preview={`<Slider
+defaultValue={[2]}
+max={5}
+step={1}
+className='w-3/5'
+formatLabel={value => \`\${value} points\`} />`}
+/>
+
+
+
+### Format Label Side
+
+Use the `formatLabelSide` prop to indicate where the popover will appear.
+
+<ComponentPreview name="demos/ui/react/slider/format-label-side"
+preview={`<Slider
+defaultValue={[2]}
+max={5}
+step={1}
+className='w-3/5'
+formatLabel={value => \`\${value} points\`}
+formatLabelSide="left" />`}
+/>

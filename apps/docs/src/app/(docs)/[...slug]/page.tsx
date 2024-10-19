@@ -4,17 +4,17 @@ import { notFound } from "next/navigation";
 import { ExternalLink } from "@/lib/icons";
 import { TableOfContents } from "@/components/docs/toc";
 import { Mdx } from "@/components/mdx/mdx-remote";
-import { Button } from "@/lib/components/core/default/react/buttons/button";
+import { Button } from "@/registry/ui/react/button";
 import { cn } from "@/lib/utils";
 import { getDocFromSlug, getDocs } from "@/server/docs";
 import { ThemeWrapper } from "@/components/theme-wrapper";
 import { DocsLogo } from "@/components/docs/doc-logo";
 import DocsLayout from "@/components/docs/doc-layout";
-import { ScrollArea } from "@/lib/components/core/default/react/layout/scroll-area";
+import { ScrollArea } from "@/registry/ui/react/scroll-area";
 import {
   Breadcrumb,
   Breadcrumbs,
-} from "@/lib/components/core/default/react/navigation/breadcrumb";
+} from "@/registry/ui/react/breadcrumb";
 
 interface PageProps {
   params: {
@@ -62,22 +62,23 @@ export default async function Page({ params }: PageProps) {
         >
           <div className="mx-auto w-full min-w-0 pt-4 md:pt-6 space-y-2">
             <div className="hidden md:block">
-            {metadata.breadcrumbs.length > 1 && (
-              <Breadcrumbs>
-                {metadata.breadcrumbs.map((item, index) => (
-                  <Breadcrumb
-                    key={item.href}
-                    href={
-                      index < metadata.breadcrumbs.length - 1
-                        ? item.href
-                        : undefined
-                    }
-                  >
-                    {item.label}
-                  </Breadcrumb>
-                ))}
-              </Breadcrumbs>
-            )}</div>
+              {metadata.breadcrumbs.length > 1 && (
+                <Breadcrumbs>
+                  {metadata.breadcrumbs.map((item, index) => (
+                    <Breadcrumb
+                      key={item.href}
+                      href={
+                        index < metadata.breadcrumbs.length - 1
+                          ? item.href
+                          : undefined
+                      }
+                    >
+                      {item.label}
+                    </Breadcrumb>
+                  ))}
+                </Breadcrumbs>
+              )}
+            </div>
             <div className="flex gap-4">
               <h1 className={`text-4xl font-bold text-primary`}>
                 {metadata.title}

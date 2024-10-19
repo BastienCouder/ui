@@ -1,0 +1,48 @@
+---
+title: Divider
+description: Visually or semantically separates content.
+thumbnail:
+  image: /previews/components/core/divider.jpeg
+---
+
+<ComponentPreview
+  name="demos/ui/react/divider/default"
+  extension={"tsx"}
+  preview={`<Divider className="gap-4">
+<Button>Default</Button>
+</Divider>`}
+/>
+
+## Installation
+
+<Steps>
+  <Step>Copy and paste the following code into your project.</Step>
+  <ComponentSource
+    name={["ui/react/divider"]}
+    extension={["tsx"]}
+  />
+  <Step>Update the import paths to match your project setup.</Step>
+</Steps>
+
+## Options
+
+### Orientation
+
+Use the `orientation ` prop to change the direction of the divider.
+
+<ComponentPreview
+  name="demos/ui/react/divider/orientation"
+  preview={`<Divider orientation="horizontal">Horizontal</Divider>
+<Divider orientation="vertical">Vertical</Divider>`}
+/>
+
+### Position
+
+Use the `position` prop to change the direction of the divider.
+
+<ComponentPreview
+  name="demos/ui/react/divider/position"
+  preview={`<Divider className="gap-4">Gap 4</Divider>
+<Divider position="after">After</Divider>
+<Divider position="before">Before</Divider>`}
+/>

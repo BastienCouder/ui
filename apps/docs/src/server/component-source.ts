@@ -10,7 +10,7 @@ export const getComponentSource = (
     return [];
   }
 
-  const fullPath = path.join(process.cwd(), "src", "lib", relativePath);
+  const fullPath = path.join(process.cwd(), "src", "registry", relativePath);
   let code: { title: string; code: string; extension: string }[] = [];
 
   // Convert single extension to array for uniform processing

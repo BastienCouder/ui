@@ -3,8 +3,8 @@
 import React from "react";
 import { Check, Copy } from "@/lib/icons";
 import { tv } from "tailwind-variants";
-import { Button } from "@/lib/components/core/default/react/buttons/button";
-import { ScrollArea } from "@/lib/components/core/default/react/layout/scroll-area";
+import { Button } from "@/registry/ui/react/button";
+import { ScrollArea } from "@/registry/ui/react/scroll-area";
 
 const codeStyles = tv({
   base: "relative rounded-md bg-bg border border-secondary",

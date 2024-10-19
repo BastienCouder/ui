@@ -1,0 +1,277 @@
+---
+title: Table
+description: Display data in a tabular format.
+thumbnail:
+  image: /previews/components/core/divider.jpeg
+---
+
+<ComponentPreview
+  name="demos/ui/react/table/default"
+  extension={"tsx"}
+  preview={`<Table>
+    <TableCaption>A list of your recent invoices.</TableCaption>
+      <TableHeader>
+        <TableRow>
+          <TableHead className="w-[100px]">Invoice</TableHead>
+          <TableHead>Status</TableHead>
+          <TableHead>Method</TableHead>
+          <TableHead className="text-right">Amount</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        {invoices.map((invoice) => (
+          <TableRow key={invoice.invoice}>
+            <TableCell className="font-medium">{invoice.invoice}</TableCell>
+            <TableCell>{invoice.paymentStatus}</TableCell>
+            <TableCell>{invoice.paymentMethod}</TableCell>
+            <TableCell className="text-right">{invoice.totalAmount}</TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+      <TableFooter>
+        <TableRow>
+          <TableCell colSpan={3}>Total</TableCell>
+          <TableCell className="text-right">$2,500.00</TableCell>
+        </TableRow>
+    </TableFooter>
+  </Table>`}
+/>
+
+## Installation
+
+<Steps>
+  <Step>Copy and paste the following code into your project.</Step>
+  <ComponentSource
+    name={["ui/react/table"]}
+    extension={["tsx"]}
+  />
+  <Step>Update the import paths to match your project setup.</Step>
+</Steps>
+
+## With Data
+
+<ComponentPreview
+  name="demos/ui/react/table/data-table"
+  extension={"tsx"}
+  preview={`<Table>
+    <TableHeader>
+      {table.getHeaderGroups().map((headerGroup) => (
+        <TableRow key={headerGroup.id}>
+          {headerGroup.headers.map((header) => {
+            return (
+              <TableHead key={header.id}>
+                {header.isPlaceholder
+                  ? null
+                    : flexRender(
+                      header.column.columnDef.header,
+                      header.getContext()
+                    )}
+              </TableHead>
+            )
+          })}
+        </TableRow>
+      ))}
+    </TableHeader>
+    <TableBody>
+      {table.getRowModel().rows?.length ? (
+        table.getRowModel().rows.map((row) => (
+          <TableRow
+            key={row.id}
+            data-state={row.getIsSelected() && "selected"}
+          >
+            {row.getVisibleCells().map((cell) => (
+              <TableCell key={cell.id}>
+                {flexRender(cell.column.columnDef.cell, cell.getContext())}
+              </TableCell>
+            ))}
+          </TableRow>
+        ))
+      ) : (
+        <TableRow>
+          <TableCell colSpan={columns.length} className="h-24 text-center">
+            No results.
+          </TableCell>
+        </TableRow>
+      )}
+  </TableBody>
+</Table>`}
+/>
+
+## Project Structure
+
+Start by creating the following file structure:
+
+```txt
+app
+└── payments
+    ├── columns.tsx
+    ├── data-table.tsx
+    └── page.tsx
+```
+
+I'm using a Next.js example here but this works for any other React framework.
+
+- `columns.tsx` (client component) will contain our column definitions.
+- `data-table.tsx` (client component) will contain our `<DataTable />` component.
+- `page.tsx` (server component) is where we'll fetch data and render our table.
+
+## Basic Table
+
+Let's start by building a basic table.
+
+### Column Definitions
+
+<Steps>
+ <Step>First, we'll define our columns.</Step>
+
+<ComponentSource
+  name={["demos/ui/react/table/basic/column"]}
+  extension={["tsx"]}
+/>
+
+**Note:** Columns are where you define the core of what your table
+will look like. They define the data that will be displayed, how it will be
+formatted, sorted and filtered.
+
+{" "}
+<Step>
+  Next, we'll create a `<DataTable />` component to render our table.
+</Step>
+
+<ComponentSource
+  name={["demos/ui/react/table/basic/data-table"]}
+  extension={["tsx"]}
+/>
+
+**Tip** If you find yourself using `DataTable` in multiple places, this is the component you could make reusable by extracting it.
+
+```tsx
+<DataTable columns={columns} data={data} />
+```
+
+</Steps>
+
+### Render the table
+
+Finally, we'll render our table in our page component.
+
+<ComponentSource
+  name={["demos/ui/react/table/basic/get-data"]}
+  extension={["tsx"]}
+/>
+
+## Cell Formatting
+
+Let's format the amount cell to display the dollar amount. We'll also align the cell to the right.
+
+### Update columns definition
+
+Update the `header` and `cell` definitions for amount as follows:
+
+<ComponentSource
+  name={[
+    "demos/ui/react/table/cell-formating//column",
+  ]}
+  extension={["tsx"]}
+/>
+
+You can use the same approach to format other cells and headers.
+
+## Row Actions
+
+Let's add row actions to our table. We'll use a `<Dropdown />` component for this.
+
+### Update columns definition
+
+Update our columns definition to add a new `actions` column. The `actions` cell returns a `<Dropdown />` component.
+
+<ComponentSource
+  name={["demos/ui/react/table/row-action/column"]}
+  extension={["tsx"]}
+/>
+
+You can access the row data using `row.original` in the `cell` function. Use this to handle actions for your row eg. use the `id` to make a DELETE call to your API.
+
+## Pagination
+
+Next, we'll add pagination to our table.
+
+We can add pagination controls to our table using the `<Button />` component and the `table.previousPage()`, `table.nextPage()` API methods.
+
+<ComponentSource
+  name={[
+    "demos/ui/react/table/pagination/data-table",
+  ]}
+  extension={["tsx"]}
+/>
+
+## Sorting
+
+<Steps>
+
+<Step>Let's make the email column sortable.</Step>
+
+<ComponentSource
+  name={[
+    "demos/ui/react/table/sorting/data-table",
+    "demos/ui/react/table//sorting/column",
+  ]}
+  extension={["tsx", "tsx"]}
+/>
+
+<Step>We can now update the `email` header cell to add sorting controls.</Step>
+
+This will automatically sort the table (asc and desc) when the user toggles on the header cell.
+
+</Steps>
+
+## Filtering
+
+Let's add a search input to filter emails in our table.
+
+<ComponentSource
+  name={["demos/ui/react/table/filtering/data-table"]}
+  extension={["tsx"]}
+/>
+
+Filtering is now enabled for the `email` column. You can add filters to other columns as well. See the [filtering docs](https://tanstack.com/table/v8/docs/guide/filters) for more information on customizing filters.
+
+## Visibility
+
+Adding column visibility is fairly simple using `@tanstack/react-table` visibility API.
+
+<ComponentSource
+  name={[
+    "demos/ui/react/table/visibility/data-table",
+  ]}
+  extension={["tsx"]}
+/>
+
+This adds a dropdown menu that you can use to toggle column visibility.
+
+## Row Selection
+
+Next, we're going to add row selection to our table.
+
+### Update column definitions
+
+<ComponentSource
+  name={[
+    "demos/ui/react/table/row-selection/column",
+    "demos/ui/react/table/row-selection/data-table",
+  ]}
+  extension={["tsx", "tsx"]}
+/>
+
+This adds a checkbox to each row and a checkbox in the header to select all rows.
+
+### Show selected rows
+
+You can show the number of selected rows using the `table.getFilteredSelectedRowModel()` API.
+
+```tsx
+<div className="flex-1 text-sm text-muted-foreground">
+  {table.getFilteredSelectedRowModel().rows.length} of{" "}
+  {table.getFilteredRowModel().rows.length} row(s) selected.
+</div>
+```

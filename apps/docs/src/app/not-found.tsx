@@ -1,4 +1,4 @@
-import { Button } from "@/lib/components/core/default/react/buttons/button";
+import { Button } from "@/registry/ui/react/button";
 
 export default function NotFound() {
   return (

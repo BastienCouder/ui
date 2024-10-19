@@ -1,7 +1,7 @@
 export const siteConfig = {
   global: {
     url: "https://bastiencouder.com",
-    name: "UiKit",
+    name: "Bastiencouder",
     logo: "",
     title: "UI",
     description: "Accessible, mobile friendly, modern UI components.",

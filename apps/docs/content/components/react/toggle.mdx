@@ -1,0 +1,96 @@
+---
+title: Toggle Button
+description: Toggle Buttons allow users to toggle a selection on or off.
+thumbnail:
+  image: /previews/components/core/toggle-button.jpeg
+  video: /previews/components/core/toggle-button.mp4
+---
+
+<ComponentPreview
+  name="demos/ui/react/toggle/default"
+  preview={`<ToggleButton><PinIcon /></ToggleButton>`}
+/>
+
+## Installation
+
+<Steps>
+  <Step>Install the following dependencies:</Step>
+
+```bash
+npm install @radix-ui/react-toggle
+```
+
+  <Step>Copy and paste the following code into your project.</Step>
+  <ComponentSource name={["ui/react/toggle"]} extension={["tsx"]} />
+  <Step>Update the import paths to match your project setup.</Step>
+</Steps>
+
+## Options
+
+### Variants
+
+Use the `variant` prop to control the visual style of the toggle button.
+The default size is `"quiet"`.
+
+<ComponentPreview
+  name="demos/ui/react/toggle/variants"
+  preview={`<Toggle variant="quiet"><PinIcon /></Toggle>
+<Toggle variant="outline"><PinIcon /></Toggle>
+<Toggle variant="accent"><PinIcon /></Toggle>`}
+/>
+
+### Sizes
+
+Use the `size` prop to control the size of the toggle button.<br/>
+The default size is `"md"`.
+
+<ComponentPreview
+  name="demos/ui/react/toggle/sizes"
+  preview={`<Toggle size="sm"><PinIcon /></Toggle>
+<Toggle size="md"><PinIcon /></Toggle>
+<Toggle size="lg"><PinIcon /></Toggle>`}
+/>
+
+### Shapes
+
+Use the `shape` prop to control the shape of the toggle button. The default shape is `"rectangle"`.<br/>
+Icon-only toggle buttons should include an `aria-label`.
+
+<ComponentPreview
+  name="demos/ui/react/toggle/shapes"
+  preview={`<Toggle shape="square"><PinIcon /></Toggle>
+<Toggle shape="circular"><PinIcon /></Toggle>
+<Toggle prefix={<PinIcon />} shape="rectangle">Pin</Toggle>`}
+/>
+
+### Disabled
+
+Use the `isDisabled` prop to disable the toggle button.
+
+<ComponentPreview
+  name="demos/ui/react/toggle/disabled"
+  preview={`<Toggle isDisabled><PinIcon /></Toggle>`}
+/>
+
+## Uncontrolled
+
+Use the `defaultSelected` to set the initial state of the toggle button.
+
+<ComponentPreview
+  name="demos/ui/react/toggle/uncontrolled"
+  preview={`<Toggle defaultSelected><PinIcon /></Toggle>`}
+/>
+
+## Controlled
+
+Use the `isSelected` and `onChange` props to control the state of the toggle button.
+
+<ComponentPreview
+  name="demos/ui/react/toggle/controlled"
+  preview={`const [isSelected, setSelected] = React.useState(true);
+return (
+  <Toggle isSelected={isSelected} onChange={setSelected}>
+    <PinIcon className="rotate-45" />
+  </Toggle>
+);`}
+/>

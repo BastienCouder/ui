@@ -31,15 +31,20 @@ const generateComponentJsonFile = (
     `${componentInfo.name}.json`
   );
 
-  // Transform the "files" array to include file content and add src/registry/ui to the file path
-  const filesWithContent = componentInfo.files.map((filePath: string) => {
+  // Transform the "files" array to include file content, path, and target
+  const filesWithContent = componentInfo.files.map((fileObj: any) => {
+    // Check if fileObj is a string (path) or an object
+    const filePath = typeof fileObj === "string" ? fileObj : fileObj.path;
     const fileName = path.basename(filePath);
     const absoluteFilePath = path.join(FILES_BASE_PATH, filePath); // Prepend src/registry/ui to file path
     const content = getFileContent(absoluteFilePath);
+    const targetPath = `components/ui/${fileName}`;
 
     return {
-      name: fileName,
+      path: filePath,
       content: content || "",
+      type: "registry:ui",
+      target: targetPath,
     };
   });
 
@@ -66,8 +71,8 @@ const processFrameworkIndexFile = (
     const componentsData = JSON.parse(fs.readFileSync(indexFilePath, "utf-8"));
 
     componentsData.forEach((component: any) => {
-      // Only process components with type 'components:ui'
-      if (component.type === "components:ui") {
+      // Only process components with type 'registry:ui'
+      if (component.type === "registry:ui") {
         const frameworkRegistryPath = path.join(
           REGISTRY_UI_PATH,
           frameworkName

@@ -59,8 +59,7 @@ const parseComponentSource = (fileContent: string) => {
       : [];
 
     return files.map((file: string, index: number) => {
-      // const cleanFile = file.replace(/\/(react|vue|angular)\//, "/");
-      return `${file}.${extensions[index]}`;
+      return { path: `${file}.${extensions[index]}`, type: "registry:ui" };
     });
   }
 
@@ -135,18 +134,21 @@ const generateRegistryData = (basePath: string, registryPath: string) => {
       const { dependencies, registryDependencies } =
         parseDependencies(fileContent);
 
+      // If no files are found, default to `ui/<name>.tsx`
       const cleanedFiles =
-        componentFiles.length > 0 ? componentFiles : [`ui/${name}.tsx`];
+        componentFiles.length > 0
+          ? componentFiles
+          : [{ path: `ui/${name}.tsx`, type: "registry:ui" }];
 
       let componentInfo: any;
 
       if (dependencies.length > 0 && (registryDependencies?.length ?? 0) > 0) {
         componentInfo = {
           name,
+          type: "registry:ui",
           dependencies,
           registryDependencies,
           files: cleanedFiles,
-          type: "components:ui",
         };
       } else if (
         dependencies.length > 0 &&
@@ -154,9 +156,9 @@ const generateRegistryData = (basePath: string, registryPath: string) => {
       ) {
         componentInfo = {
           name,
+          type: "registry:ui",
           dependencies,
           files: cleanedFiles,
-          type: "components:ui",
         };
       } else if (
         dependencies.length === 0 &&
@@ -164,15 +166,15 @@ const generateRegistryData = (basePath: string, registryPath: string) => {
       ) {
         componentInfo = {
           name,
+          type: "registry:ui",
           registryDependencies,
           files: cleanedFiles,
-          type: "components:ui",
         };
       } else {
         componentInfo = {
           name,
+          type: "registry:ui",
           files: cleanedFiles,
-          type: "components:ui",
         };
       }
 

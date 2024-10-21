@@ -1,10 +1,12 @@
 {
   "name": "separator",
+  "type": "registry:ui",
   "files": [
     {
-      "name": "separator.tsx",
-      "content": "\"use client\";\r\n\r\nimport * as React from \"react\";\r\nimport { tv } from \"tailwind-variants\";\r\n\r\nconst separatorStyles = tv({\r\n  base: \"shrink-0 bg-border separator\",\r\n  variants: {\r\n    orientation: {\r\n      horizontal: \"h-[1px] w-full\",\r\n      vertical: \"h-full w-[1px]\",\r\n    },\r\n  },\r\n  defaultVariants: {\r\n    orientation: \"horizontal\",\r\n  },\r\n});\r\n\r\ntype SeparatorProps = {\r\n  orientation?: \"horizontal\" | \"vertical\";\r\n  className?: string;\r\n  [key: string]: any;\r\n};\r\n\r\nconst Separator = ({\r\n  orientation = \"horizontal\",\r\n  className,\r\n  ...props\r\n}: SeparatorProps) => {\r\n  return (\r\n    <div {...props} className={separatorStyles({ orientation, className })} />\r\n  );\r\n};\r\n\r\nexport { Separator };\r\n"
+      "path": "ui/react/separator.tsx",
+      "content": "\"use client\";\r\n\r\nimport * as React from \"react\";\r\nimport { tv } from \"tailwind-variants\";\r\n\r\nconst separatorStyles = tv({\r\n  base: \"shrink-0 bg-border separator\",\r\n  variants: {\r\n    orientation: {\r\n      horizontal: \"h-[1px] w-full\",\r\n      vertical: \"h-full w-[1px]\",\r\n    },\r\n  },\r\n  defaultVariants: {\r\n    orientation: \"horizontal\",\r\n  },\r\n});\r\n\r\ntype SeparatorProps = {\r\n  orientation?: \"horizontal\" | \"vertical\";\r\n  className?: string;\r\n  [key: string]: any;\r\n};\r\n\r\nconst Separator = ({\r\n  orientation = \"horizontal\",\r\n  className,\r\n  ...props\r\n}: SeparatorProps) => {\r\n  return (\r\n    <div {...props} className={separatorStyles({ orientation, className })} />\r\n  );\r\n};\r\n\r\nexport { Separator };\r\n",
+      "type": "registry:ui",
+      "target": "components/ui/separator.tsx"
     }
-  ],
-  "type": "components:ui"
+  ]
 }

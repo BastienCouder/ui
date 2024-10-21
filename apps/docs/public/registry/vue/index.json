@@ -1,9 +1,12 @@
 [
   {
     "name": "button",
+    "type": "registry:ui",
     "files": [
-      "ui/vue/button.vue"
-    ],
-    "type": "components:ui"
+      {
+        "path": "ui/vue/button.vue",
+        "type": "registry:ui"
+      }
+    ]
   }
 ]

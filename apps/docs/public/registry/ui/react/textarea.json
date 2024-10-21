@@ -1,10 +1,12 @@
 {
   "name": "textarea",
+  "type": "registry:ui",
   "files": [
     {
-      "name": "textarea.tsx",
-      "content": "\"use client\";\r\n\r\nimport * as React from \"react\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nexport interface TextareaProps\r\n  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> { }\r\n\r\nconst Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(\r\n  ({ className, ...props }, ref) => {\r\n    return (\r\n      <textarea\r\n        className={cn(\r\n          \"border-input bg-bg ring-offset-bg placeholder:text-muted-fg focus-visible:ring-ring flex min-h-[80px] w-full rounded-md border px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50\",\r\n          className,\r\n        )}\r\n        ref={ref}\r\n        {...props}\r\n      />\r\n    );\r\n  },\r\n);\r\nTextarea.displayName = \"Textarea\";\r\n\r\nexport { Textarea };\r\n"
+      "path": "ui/react/textarea.tsx",
+      "content": "\"use client\";\r\n\r\nimport * as React from \"react\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nexport interface TextareaProps\r\n  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> { }\r\n\r\nconst Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(\r\n  ({ className, ...props }, ref) => {\r\n    return (\r\n      <textarea\r\n        className={cn(\r\n          \"border-input bg-bg ring-offset-bg placeholder:text-muted-fg focus-visible:ring-ring flex min-h-[80px] w-full rounded-md border px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50\",\r\n          className,\r\n        )}\r\n        ref={ref}\r\n        {...props}\r\n      />\r\n    );\r\n  },\r\n);\r\nTextarea.displayName = \"Textarea\";\r\n\r\nexport { Textarea };\r\n",
+      "type": "registry:ui",
+      "target": "components/ui/textarea.tsx"
     }
-  ],
-  "type": "components:ui"
+  ]
 }

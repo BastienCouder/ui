@@ -1,9 +1,12 @@
 [
   {
     "name": "button",
+    "type": "registry:ui",
     "files": [
-      "ui/button.tsx"
-    ],
-    "type": "components:ui"
+      {
+        "path": "ui/button.tsx",
+        "type": "registry:ui"
+      }
+    ]
   }
 ]

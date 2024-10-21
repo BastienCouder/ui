@@ -17,7 +17,7 @@ import { HttpsProxyAgent } from "https-proxy-agent";
 import fetch from "node-fetch";
 import { z } from "zod";
 
-const REGISTRY_URL = process.env.REGISTRY_URL ?? "https://ui.shadcn.com/r";
+const REGISTRY_URL = process.env.REGISTRY_URL ?? "https://ui.bastiencouder.com";
 
 const agent = process.env.https_proxy
   ? new HttpsProxyAgent(process.env.https_proxy)
@@ -346,7 +346,7 @@ async function resolveRegistryDependencies(
 
   async function resolveDependencies(itemUrl: string) {
     const url = getRegistryUrl(
-      isUrl(itemUrl) ? itemUrl : `styles/react/${itemUrl}.json`
+      isUrl(itemUrl) ? itemUrl : `react/${itemUrl}.json`
     );
 
     if (visited.has(url)) {

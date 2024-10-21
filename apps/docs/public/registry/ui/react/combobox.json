@@ -1,10 +1,12 @@
 {
   "name": "combobox",
+  "type": "registry:ui",
   "files": [
     {
-      "name": "combobox.tsx",
-      "content": ""
+      "path": "ui/combobox.tsx",
+      "content": "",
+      "type": "registry:ui",
+      "target": "components/ui/combobox.tsx"
     }
-  ],
-  "type": "components:ui"
+  ]
 }

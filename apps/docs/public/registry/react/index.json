@@ -1,22 +1,5 @@
 [
   {
-    "name": "accordion",
-    "dependencies": [
-      "@radix-ui/react-accordion"
-    ],
-    "files": [
-      "ui/accordion.tsx"
-    ],
-    "type": "components:ui"
-  },
-  {
-    "name": "alert",
-    "files": [
-      "ui/alert.tsx"
-    ],
-    "type": "components:ui"
-  },
-  {
     "name": "alert-dialog",
     "dependencies": [
       "@radix-ui/react-alert-dialog"
@@ -25,102 +8,56 @@
       "button"
     ],
     "files": [
-      "ui/alert-dialog.tsx"
+      "ui/react/alert-dialog.tsx"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "alert",
+    "files": [
+      "ui/react/alert.tsx"
     ],
     "type": "components:ui"
   },
   {
     "name": "aspect-ratio",
-    "dependencies": [
-      "@radix-ui/react-aspect-ratio"
-    ],
     "files": [
-      "ui/aspect-ratio.tsx"
+      "ui/react/aspect-ratio.tsx"
     ],
     "type": "components:ui"
   },
   {
     "name": "avatar",
-    "dependencies": [
-      "@radix-ui/react-avatar"
-    ],
     "files": [
-      "ui/avatar.tsx"
+      "ui/react/avatar.tsx"
     ],
     "type": "components:ui"
   },
   {
     "name": "badge",
     "files": [
-      "ui/badge.tsx"
+      "ui/react/badge.tsx"
     ],
     "type": "components:ui"
   },
   {
-    "name": "breadcrumb",
-    "dependencies": [
-      "@radix-ui/react-slot"
-    ],
+    "name": "breadcrumbs",
     "files": [
-      "ui/breadcrumb.tsx"
+      "ui/react/breadcrumb.tsx"
     ],
     "type": "components:ui"
   },
   {
     "name": "button",
-    "dependencies": [
-      "@radix-ui/react-slot"
-    ],
     "files": [
-      "ui/button.tsx"
-    ],
-    "type": "components:ui"
-  },
-  {
-    "name": "calendar",
-    "dependencies": [
-      "react-day-picker@8.10.1",
-      "date-fns"
-    ],
-    "registryDependencies": [
-      "button"
-    ],
-    "files": [
-      "ui/calendar.tsx"
+      "ui/react/button.tsx"
     ],
     "type": "components:ui"
   },
   {
     "name": "card",
     "files": [
-      "ui/card.tsx"
-    ],
-    "type": "components:ui"
-  },
-  {
-    "name": "carousel",
-    "dependencies": [
-      "embla-carousel-react"
-    ],
-    "registryDependencies": [
-      "button"
-    ],
-    "files": [
-      "ui/carousel.tsx"
-    ],
-    "type": "components:ui"
-  },
-  {
-    "name": "chart",
-    "dependencies": [
-      "recharts",
-      "lucide-react"
-    ],
-    "registryDependencies": [
-      "card"
-    ],
-    "files": [
-      "ui/chart.tsx"
+      "ui/react/card.tsx"
     ],
     "type": "components:ui"
   },
@@ -130,40 +67,35 @@
       "@radix-ui/react-checkbox"
     ],
     "files": [
-      "ui/checkbox.tsx"
+      "ui/react/checkbox.tsx"
     ],
     "type": "components:ui"
   },
   {
     "name": "collapsible",
-    "dependencies": [
-      "@radix-ui/react-collapsible"
-    ],
     "files": [
-      "ui/collapsible.tsx"
+      "ui/react/collapsible.tsx"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "combobox",
+    "files": [
+      "ui/combobox.tsx"
     ],
     "type": "components:ui"
   },
   {
     "name": "command",
     "dependencies": [
-      "cmdk@1.0.0"
+      "@radix-ui/react-dialog",
+      "cmdk"
     ],
     "registryDependencies": [
       "dialog"
     ],
     "files": [
-      "ui/command.tsx"
-    ],
-    "type": "components:ui"
-  },
-  {
-    "name": "context-menu",
-    "dependencies": [
-      "@radix-ui/react-context-menu"
-    ],
-    "files": [
-      "ui/context-menu.tsx"
+      "ui/react/command.tsx"
     ],
     "type": "components:ui"
   },
@@ -173,28 +105,34 @@
       "@radix-ui/react-dialog"
     ],
     "files": [
-      "ui/dialog.tsx"
+      "ui/react/dialog.tsx"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "divider",
+    "files": [
+      "ui/react/divider.tsx"
     ],
     "type": "components:ui"
   },
   {
     "name": "drawer",
     "dependencies": [
-      "vaul",
-      "@radix-ui/react-dialog"
+      "vaul"
     ],
     "files": [
-      "ui/drawer.tsx"
+      "ui/react/drawer.tsx"
     ],
     "type": "components:ui"
   },
   {
-    "name": "dropdown-menu",
+    "name": "dropdown",
     "dependencies": [
       "@radix-ui/react-dropdown-menu"
     ],
     "files": [
-      "ui/dropdown-menu.tsx"
+      "ui/react/dropdown.tsx"
     ],
     "type": "components:ui"
   },
@@ -203,16 +141,16 @@
     "dependencies": [
       "@radix-ui/react-label",
       "@radix-ui/react-slot",
+      "react-hook-form",
       "@hookform/resolvers",
-      "zod",
-      "react-hook-form"
+      "zod"
     ],
     "registryDependencies": [
       "button",
       "label"
     ],
     "files": [
-      "ui/form.tsx"
+      "ui/react/form.tsx"
     ],
     "type": "components:ui"
   },
@@ -222,24 +160,7 @@
       "@radix-ui/react-hover-card"
     ],
     "files": [
-      "ui/hover-card.tsx"
-    ],
-    "type": "components:ui"
-  },
-  {
-    "name": "input",
-    "files": [
-      "ui/input.tsx"
-    ],
-    "type": "components:ui"
-  },
-  {
-    "name": "input-otp",
-    "dependencies": [
-      "input-otp"
-    ],
-    "files": [
-      "ui/input-otp.tsx"
+      "ui/react/hover-card.tsx"
     ],
     "type": "components:ui"
   },
@@ -249,37 +170,40 @@
       "@radix-ui/react-label"
     ],
     "files": [
-      "ui/label.tsx"
+      "ui/react/label.tsx"
     ],
     "type": "components:ui"
   },
   {
-    "name": "menubar",
-    "dependencies": [
-      "@radix-ui/react-menubar"
-    ],
+    "name": "marquee",
     "files": [
-      "ui/menubar.tsx"
+      "ui/react/marquee.tsx"
     ],
     "type": "components:ui"
   },
   {
-    "name": "navigation-menu",
+    "name": "multi-select",
     "dependencies": [
-      "@radix-ui/react-navigation-menu"
+      "@radix-ui/react-icons",
+      "@radix-ui/react-popover",
+      "@radix-ui/react-primitive",
+      "@radix-ui/react-use-controllable-state"
     ],
     "files": [
-      "ui/navigation-menu.tsx"
+      "ui/react/multi-select.tsx"
     ],
     "type": "components:ui"
   },
   {
     "name": "pagination",
+    "dependencies": [
+      "@radix-ui/react-popover"
+    ],
     "registryDependencies": [
       "button"
     ],
     "files": [
-      "ui/pagination.tsx"
+      "ui/react/pagination.tsx"
     ],
     "type": "components:ui"
   },
@@ -289,47 +213,28 @@
       "@radix-ui/react-popover"
     ],
     "files": [
-      "ui/popover.tsx"
-    ],
-    "type": "components:ui"
-  },
-  {
-    "name": "progress",
-    "dependencies": [
-      "@radix-ui/react-progress"
-    ],
-    "files": [
-      "ui/progress.tsx"
+      "ui/react/popover.tsx"
     ],
     "type": "components:ui"
   },
   {
     "name": "radio-group",
-    "dependencies": [
-      "@radix-ui/react-radio-group"
-    ],
     "files": [
-      "ui/radio-group.tsx"
+      "ui/react/radio-group.tsx"
     ],
     "type": "components:ui"
   },
   {
     "name": "resizable",
-    "dependencies": [
-      "react-resizable-panels"
-    ],
     "files": [
-      "ui/resizable.tsx"
+      "ui/react/resizable.tsx"
     ],
     "type": "components:ui"
   },
   {
     "name": "scroll-area",
-    "dependencies": [
-      "@radix-ui/react-scroll-area"
-    ],
     "files": [
-      "ui/scroll-area.tsx"
+      "ui/react/scroll-area.tsx"
     ],
     "type": "components:ui"
   },
@@ -339,17 +244,14 @@
       "@radix-ui/react-select"
     ],
     "files": [
-      "ui/select.tsx"
+      "ui/react/select.tsx"
     ],
     "type": "components:ui"
   },
   {
     "name": "separator",
-    "dependencies": [
-      "@radix-ui/react-separator"
-    ],
     "files": [
-      "ui/separator.tsx"
+      "ui/react/separator.tsx"
     ],
     "type": "components:ui"
   },
@@ -359,35 +261,38 @@
       "@radix-ui/react-dialog"
     ],
     "files": [
-      "ui/sheet.tsx"
+      "ui/react/sheet.tsx"
     ],
     "type": "components:ui"
   },
   {
     "name": "skeleton",
     "files": [
-      "ui/skeleton.tsx"
+      "ui/react/skeleton.tsx"
     ],
     "type": "components:ui"
   },
   {
     "name": "slider",
-    "dependencies": [
-      "@radix-ui/react-slider"
-    ],
     "files": [
-      "ui/slider.tsx"
+      "ui/react/slider.tsx"
     ],
     "type": "components:ui"
   },
   {
-    "name": "sonner",
-    "dependencies": [
-      "sonner",
-      "next-themes"
+    "name": "star-rating",
+    "files": [
+      "ui/react/star-rating.tsx"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "stepper",
+    "registryDependencies": [
+      "button"
     ],
     "files": [
-      "ui/sonner.tsx"
+      "ui/react/stepper.tsx"
     ],
     "type": "components:ui"
   },
@@ -397,14 +302,14 @@
       "@radix-ui/react-switch"
     ],
     "files": [
-      "ui/switch.tsx"
+      "ui/react/switch.tsx"
     ],
     "type": "components:ui"
   },
   {
     "name": "table",
     "files": [
-      "ui/table.tsx"
+      "ui/react/table.tsx"
     ],
     "type": "components:ui"
   },
@@ -414,14 +319,28 @@
       "@radix-ui/react-tabs"
     ],
     "files": [
-      "ui/tabs.tsx"
+      "ui/react/tabs.tsx"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "text-field",
+    "files": [
+      "ui/react/text-field.tsx"
     ],
     "type": "components:ui"
   },
   {
     "name": "textarea",
     "files": [
-      "ui/textarea.tsx"
+      "ui/react/textarea.tsx"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "timeline",
+    "files": [
+      "ui/react/timeline.tsx"
     ],
     "type": "components:ui"
   },
@@ -431,9 +350,16 @@
       "@radix-ui/react-toast"
     ],
     "files": [
-      "ui/toast.tsx",
-      "ui/use-toast.ts",
-      "ui/toaster.tsx"
+      "ui/react/toast.tsx",
+      "ui/react/toaster.tsx",
+      "ui/react/use-toast.tsx"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "toc",
+    "files": [
+      "ui/react/toc.tsx"
     ],
     "type": "components:ui"
   },
@@ -443,30 +369,21 @@
       "@radix-ui/react-toggle"
     ],
     "files": [
-      "ui/toggle.tsx"
-    ],
-    "type": "components:ui"
-  },
-  {
-    "name": "toggle-group",
-    "dependencies": [
-      "@radix-ui/react-toggle-group"
-    ],
-    "registryDependencies": [
-      "toggle"
-    ],
-    "files": [
-      "ui/toggle-group.tsx"
+      "ui/react/toggle.tsx"
     ],
     "type": "components:ui"
   },
   {
     "name": "tooltip",
-    "dependencies": [
-      "@radix-ui/react-tooltip"
-    ],
     "files": [
-      "ui/tooltip.tsx"
+      "ui/react/tooltip.tsx"
+    ],
+    "type": "components:ui"
+  },
+  {
+    "name": "tree",
+    "files": [
+      "ui/react/tree.tsx"
     ],
     "type": "components:ui"
   }

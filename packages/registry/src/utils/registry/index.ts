@@ -17,8 +17,7 @@ import { HttpsProxyAgent } from "https-proxy-agent";
 import fetch from "node-fetch";
 import { z } from "zod";
 
-const REGISTRY_URL =
-  process.env.REGISTRY_URL ?? "https://ui.shadcn.com/registry/react";
+const REGISTRY_URL = process.env.REGISTRY_URL ?? "https://ui.shadcn.com/r";
 
 const agent = process.env.https_proxy
   ? new HttpsProxyAgent(process.env.https_proxy)
@@ -47,19 +46,19 @@ export async function getRegistryStyles() {
   }
 }
 
-export async function getRegistryItem(name: string, style: string) {
-  try {
-    const [result] = await fetchRegistry([
-      isUrl(name) ? name : `styles/${style}/${name}.json`,
-    ]);
+// export async function getRegistryItem(name: string, style: string) {
+//   try {
+//     const [result] = await fetchRegistry([
+//       isUrl(name) ? name : `styles/${style}/${name}.json`,
+//     ]);
 
-    return registryItemSchema.parse(result);
-  } catch (error) {
-    logger.break();
-    handleError(error);
-    return null;
-  }
-}
+//     return registryItemSchema.parse(result);
+//   } catch (error) {
+//     logger.break();
+//     handleError(error);
+//     return null;
+//   }
+// }
 
 export async function getRegistryBaseColors() {
   return [
@@ -295,12 +294,12 @@ export async function registryResolveItemsTree(
     // We do this for index only.
     // Other components will ship with their theme tokens.
     if (names.includes("index")) {
-      if (config.tailwind.baseColor) {
-        const theme = await registryGetTheme(config.tailwind.baseColor, config);
-        if (theme) {
-          payload.unshift(theme);
-        }
-      }
+      // if (config.tailwind.baseColor) {
+      //   const theme = await registryGetTheme(config.tailwind.baseColor, config);
+      //   if (theme) {
+      //     payload.unshift(theme);
+      //   }
+      // }
     }
 
     let tailwind = {};
@@ -347,7 +346,7 @@ async function resolveRegistryDependencies(
 
   async function resolveDependencies(itemUrl: string) {
     const url = getRegistryUrl(
-      isUrl(itemUrl) ? itemUrl : `styles/${config.style}/${itemUrl}.json`
+      isUrl(itemUrl) ? itemUrl : `styles/react/${itemUrl}.json`
     );
 
     if (visited.has(url)) {

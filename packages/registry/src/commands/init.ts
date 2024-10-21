@@ -95,7 +95,6 @@ export async function runInit(
       // }
       // options.cwd = projectPath;
       // options.isNewProject = true;
-      logger.break();
       logger.log(`${highlighter.error("Error!")} No package.json found.`);
       logger.break();
       process.exit(1);
@@ -158,10 +157,10 @@ export async function runInit(
 }
 
 async function promptForConfig(defaultConfig: Config | null = null) {
-  const [styles, baseColors] = await Promise.all([
-    getRegistryStyles(),
-    getRegistryBaseColors(),
-  ]);
+  // const [styles, baseColors] = await Promise.all([
+  //   getRegistryStyles(),
+  //   getRegistryBaseColors(),
+  // ]);
 
   logger.info("");
   const options = await prompts([
@@ -184,17 +183,17 @@ async function promptForConfig(defaultConfig: Config | null = null) {
     //     value: style.name,
     //   })),
     // },
-    {
-      type: "select",
-      name: "tailwindBaseColor",
-      message: `Which color would you like to use as the ${highlighter.info(
-        "base color"
-      )}?`,
-      choices: baseColors.map((color) => ({
-        title: color.label,
-        value: color.name,
-      })),
-    },
+    // {
+    //   type: "select",
+    //   name: "tailwindBaseColor",
+    //   message: `Which color would you like to use as the ${highlighter.info(
+    //     "base color"
+    //   )}?`,
+    //   choices: baseColors.map((color) => ({
+    //     title: color.label,
+    //     value: color.name,
+    //   })),
+    // },
     {
       type: "text",
       name: "tailwindCss",
@@ -255,7 +254,7 @@ async function promptForConfig(defaultConfig: Config | null = null) {
     $schema: "https://ui.shadcn.com/schema.json",
     tailwind: {
       config: options.tailwindConfig,
-      baseColors: options.tailwindBaseColor,
+      // baseColors: options.tailwindBaseColor,
       css: options.tailwindCss,
       cssVariables: options.tailwindCssVariables,
       prefix: options.tailwindPrefix,
@@ -277,14 +276,14 @@ async function promptForMinimalConfig(
   opts: z.infer<typeof initOptionsSchema>
 ) {
   // let style = defaultConfig.style;
-  let baseColor = defaultConfig.tailwind.baseColor;
+  // let baseColor = defaultConfig.tailwind.baseColor;
   let cssVariables = defaultConfig.tailwind.cssVariables;
 
   if (!opts.defaults) {
-    const [styles, baseColors] = await Promise.all([
-      getRegistryStyles(),
-      getRegistryBaseColors(),
-    ]);
+    // const [styles, baseColors] = await Promise.all([
+    //   getRegistryStyles(),
+    //   getRegistryBaseColors(),
+    // ]);
 
     const options = await prompts([
       // {
@@ -297,17 +296,17 @@ async function promptForMinimalConfig(
       //   })),
       //   initial: styles.findIndex((s) => s.name === style),
       // },
-      {
-        type: "select",
-        name: "tailwindBaseColor",
-        message: `Which color would you like to use as the ${highlighter.info(
-          "base color"
-        )}?`,
-        choices: baseColors.map((color) => ({
-          title: color.label,
-          value: color.name,
-        })),
-      },
+      // {
+      //   type: "select",
+      //   name: "tailwindBaseColor",
+      //   message: `Which color would you like to use as the ${highlighter.info(
+      //     "base color"
+      //   )}?`,
+      //   choices: baseColors.map((color) => ({
+      //     title: color.label,
+      //     value: color.name,
+      //   })),
+      // },
       {
         type: "toggle",
         name: "tailwindCssVariables",
@@ -321,7 +320,7 @@ async function promptForMinimalConfig(
     ]);
 
     // style = options.style;
-    baseColor = options.tailwindBaseColor;
+    // baseColor = options.tailwindBaseColor;
     cssVariables = options.tailwindCssVariables;
   }
 
@@ -329,7 +328,7 @@ async function promptForMinimalConfig(
     $schema: defaultConfig?.$schema,
     tailwind: {
       ...defaultConfig?.tailwind,
-      baseColor,
+      // baseColor,
       cssVariables,
     },
     rsc: defaultConfig?.rsc,

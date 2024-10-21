@@ -1,0 +1,10 @@
+{
+  "name": "badge",
+  "files": [
+    {
+      "name": "badge.tsx",
+      "content": "import * as React from \"react\";\r\nimport { tv, type VariantProps } from \"tailwind-variants\";\r\nimport { cn } from \"@/lib/utils\";\r\n\r\nconst badgeVariants = tv({\r\n  base: \"inline-flex items-center gap-1 rounded-md text-xs font-semibold transition-colors shrink-0 whitespace-nowrap\",\r\n  variants: {\r\n    variant: {\r\n      neutral: \"bg-neutral text-fg\",\r\n      outline: \"border text-fg\",\r\n      primary: \"bg-primary text-primary-fg\",\r\n      success: \"bg-success text-success-fg\",\r\n      danger: \"bg-danger text-danger-fg\",\r\n      warning: \"bg-warning text-warning-fg\",\r\n      accent: \"bg-accent text-accent-fg\",\r\n    },\r\n    size: {\r\n      sm: \"h-5 px-2.5 [&_svg]:w-3 [&_svg]:h-3\",\r\n      md: \"h-6 px-3 [&_svg]:w-3.5 [&_svg]:h-3.5\",\r\n      lg: \"h-7 px-4 text-sm [&_svg]:w-4 [&_svg]:h-4\",\r\n    },\r\n  },\r\n  defaultVariants: {\r\n    variant: \"primary\",\r\n    size: \"sm\",\r\n  },\r\n});\r\n\r\nexport interface BadgeProps\r\n  extends React.HTMLAttributes<HTMLDivElement>,\r\n    VariantProps<typeof badgeVariants> {\r\n  icon?: React.ReactNode;\r\n}\r\n\r\nfunction Badge({\r\n  children,\r\n  className,\r\n  variant,\r\n  size,\r\n  icon,\r\n  ...props\r\n}: BadgeProps) {\r\n  return (\r\n    <span\r\n      role=\"presentation\"\r\n      className={cn(badgeVariants({ variant, size }), className)}\r\n      {...props}\r\n    >\r\n      {icon && <span>{icon}</span>}\r\n      <span>{children}</span>\r\n    </span>\r\n  );\r\n}\r\n\r\nexport { Badge, badgeVariants };\r\n"
+    }
+  ],
+  "type": "components:ui"
+}

@@ -4,10 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbo --port 7000",
-    "build": "pnpm run build:docs-config && pnpm run build:previews && next build",
+    "build": "pnpm run build:docs-config && pnpm run build:previews && pnpm run build:registry && pnpm run build:registry-ui && next build",
     "build:previews": "tsx ./scripts/build-previews.ts",
     "build:icons": "tsx ./scripts/build-icon.ts",
     "build:docs-config": "tsx ./scripts/build-docs-config.ts",
+    "build:registry": "tsx ./scripts/build-registry-json.ts",
+    "build:registry-ui": "tsx ./scripts/build-registry-ui.ts",
     "start": "next start",
     "lint": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}'"
   },

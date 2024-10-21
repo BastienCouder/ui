@@ -1,0 +1,10 @@
+{
+  "name": "divider",
+  "files": [
+    {
+      "name": "divider.tsx",
+      "content": "\"use client\";\r\n\r\nimport React from \"react\";\r\n\r\nconst BEFORE_HORIZONTAL =\r\n  \"before:h-px before:flex-1 before:bg-border before:content-['']\";\r\nconst AFTER_HORIZONTAL =\r\n  \"after:h-px after:flex-1 after:bg-border after:content-['']\";\r\n\r\nconst BEFORE_VERTICAL =\r\n  \"before:w-px before:flex-1 before:bg-border before:content-['']\";\r\nconst AFTER_VERTICAL =\r\n  \"after:w-px after:flex-1 after:bg-border after:content-['']\";\r\n\r\nconst variantClasses: { [key: string]: { [key: string]: string } } = {\r\n  horizontal: {\r\n    default: `${BEFORE_HORIZONTAL} ${AFTER_HORIZONTAL}`,\r\n    before: `${BEFORE_HORIZONTAL} gap-4`,\r\n    after: `${AFTER_HORIZONTAL} gap-4`,\r\n  },\r\n  vertical: {\r\n    default: `${BEFORE_VERTICAL} ${AFTER_VERTICAL}`,\r\n    before: `${BEFORE_VERTICAL} gap-4`,\r\n    after: `${AFTER_VERTICAL} gap-4`,\r\n  },\r\n};\r\n\r\nexport const Divider = ({\r\n  position = \"default\",\r\n  orientation = \"horizontal\",\r\n  children,\r\n  className,\r\n}: {\r\n  position?: string;\r\n  orientation?: string;\r\n  children?: React.ReactNode;\r\n  className?: string;\r\n}) => {\r\n  const isHorizontal = orientation === \"horizontal\";\r\n  const baseClasses = isHorizontal\r\n    ? \"flex justify-center items-center my-4\"\r\n    : \"flex flex-col justify-center items-center mx-4\";\r\n\r\n  const classes = `${baseClasses} ${variantClasses[orientation]?.[position] || \"\"}`;\r\n\r\n  return <div className={[classes, className].join(\" \")}>{children}</div>;\r\n};\r\n"
+    }
+  ],
+  "type": "components:ui"
+}

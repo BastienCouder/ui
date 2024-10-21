@@ -1,0 +1,9 @@
+[
+  {
+    "name": "button",
+    "files": [
+      "ui/vue/button.vue"
+    ],
+    "type": "components:ui"
+  }
+]

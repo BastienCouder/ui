@@ -1,0 +1,9 @@
+[
+  {
+    "name": "button",
+    "files": [
+      "ui/button.tsx"
+    ],
+    "type": "components:ui"
+  }
+]

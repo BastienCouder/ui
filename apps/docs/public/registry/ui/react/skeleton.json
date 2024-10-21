@@ -1,0 +1,10 @@
+{
+  "name": "skeleton",
+  "files": [
+    {
+      "name": "skeleton.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\r\n\r\nfunction Skeleton({\r\n  className,\r\n  show = true,\r\n  ...props\r\n}: React.HTMLAttributes<HTMLDivElement> & {\r\n  show?: boolean;\r\n}) {\r\n  if (!show) return props.children;\r\n  return (\r\n    <span\r\n      className={cn(\r\n        \"relative block h-6 animate-pulse rounded-md bg-neutral\",\r\n        props.children && \"h-auto *:invisible\",\r\n        className,\r\n      )}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nexport { Skeleton };\r\n"
+    }
+  ],
+  "type": "components:ui"
+}

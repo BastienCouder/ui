@@ -1,0 +1,10 @@
+{
+  "name": "combobox",
+  "files": [
+    {
+      "name": "combobox.tsx",
+      "content": ""
+    }
+  ],
+  "type": "components:ui"
+}

@@ -228,7 +228,7 @@ export async function getProjectConfig(
     // style: "new-york",
     tailwind: {
       config: projectInfo.tailwindConfigFile,
-      baseColor: "zinc",
+      // baseColor: "zinc",
       css: projectInfo.tailwindCssFile,
       cssVariables: true,
       prefix: "",

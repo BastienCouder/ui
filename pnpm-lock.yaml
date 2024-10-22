@@ -11,6 +11,9 @@ importers:
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
+      rva:
+        specifier: workspace:*
+        version: link:packages/registry
       turbo:
         specifier: ^2.2.1
         version: 2.2.3

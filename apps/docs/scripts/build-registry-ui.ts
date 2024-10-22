@@ -90,6 +90,37 @@ const createFixedIndexJson = (outputPath: string, frameworkName: string) => {
   );
 };
 
+// Helper function to create the utils.json file in each subdirectory
+const createUtilsJson = (outputPath: string) => {
+  const utilsConfig = {
+    name: "utils",
+    type: "registry:lib",
+    dependencies: ["clsx", "tailwind-merge"],
+    files: [
+      {
+        path: "lib/utils.ts",
+        content: `import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+`,
+        type: "registry:lib",
+        target: "lib/utils.ts",
+      },
+    ],
+  };
+
+  const utilsJsonPath = path.join(outputPath, "utils.json");
+
+  fs.writeFileSync(
+    utilsJsonPath,
+    JSON.stringify(utilsConfig, null, 2),
+    "utf-8"
+  );
+};
+
 // Helper function to process each framework's index.json and generate files
 const processFrameworkIndexFile = (
   frameworkPath: string,
@@ -113,6 +144,8 @@ const processFrameworkIndexFile = (
           fs.mkdirSync(frameworkRegistryPath, { recursive: true });
           // Create the fixed index.json for each subdirectory with its own name
           createFixedIndexJson(frameworkRegistryPath, frameworkName);
+          // Create the utils.json file in the same subdirectory
+          createUtilsJson(frameworkRegistryPath);
         }
 
         // Generate individual JSON file for each component with file content
@@ -146,7 +179,7 @@ const createRegistry = () => {
   generateRegistryData();
 
   console.log(
-    "\x1b[32m✓\x1b[0m Generated individual component JSON files with file contents from index.json and created index.json with fixed configuration for each subdirectory."
+    "\x1b[32m✓\x1b[0m Generated individual component JSON files with file contents from index.json and created index.json with fixed configuration for each subdirectory, along with utils.json in each subdirectory."
   );
 };
 

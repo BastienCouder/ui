@@ -25,7 +25,7 @@ export const addOptionsSchema = z.object({
 });
 
 export const add = new Command()
-  .name("add")
+  .name("add") // Name of the command
   .description("add a component to your project")
   .argument(
     "[components...]",

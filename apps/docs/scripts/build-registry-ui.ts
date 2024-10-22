@@ -60,6 +60,36 @@ const generateComponentJsonFile = (
   );
 };
 
+// Helper function to create the index.json with the fixed config for each subdirectory
+const createFixedIndexJson = (outputPath: string, frameworkName: string) => {
+  const fixedIndexConfig = {
+    name: frameworkName, // Use the framework name here
+    type: "registry:style",
+    dependencies: [
+      "tailwindcss-animate",
+      "class-variance-authority",
+      "lucide-react",
+      "tailwind-variants",
+    ],
+    registryDependencies: ["utils"],
+    tailwind: {
+      config: {
+        plugins: ['require("tailwindcss-animate")'],
+      },
+    },
+    cssVars: {},
+    files: [],
+  };
+
+  const indexJsonPath = path.join(outputPath, "index.json");
+
+  fs.writeFileSync(
+    indexJsonPath,
+    JSON.stringify(fixedIndexConfig, null, 2),
+    "utf-8"
+  );
+};
+
 // Helper function to process each framework's index.json and generate files
 const processFrameworkIndexFile = (
   frameworkPath: string,
@@ -81,6 +111,8 @@ const processFrameworkIndexFile = (
         // Ensure the directory for the framework exists
         if (!fs.existsSync(frameworkRegistryPath)) {
           fs.mkdirSync(frameworkRegistryPath, { recursive: true });
+          // Create the fixed index.json for each subdirectory with its own name
+          createFixedIndexJson(frameworkRegistryPath, frameworkName);
         }
 
         // Generate individual JSON file for each component with file content
@@ -99,6 +131,8 @@ const generateRegistryData = () => {
 
   frameworks.forEach((framework) => {
     const frameworkPath = path.join(REGISTRY_BASE_PATH, framework);
+
+    // Process the framework index and create files only when necessary
     processFrameworkIndexFile(frameworkPath, framework);
   });
 };
@@ -108,16 +142,11 @@ const createRegistry = () => {
   // Delete the entire 'ui' directory before starting fresh
   deleteRegistry(REGISTRY_UI_PATH);
 
-  // Ensure the 'ui' directory exists
-  if (!fs.existsSync(REGISTRY_UI_PATH)) {
-    fs.mkdirSync(REGISTRY_UI_PATH, { recursive: true });
-  }
-
   // Generate the registry files based on the existing index.json files
   generateRegistryData();
 
   console.log(
-    "\x1b[32m✓\x1b[0m Generated individual component JSON files with file contents from index.json."
+    "\x1b[32m✓\x1b[0m Generated individual component JSON files with file contents from index.json and created index.json with fixed configuration for each subdirectory."
   );
 };
 

@@ -17,7 +17,8 @@ import { HttpsProxyAgent } from "https-proxy-agent";
 import fetch from "node-fetch";
 import { z } from "zod";
 
-const REGISTRY_URL = process.env.REGISTRY_URL ?? "https://ui.bastiencouder.com";
+const REGISTRY_URL =
+  process.env.REGISTRY_URL ?? "https://ui.bastiencouder.com/registry/react";
 
 const agent = process.env.https_proxy
   ? new HttpsProxyAgent(process.env.https_proxy)
@@ -269,19 +270,28 @@ export async function registryResolveItemsTree(
     if (names.includes("index")) {
       names.unshift("index");
     }
+    console.log(names.includes("index"));
 
     let registryDependencies: string[] = [];
     for (const name of names) {
+      console.log(name, "name");
+
       const itemRegistryDependencies = await resolveRegistryDependencies(
         name,
         config
       );
+      console.log(itemRegistryDependencies, "itemRegistryDependencies");
+
       registryDependencies.push(...itemRegistryDependencies);
     }
+    console.log(registryDependencies, "registryDependencies");
 
     const uniqueRegistryDependencies = Array.from(
       new Set(registryDependencies)
     );
+
+    console.log(uniqueRegistryDependencies, "uniqueRegistryDependencies");
+
     let result = await fetchRegistry(uniqueRegistryDependencies);
     const payload = z.array(registryItemSchema).parse(result);
 
@@ -345,9 +355,11 @@ async function resolveRegistryDependencies(
   const payload: string[] = [];
 
   async function resolveDependencies(itemUrl: string) {
-    const url = getRegistryUrl(
-      isUrl(itemUrl) ? itemUrl : `react/${itemUrl}.json`
-    );
+    // const url = getRegistryUrl(
+    //   isUrl(itemUrl) ? itemUrl : `ui/react/${itemUrl}.json`
+    // );
+    const url = `https://ui.bastiencouder.com/registry/ui/react/${itemUrl}.json`;
+    //correction url;
 
     if (visited.has(url)) {
       return;
@@ -356,6 +368,8 @@ async function resolveRegistryDependencies(
     visited.add(url);
 
     try {
+      console.log(url, "url");
+
       const [result] = await fetchRegistry([url]);
       const item = registryItemSchema.parse(result);
       payload.push(url);

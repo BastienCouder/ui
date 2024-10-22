@@ -133,13 +133,14 @@ export async function runInit(
   // Add components.
   const fullConfig = await resolveConfigPaths(options.cwd, config);
   const components = ["index", ...(options.components || [])];
-  await addComponents(components, fullConfig, {
+  const res = await addComponents(components, fullConfig, {
     // Init will always overwrite files.
     overwrite: true,
     silent: options.silent,
     isNewProject:
       options.isNewProject || projectInfo?.framework.name === "next-app",
   });
+  console.log(res, "res");
 
   // If a new project is using src dir, let's update the tailwind content config.
   // TODO: Handle this per framework.
@@ -253,8 +254,9 @@ async function promptForConfig(defaultConfig: Config | null = null) {
   return rawConfigSchema.parse({
     $schema: "https://ui.shadcn.com/schema.json",
     tailwind: {
+      style: "new-york",
       config: options.tailwindConfig,
-      // baseColors: options.tailwindBaseColor,
+      baseColors: "zinc",
       css: options.tailwindCss,
       cssVariables: options.tailwindCssVariables,
       prefix: options.tailwindPrefix,

@@ -79,6 +79,7 @@ export const add = new Command()
       if (!options.components?.length) {
         options.components = await promptForRegistryComponents(options);
       }
+      console.log(options.components);
 
       let { errors, config } = await preFlightAdd(options);
 
@@ -144,8 +145,10 @@ export const add = new Command()
           `Failed to read config at ${highlighter.info(options.cwd)}.`
         );
       }
+      console.log("here");
 
-      await addComponents(options.components, config, options);
+      const res = await addComponents(options.components, config, options);
+      console.log(res);
 
       // If we're adding a single component and it's from the v0 registry,
       // let's update the app/page.tsx file to import the component.
@@ -198,6 +201,8 @@ async function promptForRegistryComponents(
   }
 
   const result = z.array(z.string()).safeParse(components);
+  console.log(result);
+
   if (!result.success) {
     logger.error("");
     handleError(new Error("Something went wrong. Please try again."));

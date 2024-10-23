@@ -9,7 +9,6 @@ interface PopoverProps {
   content?: React.ReactNode;
   placement?: "top" | "right" | "bottom" | "left";
   offset?: number;
-  delay?: number;
   shouldFlip?: boolean;
   arrow?: boolean;
   className?: string;
@@ -24,7 +23,6 @@ const Popover: React.FC<PopoverProps> = ({
   className,
   placement = "bottom",
   offset = 10,
-  delay = 0,
   shouldFlip = true,
   arrow = false,
   flexContent = "center",
@@ -47,7 +45,6 @@ const Popover: React.FC<PopoverProps> = ({
             offset={offset}
             shouldFlip={shouldFlip}
             arrow={arrow}
-            delay={delay}
             flexContent={flexContent}
             className={className}
           >
@@ -69,7 +66,6 @@ interface PopoverContentProps
   offset?: number;
   shouldFlip?: boolean;
   arrow?: boolean;
-  delay?: number;
   flexContent?: "start" | "center" | "end";
 }
 
@@ -84,7 +80,6 @@ const PopoverContent = React.forwardRef<
       offset = 10,
       shouldFlip = false,
       arrow = false,
-      delay = 0,
       flexContent = "center",
       ...props
     },
@@ -96,16 +91,6 @@ const PopoverContent = React.forwardRef<
         side={placement}
         sideOffset={offset}
         avoidCollisions={shouldFlip}
-        onOpenAutoFocus={(event) => {
-          if (delay > 0) {
-            event.preventDefault();
-            setTimeout(() => {
-              if (event.target instanceof HTMLElement) {
-                event.target.focus();
-              }
-            }, delay);
-          }
-        }}
         className={cn(
           "flex z-50 w-full px-4 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out",
           flexContent === "start" && "justify-start",

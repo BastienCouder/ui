@@ -95,7 +95,7 @@ export default async function Page({ params }: PageProps) {
                     suffix={<ExternalLink />}
                     size="sm"
                     className="h-6 text-xs font-semibold [&_svg]:w-3 [&_svg]:h-3"
-                    // target="_blank"
+                  // target="_blank"
                   >
                     {link.label}
                   </Button>

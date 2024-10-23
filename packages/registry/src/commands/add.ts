@@ -12,6 +12,7 @@ import { updateAppIndex } from "@/src/utils/update-app-index";
 import { Command } from "commander";
 import prompts from "prompts";
 import { z } from "zod";
+import { getProjectInfo } from "../utils/get-project-info";
 
 export const addOptionsSchema = z.object({
   components: z.array(z.string()).optional(),
@@ -79,9 +80,9 @@ export const add = new Command()
       if (!options.components?.length) {
         options.components = await promptForRegistryComponents(options);
       }
-      console.log(options.components);
 
       let { errors, config } = await preFlightAdd(options);
+      const projectInfo = await getProjectInfo(options.cwd);
 
       // No components.json file. Prompt the user to run init.
       if (errors[ERRORS.MISSING_CONFIG]) {
@@ -145,10 +146,8 @@ export const add = new Command()
           `Failed to read config at ${highlighter.info(options.cwd)}.`
         );
       }
-      console.log("here");
 
-      const res = await addComponents(options.components, config, options);
-      console.log(res);
+      await addComponents(options.components, config, options);
 
       // If we're adding a single component and it's from the v0 registry,
       // let's update the app/page.tsx file to import the component.
@@ -201,7 +200,6 @@ async function promptForRegistryComponents(
   }
 
   const result = z.array(z.string()).safeParse(components);
-  console.log(result);
 
   if (!result.success) {
     logger.error("");

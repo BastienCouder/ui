@@ -35,67 +35,6 @@ export async function getRegistryIndex() {
   }
 }
 
-export async function getRegistryStyles() {
-  try {
-    const [result] = await fetchRegistry(["styles/index.json"]);
-
-    return stylesSchema.parse(result);
-  } catch (error) {
-    logger.error("\n");
-    handleError(error);
-    return [];
-  }
-}
-
-// export async function getRegistryItem(name: string, style: string) {
-//   try {
-//     const [result] = await fetchRegistry([
-//       isUrl(name) ? name : `styles/${style}/${name}.json`,
-//     ]);
-
-//     return registryItemSchema.parse(result);
-//   } catch (error) {
-//     logger.break();
-//     handleError(error);
-//     return null;
-//   }
-// }
-
-export async function getRegistryBaseColors() {
-  return [
-    {
-      name: "neutral",
-      label: "Neutral",
-    },
-    {
-      name: "gray",
-      label: "Gray",
-    },
-    {
-      name: "zinc",
-      label: "Zinc",
-    },
-    {
-      name: "stone",
-      label: "Stone",
-    },
-    {
-      name: "slate",
-      label: "Slate",
-    },
-  ];
-}
-
-export async function getRegistryBaseColor(baseColor: string) {
-  try {
-    const [result] = await fetchRegistry([`colors/${baseColor}.json`]);
-
-    return registryBaseColorSchema.parse(result);
-  } catch (error) {
-    handleError(error);
-  }
-}
-
 export async function resolveTree(
   index: z.infer<typeof registryIndexSchema>,
   names: string[]
@@ -270,27 +209,20 @@ export async function registryResolveItemsTree(
     if (names.includes("index")) {
       names.unshift("index");
     }
-    console.log(names.includes("index"));
 
     let registryDependencies: string[] = [];
     for (const name of names) {
-      console.log(name, "name");
-
       const itemRegistryDependencies = await resolveRegistryDependencies(
         name,
         config
       );
-      console.log(itemRegistryDependencies, "itemRegistryDependencies");
 
       registryDependencies.push(...itemRegistryDependencies);
     }
-    console.log(registryDependencies, "registryDependencies");
 
     const uniqueRegistryDependencies = Array.from(
       new Set(registryDependencies)
     );
-
-    console.log(uniqueRegistryDependencies, "uniqueRegistryDependencies");
 
     let result = await fetchRegistry(uniqueRegistryDependencies);
     const payload = z.array(registryItemSchema).parse(result);
@@ -358,6 +290,8 @@ async function resolveRegistryDependencies(
     // const url = getRegistryUrl(
     //   isUrl(itemUrl) ? itemUrl : `ui/react/${itemUrl}.json`
     // );
+    console.log(config);
+
     const url = `https://ui.bastiencouder.com/registry/ui/react/${itemUrl}.json`;
     //correction url;
 
@@ -368,8 +302,6 @@ async function resolveRegistryDependencies(
     visited.add(url);
 
     try {
-      console.log(url, "url");
-
       const [result] = await fetchRegistry([url]);
       const item = registryItemSchema.parse(result);
       payload.push(url);
@@ -392,11 +324,6 @@ async function resolveRegistryDependencies(
 }
 
 export async function registryGetTheme(name: string, config: Config) {
-  const baseColor = await getRegistryBaseColor(name);
-  if (!baseColor) {
-    return null;
-  }
-
   // TODO: Move this to the registry i.e registry:theme.
   const theme = {
     name,
@@ -426,15 +353,12 @@ export async function registryGetTheme(name: string, config: Config) {
   if (config.tailwind.cssVariables) {
     theme.tailwind.config.theme.extend.colors = {
       ...theme.tailwind.config.theme.extend.colors,
-      ...buildTailwindThemeColorsFromCssVars(baseColor.cssVars.dark),
     };
     theme.cssVars = {
       light: {
-        ...baseColor.cssVars.light,
         ...theme.cssVars.light,
       },
       dark: {
-        ...baseColor.cssVars.dark,
         ...theme.cssVars.dark,
       },
     };

@@ -2,10 +2,6 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
-    "style": {
-      "type": "string",
-      "enum": ["default"]
-    },
     "tailwind": {
       "type": "object",
       "properties": {
@@ -13,9 +9,6 @@
           "type": "string"
         },
         "css": {
-          "type": "string"
-        },
-        "baseColor": {
           "type": "string"
         },
         "cssVariables": {
@@ -43,6 +36,12 @@
           "type": "string"
         },
         "ui": {
+          "type": "string"
+        },
+        "lib": {
+          "type": "string"
+        },
+        "hooks": {
           "type": "string"
         }
       },

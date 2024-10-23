@@ -17,63 +17,42 @@ export async function addComponents(
     isNewProject?: boolean;
   }
 ) {
-  console.log("addComponents");
-
   options = {
     overwrite: false,
     silent: false,
     isNewProject: false,
     ...options,
   };
-  console.log(options);
-  console.log("here1");
 
   const registrySpinner = spinner(`Checking registry.`, {
     silent: options.silent,
   })?.start();
-  console.log("here2", registrySpinner);
 
   const tree = await registryResolveItemsTree(components, config);
-  console.log("here3", tree);
 
   if (!tree) {
     registrySpinner?.fail();
     return handleError(new Error("Failed to fetch components from registry."));
   }
   registrySpinner?.succeed();
-  console.log("here");
 
-  const resupdateTailwindConfig = await updateTailwindConfig(
-    tree.tailwind?.config,
-    config,
-    {
-      silent: options.silent,
-    }
-  );
-  console.log(resupdateTailwindConfig);
+  await updateTailwindConfig(tree.tailwind?.config, config, {
+    silent: options.silent,
+  });
 
-  const resupdateCssVar = await updateCssVars(tree.cssVars, config, {
+  await updateCssVars(tree.cssVars, config, {
     cleanupDefaultNextStyles: options.isNewProject,
     silent: options.silent,
   });
 
-  console.log(resupdateCssVar);
+  await updateDependencies(tree.dependencies, config, {
+    silent: options.silent,
+  });
 
-  const resupdateDependencies = await updateDependencies(
-    tree.dependencies,
-    config,
-    {
-      silent: options.silent,
-    }
-  );
-
-  console.log(resupdateDependencies);
-
-  const resupdateFiles = await updateFiles(tree.files, config, {
+  await updateFiles(tree.files, config, {
     overwrite: options.overwrite,
     silent: options.silent,
   });
-  console.log(resupdateFiles);
 
   if (tree.docs) {
     logger.info(tree.docs);

@@ -55,6 +55,7 @@ export async function preFlightInit(
     silent: options.silent,
   }).start();
   const projectInfo = await getProjectInfo(options.cwd);
+
   if (!projectInfo || projectInfo?.framework.name === "manual") {
     errors[ERRORS.UNSUPPORTED_FRAMEWORK] = true;
     frameworkSpinner?.fail();

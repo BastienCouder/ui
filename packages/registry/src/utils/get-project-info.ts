@@ -1,5 +1,5 @@
 import path from "path";
-import { FRAMEWORKS, Framework } from "@/src/utils/frameworks";
+import { FRAMEWORKS, Framework, getFramework } from "@/src/utils/frameworks";
 import {
   Config,
   RawConfig,
@@ -39,11 +39,14 @@ export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
     aliasPrefix,
     packageJson,
   ] = await Promise.all([
-    fg.glob("**/{next,vite,astro}.config.*|gatsby-config.*|composer.json", {
-      cwd,
-      deep: 3,
-      ignore: PROJECT_SHARED_IGNORE,
-    }),
+    fg.glob(
+      "**/{next,vite,astro,angular,nuxt,vue}.config.*|gatsby-config.*|composer.json|angular.json",
+      {
+        cwd,
+        deep: 3,
+        ignore: PROJECT_SHARED_IGNORE,
+      }
+    ),
     fs.pathExists(path.resolve(cwd, "src")),
     isTypeScriptProject(cwd),
     getTailwindConfigFile(cwd),
@@ -104,10 +107,26 @@ export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
   }
 
   // Vite.
-  // Some Remix templates also have a vite.config.* file.
-  // We'll assume that it got caught by the Remix check above.
   if (configFiles.find((file) => file.startsWith("vite.config."))?.length) {
     type.framework = FRAMEWORKS["vite"];
+    return type;
+  }
+
+  // Angular.
+  if (configFiles.find((file) => file.startsWith("angular.json"))?.length) {
+    type.framework = FRAMEWORKS["angular"];
+    return type;
+  }
+
+  // Vue.js.
+  if (configFiles.find((file) => file.startsWith("vue.config."))?.length) {
+    type.framework = FRAMEWORKS["vue"];
+    return type;
+  }
+
+  // Nuxt.js.
+  if (configFiles.find((file) => file.startsWith("nuxt.config."))?.length) {
+    type.framework = FRAMEWORKS["nuxt"];
     return type;
   }
 
@@ -221,14 +240,15 @@ export async function getProjectConfig(
     return null;
   }
 
+  const framework = await getFramework(projectInfo.framework.name);
+
   const config: RawConfig = {
-    $schema: "https://ui.shadcn.com/schema.json",
+    $schema: "https://ui.bastiencouder.com/schema.json",
     rsc: projectInfo.isRSC,
     tsx: projectInfo.isTsx,
-    // style: "new-york",
+    framework: framework ?? "react",
     tailwind: {
       config: projectInfo.tailwindConfigFile,
-      // baseColor: "zinc",
       css: projectInfo.tailwindCssFile,
       cssVariables: true,
       prefix: "",

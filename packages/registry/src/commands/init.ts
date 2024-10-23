@@ -2,7 +2,6 @@ import { promises as fs } from "fs";
 import path from "path";
 import { preFlightInit } from "@/src/preflights/preflight-init";
 import { addComponents } from "@/src/utils/add-components";
-import { createProject } from "@/src/utils/create-project";
 import * as ERRORS from "@/src/utils/errors";
 import {
   DEFAULT_COMPONENTS,
@@ -18,12 +17,12 @@ import { getProjectConfig, getProjectInfo } from "@/src/utils/get-project-info";
 import { handleError } from "@/src/utils/handle-error";
 import { highlighter } from "@/src/utils/highlighter";
 import { logger } from "@/src/utils/logger";
-import { getRegistryBaseColors, getRegistryStyles } from "@/src/utils/registry";
 import { spinner } from "@/src/utils/spinner";
 import { updateTailwindContent } from "@/src/utils/updaters/update-tailwind-content";
 import { Command } from "commander";
 import prompts from "prompts";
 import { z } from "zod";
+import { getFramework } from "../utils/frameworks";
 
 export const initOptionsSchema = z.object({
   cwd: z.string(),
@@ -105,9 +104,13 @@ export async function runInit(
   }
 
   const projectConfig = await getProjectConfig(options.cwd, projectInfo);
+
+  const framework = await getFramework(
+    projectInfo?.framework.name ? projectInfo?.framework.name : "react"
+  );
   const config = projectConfig
-    ? await promptForMinimalConfig(projectConfig, options)
-    : await promptForConfig(await getConfig(options.cwd));
+    ? await promptForMinimalConfig(projectConfig, options, framework ?? "react")
+    : await promptForConfig(await getConfig(options.cwd), framework ?? "react");
 
   if (!options.yes) {
     const { proceed } = await prompts({
@@ -133,14 +136,13 @@ export async function runInit(
   // Add components.
   const fullConfig = await resolveConfigPaths(options.cwd, config);
   const components = ["index", ...(options.components || [])];
-  const res = await addComponents(components, fullConfig, {
+  await addComponents(components, fullConfig, {
     // Init will always overwrite files.
     overwrite: true,
     silent: options.silent,
     isNewProject:
       options.isNewProject || projectInfo?.framework.name === "next-app",
   });
-  console.log(res, "res");
 
   // If a new project is using src dir, let's update the tailwind content config.
   // TODO: Handle this per framework.
@@ -157,82 +159,58 @@ export async function runInit(
   return fullConfig;
 }
 
-async function promptForConfig(defaultConfig: Config | null = null) {
-  // const [styles, baseColors] = await Promise.all([
-  //   getRegistryStyles(),
-  //   getRegistryBaseColors(),
-  // ]);
-
+async function promptForConfig(
+  defaultConfig: Config | null = null,
+  framework: string
+) {
   logger.info("");
+
   const options = await prompts([
     {
       type: "toggle",
       name: "typescript",
-      message: `Would you like to use ${highlighter.info(
-        "TypeScript"
-      )} (recommended)?`,
+      message: `Would you like to use ${highlighter.info("TypeScript")} (recommended)?`,
       initial: defaultConfig?.tsx ?? true,
       active: "yes",
       inactive: "no",
     },
-    // {
-    //   type: "select",
-    //   name: "style",
-    //   message: `Which ${highlighter.info("style")} would you like to use?`,
-    //   choices: styles.map((style) => ({
-    //     title: style.label,
-    //     value: style.name,
-    //   })),
-    // },
-    // {
-    //   type: "select",
-    //   name: "tailwindBaseColor",
-    //   message: `Which color would you like to use as the ${highlighter.info(
-    //     "base color"
-    //   )}?`,
-    //   choices: baseColors.map((color) => ({
-    //     title: color.label,
-    //     value: color.name,
-    //   })),
-    // },
-    {
-      type: "text",
-      name: "tailwindCss",
-      message: `Where is your ${highlighter.info("global CSS")} file?`,
-      initial: defaultConfig?.tailwind.css ?? DEFAULT_TAILWIND_CSS,
-    },
+    ...(framework === "vue"
+      ? [
+          {
+            type: "text" as const,
+            name: "tailwindCss",
+            message: `Where is your ${highlighter.info("global CSS")} file?`,
+            initial: defaultConfig?.tailwind.css ?? DEFAULT_TAILWIND_CSS,
+          },
+        ]
+      : framework === "angular"
+        ? [
+            {
+              type: "text" as const,
+              name: "tailwindCss",
+              message: `Where is your ${highlighter.info("styles.css")} file?`,
+              initial: "src/styles.css",
+            },
+          ]
+        : []),
     {
       type: "toggle",
       name: "tailwindCssVariables",
-      message: `Would you like to use ${highlighter.info(
-        "CSS variables"
-      )} for theming?`,
+      message: `Would you like to use ${highlighter.info("CSS variables")} for theming?`,
       initial: defaultConfig?.tailwind.cssVariables ?? true,
       active: "yes",
       inactive: "no",
     },
     {
       type: "text",
-      name: "tailwindPrefix",
-      message: `Are you using a custom ${highlighter.info(
-        "tailwind prefix eg. tw-"
-      )}? (Leave blank if not)`,
-      initial: "",
-    },
-    {
-      type: "text",
       name: "tailwindConfig",
-      message: `Where is your ${highlighter.info(
-        "tailwind.config.js"
-      )} located?`,
+      message: `Where is your ${highlighter.info("tailwind.config.js")} located?`,
       initial: defaultConfig?.tailwind.config ?? DEFAULT_TAILWIND_CONFIG,
     },
     {
       type: "text",
       name: "components",
-      message: `Configure the import alias for ${highlighter.info(
-        "components"
-      )}:`,
+      message: `Configure the import alias for ${highlighter.info("components")}:`,
       initial: defaultConfig?.aliases["components"] ?? DEFAULT_COMPONENTS,
     },
     {
@@ -241,74 +219,60 @@ async function promptForConfig(defaultConfig: Config | null = null) {
       message: `Configure the import alias for ${highlighter.info("utils")}:`,
       initial: defaultConfig?.aliases["utils"] ?? DEFAULT_UTILS,
     },
-    {
-      type: "toggle",
-      name: "rsc",
-      message: `Are you using ${highlighter.info("React Server Components")}?`,
-      initial: defaultConfig?.rsc ?? true,
-      active: "yes",
-      inactive: "no",
-    },
   ]);
 
+  // Définition des alias spécifiques selon le framework
+  let aliases;
+  switch (framework) {
+    case "vue":
+      aliases = {
+        utils: options.utils,
+        components: options.components,
+        composables: options.components.replace(/\/components$/, "composables"), // Alias spécifique à Vue
+        lib: options.components.replace(/\/components$/, "lib"),
+      };
+      break;
+    case "angular":
+      aliases = {
+        utils: options.utils,
+        components: options.components,
+        services: options.components.replace(/\/components$/, "services"), // Alias spécifique à Angular
+        modules: options.components.replace(/\/components$/, "modules"), // Alias spécifique à Angular
+      };
+      break;
+    case "react":
+    default:
+      aliases = {
+        utils: options.utils,
+        components: options.components,
+        lib: options.components.replace(/\/components$/, "lib"),
+        hooks: options.components.replace(/\/components$/, "hooks"), // Alias spécifique à React
+      };
+  }
+
   return rawConfigSchema.parse({
-    $schema: "https://ui.shadcn.com/schema.json",
+    $schema: "https://ui.bastiencouder.com/schema.json",
+    framework: framework,
     tailwind: {
-      style: "new-york",
       config: options.tailwindConfig,
-      baseColors: "zinc",
       css: options.tailwindCss,
       cssVariables: options.tailwindCssVariables,
       prefix: options.tailwindPrefix,
     },
-    rsc: options.rsc,
     tsx: options.typescript,
-    aliases: {
-      utils: options.utils,
-      components: options.components,
-      // TODO: fix this.
-      lib: options.components.replace(/\/components$/, "lib"),
-      hooks: options.components.replace(/\/components$/, "hooks"),
-    },
+    aliases,
   });
 }
 
 async function promptForMinimalConfig(
   defaultConfig: Config,
-  opts: z.infer<typeof initOptionsSchema>
+  opts: z.infer<typeof initOptionsSchema>,
+  framework: string
 ) {
-  // let style = defaultConfig.style;
-  // let baseColor = defaultConfig.tailwind.baseColor;
   let cssVariables = defaultConfig.tailwind.cssVariables;
 
   if (!opts.defaults) {
-    // const [styles, baseColors] = await Promise.all([
-    //   getRegistryStyles(),
-    //   getRegistryBaseColors(),
-    // ]);
-
     const options = await prompts([
-      // {
-      //   type: "select",
-      //   name: "style",
-      //   message: `Which ${highlighter.info("style")} would you like to use?`,
-      //   choices: styles.map((style) => ({
-      //     title: style.label,
-      //     value: style.name,
-      //   })),
-      //   initial: styles.findIndex((s) => s.name === style),
-      // },
-      // {
-      //   type: "select",
-      //   name: "tailwindBaseColor",
-      //   message: `Which color would you like to use as the ${highlighter.info(
-      //     "base color"
-      //   )}?`,
-      //   choices: baseColors.map((color) => ({
-      //     title: color.label,
-      //     value: color.name,
-      //   })),
-      // },
       {
         type: "toggle",
         name: "tailwindCssVariables",
@@ -321,16 +285,14 @@ async function promptForMinimalConfig(
       },
     ]);
 
-    // style = options.style;
-    // baseColor = options.tailwindBaseColor;
     cssVariables = options.tailwindCssVariables;
   }
 
   return rawConfigSchema.parse({
     $schema: defaultConfig?.$schema,
+    framework: framework,
     tailwind: {
       ...defaultConfig?.tailwind,
-      // baseColor,
       cssVariables,
     },
     rsc: defaultConfig?.rsc,

@@ -96,7 +96,7 @@
     "zustand": "^4.5.2"
   },
   "devDependencies": {
-    "rva": "workspace:*",
+    "rva-ui": "workspace:*",
     "@commitlint/cli": "^18.4.4",
     "@commitlint/config-conventional": "^18.4.4",
     "@repo/eslint-config": "workspace:*",

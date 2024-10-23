@@ -415,7 +415,7 @@ importers:
       rimraf:
         specifier: ^5.0.5
         version: 5.0.10
-      rva:
+      rva-ui:
         specifier: workspace:*
         version: link:../../packages/registry
       simple-icons:

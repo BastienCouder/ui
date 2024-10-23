@@ -289,9 +289,7 @@ async function resolveRegistryDependencies(
   async function resolveDependencies(itemUrl: string) {
     // const url = getRegistryUrl(
     //   isUrl(itemUrl) ? itemUrl : `ui/react/${itemUrl}.json`
-    // );
-    console.log(config);
-
+    // )
     const url = `https://ui.bastiencouder.com/registry/ui/react/${itemUrl}.json`;
     //correction url;
 

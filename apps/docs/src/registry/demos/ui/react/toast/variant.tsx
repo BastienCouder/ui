@@ -5,7 +5,7 @@ import { useToast } from "@/registry/ui/react/use-toast";
 
 const variants = ["default", "primary", "secondary", "danger"] as const;
 
-export default function ToastDemo() {
+export default function ToastDemo(): JSX.Element {
   const { toast } = useToast();
 
   return (

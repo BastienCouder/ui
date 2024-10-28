@@ -106,7 +106,7 @@ Toggle.displayName = "Toggle";
 
 type ToggleContextValue = VariantProps<typeof toggleStyles>;
 const ToggleContext = React.createContext<ToggleContextValue>({});
-const useToggleContext = () => {
+const useToggleContext = (): ToggleContextValue => {
   return React.useContext(ToggleContext);
 };
 

@@ -6,7 +6,7 @@ import {
   ResizablePanelGroup,
 } from "@/registry/ui/react/resizable";
 
-export default function ResizableDemo() {
+export default function ResizableDemo(): JSX.Element {
   return (
     <ResizablePanelGroup
       direction="horizontal"

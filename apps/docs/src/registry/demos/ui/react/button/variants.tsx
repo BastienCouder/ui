@@ -11,7 +11,7 @@ const variants = [
   "danger",
 ] as const;
 
-export default function ButtonDemo() {
+export default function ButtonDemo(): JSX.Element {
   return (
     <div className="grid grid-cols-4 gap-2">
       {variants.map((variant) => (

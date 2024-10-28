@@ -39,7 +39,7 @@ function Badge({
   size,
   icon,
   ...props
-}: BadgeProps) {
+}: BadgeProps): JSX.Element {
   return (
     <span
       role="presentation"

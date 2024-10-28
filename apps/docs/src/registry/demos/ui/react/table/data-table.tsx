@@ -2,8 +2,10 @@
 
 import * as React from "react";
 import {
+  Column,
   ColumnDef,
   ColumnFiltersState,
+  Row,
   SortingState,
   VisibilityState,
   flexRender,
@@ -107,7 +109,11 @@ export const columns: ColumnDef<Payment>[] = [
   },
   {
     accessorKey: "email",
-    header: ({ column }) => {
+    header: ({
+      column,
+    }: {
+      column: Column<Payment, unknown>;
+    }): React.ReactNode => {
       return (
         <Button
           variant="quiet"
@@ -123,7 +129,7 @@ export const columns: ColumnDef<Payment>[] = [
   {
     accessorKey: "amount",
     header: () => <div className="text-right">Amount</div>,
-    cell: ({ row }) => {
+    cell: ({ row }: { row: Row<Payment> }): React.ReactNode => {
       const amount = parseFloat(row.getValue("amount"));
 
       // Format the amount as a dollar amount
@@ -138,7 +144,7 @@ export const columns: ColumnDef<Payment>[] = [
   {
     id: "actions",
     enableHiding: false,
-    cell: ({ row }) => {
+    cell: ({ row }: { row: Row<Payment> }): React.ReactNode => {
       const payment = row.original;
 
       return (
@@ -166,7 +172,7 @@ export const columns: ColumnDef<Payment>[] = [
   },
 ];
 
-export default function DataTableDemo() {
+export default function DataTableDemo(): JSX.Element {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     [],

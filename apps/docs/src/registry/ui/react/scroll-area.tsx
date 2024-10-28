@@ -51,8 +51,8 @@ const scrollAreaStyles = tv({
 
 interface ScrollAreaProps
   extends ScrollAreaRootProps,
-  Omit<ScrollAreaViewPortProps, "dir">,
-  VariantProps<typeof scrollAreaStyles> {
+    Omit<ScrollAreaViewPortProps, "dir">,
+    VariantProps<typeof scrollAreaStyles> {
   scrollbars?: "vertical" | "horizontal" | "both";
   ref?: React.ForwardedRef<HTMLDivElement>;
 }
@@ -67,7 +67,7 @@ const ScrollArea = ({
   scrollHideDelay,
   dir,
   ...viewportProps
-}: ScrollAreaProps) => {
+}: ScrollAreaProps): JSX.Element => {
   return (
     <ScrollAreaRoot
       asChild={asChild}
@@ -96,7 +96,10 @@ const ScrollArea = ({
 };
 
 type ScrollAreaRootProps = ScrollAreaPrimitive.ScrollAreaProps;
-const ScrollAreaRoot = ({ className, ...props }: ScrollAreaRootProps) => {
+const ScrollAreaRoot = ({
+  className,
+  ...props
+}: ScrollAreaRootProps): JSX.Element => {
   const { root } = scrollAreaStyles();
   return (
     <ScrollAreaPrimitive.Root className={root({ className })} {...props} />
@@ -107,7 +110,7 @@ type ScrollAreaViewPortProps = ScrollAreaPrimitive.ScrollAreaViewportProps;
 const ScrollAreaViewPort = ({
   className,
   ...props
-}: ScrollAreaViewPortProps) => {
+}: ScrollAreaViewPortProps): JSX.Element => {
   const { viewport } = scrollAreaStyles();
   return (
     <ScrollAreaPrimitive.Viewport
@@ -119,13 +122,13 @@ const ScrollAreaViewPort = ({
 
 interface ScrollAreaScrollbarProps
   extends Omit<ScrollAreaPrimitive.ScrollAreaScrollbarProps, "variant">,
-  VariantProps<typeof scrollAreaStyles> { }
+    VariantProps<typeof scrollAreaStyles> {}
 const ScrollAreaScrollbar = ({
   className,
   size,
   variant,
   ...props
-}: ScrollAreaScrollbarProps) => {
+}: ScrollAreaScrollbarProps): JSX.Element => {
   const { scrollbar, thumb } = scrollAreaStyles({ size, variant });
   return (
     <ScrollAreaPrimitive.Scrollbar

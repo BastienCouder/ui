@@ -4,7 +4,10 @@ import * as React from "react";
 import { Check, Loader2, X } from "@/lib/icons";
 import { cn } from "@/lib/utils";
 import { Button } from "@/registry/ui/react/button";
-import { Collapsible, CollapsibleContent } from "@/registry/ui/react/collapsible";
+import {
+  Collapsible,
+  CollapsibleContent,
+} from "@/registry/ui/react/collapsible";
 import { tv } from "tailwind-variants";
 
 // <---------- CONTEXT ---------->

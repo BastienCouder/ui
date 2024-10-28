@@ -35,7 +35,7 @@ export const Divider = ({
   orientation?: string;
   children?: React.ReactNode;
   className?: string;
-}) => {
+}): JSX.Element => {
   const isHorizontal = orientation === "horizontal";
   const baseClasses = isHorizontal
     ? "flex justify-center items-center my-4"

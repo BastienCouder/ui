@@ -59,6 +59,7 @@ const Slider = React.forwardRef<
               ? defaultValue
               : [min, max],
         );
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [min, max, value]);
 
     const handleValueChange = (newValues: number[]) => {

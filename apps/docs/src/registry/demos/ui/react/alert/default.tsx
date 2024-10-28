@@ -2,13 +2,9 @@
 
 import { Terminal } from "lucide-react";
 
-import {
-  Alert,
-  AlertDescription,
-  AlertTitle,
-} from "@/registry/ui/react/alert";
+import { Alert, AlertDescription, AlertTitle } from "@/registry/ui/react/alert";
 
-export default function AlertDemo() {
+export default function AlertDemo(): JSX.Element {
   return (
     <Alert>
       <Terminal className="h-4 w-4" />

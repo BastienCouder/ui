@@ -7,7 +7,11 @@ export const columns: ColumnDef<Payment>[] = [
   {
     accessorKey: "amount",
     header: () => <div className="text-right">Amount</div>,
-    cell: ({ row }) => {
+    cell: ({
+      row,
+    }: {
+      row: { getValue: (key: string) => string };
+    }): JSX.Element => {
       const amount = parseFloat(row.getValue("amount"));
       const formatted = new Intl.NumberFormat("en-US", {
         style: "currency",

@@ -5,7 +5,7 @@ import { Tooltip } from "@/registry/ui/react/tooltip";
 
 const variants = ["default", "outline", "secondary"] as const;
 
-export default function TooltipDemo() {
+export default function TooltipDemo(): JSX.Element {
   return (
     <div className="grid grid-cols-2 gap-2">
       {variants.map((variant) => (

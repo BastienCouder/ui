@@ -10,7 +10,7 @@ import prompts from "prompts";
 import { z } from "zod";
 
 export async function createProject(
-  options: Pick<z.infer<typeof initOptionsSchema>, "cwd" | "force" | "srcDir">
+  options: Pick<z.infer<typeof initOptionsSchema>, "cwd" | "force" | "srcDir">,
 ) {
   options = {
     srcDir: false,
@@ -22,7 +22,7 @@ export async function createProject(
       type: "confirm",
       name: "proceed",
       message: `The path ${highlighter.info(
-        options.cwd
+        options.cwd,
       )} does not contain a package.json file. Would you like to start a new project?`,
       initial: true,
     });
@@ -68,8 +68,8 @@ export async function createProject(
     logger.error(`The path ${highlighter.info(options.cwd)} is not writable.`);
     logger.error(
       `It is likely you do not have write permissions for this folder or the path ${highlighter.info(
-        options.cwd
-      )} does not exist.`
+        options.cwd,
+      )} does not exist.`,
     );
     logger.break();
     process.exit(1);
@@ -78,7 +78,7 @@ export async function createProject(
   if (fs.existsSync(path.resolve(options.cwd, name, "package.json"))) {
     logger.break();
     logger.error(
-      `A project with the name ${highlighter.info(name)} already exists.`
+      `A project with the name ${highlighter.info(name)} already exists.`,
     );
     logger.error(`Please choose a different name and try again.`);
     logger.break();
@@ -131,7 +131,7 @@ export async function createProject(
       ]);
 
       createSpinner = spinner(
-        `Creating a new Next.js project. This may take a few minutes.`
+        `Creating a new Next.js project. This may take a few minutes.`,
       ).start();
 
       args = [
@@ -150,12 +150,12 @@ export async function createProject(
           ["create-next-app@latest", projectPath, "--silent", ...args],
           {
             cwd: options.cwd,
-          }
+          },
         );
       } catch (error) {
         logger.break();
         logger.error(
-          `Something went wrong creating a new Next.js project. Please try again.`
+          `Something went wrong creating a new Next.js project. Please try again.`,
         );
         process.exit(1);
       }
@@ -165,7 +165,7 @@ export async function createProject(
 
     case "angular":
       createSpinner = spinner(
-        `Creating a new Angular project. This may take a few minutes.`
+        `Creating a new Angular project. This may take a few minutes.`,
       ).start();
       try {
         await execa(
@@ -174,12 +174,12 @@ export async function createProject(
           {
             cwd: options.cwd,
             stdio: "inherit", // Relayer les interactions avec Angular CLI
-          }
+          },
         );
       } catch (error) {
         logger.break();
         logger.error(
-          `Something went wrong creating a new Angular project. Please try again.`
+          `Something went wrong creating a new Angular project. Please try again.`,
         );
         process.exit(1);
       }
@@ -188,7 +188,7 @@ export async function createProject(
 
     case "nuxt":
       createSpinner = spinner(
-        `Creating a new Nuxt.js project. This may take a few minutes.`
+        `Creating a new Nuxt.js project. This may take a few minutes.`,
       ).start();
       try {
         await execa("npx", ["nuxi@latest", "init", projectPath], {
@@ -198,7 +198,7 @@ export async function createProject(
       } catch (error) {
         logger.break();
         logger.error(
-          `Something went wrong creating a new Nuxt.js project. Please try again.`
+          `Something went wrong creating a new Nuxt.js project. Please try again.`,
         );
         process.exit(1);
       }

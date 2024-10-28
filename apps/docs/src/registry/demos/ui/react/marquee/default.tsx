@@ -72,7 +72,7 @@ function ReviewCard({
   );
 }
 
-export default function MarqueeDemo() {
+export default function MarqueeDemo(): JSX.Element {
   return (
     <div className="bg-bg relative flex w-full h-full flex-col items-center justify-center overflow-hidden rounded-lg md:shadow-xl">
       <Marquee className="[--duration:20s]">

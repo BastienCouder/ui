@@ -47,7 +47,7 @@ Card.displayName = "Card";
 const CardHeader = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & CardVariants
->(({ className, variant, shape, ...props }, ref) => {
+>(({ className, ...props }, ref) => {
   const headerClassName = cn("flex flex-col space-y-1.5 p-4", className);
   return <div ref={ref} className={headerClassName} {...props} />;
 });

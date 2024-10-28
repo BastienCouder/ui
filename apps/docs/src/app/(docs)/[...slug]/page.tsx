@@ -11,10 +11,7 @@ import { ThemeWrapper } from "@/components/theme-wrapper";
 import { DocsLogo } from "@/components/docs/doc-logo";
 import DocsLayout from "@/components/docs/doc-layout";
 import { ScrollArea } from "@/registry/ui/react/scroll-area";
-import {
-  Breadcrumb,
-  Breadcrumbs,
-} from "@/registry/ui/react/breadcrumb";
+import { Breadcrumb, Breadcrumbs } from "@/registry/ui/react/breadcrumb";
 
 interface PageProps {
   params: {
@@ -95,7 +92,7 @@ export default async function Page({ params }: PageProps) {
                     suffix={<ExternalLink />}
                     size="sm"
                     className="h-6 text-xs font-semibold [&_svg]:w-3 [&_svg]:h-3"
-                  // target="_blank"
+                    // target="_blank"
                   >
                     {link.label}
                   </Button>

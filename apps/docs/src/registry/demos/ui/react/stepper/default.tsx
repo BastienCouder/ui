@@ -14,7 +14,7 @@ const steps = [
   { label: "Step 3" },
 ] satisfies StepItem[];
 
-export default function StepperDemo() {
+export default function StepperDemo(): JSX.Element {
   return (
     <div className="flex w-full flex-col gap-4">
       <Stepper initialStep={0} steps={steps}>

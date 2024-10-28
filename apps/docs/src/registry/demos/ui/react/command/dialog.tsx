@@ -21,7 +21,7 @@ import {
   CommandShortcut,
 } from "@/registry/ui/react/command";
 
-export default function CommandDialogDemo() {
+export default function CommandDialogDemo(): JSX.Element {
   const [open, setOpen] = React.useState(false);
 
   React.useEffect(() => {

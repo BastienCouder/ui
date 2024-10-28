@@ -3,7 +3,7 @@
 import { Button } from "@/registry/ui/react/button";
 import { useToast } from "@/registry/ui/react/use-toast";
 
-export default function ToastDemo() {
+export default function ToastDemo(): JSX.Element {
   const { toast } = useToast();
 
   return (

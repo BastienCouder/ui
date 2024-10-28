@@ -1,6 +1,6 @@
 import { Avatar } from "@/registry/ui/react/avatar";
 
-export default function AvatarDemo() {
+export default function AvatarDemo(): JSX.Element {
   return (
     <div className="space-x-4">
       <Avatar

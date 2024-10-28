@@ -1,10 +1,7 @@
-import {
-  Breadcrumb,
-  Breadcrumbs,
-} from "@/registry/ui/react/breadcrumb";
+import { Breadcrumb, Breadcrumbs } from "@/registry/ui/react/breadcrumb";
 import { X } from "@/lib/icons";
 
-export default function BreadcrumbDemo() {
+export default function BreadcrumbDemo(): JSX.Element {
   return (
     <Breadcrumbs separatorIcon={<X />}>
       <Breadcrumb href="#">Home</Breadcrumb>

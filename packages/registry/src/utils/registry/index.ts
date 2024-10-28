@@ -37,7 +37,7 @@ export async function getRegistryIndex() {
 
 export async function resolveTree(
   index: z.infer<typeof registryIndexSchema>,
-  names: string[]
+  names: string[],
 ) {
   const tree: z.infer<typeof registryIndexSchema> = [];
 
@@ -58,13 +58,13 @@ export async function resolveTree(
 
   return tree.filter(
     (component, index, self) =>
-      self.findIndex((c) => c.name === component.name) === index
+      self.findIndex((c) => c.name === component.name) === index,
   );
 }
 
 export async function fetchTree(
   style: string,
-  tree: z.infer<typeof registryIndexSchema>
+  tree: z.infer<typeof registryIndexSchema>,
 ) {
   try {
     const paths = tree.map((item) => `styles/${style}/${item.name}.json`);
@@ -78,7 +78,7 @@ export async function fetchTree(
 export async function getItemTargetPath(
   config: Config,
   item: Pick<z.infer<typeof registryItemSchema>, "type">,
-  override?: string
+  override?: string,
 ) {
   if (override) {
     return override;
@@ -95,7 +95,7 @@ export async function getItemTargetPath(
 
   return path.join(
     config.resolvedPaths[parent as keyof typeof config.resolvedPaths],
-    type
+    type,
   );
 }
 
@@ -118,24 +118,24 @@ async function fetchRegistry(paths: string[]) {
           if (response.status === 401) {
             throw new Error(
               `You are not authorized to access the component at ${highlighter.info(
-                url
-              )}.\nIf this is a remote registry, you may need to authenticate.`
+                url,
+              )}.\nIf this is a remote registry, you may need to authenticate.`,
             );
           }
 
           if (response.status === 404) {
             throw new Error(
               `The component at ${highlighter.info(
-                url
-              )} was not found.\nIt may not exist at the registry. Please make sure it is a valid component.`
+                url,
+              )} was not found.\nIt may not exist at the registry. Please make sure it is a valid component.`,
             );
           }
 
           if (response.status === 403) {
             throw new Error(
               `You do not have access to the component at ${highlighter.info(
-                url
-              )}.\nIf this is a remote registry, you may need to authenticate or a token.`
+                url,
+              )}.\nIf this is a remote registry, you may need to authenticate or a token.`,
             );
           }
 
@@ -145,12 +145,12 @@ async function fetchRegistry(paths: string[]) {
               ? result.error
               : response.statusText || errorMessages[response.status];
           throw new Error(
-            `Failed to fetch from ${highlighter.info(url)}.\n${message}`
+            `Failed to fetch from ${highlighter.info(url)}.\n${message}`,
           );
         }
 
         return response.json();
-      })
+      }),
     );
 
     return results;
@@ -164,7 +164,7 @@ async function fetchRegistry(paths: string[]) {
 export function getRegistryItemFileTargetPath(
   file: z.infer<typeof registryItemFileSchema>,
   config: Config,
-  override?: string
+  override?: string,
 ) {
   if (override) {
     return override;
@@ -197,7 +197,7 @@ export function getRegistryItemFileTargetPath(
 
 export async function registryResolveItemsTree(
   names: z.infer<typeof registryItemSchema>["name"][],
-  config: Config
+  config: Config,
 ) {
   try {
     const index = await getRegistryIndex();
@@ -214,14 +214,14 @@ export async function registryResolveItemsTree(
     for (const name of names) {
       const itemRegistryDependencies = await resolveRegistryDependencies(
         name,
-        config
+        config,
       );
 
       registryDependencies.push(...itemRegistryDependencies);
     }
 
     const uniqueRegistryDependencies = Array.from(
-      new Set(registryDependencies)
+      new Set(registryDependencies),
     );
 
     let result = await fetchRegistry(uniqueRegistryDependencies);
@@ -263,10 +263,10 @@ export async function registryResolveItemsTree(
 
     return registryResolvedItemsTreeSchema.parse({
       dependencies: deepmerge.all(
-        payload.map((item) => item.dependencies ?? [])
+        payload.map((item) => item.dependencies ?? []),
       ),
       devDependencies: deepmerge.all(
-        payload.map((item) => item.devDependencies ?? [])
+        payload.map((item) => item.devDependencies ?? []),
       ),
       files: deepmerge.all(payload.map((item) => item.files ?? [])),
       tailwind,
@@ -281,7 +281,7 @@ export async function registryResolveItemsTree(
 
 async function resolveRegistryDependencies(
   url: string,
-  config: Config
+  config: Config,
 ): Promise<string[]> {
   const visited = new Set<string>();
   const payload: string[] = [];
@@ -312,7 +312,7 @@ async function resolveRegistryDependencies(
     } catch (error) {
       console.error(
         `Error fetching or parsing registry item at ${itemUrl}:`,
-        error
+        error,
       );
     }
   }

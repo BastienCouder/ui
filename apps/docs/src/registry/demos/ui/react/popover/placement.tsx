@@ -7,7 +7,7 @@ import { Popover } from "@/registry/ui/react/popover";
 
 const placements = ["top", "right", "left", "bottom"] as const;
 
-export default function PopoverDemo() {
+export default function PopoverDemo(): JSX.Element {
   const Content = () => (
     <div className="grid gap-4">
       <div className="space-y-2">

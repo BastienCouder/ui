@@ -1,7 +1,7 @@
 import { Toggle } from "@/registry/ui/react/toggle";
 import { Pin } from "@/lib/icons";
 
-export default function ToggleDemo() {
+export default function ToggleDemo(): JSX.Element {
   return (
     <div className="flex w-full items-center justify-center gap-4">
       <Toggle size="sm">

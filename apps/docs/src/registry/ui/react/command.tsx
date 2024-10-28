@@ -32,7 +32,7 @@ function CommandDialog({
   shouldFilter,
   filter,
   ...props
-}: CommandDialogProps) {
+}: CommandDialogProps): JSX.Element {
   return (
     <Dialog {...props}>
       <DialogContent className="overflow-hidden p-0 shadow-lg">
@@ -52,7 +52,7 @@ const CommandInput = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.Input>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>
 >(({ className, ...props }, ref) => (
-  <div className="flex items-center border-b px-3" cmdk-input-wrapper="">
+  <div className="flex items-center border-b px-3">
     <Search className="mr-2 w-4 h-4 shrink-0 opacity-50" />
     <CommandPrimitive.Input
       ref={ref}
@@ -140,7 +140,7 @@ CommandItem.displayName = CommandPrimitive.Item.displayName;
 function CommandShortcut({
   className,
   ...props
-}: React.HTMLAttributes<HTMLSpanElement>) {
+}: React.HTMLAttributes<HTMLSpanElement>): JSX.Element {
   return (
     <span
       className={cn("text-muted-fg ml-auto text-xs tracking-widest", className)}

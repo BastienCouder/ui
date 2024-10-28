@@ -11,14 +11,8 @@ import {
   TabPanel,
   type TabsProps,
 } from "@/registry/ui/tabs";
-import {
-  Button,
-  ButtonProps,
-} from "@/registry/ui/react/button";
-import {
-  ScrollArea,
-  ScrollAreaProps,
-} from "@/registry/ui/react/scroll-area";
+import { Button, ButtonProps } from "@/registry/ui/react/button";
+import { ScrollArea, ScrollAreaProps } from "@/registry/ui/react/scroll-area";
 import { cn } from "@/lib/utils";
 
 const codeBlockStyles = tv({
@@ -91,7 +85,7 @@ const CodeBlockClient = ({
               (previewStr && !isExpanded
                 ? previewStr
                 : files.find(({ fileName }) => fileName === activeTab)
-                  ?.codeStr)!
+                    ?.codeStr)!
             }
           />
         </div>

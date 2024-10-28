@@ -3,7 +3,7 @@ import * as React from "react";
 
 const sizes = ["sm", "md", "lg"] as const;
 
-export default function ScrollAreaDemo() {
+export default function ScrollAreaDemo(): JSX.Element {
   return (
     <div className="grid grid-cols-3 gap-10">
       {sizes.map((size) => (

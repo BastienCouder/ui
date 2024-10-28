@@ -63,6 +63,7 @@ const AccordionTrigger = React.forwardRef<
     disabled?: boolean;
     variant?: string;
   }
+  // eslint-disable-next-line unused-imports/no-unused-vars
 >(({ className, children, disabled, variant = "default", ...props }, ref) => {
   const { trigger } = accordionStyles({ variant });
   return (

@@ -56,7 +56,7 @@ async function search(keyword?: string) {
   return group(filtered);
 }
 
-export default function MultiSelectDemo() {
+export default function MultiSelectDemo(): JSX.Element {
   const [loading, setLoading] = useState(false);
   const [options, setOptions] = useState<MultiSelectOption[]>(() =>
     group(ALL_ITEMS),

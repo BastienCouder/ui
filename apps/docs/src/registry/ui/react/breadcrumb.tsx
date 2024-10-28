@@ -103,8 +103,6 @@ const BreadcrumbItem = React.forwardRef<HTMLLIElement, BreadcrumbProps>(
       isLast,
       separatorIcon,
       orientation = "horizontal",
-      size,
-      variant,
       children,
       ...props
     },

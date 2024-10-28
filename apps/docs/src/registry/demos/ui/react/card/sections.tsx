@@ -1,3 +1,3 @@
-export default function CardDemo() {
+export default function CardDemo(): JSX.Element {
   return <div className="grid grid-cols-2 gap-2"></div>;
 }

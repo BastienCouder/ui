@@ -30,7 +30,7 @@ export const diff = new Command()
   .option(
     "-c, --cwd <cwd>",
     "the working directory. defaults to the current directory.",
-    process.cwd()
+    process.cwd(),
   )
   .action(async (name, opts) => {
     try {
@@ -50,8 +50,8 @@ export const diff = new Command()
       if (!config) {
         logger.warn(
           `Configuration is missing. Please run ${highlighter.success(
-            `init`
-          )} to create a components.json file.`
+            `init`,
+          )} to create a components.json file.`,
         );
         process.exit(1);
       }
@@ -71,7 +71,7 @@ export const diff = new Command()
           for (const file of item.files ?? []) {
             const filePath = path.resolve(
               targetDir,
-              typeof file === "string" ? file : file.path
+              typeof file === "string" ? file : file.path,
             );
             if (existsSync(filePath)) {
               return true;
@@ -107,21 +107,21 @@ export const diff = new Command()
         }
         logger.break();
         logger.info(
-          `Run ${highlighter.success(`diff <component>`)} to see the changes.`
+          `Run ${highlighter.success(`diff <component>`)} to see the changes.`,
         );
         process.exit(0);
       }
 
       // Show diff for a single component.
       const component = registryIndex.find(
-        (item) => item.name === options.component
+        (item) => item.name === options.component,
       );
 
       if (!component) {
         logger.error(
           `The component ${highlighter.success(
-            options.component
-          )} does not exist.`
+            options.component,
+          )} does not exist.`,
         );
         process.exit(1);
       }
@@ -145,7 +145,7 @@ export const diff = new Command()
 
 async function diffComponent(
   component: z.infer<typeof registryIndexSchema>[number],
-  config: Config
+  config: Config,
 ) {
   const payload = await fetchTree(config.style, [component]);
 
@@ -165,7 +165,7 @@ async function diffComponent(
     for (const file of item.files ?? []) {
       const filePath = path.resolve(
         targetDir,
-        typeof file === "string" ? file : file.path
+        typeof file === "string" ? file : file.path,
       );
 
       if (!existsSync(filePath)) {

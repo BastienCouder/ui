@@ -2,11 +2,7 @@
 
 import { Button } from "@/registry/ui/react/button";
 import type { StepItem } from "@/registry/ui/react/stepper";
-import {
-  Step,
-  Stepper,
-  useStepper,
-} from "@/registry/ui/react/stepper";
+import { Step, Stepper, useStepper } from "@/registry/ui/react/stepper";
 
 const steps = [
   { label: "Step 1" },
@@ -14,7 +10,7 @@ const steps = [
   { label: "Step 3" },
 ] satisfies StepItem[];
 
-export default function StepperDemo() {
+export default function StepperDemo(): JSX.Element {
   return (
     <div className="flex w-full flex-col gap-4">
       <Stepper initialStep={0} steps={steps}>

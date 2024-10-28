@@ -1,6 +1,6 @@
 import { Badge } from "@/registry/ui/react/badge";
 
-export default function BadgeDemo() {
+export default function BadgeDemo(): JSX.Element {
   return (
     <div className="flex flex-col items-start gap-2">
       <Flex>

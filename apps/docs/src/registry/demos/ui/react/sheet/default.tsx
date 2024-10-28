@@ -9,10 +9,9 @@ import {
   SheetTitle,
   SheetDescription,
   SheetFooter,
-  SheetClose,
 } from "@/registry/ui/react/sheet";
 
-export default function SheetDemo() {
+export default function SheetDemo(): JSX.Element {
   const Content = () => (
     <>
       <SheetHeader>

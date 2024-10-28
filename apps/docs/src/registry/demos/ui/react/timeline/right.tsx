@@ -11,7 +11,7 @@ import {
   TimelineLine,
 } from "@/registry/ui/react/timeline";
 
-export default function TimelineDemo() {
+export default function TimelineDemo(): JSX.Element {
   return (
     <Timeline positions="right">
       <TimelineItem status="done">
@@ -60,9 +60,9 @@ export default function TimelineDemo() {
         <TimelineDot />
         <TimelineLine />
         <TimelineContent side="left">
-          Once your software has passed rigorous testing, it's time to deploy
-          it. Consider the deployment environment, whether it's on-premises or
-          in the cloud.
+          Once your software has passed rigorous testing, it&apos;s time to
+          deploy it. Consider the deployment environment, whether it&apos;s
+          on-premises or in the cloud.
         </TimelineContent>
       </TimelineItem>
       <TimelineItem>

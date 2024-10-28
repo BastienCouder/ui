@@ -17,8 +17,7 @@ const buttonStyles = tv(
           "bg-secondary hover:bg-secondary-hover active:bg-secondary-active text-secondary-fg",
         quiet:
           "bg-transparent hover:bg-neutral/10 active:bg-neutral/20 text-fg",
-         link:
-          "bg-transparent hover:transparent underline active:underline text-fg",
+        link: "bg-transparent hover:transparent underline active:underline text-fg",
         outline:
           "border border-border bg-transparent hover:bg-neutral/10 active:bg-neutral/20 text-fg disabled:border-disabled disabled:bg-transparent",
         success:
@@ -108,9 +107,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={isDisabled || isLoading}
         {...props}
       >
-        {isLoading && (
-          <Loader aria-label="loading" className="animate-spin" />
-        )}
+        {isLoading && <Loader aria-label="loading" className="animate-spin" />}
         {prefix}
         {typeof children === "string" ? (
           <span className="truncate">{children}</span>

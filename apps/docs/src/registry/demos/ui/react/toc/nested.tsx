@@ -7,7 +7,7 @@ import {
   TableOfContentsList,
 } from "@/registry/ui/react/toc";
 
-export default function TocDemo() {
+export default function TocDemo(): JSX.Element {
   return (
     <TableOfContents>
       <TableOfContentsTitle>Table of Contents</TableOfContentsTitle>

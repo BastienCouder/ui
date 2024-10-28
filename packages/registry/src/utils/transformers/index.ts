@@ -23,7 +23,7 @@ export type TransformOpts = {
 export type Transformer<Output = SourceFile> = (
   opts: TransformOpts & {
     sourceFile: SourceFile;
-  }
+  },
 ) => Promise<Output>;
 
 const project = new Project({
@@ -42,7 +42,7 @@ export async function transform(
     transformRsc,
     transformCssVars,
     transformTwPrefixes,
-  ]
+  ],
 ) {
   const tempFile = await createTempSourceFile(opts.filename);
   const sourceFile = project.createSourceFile(tempFile, opts.raw, {

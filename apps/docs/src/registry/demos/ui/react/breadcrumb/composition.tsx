@@ -4,7 +4,7 @@ import {
   Breadcrumbs,
 } from "@/registry/ui/react/breadcrumb";
 
-export default function BreadcrumbDemo() {
+export default function BreadcrumbDemo(): JSX.Element {
   return (
     <Breadcrumbs>
       <BreadcrumbItem>

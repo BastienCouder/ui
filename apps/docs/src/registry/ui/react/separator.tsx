@@ -26,7 +26,7 @@ const Separator = ({
   orientation = "horizontal",
   className,
   ...props
-}: SeparatorProps) => {
+}: SeparatorProps): JSX.Element => {
   return (
     <div {...props} className={separatorStyles({ orientation, className })} />
   );

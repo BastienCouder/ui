@@ -41,7 +41,7 @@ const Avatar = ({
   size,
   shape,
   ...props
-}: AvatarProps) => {
+}: AvatarProps): JSX.Element => {
   return (
     <AvatarRoot className={className} style={style} shape={shape} size={size}>
       <AvatarImage {...props} />
@@ -54,7 +54,12 @@ const Avatar = ({
 interface AvatarRootProps
   extends React.HTMLAttributes<HTMLSpanElement>,
     VariantProps<typeof avatarStyles> {}
-const AvatarRoot = ({ className, shape, size, ...props }: AvatarRootProps) => {
+const AvatarRoot = ({
+  className,
+  shape,
+  size,
+  ...props
+}: AvatarRootProps): JSX.Element => {
   const { root } = avatarStyles({ shape, size });
   const [status, setStatus] = React.useState<Status>("idle");
   return (
@@ -72,7 +77,7 @@ const AvatarImage = ({
   onStatusChange,
   className,
   ...props
-}: AvatarImageProps) => {
+}: AvatarImageProps): JSX.Element | null => {
   const { image } = avatarStyles();
   const context = useAvatarContext();
   const status = useImageLoadingStatus(src);
@@ -92,13 +97,16 @@ const AvatarImage = ({
   }, [status, handleStatusChange]);
 
   return status === "success" ? (
-    // eslint-disable-next-line jsx-a11y/alt-text
+    // eslint-disable-next-line @next/next/no-img-element
     <img src={src} className={image({ className })} {...props} />
   ) : null;
 };
 
 type AvatarFallbackProps = React.HTMLAttributes<HTMLSpanElement>;
-const AvatarFallback = ({ className, ...props }: AvatarFallbackProps) => {
+const AvatarFallback = ({
+  className,
+  ...props
+}: AvatarFallbackProps): JSX.Element | null => {
   const { fallback } = avatarStyles();
   const context = useAvatarContext();
 
@@ -108,7 +116,10 @@ const AvatarFallback = ({ className, ...props }: AvatarFallbackProps) => {
 };
 
 type AvatarPlaceholderProps = React.HTMLAttributes<HTMLSpanElement>;
-const AvatarPlaceholder = ({ className, ...props }: AvatarPlaceholderProps) => {
+const AvatarPlaceholder = ({
+  className,
+  ...props
+}: AvatarPlaceholderProps): JSX.Element | null => {
   const { placeholder } = avatarStyles();
   const context = useAvatarContext();
 

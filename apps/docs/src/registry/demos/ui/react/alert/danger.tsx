@@ -1,13 +1,9 @@
 "use client";
 
-import {
-  Alert,
-  AlertDescription,
-  AlertTitle,
-} from "@/registry/ui/react/alert";
+import { Alert, AlertDescription, AlertTitle } from "@/registry/ui/react/alert";
 import { AlertCircle } from "lucide-react";
 
-export default function AlertDemo() {
+export default function AlertDemo(): JSX.Element {
   return (
     <Alert variant="danger">
       <AlertCircle className="size-4" />

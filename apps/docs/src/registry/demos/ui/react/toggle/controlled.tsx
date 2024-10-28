@@ -4,7 +4,7 @@ import { Toggle } from "@/registry/ui/react/toggle";
 import { Pin } from "@/lib/icons";
 import { useState } from "react";
 
-export default function ToggleDemo() {
+export default function ToggleDemo(): JSX.Element {
   const [isSelected, setSelected] = useState(true);
 
   return (

@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 import React from "react";
 
 interface AvatarCirclesProps {
@@ -13,11 +14,11 @@ function AvatarCircles({
   numPeople,
   className,
   avatarUrls,
-}: AvatarCirclesProps) {
+}: AvatarCirclesProps): JSX.Element {
   return (
     <div className={cn("z-10 flex -space-x-4 rtl:space-x-reverse", className)}>
       {avatarUrls.map((url, index) => (
-        <img
+        <Image
           key={index}
           className="w-10 h-10 rounded-full border-2 border-white dark:border-gray-800"
           src={url}

@@ -9,12 +9,11 @@ import {
   SheetTitle,
   SheetDescription,
   SheetFooter,
-  SheetClose,
 } from "@/registry/ui/react/sheet";
 
 const sides = ["top", "right", "left", "bottom"] as const;
 
-export default function SheetDemo() {
+export default function SheetDemo(): JSX.Element {
   const Content = () => (
     <>
       <SheetHeader>

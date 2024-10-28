@@ -1,6 +1,6 @@
 import { Separator } from "@/registry/ui/react/separator";
 
-export default function SeparatorDemo() {
+export default function SeparatorDemo(): JSX.Element {
   return (
     <div className="space-y-2 rounded-md border p-4">
       <div>

@@ -75,7 +75,7 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
     throw new Error(
       `Failed to load ${config.tsx ? "tsconfig" : "jsconfig"}.json. ${
         tsConfig.message ?? ""
-      }`.trim()
+      }`.trim(),
     );
   }
 
@@ -92,7 +92,7 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
         : path.resolve(
             (await resolveImport(config.aliases["components"], tsConfig)) ??
               cwd,
-            "ui"
+            "ui",
           ),
       // TODO: Make this configurable.
       // For now, we assume the lib and hooks directories are one level up from the components directory.
@@ -100,7 +100,7 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
         ? await resolveImport(config.aliases["lib"], tsConfig)
         : path.resolve(
             (await resolveImport(config.aliases["utils"], tsConfig)) ?? cwd,
-            ".."
+            "..",
           ),
       hooks: config.aliases["hooks"]
         ? await resolveImport(config.aliases["hooks"], tsConfig)
@@ -108,7 +108,7 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
             (await resolveImport(config.aliases["components"], tsConfig)) ??
               cwd,
             "..",
-            "hooks"
+            "hooks",
           ),
     },
   });
@@ -126,7 +126,7 @@ export async function getRawConfig(cwd: string): Promise<RawConfig | null> {
   } catch (error) {
     const componentPath = `${cwd}/components.json`;
     throw new Error(
-      `Invalid configuration found in ${highlighter.info(componentPath)}.`
+      `Invalid configuration found in ${highlighter.info(componentPath)}.`,
     );
   }
 }

@@ -4,19 +4,9 @@ import * as React from "react";
 
 import { Button } from "@/registry/ui/react/button";
 import { Label } from "@/registry/ui/react/label";
-import {
-  RadioGroup,
-  RadioGroupItem,
-} from "@/registry/ui/react/radio-group";
-import type {
-  StepItem,
-  StepperProps,
-} from "@/registry/ui/react/stepper";
-import {
-  Step,
-  Stepper,
-  useStepper,
-} from "@/registry/ui/react/stepper";
+import { RadioGroup, RadioGroupItem } from "@/registry/ui/react/radio-group";
+import type { StepItem, StepperProps } from "@/registry/ui/react/stepper";
+import { Step, Stepper, useStepper } from "@/registry/ui/react/stepper";
 
 const steps = [
   { label: "Step 1" },
@@ -24,7 +14,7 @@ const steps = [
   { label: "Step 3" },
 ] satisfies StepItem[];
 
-export default function StepperOrientation() {
+export default function StepperOrientation(): JSX.Element {
   const [orientation, setOrientation] =
     React.useState<StepperProps["orientation"]>("vertical");
 

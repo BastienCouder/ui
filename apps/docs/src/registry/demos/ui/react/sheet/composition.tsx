@@ -14,7 +14,7 @@ import {
   SheetClose,
 } from "@/registry/ui/react/sheet";
 
-export default function SheetDemo() {
+export default function SheetDemo(): JSX.Element {
   return (
     <Sheet>
       <SheetTrigger asChild>

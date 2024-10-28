@@ -10,7 +10,7 @@ import {
   MultiSelectValue,
 } from "@/registry/ui/react/multi-select";
 
-export default function MultiSelectDemo() {
+export default function MultiSelectDemo(): JSX.Element {
   return (
     <MultiSelect defaultValue={["react", "next", "remix"]} maxCount={3}>
       <MultiSelectTrigger className="w-96">

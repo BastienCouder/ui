@@ -1,8 +1,4 @@
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-} from "@/registry/ui/react/card";
+import { Card, CardHeader, CardTitle } from "@/registry/ui/react/card";
 
 const variants = [
   "default",
@@ -12,7 +8,7 @@ const variants = [
   "danger",
 ] as const;
 
-export default function CardDemo() {
+export default function CardDemo(): JSX.Element {
   return (
     <div className="grid grid-cols-2 gap-2">
       {variants.map((variant) => (

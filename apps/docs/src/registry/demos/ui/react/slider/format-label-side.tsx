@@ -2,7 +2,7 @@
 
 import { Slider } from "@/registry/ui/react/slider";
 
-export default function SliderDemo() {
+export default function SliderDemo(): JSX.Element {
   return (
     <Slider
       defaultValue={[2]}

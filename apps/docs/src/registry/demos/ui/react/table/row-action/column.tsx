@@ -17,7 +17,7 @@ export const columns: ColumnDef<Payment>[] = [
   // ...
   {
     id: "actions",
-    cell: ({ row }) => {
+    cell: ({ row }: { row: { original: Payment } }): JSX.Element => {
       const payment = row.original;
 
       return (

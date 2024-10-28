@@ -1,6 +1,6 @@
 import { Divider } from "@/registry/ui/react/divider";
 
-export default function DividerDemo() {
+export default function DividerDemo(): JSX.Element {
   return (
     <div className="w-full mx-4">
       <Divider orientation="vertical" className="gap-4 min-h-[200px]">

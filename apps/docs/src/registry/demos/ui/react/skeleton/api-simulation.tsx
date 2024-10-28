@@ -4,7 +4,7 @@ import { Button } from "@/registry/ui/react/button";
 import { Skeleton } from "@/registry/ui/react/skeleton";
 import React from "react";
 
-export default function SkeletonDemo() {
+export default function SkeletonDemo(): JSX.Element {
   const [status, setStatus] = React.useState<
     "idle" | "loading" | "error" | "success"
   >("idle");

@@ -9,7 +9,7 @@ import fs from "fs-extra";
 import { z } from "zod";
 
 export async function preFlightInit(
-  options: z.infer<typeof initOptionsSchema>
+  options: z.infer<typeof initOptionsSchema>,
 ) {
   const errors: Record<string, boolean> = {};
 
@@ -38,12 +38,12 @@ export async function preFlightInit(
     logger.break();
     logger.error(
       `A ${highlighter.info(
-        "components.json"
+        "components.json",
       )} file already exists at ${highlighter.info(
-        options.cwd
+        options.cwd,
       )}.\nTo start over, remove the ${highlighter.info(
-        "components.json"
-      )} file and run ${highlighter.info("init")} again.`
+        "components.json",
+      )} file and run ${highlighter.info("init")} again.`,
     );
     logger.break();
     process.exit(1);
@@ -63,11 +63,11 @@ export async function preFlightInit(
     if (projectInfo?.framework.links.installation) {
       logger.error(
         `We could not detect a supported framework at ${highlighter.info(
-          options.cwd
+          options.cwd,
         )}.\n` +
           `Visit ${highlighter.info(
-            projectInfo?.framework.links.installation
-          )} to manually configure your project.\nOnce configured, you can use the cli to add components.`
+            projectInfo?.framework.links.installation,
+          )} to manually configure your project.\nOnce configured, you can use the cli to add components.`,
       );
     }
     logger.break();
@@ -75,8 +75,8 @@ export async function preFlightInit(
   }
   frameworkSpinner?.succeed(
     `Verifying framework. Found ${highlighter.info(
-      projectInfo.framework.label
-    )}.`
+      projectInfo.framework.label,
+    )}.`,
   );
 
   const tailwindSpinner = spinner(`Validating Tailwind CSS.`, {
@@ -104,18 +104,18 @@ export async function preFlightInit(
       logger.break();
       logger.error(
         `No Tailwind CSS configuration found at ${highlighter.info(
-          options.cwd
-        )}.`
+          options.cwd,
+        )}.`,
       );
       logger.error(
-        `It is likely you do not have Tailwind CSS installed or have an invalid configuration.`
+        `It is likely you do not have Tailwind CSS installed or have an invalid configuration.`,
       );
       logger.error(`Install Tailwind CSS then try again.`);
       if (projectInfo?.framework.links.tailwind) {
         logger.error(
           `Visit ${highlighter.info(
-            projectInfo?.framework.links.tailwind
-          )} to get started.`
+            projectInfo?.framework.links.tailwind,
+          )} to get started.`,
         );
       }
     }
@@ -126,8 +126,8 @@ export async function preFlightInit(
       if (projectInfo?.framework.links.installation) {
         logger.error(
           `Visit ${highlighter.info(
-            projectInfo?.framework.links.installation
-          )} to learn how to set an import alias.`
+            projectInfo?.framework.links.installation,
+          )} to learn how to set an import alias.`,
         );
       }
     }

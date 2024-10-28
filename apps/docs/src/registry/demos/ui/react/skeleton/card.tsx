@@ -1,6 +1,6 @@
 import { Skeleton } from "@/registry/ui/react/skeleton";
 
-export default function SkeletonDemo() {
+export default function SkeletonDemo(): JSX.Element {
   return (
     <div className="space-y-4">
       <Skeleton className="h-44 w-64" />

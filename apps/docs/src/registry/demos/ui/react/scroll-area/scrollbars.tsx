@@ -1,9 +1,6 @@
 "use client";
 
-import {
-  ScrollArea,
-  ScrollAreaProps,
-} from "@/registry/ui/react/scroll-area";
+import { ScrollArea, ScrollAreaProps } from "@/registry/ui/react/scroll-area";
 import * as React from "react";
 // import { Radio, RadioGroup } from "@/lib/components/radio-group";
 

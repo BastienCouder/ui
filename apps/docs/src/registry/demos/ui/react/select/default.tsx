@@ -12,7 +12,7 @@ import {
   SelectValue,
 } from "@/registry/ui/react/select";
 
-export default function SelectDemo() {
+export default function SelectDemo(): JSX.Element {
   return (
     <Select>
       <SelectTrigger className="w-[180px]">

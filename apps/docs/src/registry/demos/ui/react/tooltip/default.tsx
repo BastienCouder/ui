@@ -3,7 +3,7 @@
 import { Button } from "@/registry/ui/react/button";
 import { Tooltip } from "@/registry/ui/react/tooltip";
 
-export default function TooltipDemo() {
+export default function TooltipDemo(): JSX.Element {
   const Content = () => <p>Add to library</p>;
 
   return (

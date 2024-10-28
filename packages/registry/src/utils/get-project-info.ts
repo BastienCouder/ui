@@ -45,7 +45,7 @@ export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
         cwd,
         deep: 3,
         ignore: PROJECT_SHARED_IGNORE,
-      }
+      },
     ),
     fs.pathExists(path.resolve(cwd, "src")),
     isTypeScriptProject(cwd),
@@ -56,7 +56,7 @@ export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
   ]);
 
   const isUsingAppDir = await fs.pathExists(
-    path.resolve(cwd, `${isSrcDir ? "src/" : ""}app`)
+    path.resolve(cwd, `${isSrcDir ? "src/" : ""}app`),
   );
 
   const type: ProjectInfo = {
@@ -99,7 +99,7 @@ export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
   // Remix.
   if (
     Object.keys(packageJson?.dependencies ?? {}).find((dep) =>
-      dep.startsWith("@remix-run/")
+      dep.startsWith("@remix-run/"),
     )
   ) {
     type.framework = FRAMEWORKS["remix"];
@@ -218,7 +218,7 @@ export async function getTsConfig() {
 
 export async function getProjectConfig(
   cwd: string,
-  defaultProjectInfo: ProjectInfo | null = null
+  defaultProjectInfo: ProjectInfo | null = null,
 ): Promise<Config | null> {
   // Check for existing component config.
   const [existingConfig, projectInfo] = await Promise.all([

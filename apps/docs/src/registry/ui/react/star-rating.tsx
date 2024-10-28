@@ -54,7 +54,7 @@ function StarRating({
   size,
   onChange,
   onClick,
-}: StarRatingProps) {
+}: StarRatingProps): JSX.Element {
   const [value, setValue] = React.useState<number>(defaultValue);
 
   const { className: wrapperClassName, ...restWrapperProps } = wrapperProps;

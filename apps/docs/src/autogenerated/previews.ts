@@ -302,7 +302,27 @@ export const previews = {
   },
   "demos/ui/react/select/default": {
     component: React.lazy(() => import("@/registry/demos/ui/react/select/default")),
-    code: [{"title":"default.tsx","code":"\"use client\";\n\nimport * as React from \"react\";\n\nimport {\n  Select,\n  SelectContent,\n  SelectGroup,\n  SelectItem,\n  SelectLabel,\n  SelectTrigger,\n  SelectValue,\n} from \"@/registry/ui/react/select\";\n\nexport default function SelectDemo(): JSX.Element {\n  return (\n    <Select>\n      <SelectTrigger className=\"w-[180px]\">\n        <SelectValue placeholder=\"Select a fruit\" />\n      </SelectTrigger>\n      <SelectContent>\n        <SelectGroup>\n          <SelectLabel>Fruits</SelectLabel>\n          <SelectItem value=\"apple\">Apple</SelectItem>\n          <SelectItem value=\"banana\">Banana</SelectItem>\n          <SelectItem value=\"blueberry\">Blueberry</SelectItem>\n          <SelectItem value=\"grapes\">Grapes</SelectItem>\n          <SelectItem value=\"pineapple\">Pineapple</SelectItem>\n        </SelectGroup>\n      </SelectContent>\n    </Select>\n  );\n}\n"}]
+    code: [{"title":"default.tsx","code":"\"use client\";\n\nimport * as React from \"react\";\n\nimport {\n  Select,\n} from \"@/registry/ui/react/select\";\n\nexport default function SelectDemo(): JSX.Element {\n  return (\n    <Select className=\"w-[180px]\" label=\"Fruits\"\n      options={[\n        { label: \"Apple\", value: \"apple\" },\n        { label: \"Banana\", value: \"banana\" },\n        { label: \"Blueberry\", value: \"blueberry\" },\n        { label: \"Grapes\", value: \"grapes\" },\n        { label: \"Pineapple\", value: \"pineapple\" },\n      ]}\n    >\n      Select a fruit\n    </Select>\n  );\n}\n"}]
+  },
+  "demos/ui/react/select/variant": {
+    component: React.lazy(() => import("@/registry/demos/ui/react/select/variant")),
+    code: [{"title":"variant.tsx","code":"\"use client\";\n\nimport { Select } from \"@/registry/ui/react/select\";\n\nconst variants = [ \"primary\" , \"secondary\" , \"outline\" , \"neutral\"] as const;\n\nexport default function SelectDemo(): JSX.Element {\n  return (\n    <div className=\"grid grid-cols-2 gap-2\">\n      {variants.map((variant) => (\n       <Select className=\"w-[180px]\" label=\"Fruits\"\n          key={variant}\n          options={[\n            { label: \"Apple\", value: \"apple\" },\n            { label: \"Banana\", value: \"banana\" },\n            { label: \"Blueberry\", value: \"blueberry\" },\n            { label: \"Grapes\", value: \"grapes\" },\n            { label: \"Pineapple\", value: \"pineapple\" },\n          ]}\n          variant={variant}\n        >\n        {variant}\n        </Select>\n      ))}\n    </div>\n  );\n}\n"}]
+  },
+  "demos/ui/react/select/size": {
+    component: React.lazy(() => import("@/registry/demos/ui/react/select/size")),
+    code: [{"title":"size.tsx","code":"\"use client\";\n\nimport { Select } from \"@/registry/ui/react/select\";\n\nconst sizes = [ \"sm\" , \"md\" , \"lg\" ] as const;\n\nexport default function SelectDemo(): JSX.Element {\n  return (\n    <div className=\"grid grid-cols-2 gap-2\">\n      {sizes.map((size) => (\n       <Select className=\"w-[180px]\" label=\"Fruits\"\n          key={size}\n          options={[\n            { label: \"Apple\", value: \"apple\" },\n            { label: \"Banana\", value: \"banana\" },\n            { label: \"Blueberry\", value: \"blueberry\" },\n            { label: \"Grapes\", value: \"grapes\" },\n            { label: \"Pineapple\", value: \"pineapple\" },\n          ]}\n          size={size}\n        >\n        {size}\n        </Select>\n      ))}\n    </div>\n  );\n}\n"}]
+  },
+  "demos/ui/react/select/shape": {
+    component: React.lazy(() => import("@/registry/demos/ui/react/select/shape")),
+    code: [{"title":"shape.tsx","code":"\"use client\";\n\nimport { Select } from \"@/registry/ui/react/select\";\n\nconst shapes = [ \"rounded\" , \"square\" , \"circle\" ] as const;\n\nexport default function SelectDemo(): JSX.Element {\n  return (\n    <div className=\"grid grid-cols-2 gap-2\">\n      {shapes.map((shape) => (\n       <Select className=\"w-[180px]\" label=\"Fruits\"\n          key={shape}\n          options={[\n            { label: \"Apple\", value: \"apple\" },\n            { label: \"Banana\", value: \"banana\" },\n            { label: \"Blueberry\", value: \"blueberry\" },\n            { label: \"Grapes\", value: \"grapes\" },\n            { label: \"Pineapple\", value: \"pineapple\" },\n          ]}\n          shape={shape}\n        >\n        {shape}\n        </Select>\n      ))}\n    </div>\n  );\n}\n"}]
+  },
+  "demos/ui/react/select/getData": {
+    component: React.lazy(() => import("@/registry/demos/ui/react/select/getData")),
+    code: [{"title":"getData.tsx","code":"\"use client\";\n\nimport * as React from \"react\";\nimport { useEffect, useState } from \"react\";\nimport { Select } from \"@/registry/ui/react/select\";\n\nexport default function SelectDemo(): JSX.Element {\n  const [options, setOptions] = useState<{ label: string; value: string }[]>([]);\n\n  const fetchFruitsData = async () => {\n\n    const fruitsData = [\n      { name: \"Apple\", id: 1 },\n      { name: \"Banana\", id: 2 },\n      { name: \"Blueberry\", id: 3 },\n      { name: \"Grapes\", id: 4 },\n      { name: \"Pineapple\", id: 5 }\n    ];\n    \n    const formattedOptions = fruitsData.map(fruit => ({\n      label: fruit.name,\n      value: fruit.id.toString() \n    }));\n\n    setOptions(formattedOptions);\n  };\n\n  useEffect(() => {\n    fetchFruitsData();\n  }, []);\n\n  return (\n    <Select\n      className=\"w-[180px]\"\n      label=\"Fruits\"\n      options={options}\n    >\n      Select a fruit\n    </Select>\n  );\n}\n"}]
+  },
+  "demos/ui/react/select/composition": {
+    component: React.lazy(() => import("@/registry/demos/ui/react/select/composition")),
+    code: [{"title":"composition.tsx","code":"\"use client\";\n\nimport * as React from \"react\";\n\nimport {\n  Select,\n  SelectContent,\n  SelectGroup,\n  SelectItem,\n  SelectLabel,\n  SelectTrigger,\n  SelectValue,\n} from \"@/registry/ui/react/select\";\n\nexport default function SelectDemo(): JSX.Element {\n  return (\n    <Select>\n      <SelectTrigger className=\"w-[180px]\">\n        <SelectValue placeholder=\"Select a fruit\" />\n      </SelectTrigger>\n      <SelectContent>\n        <SelectGroup>\n          <SelectLabel>Fruits</SelectLabel>\n          <SelectItem value=\"apple\">Apple</SelectItem>\n          <SelectItem value=\"banana\">Banana</SelectItem>\n          <SelectItem value=\"blueberry\">Blueberry</SelectItem>\n          <SelectItem value=\"grapes\">Grapes</SelectItem>\n          <SelectItem value=\"pineapple\">Pineapple</SelectItem>\n        </SelectGroup>\n      </SelectContent>\n    </Select>\n  );\n}\n"}]
   },
   "demos/ui/react/separator/default": {
     component: React.lazy(() => import("@/registry/demos/ui/react/separator/default")),
@@ -455,6 +475,26 @@ export const previews = {
   "demos/ui/react/text-field/default": {
     component: React.lazy(() => import("@/registry/demos/ui/react/text-field/default")),
     code: [{"title":"default.tsx","code":"\"use client\";\n\nimport { TextField } from \"@/registry/ui/react/text-field\";\n\nexport default function TextFieldDemo(): JSX.Element {\n  return <TextField type=\"email\" placeholder=\"Email\" />;\n}\n"}]
+  },
+  "demos/ui/react/text-field/prefix-suffix": {
+    component: React.lazy(() => import("@/registry/demos/ui/react/text-field/prefix-suffix")),
+    code: [{"title":"prefix-suffix.tsx","code":"\"use client\";\n\nimport { TextField } from \"@/registry/ui/react/text-field\";\nimport { Upload } from \"@/lib/icons\";\n\nexport default function TextFieldDemo(): JSX.Element {\n  return (<div className=\"flex gap-4\">\n    <TextField prefix={<Upload />} />\n    <TextField suffix={<Upload />} />\n  </div>\n  )\n}\n"}]
+  },
+  "demos/ui/react/text-field/description": {
+    component: React.lazy(() => import("@/registry/demos/ui/react/text-field/description")),
+    code: [{"title":"description.tsx","code":"\"use client\";\n\nimport { TextField } from \"@/registry/ui/react/text-field\";\n\nexport default function TextFieldDemo(): JSX.Element {\n  return <TextField description=\"This is a description\" />;\n}\n"}]
+  },
+  "demos/ui/react/text-field/label": {
+    component: React.lazy(() => import("@/registry/demos/ui/react/text-field/label")),
+    code: [{"title":"label.tsx","code":"\"use client\";\n\nimport { TextField } from \"@/registry/ui/react/text-field\";\n\nexport default function TextFieldDemo(): JSX.Element {\n  return <TextField label=\"label\" />;\n}\n"}]
+  },
+  "demos/ui/react/text-field/error": {
+    component: React.lazy(() => import("@/registry/demos/ui/react/text-field/error")),
+    code: [{"title":"error.tsx","code":"\"use client\";\n\nimport { TextField } from \"@/registry/ui/react/text-field\";\n\nexport default function TextFieldDemo(): JSX.Element {\n  return <TextField isInvalid errorMessage=\"This is an error\"/>;\n}\n"}]
+  },
+  "demos/ui/react/text-field/help": {
+    component: React.lazy(() => import("@/registry/demos/ui/react/text-field/help")),
+    code: [{"title":"help.tsx","code":"\"use client\";\n\nimport { TextField } from \"@/registry/ui/react/text-field\";\n\nexport default function TextFieldDemo(): JSX.Element {\n  return <TextField contextualHelp='help' label=\"help message\" />;\n}\n"}]
   },
   "demos/ui/react/textarea/default": {
     component: React.lazy(() => import("@/registry/demos/ui/react/textarea/default")),

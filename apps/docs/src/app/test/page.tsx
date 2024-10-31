@@ -1,6 +1,5 @@
 "use client";
 
-import { Button } from "@/registry/ui/react/button";
 import {   Select,
   SelectContent,
   SelectGroup,
@@ -8,6 +7,8 @@ import {   Select,
   SelectLabel,
   SelectTrigger,
   SelectValue} from "@/registry/ui/react/select";
+import { TextField } from "@/registry/ui/react/text-field";
+import { Loader2 } from "lucide-react";
 import * as React from "react";
 
 const generateFakeData = (numItems: number) => {
@@ -57,6 +58,16 @@ export default function TestPage(): JSX.Element {
         </SelectGroup>
       </SelectContent>
     </Select>
+<div className="flex flex-col gap-4">
+    <TextField  placeholder="Email" />
+    <TextField  prefix={<Loader2/>} />
+    <TextField  suffix={<Loader2/>} />
+    <TextField  isLoading  className="w-full"/>
+    <TextField  isInvalid errorMessage="error"/>
+    <TextField  label="label" />
+    <TextField  description="description" />
+    <TextField  contextualHelp='help' label="help" />
+    </div>
 </div>
 
   </main>;

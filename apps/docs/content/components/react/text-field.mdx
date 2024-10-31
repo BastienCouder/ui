@@ -21,4 +21,55 @@ component: true
 
 </Steps>
 
-in progress...
+## Options
+
+### Prefix and Suffix
+
+You can add a prefix or suffix to the text field by passing a component to the `prefix` or `suffix` prop.
+
+<ComponentPreview
+  name="demos/ui/react/text-field/prefix-suffix"
+  extension={"tsx"}
+  preview={`<TextField prefix={<Upload />} />
+<TextField suffix={<Upload />} />`}
+/>
+
+### Description
+
+You can add a description to the text field by passing a string to the `description` prop.
+
+<ComponentPreview
+  name="demos/ui/react/text-field/description"
+  extension={"tsx"}
+  preview={`<TextField description="This is a description" />`}
+/>
+
+### Label
+
+You can add a label to the text field by passing a string to the `label` prop.
+
+<ComponentPreview
+  name="demos/ui/react/text-field/label"
+  extension={"tsx"}
+  preview={`<TextField label="label" />`}
+/>
+
+### Error
+
+You can add an error to the text field by passing a string to the `isInvalid` and `errorMessage` prop.
+
+<ComponentPreview
+  name="demos/ui/react/text-field/error"
+  extension={"tsx"}
+  preview={`<TextField isInvalid errorMessage="This is an error" />`}
+/>
+
+### Help
+
+You can add help text to the text field by passing a string to the `contextualHelp` prop.
+
+<ComponentPreview
+  name="demos/ui/react/text-field/help"
+  extension={"tsx"}
+  preview={`<TextField contextualHelp='help message' />`}
+/>

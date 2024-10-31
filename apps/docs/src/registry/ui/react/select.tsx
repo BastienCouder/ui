@@ -23,7 +23,6 @@ const selectStyles = tv({
         "border-primary bg-primary text-primary-fg hover:bg-primary-hover active:bg-primary-active",
       secondary:
         "border-secondary bg-secondary text-secondary-fg hover:bg-secondary-hover active:bg-secondary-active",
-      quiet: "bg-transparent text-foreground border-transparent hover:bg-muted/50",
       outline: "border-foreground bg-transparent text-foreground hover:bg-muted/50",
       neutral:
         "border-neutral bg-neutral text-fg hover:bg-neutral-hover active:bg-neutral-active",
@@ -39,16 +38,18 @@ const selectStyles = tv({
 interface SelectProps {
   children?: React.ReactNode;
   options?: Array<{ label: string; value: string }>; // Pour utilisation comme avec `Sheet`
+  label?: string;
   className?: string;
   size?: "sm" | "md" | "lg";
   shape?: "rounded" | "square" | "circle";
-  variant?: "primary" | "secondary" | "quiet" | "outline" | "neutral";
+  variant?: "primary" | "secondary" | "outline" | "neutral";
   withRing?: boolean;
 }
 
 const Select: React.FC<SelectProps> = ({
   children,
   options,
+  label,
   size = "md",
   shape = "rounded",
   variant = "outline",
@@ -56,7 +57,7 @@ const Select: React.FC<SelectProps> = ({
   className,
   ...props
 }) => {
-  // Gère le contenu conditionnel : soit les `options`, soit les `children` passés
+
   const wrappedChildren =
     typeof children === "string" || typeof children === "number" ? (
       <>{children}</>
@@ -73,11 +74,14 @@ const Select: React.FC<SelectProps> = ({
             {wrappedChildren}
           </SelectTrigger>
           <SelectContent>
+            <SelectGroup>
+              {label && <SelectLabel>{label}</SelectLabel>}
             {options.map((option) => (
               <SelectItem key={option.value} value={option.value}>
                 {option.label}
               </SelectItem>
             ))}
+            </SelectGroup>
           </SelectContent>
         </>
       ) : (
@@ -87,7 +91,6 @@ const Select: React.FC<SelectProps> = ({
   );
 };
 
-// Sous-composants pour la structure détaillée de Select
 const SelectGroup = SelectPrimitive.Group;
 const SelectValue = SelectPrimitive.Value;
 
@@ -96,7 +99,7 @@ const SelectTrigger = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger> & {
     size?: "sm" | "md" | "lg";
     shape?: "rounded" | "square" | "circle";
-    variant?: "primary" | "secondary" | "quiet" | "outline" | "neutral";
+    variant?: "primary" | "secondary" | "outline" | "neutral";
     withRing?: boolean;
   }
 >(

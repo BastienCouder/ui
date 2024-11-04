@@ -2,13 +2,13 @@
 
 import * as React from "react";
 
-import {
-  Select,
-} from "@/registry/ui/react/select";
+import { Select } from "@/registry/ui/react/select";
 
 export default function SelectDemo(): JSX.Element {
   return (
-    <Select className="w-[180px]" label="Fruits"
+    <Select
+      className="w-[180px]"
+      label="Fruits"
       options={[
         { label: "Apple", value: "apple" },
         { label: "Banana", value: "banana" },

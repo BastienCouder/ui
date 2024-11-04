@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import * as React from "react";
 import { tv, type VariantProps } from "tailwind-variants";
-import { Loader ,HelpCircle} from "@/lib/icons";
+import { Loader, HelpCircle } from "@/lib/icons";
 import { Tooltip } from "@/registry/ui/react/tooltip";
 
 const inputStyles = tv({
@@ -41,7 +41,7 @@ const inputStyles = tv({
   },
 });
 
-type TextFieldProps = Omit<InputProps, "children" | "prefix" | "suffix"> & 
+type TextFieldProps = Omit<InputProps, "children" | "prefix" | "suffix"> &
   VariantProps<typeof inputStyles> & {
     label?: string;
     description?: string;
@@ -56,7 +56,8 @@ type TextFieldProps = Omit<InputProps, "children" | "prefix" | "suffix"> &
     inputSize?: "sm" | "md" | "lg";
   };
 
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {}
 
 const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
   (
@@ -76,34 +77,35 @@ const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
       loaderPosition = "prefix",
       ...props
     },
-    ref
+    ref,
   ) => {
-    const renderPrefix = isLoading && loaderPosition === "prefix" ? (
-      <Loader className="mr-2 animate-rotate" />
-    ) : (
-      prefix
-    );
+    const renderPrefix =
+      isLoading && loaderPosition === "prefix" ? (
+        <Loader className="mr-2 animate-rotate" />
+      ) : (
+        prefix
+      );
 
-    const renderSuffix = isLoading && loaderPosition === "suffix" ? (
-      <Loader className="ml-2" />
-    ) : (
-      suffix
-    );
+    const renderSuffix =
+      isLoading && loaderPosition === "suffix" ? (
+        <Loader className="ml-2" />
+      ) : (
+        suffix
+      );
 
     return (
-      <div  className={cn(
-        "w-full max-w-96",
-        className)}>
-         {label || contextualHelp && (
-          <label className="text-sm font-medium flex items-center gap-1 mb-1">
-            {label}
-            {contextualHelp && (
-              <Tooltip content={contextualHelp} offset={5}>
+      <div className={cn("w-full max-w-96", className)}>
+        {label ||
+          (contextualHelp && (
+            <label className="text-sm font-medium flex items-center gap-1 mb-1">
+              {label}
+              {contextualHelp && (
+                <Tooltip content={contextualHelp} offset={5}>
                   <HelpCircle className="h-4 w-4" />
-              </Tooltip >
-            )}
-          </label>
-        )}
+                </Tooltip>
+              )}
+            </label>
+          ))}
         <div className="relative flex items-center gap-x-2">
           {renderPrefix && (
             <span className="absolute left-3 inset-y-0 flex items-center z-40 text-gray-400 w-5">
@@ -118,7 +120,7 @@ const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
               {
                 "pl-11": renderPrefix,
                 "pr-10": renderSuffix,
-              }
+              },
             )}
             ref={ref}
             {...props}
@@ -137,7 +139,7 @@ const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
         )}
       </div>
     );
-  }
+  },
 );
 
 TextField.displayName = "TextField";

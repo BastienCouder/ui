@@ -19,4 +19,44 @@ component: true
 
 </Steps>
 
-in progress...
+## Options
+
+### Description
+
+You can add a `description` to the textarea by passing a string to the description prop.
+
+<ComponentPreview
+name="demos/ui/react/textarea/description"
+extension={"tsx"}
+preview={`<Textarea placeholder="Type your message here." description="This is a description" />`}
+/>
+
+### Label
+
+You can add a `label` to the textarea by passing a string to the label prop.
+
+<ComponentPreview
+name="demos/ui/react/textarea/label"
+extension={"tsx"}
+preview={`<Textarea placeholder="Type your message here." label="Label" />`}
+/>
+
+### Error
+
+You can add an `error` to the textarea by passing a string to the isInvalid and errorMessage props.
+
+<ComponentPreview
+name="demos/ui/react/textarea/error"
+extension={"tsx"}
+preview={`<Textarea placeholder="Type your message here." isInvalid errorMessage="This is an error" />`}
+/>
+
+### Help
+
+You can add `help` text to the textarea by passing a string to the contextualHelp prop.
+
+<ComponentPreview
+name="demos/ui/react/textarea/help"
+extension={"tsx"}
+preview={`<Textarea placeholder="Type your message here." contextualHelp="Help message" />`}
+/>

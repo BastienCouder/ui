@@ -10,7 +10,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/registry/ui/react/dropdown-menu";
+} from "@/registry/ui/react/dropdown";
 import { Payment } from "../basic/column";
 
 export const columns: ColumnDef<Payment>[] = [

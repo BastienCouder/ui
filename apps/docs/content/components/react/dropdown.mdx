@@ -1,14 +1,14 @@
 ---
-title: Dropdown Menu
+title: Dropdown
 description: Displays a menu to the user — such as a set of actions or functions — triggered by a button.
 component: true
 ---
 
 <ComponentPreview
   name="demos/ui/react/dropdown/default"
-  preview={`<Dialog content={<Content/>} className="sm:max-w-[425px]">
-    <Button variant="outline">Edit Profile</Button>
-</Dialog>`}
+  preview={`<Dropdown content={<Content/>} className="w-56">
+  <Button variant="outline">Open</Button>
+</Dropdown>`}
 />
 
 ## Installation
@@ -20,3 +20,38 @@ npm install @radix-ui/react-dropdown-menu
 ```
 Copy and paste the following code into your project.<br/>
   <ComponentSource name={["ui/react/dropdown"]} extension={["tsx"]} />
+
+## Options
+
+### Side
+
+Use the `side` prop to control the position of the dropdown. The default side is bottom.
+
+<ComponentPreview
+  name="demos/ui/react/dropdown/side"
+  preview={`<Dropdown content={<Content/>} side="top" className="w-56">
+  <Button variant="outline">Open</Button>
+</Dropdown>`}
+/>
+
+### Checkbox Group
+
+You can add a checkbox group to the dropdown.
+
+<ComponentPreview
+  name="demos/ui/react/dropdown/checkbox"
+  preview={`<Dropdown content={<Content/>} className="w-56">
+  <Button variant="outline">Open</Button>
+</Dropdown>`}
+/>
+
+### Radio Group
+
+You can add a radio group to the dropdown.
+
+<ComponentPreview
+  name="demos/ui/react/dropdown/radio"
+  preview={`<Dropdown content={<Content/>} className="w-56">
+  <Button variant="outline">Open</Button>
+</Dropdown>`}
+/>

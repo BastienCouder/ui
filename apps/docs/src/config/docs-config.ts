@@ -34,6 +34,10 @@ export const docsConfig: DocsConfig = {
           "href": "/components/react",
           "items": [
             {
+              "title": "Accordion",
+              "href": "/components/react/accordion"
+            },
+            {
               "title": "Alert dialog",
               "href": "/components/react/alert-dialog"
             },

@@ -1,5 +1,18 @@
 [
   {
+    "name": "accordion",
+    "type": "registry:ui",
+    "dependencies": [
+      "@radix-ui/react-accordion"
+    ],
+    "files": [
+      {
+        "path": "ui/react/accordion.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
     "name": "alert-dialog",
     "type": "registry:ui",
     "dependencies": [

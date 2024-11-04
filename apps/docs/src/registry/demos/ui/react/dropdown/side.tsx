@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Cloud,
   CreditCard,
@@ -29,7 +31,9 @@ import {
   DropdownSubTrigger,
 } from "@/registry/ui/react/dropdown";
 
-export default function DropdownDemo(): JSX.Element {
+const sides = ["top", "right", "left", "bottom"] as const;
+
+export default function TooltipDemo(): JSX.Element {
   const Content = () => (
     <>
       <DropdownLabel>My Account</DropdownLabel>
@@ -114,8 +118,12 @@ export default function DropdownDemo(): JSX.Element {
   );
 
   return (
-    <Dropdown content={<Content />} className="w-56">
-      <Button variant="outline">Open</Button>
-    </Dropdown>
+    <div className="grid grid-cols-2 gap-2">
+      {sides.map((side) => (
+        <Dropdown key={side} content={<Content />} side={side} className="w-56">
+          <Button>{side}</Button>
+        </Dropdown>
+      ))}
+    </div>
   );
 }

@@ -27,7 +27,6 @@ const cardStyles = tv({
   },
   defaultVariants: {
     variant: "outline",
-    size: "md",
     shape: "rectangle",
   },
 });

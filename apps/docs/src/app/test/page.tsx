@@ -1,74 +1,64 @@
 "use client";
-
-import {   Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue} from "@/registry/ui/react/select";
-import { TextField } from "@/registry/ui/react/text-field";
-import { Loader2 } from "lucide-react";
-import * as React from "react";
-
-const generateFakeData = (numItems: number) => {
-  return Array.from({ length: numItems }, (_, index) => ({
-    id: index + 1,
-    name: `Item ${index + 1}`,
-  }));
-};
-
-const ITEMS_PER_PAGE = 10;
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/registry/ui/react/accordion";
+import {
+  MultiSelect,
+  MultiSelectContent,
+  MultiSelectItem,
+  MultiSelectList,
+  MultiSelectTrigger,
+  MultiSelectValue,
+} from "@/registry/ui/react/multi-select";
 
 export default function TestPage(): JSX.Element {
-  const data = generateFakeData(100); // Creating 100 fake items
-  const [currentPage, setCurrentPage] = React.useState(1);
+  const Content = () => <></>;
 
-  // Calculate the current page data
-  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const endIndex = startIndex + ITEMS_PER_PAGE;
-  const currentData = data.slice(startIndex, endIndex);
-
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-  };
-  return <main className="container pb-36 pt-16">Test Page
-  <div><Select className="w-[180px]"
-  options={[
-    { label: "Option 1", value: "1" },
-    { label: "Option 2", value: "2" },
-  ]}
->
- Open Select
-</Select>
-</div>
-<div>
-<Select>
-      <SelectTrigger className="w-[180px]">
-        <SelectValue placeholder="Select a fruit" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectLabel>Fruits</SelectLabel>
-          <SelectItem value="apple">Apple</SelectItem>
-          <SelectItem value="banana">Banana</SelectItem>
-          <SelectItem value="blueberry">Blueberry</SelectItem>
-          <SelectItem value="grapes">Grapes</SelectItem>
-          <SelectItem value="pineapple">Pineapple</SelectItem>
-        </SelectGroup>
-      </SelectContent>
-    </Select>
-<div className="flex flex-col gap-4">
-    <TextField  placeholder="Email" />
-    <TextField  prefix={<Loader2/>} />
-    <TextField  suffix={<Loader2/>} />
-    <TextField  isLoading  className="w-full"/>
-    <TextField  isInvalid errorMessage="error"/>
-    <TextField  label="label" />
-    <TextField  description="description" />
-    <TextField  contextualHelp='help' label="help" />
-    </div>
-</div>
-
-  </main>;
+  return (
+    <main className="container pb-36 pt-16">
+      Test Page
+      <div>
+        <MultiSelect>
+          <MultiSelectTrigger className="w-80">
+            <MultiSelectValue placeholder="Select Frameworks" />
+          </MultiSelectTrigger>
+          <MultiSelectContent>
+            <MultiSelectList>
+              <MultiSelectItem value="react">React</MultiSelectItem>
+              <MultiSelectItem value="vue">Vue</MultiSelectItem>
+              <MultiSelectItem value="angular">Angular</MultiSelectItem>
+              <MultiSelectItem value="svelte">Svelte</MultiSelectItem>
+            </MultiSelectList>
+          </MultiSelectContent>
+        </MultiSelect>
+      </div>
+      <div>
+        <Accordion type="single" collapsible className="w-full" gap="0">
+          <AccordionItem value="item-1">
+            <AccordionTrigger>Is it accessible?</AccordionTrigger>
+            <AccordionContent>
+              Yes. It adheres to the WAI-ARIA design pattern.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-2">
+            <AccordionTrigger>Is it styled?</AccordionTrigger>
+            <AccordionContent>
+              Yes. It comes with default styles that matches the other
+              components&apos; aesthetic.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-3">
+            <AccordionTrigger>Is it animated?</AccordionTrigger>
+            <AccordionContent>
+              Yes. It&apos;s animated by default, but you can disable it if you
+              prefer.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
+    </main>
+  );
 }

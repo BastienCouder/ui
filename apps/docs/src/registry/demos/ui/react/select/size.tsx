@@ -2,13 +2,15 @@
 
 import { Select } from "@/registry/ui/react/select";
 
-const sizes = [ "sm" , "md" , "lg" ] as const;
+const sizes = ["sm", "md", "lg"] as const;
 
 export default function SelectDemo(): JSX.Element {
   return (
     <div className="grid grid-cols-2 gap-2">
       {sizes.map((size) => (
-       <Select className="w-[180px]" label="Fruits"
+        <Select
+          className="w-[180px]"
+          label="Fruits"
           key={size}
           options={[
             { label: "Apple", value: "apple" },
@@ -19,7 +21,7 @@ export default function SelectDemo(): JSX.Element {
           ]}
           size={size}
         >
-        {size}
+          {size}
         </Select>
       ))}
     </div>

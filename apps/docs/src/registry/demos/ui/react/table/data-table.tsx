@@ -19,13 +19,13 @@ import { ArrowUpDown, ChevronDown, MoreHorizontal } from "@/lib/icons";
 import { Checkbox } from "@/registry/ui/react/checkbox";
 import { Button } from "@/registry/ui/react/button";
 import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
+  Dropdown,
+  DropdownCheckboxItem,
+  DropdownContent,
+  DropdownItem,
+  DropdownLabel,
+  DropdownSeparator,
+  DropdownTrigger,
 } from "@/registry/ui/react/dropdown";
 import { TextField } from "@/registry/ui/react/text-field";
 import {
@@ -148,25 +148,25 @@ export const columns: ColumnDef<Payment>[] = [
       const payment = row.original;
 
       return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
+        <Dropdown>
+          <DropdownTrigger asChild>
             <Button variant="quiet" className="h-8 w-8 p-0">
               <span className="sr-only">Open menu</span>
               <MoreHorizontal className="h-4 w-4" />
             </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem
+          </DropdownTrigger>
+          <DropdownContent align="end">
+            <DropdownLabel>Actions</DropdownLabel>
+            <DropdownItem
               onClick={() => navigator.clipboard.writeText(payment.id)}
             >
               Copy payment ID
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>View customer</DropdownMenuItem>
-            <DropdownMenuItem>View payment details</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+            </DropdownItem>
+            <DropdownSeparator />
+            <DropdownItem>View customer</DropdownItem>
+            <DropdownItem>View payment details</DropdownItem>
+          </DropdownContent>
+        </Dropdown>
       );
     },
   },
@@ -211,19 +211,19 @@ export default function DataTableDemo(): JSX.Element {
           }
           className="max-w-sm"
         />
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
+        <Dropdown>
+          <DropdownTrigger asChild>
             <Button variant="outline" className="ml-auto">
               Columns <ChevronDown className="ml-2 h-4 w-4" />
             </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
+          </DropdownTrigger>
+          <DropdownContent align="end">
             {table
               .getAllColumns()
               .filter((column) => column.getCanHide())
               .map((column) => {
                 return (
-                  <DropdownMenuCheckboxItem
+                  <DropdownCheckboxItem
                     key={column.id}
                     className="capitalize"
                     checked={column.getIsVisible()}
@@ -232,11 +232,11 @@ export default function DataTableDemo(): JSX.Element {
                     }
                   >
                     {column.id}
-                  </DropdownMenuCheckboxItem>
+                  </DropdownCheckboxItem>
                 );
               })}
-          </DropdownMenuContent>
-        </DropdownMenu>
+          </DropdownContent>
+        </Dropdown>
       </div>
       <div className="rounded-md border">
         <Table>

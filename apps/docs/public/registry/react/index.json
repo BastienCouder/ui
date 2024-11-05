@@ -149,6 +149,19 @@
     ]
   },
   {
+    "name": "context-menu",
+    "type": "registry:ui",
+    "dependencies": [
+      "@radix-ui/react-context-menu"
+    ],
+    "files": [
+      {
+        "path": "ui/react/context-menu.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
     "name": "dialog",
     "type": "registry:ui",
     "dependencies": [
@@ -524,6 +537,16 @@
     "files": [
       {
         "path": "ui/react/tooltip.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
+    "name": "tour",
+    "type": "registry:ui",
+    "files": [
+      {
+        "path": "ui/react/tour.tsx",
         "type": "registry:ui"
       }
     ]

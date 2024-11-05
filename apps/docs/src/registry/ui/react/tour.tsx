@@ -37,7 +37,12 @@ export interface TourFocusProps<T extends string> {
   tourRender: React.ReactNode;
   name: T;
 }
-export function TourFactory<T extends string>(order: T[]) {
+export function TourFactory<T extends string>(order: T[]): {
+  TourProvider: React.FC<TourProps>;
+  context: React.Context<TourContext<T>>;
+  useContext: () => TourContext<T>;
+  TourFocus: React.FC<TourFocusProps<T>>;
+} {
   const tourContext = createContext<TourContext<T>>({
     nodes: new Map(),
     show: false,
@@ -161,7 +166,7 @@ export function TourFactory<T extends string>(order: T[]) {
   }
 
   return {
-    TourProvider: function TourProvider(props: TourProps) {
+    TourProvider: function TourProvider({ children }: TourProps) {
       const nodes = useRef<TourContext<T>["nodes"]>(new Map());
 
       const [show, setShow] = useState(false);
@@ -205,27 +210,27 @@ export function TourFactory<T extends string>(order: T[]) {
           }}
         >
           <TourPortal />
-          {props.children}
+          {children}
         </tourContext.Provider>
       );
     },
     context: tourContext,
     useContext: () => useContext(tourContext),
-    TourFocus: function TourFocus(props: TourFocusProps<T>) {
+    TourFocus: function TourFocus({ children, tourRender, name }: TourFocusProps<T>) {
       const ctx = useContext(tourContext);
       return (
         <div
           ref={(divRef) => {
-            if (divRef && !ctx.nodes.has(props.name)) {
-              ctx.nodes.set(props.name, {
+            if (divRef && !ctx.nodes.has(name)) {
+              ctx.nodes.set(name, {
                 ref: divRef,
-                render: props.tourRender,
-                name: props.name,
+                render: tourRender,
+                name: name,
               });
             }
           }}
         >
-          {props.children}
+          {children}
         </div>
       );
     },

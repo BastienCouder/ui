@@ -86,6 +86,10 @@ export const docsConfig: DocsConfig = {
               "href": "/components/react/command"
             },
             {
+              "title": "Context menu",
+              "href": "/components/react/context-menu"
+            },
+            {
               "title": "Dialog",
               "href": "/components/react/dialog"
             },
@@ -208,6 +212,10 @@ export const docsConfig: DocsConfig = {
             {
               "title": "Tooltip",
               "href": "/components/react/tooltip"
+            },
+            {
+              "title": "Tour",
+              "href": "/components/react/tour"
             },
             {
               "title": "Tree",

@@ -126,6 +126,10 @@ export const docsConfig: DocsConfig = {
               "href": "/components/react/multi-select"
             },
             {
+              "title": "Navigation menu",
+              "href": "/components/react/navigation-menu"
+            },
+            {
               "title": "Pagination",
               "href": "/components/react/pagination"
             },

@@ -126,7 +126,7 @@ const CodeBlockBody = ({ className, ...props }: CodeBlockBodyProps) => {
   const { body } = codeBlockStyles();
   return (
     <ScrollArea
-      variant={"primary"}
+      variant={"transparent"}
       scrollbars="both"
       className={body({ className })}
       {...props}

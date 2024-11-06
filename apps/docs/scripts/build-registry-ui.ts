@@ -179,7 +179,7 @@ const createRegistry = () => {
   generateRegistryData();
 
   console.log(
-    "\x1b[32m✓\x1b[0m Generated individual component JSON files with file contents from index.json and created index.json with fixed configuration for each subdirectory, along with utils.json in each subdirectory.",
+    "\x1b[32m✓\x1b[0m Generated individual component JSON files.",
   );
 };
 

@@ -45,6 +45,8 @@ interface SelectProps {
   shape?: "rounded" | "square" | "circle";
   variant?: "primary" | "secondary" | "outline" | "neutral";
   withRing?: boolean;
+  onValueChange?: (value: string) => void;
+  value?: string;
 }
 
 const Select: React.FC<SelectProps> = ({
@@ -56,6 +58,8 @@ const Select: React.FC<SelectProps> = ({
   variant = "outline",
   withRing = false,
   className,
+  onValueChange,
+  value,
   ...props
 }) => {
   const wrappedChildren =
@@ -66,7 +70,11 @@ const Select: React.FC<SelectProps> = ({
     );
 
   return (
-    <SelectPrimitive.Root {...props}>
+    <SelectPrimitive.Root
+      {...props}
+      onValueChange={onValueChange}
+      value={value}
+    >
       {options ? (
         <>
           <SelectTrigger

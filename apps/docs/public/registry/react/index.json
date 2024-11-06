@@ -284,6 +284,20 @@
     ]
   },
   {
+    "name": "navigation-menu",
+    "type": "registry:ui",
+    "dependencies": [
+      "",
+      "@radix-ui/react-navigation-menu"
+    ],
+    "files": [
+      {
+        "path": "ui/react/navigation-menu.tsx",
+        "type": "registry:ui"
+      }
+    ]
+  },
+  {
     "name": "pagination",
     "type": "registry:ui",
     "dependencies": [

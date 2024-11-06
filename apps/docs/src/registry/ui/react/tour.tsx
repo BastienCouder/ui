@@ -37,7 +37,9 @@ export interface TourFocusProps<T extends string> {
   tourRender: React.ReactNode;
   name: T;
 }
-export function TourFactory<T extends string>(order: T[]): {
+export function TourFactory<T extends string>(
+  order: T[],
+): {
   TourProvider: React.FC<TourProps>;
   context: React.Context<TourContext<T>>;
   useContext: () => TourContext<T>;
@@ -216,7 +218,11 @@ export function TourFactory<T extends string>(order: T[]): {
     },
     context: tourContext,
     useContext: () => useContext(tourContext),
-    TourFocus: function TourFocus({ children, tourRender, name }: TourFocusProps<T>) {
+    TourFocus: function TourFocus({
+      children,
+      tourRender,
+      name,
+    }: TourFocusProps<T>) {
       const ctx = useContext(tourContext);
       return (
         <div

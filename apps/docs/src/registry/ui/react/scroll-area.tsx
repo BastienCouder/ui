@@ -41,6 +41,10 @@ const scrollAreaStyles = tv({
         scrollbar: "bg-neutral/10",
         thumb: "bg-secondary",
       },
+      transparent: {
+        scrollbar: "bg-transparent",
+        thumb: "bg-transparent",
+      },
     },
   },
   defaultVariants: {

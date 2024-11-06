@@ -9,7 +9,7 @@ export const truncateOnWord = (
   text: string,
   maxLength: number,
   ellipsis = true,
-) => {
+): string => {
   if (text.length <= maxLength) return text;
   let truncatedText = text.substring(0, maxLength);
   truncatedText = truncatedText.substring(

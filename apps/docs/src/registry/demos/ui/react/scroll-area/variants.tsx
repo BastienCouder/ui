@@ -1,7 +1,7 @@
 import { ScrollArea } from "@/registry/ui/react/scroll-area";
 import * as React from "react";
 
-const variants = ["default", "primary", "secondary"] as const;
+const variants = ["default", "primary", "secondary", "transparent"] as const;
 
 export default function ScrollAreaDemo(): JSX.Element {
   return (

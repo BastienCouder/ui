@@ -5,35 +5,33 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/registry/ui/react/accordion";
-import {
-  MultiSelect,
-  MultiSelectContent,
-  MultiSelectItem,
-  MultiSelectList,
-  MultiSelectTrigger,
-  MultiSelectValue,
-} from "@/registry/ui/react/multi-select";
+import React, { useState } from "react";
+import { CalendarDatePicker } from "@/registry/ui/react/calendar-date-picker";
 
 export default function TestPage(): JSX.Element {
   const Content = () => <></>;
-
+  const [selectedDateRange, setSelectedDateRange] = useState({
+    from: new Date(new Date().getFullYear(), 0, 1),
+    to: new Date(),
+  });
   return (
     <main className="container pb-36 pt-16">
       Test Page
-      <div>
-        <MultiSelect>
-          <MultiSelectTrigger className="w-80">
-            <MultiSelectValue placeholder="Select Frameworks" />
-          </MultiSelectTrigger>
-          <MultiSelectContent>
-            <MultiSelectList>
-              <MultiSelectItem value="react">React</MultiSelectItem>
-              <MultiSelectItem value="vue">Vue</MultiSelectItem>
-              <MultiSelectItem value="angular">Angular</MultiSelectItem>
-              <MultiSelectItem value="svelte">Svelte</MultiSelectItem>
-            </MultiSelectList>
-          </MultiSelectContent>
-        </MultiSelect>
+      <div className="p-4 max-w-xl">
+        <h1 className="text-2xl font-bold mb-4">
+          Calendar Date Picker Component
+        </h1>
+        <CalendarDatePicker
+          date={selectedDateRange}
+          onDateSelect={setSelectedDateRange}
+        />
+        <div className="mt-4">
+          <h2 className="text-md font-semibold">Selected Date Range:</h2>
+          <p className="text-sm">
+            {selectedDateRange.from.toDateString()} -{" "}
+            {selectedDateRange.to.toDateString()}
+          </p>
+        </div>
       </div>
       <div>
         <Accordion type="single" collapsible className="w-full" gap="0">

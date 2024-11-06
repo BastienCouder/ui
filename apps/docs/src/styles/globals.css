@@ -6,58 +6,6 @@
   :root {
     --gradient: #707070;
     --radius: 0.5rem;
-  }
-
-  /* Thème clair */
-  .light {
-    --bg: 240 10% 3.9%;
-    --fg: 0 0% 98%;
-    --neutral: 240 5.9% 10%;
-    --neutral-hover: 240 5.9% 30%;
-    --neutral-active: 240 5.9% 30%;
-    --neutral-fg: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-fg: 240 5% 64.9%;
-    --popover: 240 10% 3.9%;
-    --popover-fg: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-fg: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --primary: 0 0% 98%;
-    --primary-hover: 0 0% 98%;
-    --primary-active: 0 0% 98%;
-    --primary-fg: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-hover: 240 3.7% 15.9%;
-    --secondary-active: 240 3.7% 15.9%;
-    --secondary-fg: 0 0% 98%;
-    --accent: 240 3.7% 15.9%;
-    --accent-hover: 240 3.7% 15.9%;
-    --accent-active: 240 3.7% 15.9%;
-    --accent-fg: 0 0% 98%;
-    --success: 168 76% 36%;
-    --success-hover: 168 76% 36%;
-    --success-active: 168 76% 36%;
-    --success-fg: 0 0% 98%;
-    --warning: 32 82% 56%;
-    --warning-hover: 32 82% 56%;
-    --warning-active: 32 82% 56%;
-    --warning-fg: 0 0% 98%;
-    --danger: 0 84.2% 60.2%;
-    --danger-hover: 0 84.2% 60.2%;
-    --danger-active: 0 84.2% 60.2%;
-    --danger-fg: 0 0% 98%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-    --ring: 240 4.9% 83.9%;
-  }
-
-  /* Thème sombre */
-  .dark {
     --bg: 0, 0%, 2%;
     --fg: 240 10% 98%;
     --neutral: 0 0% 20%;
@@ -103,10 +51,9 @@
     --chart-5: 340 75% 55%;
     --ring: 0 0% 90%;
   }
-
-  /* Thème React */
+  /* Thème React 
   .react {
-    --bg: 208 63.699999999999996% 4.32%;
+    --bg: 0, 0%, 2%;
     --fg: 208 9.8% 97.7%;
     --border: 208 49% 16.200000000000003%;
     --input: 208 49% 16.200000000000003%;
@@ -147,9 +94,9 @@
     --ring:208 98% 54%;
   }
 
-  /* Thème Angular */
+  /* Thème Angular 
   .angular {
-    --bg:  0 65% 3.68%;
+    --bg: 0, 0%, 2%;
     --fg:0 10% 97.3%;
     --border: 0 50% 13.8%;
     --input: 0 50% 13.8%;
@@ -191,7 +138,7 @@
     /* autres variables spécifiques à Angular */
   }
 
-  /* Thème Vue */
+  /* Thème Vue 
   .vue {
     --bg: 0, 0%, 2%;
     --fg:240 10% 98%;
@@ -232,9 +179,9 @@
     --danger-active: 0, 96%, 31%;
     --danger-fg: 240 10% 90%;
     --ring: 210, 29%, 29%;
-    /* autres variables spécifiques à Vue */
-  }
-}
+     autres variables spécifiques à Vue */
+  
+
 
 @layer base {
   * {

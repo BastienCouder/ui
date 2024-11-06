@@ -135,7 +135,7 @@ export const components: React.ComponentPropsWithoutRef<
   Step: ({ className, ...props }: React.ComponentProps<"h3">) => (
     <h3
       className={cn(
-        "font-heading mt-8 scroll-m-20 text-base font-semibold tracking-tight before:text-secondary",
+        "font-heading mt-8 scroll-m-20 text-base font-semibold tracking-tight before:text-fg",
         className,
       )}
       {...props}

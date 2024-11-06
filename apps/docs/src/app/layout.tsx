@@ -59,12 +59,12 @@ export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
-}) {
+}): JSX.Element {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="fr" suppressHydrationWarning>
       <body
         className={cn(
-          "font-sans",
+          "min-h-screen font-sans overflow-x-hidden bg-bg text-fg",
           geistMono.variable,
           geistSans.variable,
           fontDisplay.variable,

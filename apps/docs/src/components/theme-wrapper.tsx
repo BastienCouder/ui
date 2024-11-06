@@ -3,16 +3,18 @@
 import React, { useEffect } from "react";
 import { useMounted } from "@/hooks/use-mounted";
 import { useTheme } from "next-themes";
+import { usePathname } from "next/navigation";
 
 interface ThemeWrapperProps extends React.ComponentProps<"div"> {
   children: React.ReactNode;
   metadataColor: "react" | "angular" | "vue";
 }
 
-export function ThemeWrapper(props: ThemeWrapperProps) {
+export function ThemeWrapper(props: ThemeWrapperProps): JSX.Element {
   const { children, metadataColor } = props;
   const { theme, setTheme } = useTheme();
   const mounted = useMounted();
+  const pathname = usePathname();
 
   useEffect(() => {
     if (metadataColor) {
@@ -20,7 +22,10 @@ export function ThemeWrapper(props: ThemeWrapperProps) {
     }
   }, [metadataColor, setTheme]);
 
-  // Only apply the theme class if the component is mounted
+  useEffect(() => {
+    setTheme(metadataColor);
+  }, [pathname, metadataColor, setTheme]);
+
   const themeClass = mounted ? `${theme || "dark"}` : "dark";
 
   return (

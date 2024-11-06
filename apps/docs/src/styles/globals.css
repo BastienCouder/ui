@@ -106,32 +106,32 @@
 
   /* Thème React */
   .react {
-    --bg: 0, 0%, 2%;
-    --fg: 0 0% 80%;
-    --border: 215, 15%, 16%;
-    --input: 0 0% 30%;
+    --bg: 208 63.699999999999996% 4.32%;
+    --fg: 208 9.8% 97.7%;
+    --border: 208 49% 16.200000000000003%;
+    --input: 208 49% 16.200000000000003%;
     --neutral: 0 0% 30%;
     --neutral-hover:  0 0% 30%;
     --neutral-active:  0 0% 30%;
     --neutral-fg: 240 10% 98%;
-    --muted: 191, 66%, 61%;
+    --muted: 196, 98%, 54%;
     --muted-fg:0 0% 40%;
-    --popover: 215, 15%, 16%;
-    --popover-fg: 191, 66%, 61%;
-    --card: 215, 15%, 16%;
-    --card-fg: 191, 66%, 61%;
-    --primary: 191, 66%, 61%;
-    --primary-hover: 191, 66%, 61%;
-    --primary-active: 191, 66%, 61%;
-    --primary-fg:215, 15%, 16%;
-    --secondary:215, 15%, 16%;
-    --secondary-hover:215, 15%, 16%;
-    --secondary-active:215, 15%, 16%;
-    --secondary-fg: 240 10% 98%;
-    --accent: 0 0% 30%;
-    --accent-hover: 0 0% 30%;
-    --accent-active: 0 0% 30%;
-    --accent-fg: 240 10% 90%;
+    --popover: 208 45.4% 7.0200000000000005%;
+    --popover-fg: 208 9.8% 97.7%;
+    --card: 208 45.4% 7.0200000000000005%;
+    --card-fg: 208 9.8% 97.7%;
+    --primary: 196, 98%, 54%;
+    --primary-hover: 196, 98%, 54%;
+    --primary-active: 196, 98%, 54%;
+    --primary-fg:208 9.8% 5.4%;
+    --secondary:208 49% 16.200000000000003%;
+    --secondary-hover:208 49% 16.200000000000003%;
+    --secondary-active:208 49% 16.200000000000003%;
+    --secondary-fg: 208 9.8% 97.7%;
+    --accent: 208 49% 16.200000000000003%;
+    --accent-hover: 208 49% 16.200000000000003%;
+    --accent-active: 208 49% 16.200000000000003%;
+    --accent-fg: 208 9.8% 97.7%;
     --success: 145, 63%, 40%;
     --success-hover: 145, 63%, 40%;
     --success-active: 145, 63%, 40%;
@@ -144,36 +144,36 @@
     --danger-hover:0, 96%, 31%;
     --danger-active: 0, 96%, 31%;
     --danger-fg: 240 10% 90%;
-    --ring: 215, 15%, 16%;
+    --ring:208 98% 54%;
   }
 
   /* Thème Angular */
   .angular {
-    --bg: 0, 0%, 2%;
-    --fg:240 10% 98%;
-    --border: 240 10% 98%;
-    --input: 0 0% 30%;
+    --bg:  0 65% 3.68%;
+    --fg:0 10% 97.3%;
+    --border: 0 50% 13.8%;
+    --input: 0 50% 13.8%;
     --neutral:359, 59%, 45%;
     --neutral-hover: 359, 59%, 45%;
     --neutral-active: 359, 59%, 45%;
     --neutral-fg: 0, 0%, 2%;
     --muted: 359, 59%, 45%;
-    --muted-fg:240 10% 98%;
-    --popover: 0, 0%, 2%;
-    --popover-fg:359, 59%, 45%;
-    --card: 0, 0%, 2%;
-    --card-fg:359, 59%, 45%;
-    --primary: 359, 59%, 45%;
-    --primary-hover: 359, 59%, 45%;
-    --primary-active: 359, 59%, 45%;
-    --primary-fg: 0, 0%, 2%;
-    --secondary:240 10% 98%;
-    --secondary-hover:240 10% 98%;
-    --secondary-active:240 10% 98%;
-    --secondary-fg: 240 10% 90%;
-    --accent: 0 0% 30%;
-    --accent-hover: 0 0% 30%;
-    --accent-active: 0 0% 30%;
+    --muted-fg:0 10% 54.6%;
+    --popover: 0 45% 5.98%;
+    --popover-fg:0 10% 97.3%;
+    --card: 0 45% 5.98%;
+    --card-fg:0 10% 97.3%;
+    --primary: 0 100% 46%;
+    --primary-hover: 0 100% 46%;
+    --primary-active: 0 100% 46%;
+    --primary-fg: 0 10% 4.6000000000000005%;
+    --secondary:0 50% 13.8%;
+    --secondary-hover:0 50% 13.8%;
+    --secondary-active:0 50% 13.8%;
+    --secondary-fg:  0 10% 97.3%;
+    --accent: 0 50% 13.8%;
+    --accent-hover: 0 50% 13.8%;
+    --accent-active: 0 50% 13.8%;
     --accent-fg: 240 10% 90%;
     --success: 145, 63%, 40%;
     --success-hover: 145, 63%, 40%;
@@ -242,9 +242,6 @@
   }
   html {
     @apply scroll-smooth;
-  }
-  body {
-    @apply bg-bg text-fg;
   }
 }
 

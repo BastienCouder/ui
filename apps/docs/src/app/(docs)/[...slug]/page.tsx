@@ -39,7 +39,7 @@ export async function generateStaticParams(): Promise<PageProps["params"][]> {
   return allDocs.map((doc) => ({ slug: doc.href.split("/").slice(1) }));
 }
 
-export default async function Page({ params }: PageProps) {
+export default async function Page({ params }: PageProps): Promise<JSX.Element> {
   const doc = await getDocFromSlug(params.slug);
 
   if (!doc) {

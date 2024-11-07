@@ -11,7 +11,7 @@ export const ComponentSource = ({
   name: string | string[];
   extension?: string | string[];
   className?: string;
-}) => {
+}): JSX.Element => {
   let code: { title: string; code: string; extension: string }[] = [];
 
   if (!name) {

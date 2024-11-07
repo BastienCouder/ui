@@ -16,7 +16,7 @@ export interface DocsSidebarProps {
   items: DocsNav;
 }
 
-export function DocsSidebar({ items }: DocsSidebarProps) {
+export function DocsSidebar({ items }: DocsSidebarProps): JSX.Element | null {
   const pathname = usePathname();
 
   return items.length > 0 ? (

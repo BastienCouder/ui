@@ -53,6 +53,23 @@ description: Displays a card with header, content, and footer.
 
 ## Installation
 
+<Tabs defaultValue="cli">
+<TabsList>
+<TabsTrigger value="cli">
+CLI
+</TabsTrigger>
+<TabsTrigger value="manual">  
+Manual
+</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+<Bash>
+<BashCommand>npx</BashCommand> mbi add card
+</Bash>
+
+</TabsContent>
+<TabsContent value="manual">
 <Steps>
   <Step>Copy and paste the following code into your project.</Step>
   <ComponentSource
@@ -61,31 +78,31 @@ description: Displays a card with header, content, and footer.
   />
   <Step>Update the import paths to match your project setup.</Step>
 </Steps>
+</TabsContent>
+</Tabs>
 
 ## Options
 
-## Variant
+###  Variant
 
 Use the `variant` prop to control the visual style of the Card. The default variant is default.
 
 <ComponentPreview
   name="demos/ui/react/card/variant"
-  preview={`
-<Card variant="default">Default</Card> 
+  preview={`<Card variant="default">Default</Card> 
 <Card variant="outlined">Outlined</Card> 
 <Card variant="success">Success</Card>
 <Card variant="warning">Warning</Card>
 <Card variant="Danger">Danger</Card>`}
 />
 
-## Shape
+### Shape
 
 Use the `shape` prop to control the visual style of the Card. The default shape is default.
 
 <ComponentPreview
   name="demos/ui/react/card/shape"
-  preview={`
-  <Card shape="rectangle">Rectangle</Card> 
-  <Card shape="square">Square</Card> 
-  <Card shape="circle">Circle</Card>`}
+  preview={`<Card shape="rectangle">Rectangle</Card> 
+<Card shape="square">Square</Card> 
+<Card shape="circle">Circle</Card>`}
 />

@@ -12,7 +12,6 @@ import {
 } from "@/styles/fonts";
 import "@/styles/globals.css";
 import { siteConfig } from "@/config";
-import { Providers } from "./providers";
 import { Toaster } from "@/registry/ui/react/toaster";
 
 const config = siteConfig.global;
@@ -73,13 +72,11 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <Analytics />
-        <Providers>
           <Header />
           <Toaster />
-          <main>{children}</main>
+          {children}
           {/* <Footer /> */}
           {/* <LayoutColumnsGrid /> */}
-        </Providers>
       </body>
     </html>
   );

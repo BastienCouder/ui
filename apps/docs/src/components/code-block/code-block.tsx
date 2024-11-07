@@ -30,7 +30,7 @@ const CodeBlock = async ({
     });
     preview = (
       <div
-        className="[&_pre]:outline-none [&_span]:!bg-transparent dark:[&_span]:!text-[var(--shiki-light)]"
+        className="[&_pre]:outline-none [&_span]:!bg-transparent"
         dangerouslySetInnerHTML={{ __html: html }}
       />
     );
@@ -51,7 +51,7 @@ const CodeBlock = async ({
         codeStr: code,
         code: (
           <div
-            className="[&_pre]:outline-none [&_span]:!bg-transparent dark:[&_span]:!text-[var(--shiki-light)]"
+            className="[&_pre]:outline-none [&_span]:!bg-transparent]"
             dangerouslySetInnerHTML={{ __html: html }}
           />
         ),

@@ -8,7 +8,7 @@ export default function CardDemo(): JSX.Element {
       {shapes.map((shape) => (
         <Card key={shape} shape={shape}>
           <CardHeader>
-            <CardTitle className="text-lg">{shape}</CardTitle>
+            <CardTitle className="text-base">{shape}</CardTitle>
           </CardHeader>
         </Card>
       ))}

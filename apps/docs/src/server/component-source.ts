@@ -4,7 +4,7 @@ import path from "path";
 export const getComponentSource = (
   relativePath: string,
   extensions?: string | string[],
-) => {
+): { title: string; code: string; extension: string }[] => {
   if (!relativePath) {
     console.error("relativePath is undefined");
     return [];

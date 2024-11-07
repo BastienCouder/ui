@@ -203,7 +203,6 @@ const config = {
   },
   plugins: [
     require("tailwindcss-animate"),
-    require("tailwindcss-react-aria-components"),
   ],
 } satisfies Config;
 

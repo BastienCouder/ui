@@ -4,10 +4,6 @@ import * as React from "react";
 import { useRouter } from "next/navigation";
 import {
   CircleIcon,
-  FileIcon,
-  LaptopIcon,
-  MoonIcon,
-  SunIcon,
   ChevronRightIcon,
   ChevronDownIcon,
 } from "@radix-ui/react-icons";
@@ -22,7 +18,6 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-  CommandSeparator,
 } from "@/registry/ui/react/command";
 import { docsConfig } from "@/config/docs-config";
 import type { Item, SubCategory } from "@/types/docs-nav";

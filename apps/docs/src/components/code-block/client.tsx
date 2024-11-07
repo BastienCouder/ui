@@ -1,25 +1,17 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
+import * as TabsPrimitive from "@radix-ui/react-tabs";
 import { Check, Copy } from "@/lib/icons";
-import type { Key } from "react-aria-components";
-import { tv } from "tailwind-variants";
-import {
-  Tab,
-  Tabs,
-  TabList,
-  TabPanel,
-  type TabsProps,
-} from "@/registry/ui/tabs";
 import { Button, ButtonProps } from "@/registry/ui/react/button";
 import { ScrollArea, ScrollAreaProps } from "@/registry/ui/react/scroll-area";
+import { tv } from "tailwind-variants";
 import { cn } from "@/lib/utils";
 
 const codeBlockStyles = tv({
   slots: {
     root: "block rounded-md max-w-full",
-    header:
-      "flex items-center justify-betweenrounded-t-[inherit] pr-2 h-10 mb-2",
+    header: "flex items-center justify-between rounded-t-[inherit] pr-2 h-10 mb-2",
     body: "text-[0.8rem] p-4 bg-neutral/10",
     code: "text-[0.8rem]",
   },
@@ -36,6 +28,7 @@ interface CodeBlockClientProps {
   previewStr?: string;
   expandable?: boolean;
 }
+
 const CodeBlockClient = ({
   files,
   preview,
@@ -43,35 +36,31 @@ const CodeBlockClient = ({
   expandable = false,
   ...props
 }: CodeBlockClientProps): JSX.Element => {
-  const [activeTab, setActiveTab] = React.useState<Key>(
-    files[0]?.fileName || "defaultKey",
-  );
-  const [isExpanded, setExpanded] = React.useState(false);
+  const [activeTab, setActiveTab] = useState(files[0]?.fileName || "defaultKey");
+  const [isExpanded, setExpanded] = useState(false);
+
   const handleExpand = () => {
-    const prevState = isExpanded;
-    if (prevState) {
-      setActiveTab(files[0]?.fileName || "defaultKey");
-    }
-    setExpanded(!prevState);
+    setExpanded(!isExpanded);
   };
+
   return (
-    <CodeBlockRoot
-      selectedKey={activeTab}
-      onSelectionChange={setActiveTab}
-      {...props}
-    >
+    <CodeBlockRoot defaultValue={activeTab} onValueChange={setActiveTab} {...props}>
       <CodeBlockHeader>
         <div className="shrink-1 flex h-full w-full flex-1 basis-0 items-end gap-2">
           {files.length > 0 && (
-            <TabList className="">
+            <TabsPrimitive.List className="inline-flex h-9 items-center justify-center rounded-lg p-1 text-muted-foreground">
               {files
                 .slice(0, preview && !isExpanded ? 1 : files.length)
                 .map(({ fileName }, index) => (
-                  <Tab key={index} id={fileName}>
+                  <TabsPrimitive.Trigger
+                    key={index}
+                    value={fileName}
+                    className="relative inline-flex items-center justify-center whitespace-nowrap px-3 py-1 text-sm font-medium ring-offset-bg transition-all"
+                  >
                     {fileName}
-                  </Tab>
+                  </TabsPrimitive.Trigger>
                 ))}
-            </TabList>
+            </TabsPrimitive.List>
           )}
         </div>
         <div className="flex items-center gap-2">
@@ -85,23 +74,21 @@ const CodeBlockClient = ({
               (previewStr && !isExpanded
                 ? previewStr
                 : files.find(({ fileName }) => fileName === activeTab)
-                    ?.codeStr)!
+                    ?.codeStr) || ""
             }
           />
         </div>
       </CodeBlockHeader>
-      <CodeBlockBody
-        className={cn(isExpanded ? "max-h-[1000px]" : "max-h-[500px]")}
-      >
+      <CodeBlockBody className={cn(isExpanded ? "max-h-[1000px]" : "max-h-[500px]")}>
         {preview && !isExpanded ? (
-          <TabPanel id={files[0]?.fileName || "defaultKey"} className="!mt-0">
+          <TabsPrimitive.Content value={files[0]?.fileName || "defaultKey"} className="!mt-0">
             {preview}
-          </TabPanel>
+          </TabsPrimitive.Content>
         ) : (
           files.map(({ fileName, code }, index) => (
-            <TabPanel key={index} id={fileName} className="!mt-0">
+            <TabsPrimitive.Content key={index} value={fileName} className="!mt-0">
               {code}
-            </TabPanel>
+            </TabsPrimitive.Content>
           ))
         )}
       </CodeBlockBody>
@@ -109,11 +96,7 @@ const CodeBlockClient = ({
   );
 };
 
-type CodeBlockRootProps = TabsProps;
-const CodeBlockRoot = ({ className, ...props }: CodeBlockRootProps) => {
-  const { root } = codeBlockStyles();
-  return <Tabs className={root({ className })} {...props} />;
-};
+const CodeBlockRoot = TabsPrimitive.Root;
 
 type CodeBlockHeaderProps = React.HTMLAttributes<HTMLDivElement>;
 const CodeBlockHeader = ({ className, ...props }: CodeBlockHeaderProps) => {
@@ -126,7 +109,7 @@ const CodeBlockBody = ({ className, ...props }: CodeBlockBodyProps) => {
   const { body } = codeBlockStyles();
   return (
     <ScrollArea
-      variant={"transparent"}
+      variant="transparent"
       scrollbars="both"
       className={body({ className })}
       {...props}
@@ -138,9 +121,9 @@ interface CodeBlockCopyButtonProps extends ButtonProps {
   code: string;
 }
 const CodeBlockCopyButton = ({ code, ...props }: CodeBlockCopyButtonProps) => {
-  const [copied, setCopied] = React.useState(false);
+  const [copied, setCopied] = useState(false);
   const handleCopy = () => {
-    void navigator.clipboard.writeText(code);
+    navigator.clipboard.writeText(code);
     setCopied(true);
     setTimeout(() => setCopied(false), 1000);
   };
@@ -152,22 +135,12 @@ const CodeBlockCopyButton = ({ code, ...props }: CodeBlockCopyButtonProps) => {
       className="h-7 w-7 [&_svg]:w-3 [&_svg]:h-3"
       {...props}
     >
-      {copied ? (
-        <Check className="animate-in fade-in" />
-      ) : (
-        <Copy className="animate-in fade-in" />
-      )}
+      {copied ? <Check className="animate-in fade-in" /> : <Copy className="animate-in fade-in" />}
     </Button>
   );
 };
 
-export type {
-  CodeBlockClientProps,
-  CodeBlockRootProps,
-  CodeBlockHeaderProps,
-  CodeBlockBodyProps,
-  CodeBlockCopyButtonProps,
-};
+export type CodeBlockRootProps = React.ComponentPropsWithoutRef<typeof TabsPrimitive.Root>;
 
 export {
   CodeBlockClient,

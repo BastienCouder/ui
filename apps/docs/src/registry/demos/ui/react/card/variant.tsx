@@ -14,7 +14,7 @@ export default function CardDemo(): JSX.Element {
       {variants.map((variant) => (
         <Card key={variant} variant={variant}>
           <CardHeader>
-            <CardTitle className="text-lg">{variant}</CardTitle>
+            <CardTitle className="text-base">{variant}</CardTitle>
           </CardHeader>
         </Card>
       ))}

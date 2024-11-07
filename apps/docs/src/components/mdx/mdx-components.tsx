@@ -11,6 +11,8 @@ import { DocsList, type DocsListProps } from "@/components/docs/docs-list";
 import { slugify } from "@/utils/string";
 import { cn } from "@/lib/utils";
 import { Code } from "../code";
+import { Tabs,TabsTrigger, TabsContent, TabsList } from "@/registry/ui/react/tabs"; 
+import Bash from "../component-bash";
 
 export const Link = ({
   className,
@@ -93,7 +95,7 @@ export const components: React.ComponentPropsWithoutRef<
   p: ({ className, ...props }) => (
     <p
       className={cn(
-        "text-base leading-7 [&:not(:first-child)]:mt-4",
+        "leading-7 [&:not(:first-child)]:mt-4",
         className,
       )}
       {...props}
@@ -226,4 +228,34 @@ export const components: React.ComponentPropsWithoutRef<
       {...props}
     />
   ),
+  Bash: ({ className, ...props }: React.ComponentPropsWithoutRef<typeof Bash>) => (
+    <Bash
+      className={cn("w-full", className)}
+      
+      {...props}
+    />
+  ),
+  BashCommand: ({...props }: React.ComponentPropsWithoutRef<typeof Bash>) => (
+    <span
+      className={'text-sm font-bold text-fg'}
+      {...props}
+    />
+  ),
+  Tabs:({className, ...props}: React.ComponentPropsWithoutRef<typeof Tabs>) => (
+    <Tabs className={cn("w-full mt-4", className)} {...props} />
+  ),
+  TabsList,
+  TabsTrigger : ({ className, ...props }) => (
+    <TabsTrigger
+      className={cn("text-base", className)}
+      {...props}
+    />
+  ),
+  TabsContent: ({ className, ...props }) => (
+    <TabsContent
+      className={cn("mt-8", className)}
+      {...props}
+    />
+  ),
+
 };

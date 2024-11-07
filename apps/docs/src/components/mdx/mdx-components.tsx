@@ -18,7 +18,7 @@ export const Link = ({
   ref: _,
   children,
   ...props
-}: React.ComponentProps<"a">) => {
+}: React.ComponentProps<"a">): JSX.Element => {
   const classes = cn("font-medium underline underline-offset-4", className);
 
   if (href?.startsWith("/")) {
@@ -135,7 +135,7 @@ export const components: React.ComponentPropsWithoutRef<
   Step: ({ className, ...props }: React.ComponentProps<"h3">) => (
     <h3
       className={cn(
-        "font-heading mt-8 scroll-m-20 text-base font-semibold tracking-tight before:text-fg",
+        "font-heading mt-8 scroll-m-20 text-base font-semibold tracking-tight before:text-secondary",
         className,
       )}
       {...props}

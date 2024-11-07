@@ -17,9 +17,8 @@ interface CodeBlockProps extends CodeBlockRootProps {
 const CodeBlock = async ({
   files: _files,
   preview: _preview,
-  className,
   ...props
-}: CodeBlockProps) => {
+}: CodeBlockProps): Promise<JSX.Element> => {
   let preview = undefined;
   if (_preview) {
     const html = await codeToHtml(_preview, {

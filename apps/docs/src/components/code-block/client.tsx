@@ -42,7 +42,7 @@ const CodeBlockClient = ({
   previewStr,
   expandable = false,
   ...props
-}: CodeBlockClientProps) => {
+}: CodeBlockClientProps): JSX.Element => {
   const [activeTab, setActiveTab] = React.useState<Key>(
     files[0]?.fileName || "defaultKey",
   );

@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export const VueLogo = (
+export const VueLogo: React.FC<React.SVGProps<SVGSVGElement>> = (
   props: React.JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>,
 ) => (
   <svg
@@ -13,13 +13,13 @@ export const VueLogo = (
       <g transform="translate(178.06 235.01)">
         <path
           d="m0 0-22.669-39.264-22.669 39.264h-75.491l98.16-170.02 98.16 170.02z"
-          fill="#e4e4e4"
+          fill="#41b883"
         />
       </g>
       <g transform="translate(178.06 235.01)">
         <path
           d="m0 0-22.669-39.264-22.669 39.264h-36.227l58.896-102.01 58.896 102.01z"
-          fill="#fff"
+          fill="#34495e"
         />
       </g>
     </g>

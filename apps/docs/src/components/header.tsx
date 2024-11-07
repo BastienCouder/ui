@@ -11,7 +11,7 @@ import { siteConfig } from "@/config";
 
 const config = siteConfig.header;
 
-export const Header = () => {
+export const Header: React.FC = () => {
   const { scrolled } = useScrolled({ initial: false });
 
   return (

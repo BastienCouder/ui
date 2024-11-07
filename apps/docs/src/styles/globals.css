@@ -51,7 +51,7 @@
     --chart-5: 340 75% 55%;
     --ring: 0 0% 90%;
   }
-  /* Thème React 
+  /* Thème React */
   .react {
     --bg: 0, 0%, 2%;
     --fg: 208 9.8% 97.7%;
@@ -94,7 +94,7 @@
     --ring:208 98% 54%;
   }
 
-  /* Thème Angular 
+  /* Thème Angular */
   .angular {
     --bg: 0, 0%, 2%;
     --fg:0 10% 97.3%;
@@ -135,10 +135,9 @@
     --danger-active: 0, 96%, 31%;
     --danger-fg: 240 10% 90%;
     --ring: 240 10% 98%;
-    /* autres variables spécifiques à Angular */
   }
 
-  /* Thème Vue 
+  /* Thème Vue */
   .vue {
     --bg: 0, 0%, 2%;
     --fg:240 10% 98%;
@@ -179,8 +178,8 @@
     --danger-active: 0, 96%, 31%;
     --danger-fg: 240 10% 90%;
     --ring: 210, 29%, 29%;
-     autres variables spécifiques à Vue */
-  
+}
+}
 
 
 @layer base {

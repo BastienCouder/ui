@@ -25,7 +25,7 @@ const CodeClient = ({
   inline = false,
   children,
   code,
-}: CodeClientProps) => {
+}: CodeClientProps): JSX.Element => {
   const [copied, setCopied] = React.useState(false);
   const handleCopy = () => {
     void navigator.clipboard.writeText(code);

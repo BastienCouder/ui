@@ -7,7 +7,6 @@ import { Mdx } from "@/components/mdx/mdx-remote";
 import { Button } from "@/registry/ui/react/button";
 import { cn } from "@/lib/utils";
 import { getDocFromSlug, getDocs } from "@/server/docs";
-import { ThemeWrapper } from "@/components/theme-wrapper";
 import { DocsLogo } from "@/components/docs/doc-logo";
 import DocsLayout from "@/components/docs/doc-layout";
 import { ScrollArea } from "@/registry/ui/react/scroll-area";
@@ -47,16 +46,19 @@ export default async function Page({ params }: PageProps): Promise<JSX.Element> 
   }
 
   const { rawContent, metadata, categories } = doc;
-  const themeColor = metadata.color || "react";
+  const themeClass = metadata.color || "react";
 
   return (
-    <ThemeWrapper metadataColor={themeColor}>
       <DocsLayout>
-        <main
-          className={cn("relative pb-20 lg:gap-10", {
-            "xl:grid xl:grid-cols-[1fr_220px]": !!doc.toc.items,
-          })}
-        >
+         <main
+         className={cn(
+           "relative pb-20 lg:gap-10",
+           themeClass,
+           {
+             "xl:grid xl:grid-cols-[1fr_220px]": !!doc.toc.items,
+           }
+         )}
+       >
           <div className="mx-auto w-full min-w-0 pt-4 md:pt-6 space-y-2">
             <div className="hidden md:block">
               {metadata.breadcrumbs.length > 1 && (
@@ -116,6 +118,5 @@ export default async function Page({ params }: PageProps): Promise<JSX.Element> 
           )}
         </main>
       </DocsLayout>
-    </ThemeWrapper>
   );
 }

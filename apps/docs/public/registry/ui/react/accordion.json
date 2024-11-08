@@ -1,9 +1,6 @@
 {
   "name": "accordion",
   "type": "registry:ui",
-  "dependencies": [
-    "@radix-ui/react-accordion"
-  ],
   "files": [
     {
       "path": "ui/react/accordion.tsx",

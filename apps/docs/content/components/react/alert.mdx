@@ -17,11 +17,30 @@ component: true
 
 ## Installation
 
+<Tabs defaultValue="cli">
+<TabsList>
+<TabsTrigger value="cli">
+CLI
+</TabsTrigger>
+<TabsTrigger value="manual">  
+Manual
+</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+<Bash>
+<BashCommand>npx</BashCommand> mbi add alert
+</Bash>
+</TabsContent>
+
+<TabsContent value="manual">
 <Steps>
   <Step>Copy and paste the following code into your project.</Step>
   <ComponentSource name={["ui/react/alert"]} extension={["tsx"]} />
   <Step>Update the import paths to match your project setup.</Step>
 </Steps>
+</TabsContent>
+</Tabs>
 
 ## Options
 

@@ -20,6 +20,7 @@ interface CodeProps {
 }
 
 const Code = async ({ children, inline, lang: _lang, ...props }: CodeProps): Promise<JSX.Element> => {
+  
   const { code: codeStr, lang } = parseChildren(children as CodeText, _lang);
   const html = await codeToHtml(codeStr, {
     lang: lang,

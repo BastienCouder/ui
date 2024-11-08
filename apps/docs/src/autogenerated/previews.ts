@@ -60,13 +60,13 @@ export const previews = {
     component: React.lazy(() => import("@/registry/demos/ui/react/badge/default")),
     code: [{"title":"default.tsx","code":"import { Badge } from \"@/registry/ui/react/badge\";\n\nexport default function BadgeDemo(): JSX.Element {\n  return <Badge>Badge</Badge>;\n}\n"}]
   },
-  "demos/ui/react/badge/variants": {
-    component: React.lazy(() => import("@/registry/demos/ui/react/badge/variants")),
-    code: [{"title":"variants.tsx","code":"import { Badge } from \"@/registry/ui/react/badge\";\n\nexport default function BadgeDemo(): JSX.Element {\n  return (\n    <div className=\"flex flex-col items-start gap-2\">\n      <Flex>\n        <Badge variant=\"neutral\">Neutral</Badge>\n        <Badge variant=\"outline\">Outline</Badge>\n        <Badge variant=\"primary\">Primary</Badge>\n      </Flex>\n      <Flex>\n        <Badge variant=\"success\">Success</Badge>\n        <Badge variant=\"danger\">Danger</Badge>\n        <Badge variant=\"warning\">Warning</Badge>\n        <Badge variant=\"accent\">Accent</Badge>\n      </Flex>\n    </div>\n  );\n}\n\nconst Flex = (props: React.HTMLAttributes<HTMLDivElement>) => (\n  <div {...props} className=\"flex items-center gap-2\" />\n);\n"}]
+  "demos/ui/react/badge/variant": {
+    component: React.lazy(() => import("@/registry/demos/ui/react/badge/variant")),
+    code: [{"title":"variant.tsx","code":"import { Badge } from \"@/registry/ui/react/badge\";\n\nexport default function BadgeDemo(): JSX.Element {\n  return (\n    <div className=\"flex flex-col items-start gap-2\">\n      <Flex>\n        <Badge variant=\"neutral\">Neutral</Badge>\n        <Badge variant=\"outline\">Outline</Badge>\n        <Badge variant=\"primary\">Primary</Badge>\n      </Flex>\n      <Flex>\n        <Badge variant=\"success\">Success</Badge>\n        <Badge variant=\"danger\">Danger</Badge>\n        <Badge variant=\"warning\">Warning</Badge>\n        <Badge variant=\"accent\">Accent</Badge>\n      </Flex>\n    </div>\n  );\n}\n\nconst Flex = (props: React.HTMLAttributes<HTMLDivElement>) => (\n  <div {...props} className=\"flex items-center gap-2\" />\n);\n"}]
   },
-  "demos/ui/react/badge/sizes": {
-    component: React.lazy(() => import("@/registry/demos/ui/react/badge/sizes")),
-    code: [{"title":"sizes.tsx","code":"import { Badge } from \"@/registry/ui/react/badge\";\n\nexport default function BadgeDemo(): JSX.Element {\n  return (\n    <div className=\"flex items-center gap-2\">\n      <Badge variant=\"primary\" size=\"sm\">\n        Small\n      </Badge>\n      <Badge variant=\"primary\" size=\"md\">\n        Medium\n      </Badge>\n      <Badge variant=\"primary\" size=\"lg\">\n        Large\n      </Badge>\n    </div>\n  );\n}\n"}]
+  "demos/ui/react/badge/size": {
+    component: React.lazy(() => import("@/registry/demos/ui/react/badge/size")),
+    code: [{"title":"size.tsx","code":"import { Badge } from \"@/registry/ui/react/badge\";\n\nexport default function BadgeDemo(): JSX.Element {\n  return (\n    <div className=\"flex items-center gap-2\">\n      <Badge variant=\"primary\" size=\"sm\">\n        Small\n      </Badge>\n      <Badge variant=\"primary\" size=\"md\">\n        Medium\n      </Badge>\n      <Badge variant=\"primary\" size=\"lg\">\n        Large\n      </Badge>\n    </div>\n  );\n}\n"}]
   },
   "demos/ui/react/badge/icon": {
     component: React.lazy(() => import("@/registry/demos/ui/react/badge/icon")),

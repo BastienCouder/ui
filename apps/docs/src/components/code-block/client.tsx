@@ -7,6 +7,7 @@ import { Button, ButtonProps } from "@/registry/ui/react/button";
 import { ScrollArea, ScrollAreaProps } from "@/registry/ui/react/scroll-area";
 import { tv } from "tailwind-variants";
 import { cn } from "@/lib/utils";
+import { TabsContent, TabsList, TabsTrigger } from "@/registry/ui/react/tabs";
 
 const codeBlockStyles = tv({
   slots: {
@@ -48,19 +49,19 @@ const CodeBlockClient = ({
       <CodeBlockHeader>
         <div className="shrink-1 flex h-full w-full flex-1 basis-0 items-end gap-2">
           {files.length > 0 && (
-            <TabsPrimitive.List className="inline-flex h-9 items-center justify-center rounded-lg p-1 text-muted-foreground">
+            <TabsList className="inline-flex h-9 items-center justify-center rounded-lg p-1 text-muted-foreground">
               {files
                 .slice(0, preview && !isExpanded ? 1 : files.length)
                 .map(({ fileName }, index) => (
-                  <TabsPrimitive.Trigger
+                  <TabsTrigger
                     key={index}
                     value={fileName}
                     className="relative inline-flex items-center justify-center whitespace-nowrap px-3 py-1 text-sm font-medium ring-offset-bg transition-all"
                   >
                     {fileName}
-                  </TabsPrimitive.Trigger>
+                  </TabsTrigger>
                 ))}
-            </TabsPrimitive.List>
+            </TabsList>
           )}
         </div>
         <div className="flex items-center gap-2">
@@ -81,14 +82,14 @@ const CodeBlockClient = ({
       </CodeBlockHeader>
       <CodeBlockBody className={cn(isExpanded ? "max-h-[1000px]" : "max-h-[500px]")}>
         {preview && !isExpanded ? (
-          <TabsPrimitive.Content value={files[0]?.fileName || "defaultKey"} className="!mt-0">
+          <TabsContent value={files[0]?.fileName || "defaultKey"} className="!mt-0">
             {preview}
-          </TabsPrimitive.Content>
+          </TabsContent>
         ) : (
           files.map(({ fileName, code }, index) => (
-            <TabsPrimitive.Content key={index} value={fileName} className="!mt-0">
+            <TabsContent key={index} value={fileName} className="!mt-0">
               {code}
-            </TabsPrimitive.Content>
+            </TabsContent>
           ))
         )}
       </CodeBlockBody>
@@ -121,6 +122,7 @@ interface CodeBlockCopyButtonProps extends ButtonProps {
   code: string;
 }
 const CodeBlockCopyButton = ({ code, ...props }: CodeBlockCopyButtonProps) => {
+ 
   const [copied, setCopied] = useState(false);
   const handleCopy = () => {
     navigator.clipboard.writeText(code);

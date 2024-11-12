@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils";
 import { Code } from "../code";
 import { Tabs,TabsTrigger, TabsContent, TabsList } from "@/registry/ui/react/tabs"; 
 import Bash from "../component-bash";
+import Callout from "../callout";
 
 export const Link = ({
   className,
@@ -225,6 +226,13 @@ export const components: React.ComponentPropsWithoutRef<
         "bg-card text-card-foreground hover:bg-muted/50 flex w-full flex-col items-center rounded-xl border p-6 shadow transition-colors sm:p-10",
         className,
       )}
+      {...props}
+    />
+  ),
+  Callout : ({type: _type = 'info', className , ...props }: React.ComponentPropsWithoutRef<typeof Callout>) => (
+    <Callout
+      type={_type}
+      className={cn("w-full", className)}
       {...props}
     />
   ),

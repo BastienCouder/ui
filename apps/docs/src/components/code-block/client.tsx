@@ -100,13 +100,13 @@ const CodeBlockClient = ({
 const CodeBlockRoot = TabsPrimitive.Root;
 
 type CodeBlockHeaderProps = React.HTMLAttributes<HTMLDivElement>;
-const CodeBlockHeader = ({ className, ...props }: CodeBlockHeaderProps) => {
+const CodeBlockHeader = ({ className, ...props }: CodeBlockHeaderProps): JSX.Element => {
   const { header } = codeBlockStyles();
   return <div className={header({ className })} {...props} />;
 };
 
 type CodeBlockBodyProps = ScrollAreaProps;
-const CodeBlockBody = ({ className, ...props }: CodeBlockBodyProps) => {
+const CodeBlockBody = ({ className, ...props }: CodeBlockBodyProps): JSX.Element => {
   const { body } = codeBlockStyles();
   return (
     <ScrollArea
@@ -121,7 +121,7 @@ const CodeBlockBody = ({ className, ...props }: CodeBlockBodyProps) => {
 interface CodeBlockCopyButtonProps extends ButtonProps {
   code: string;
 }
-const CodeBlockCopyButton = ({ code, ...props }: CodeBlockCopyButtonProps) => {
+const CodeBlockCopyButton = ({ code, ...props }: CodeBlockCopyButtonProps): JSX.Element => {
  
   const [copied, setCopied] = useState(false);
   const handleCopy = () => {

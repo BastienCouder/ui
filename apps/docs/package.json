@@ -90,7 +90,8 @@
     "vfile": "^6.0.3",
     "vfile-matter": "^5.0.0",
     "zod": "^3.23.8",
-    "zustand": "^4.5.5"
+    "zustand": "^4.5.5",
+    "rva-ui": "workspace:*"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.6.1",
@@ -119,7 +120,6 @@
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.8",
     "rimraf": "^5.0.10",
-    "rva-ui": "workspace:*",
     "tailwindcss": "^3.4.14",
     "typescript": "^5.6.3"
   }

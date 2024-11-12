@@ -8,7 +8,6 @@ import { handleError } from "@/src/utils/handle-error";
 import { highlighter } from "@/src/utils/highlighter";
 import { logger } from "@/src/utils/logger";
 import { getRegistryIndex } from "@/src/utils/registry";
-import { updateAppIndex } from "@/src/utils/update-app-index";
 import { Command } from "commander";
 import prompts from "prompts";
 import { z } from "zod";

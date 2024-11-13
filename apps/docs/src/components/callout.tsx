@@ -9,15 +9,13 @@ interface CalloutProps {
 }
 
 export default function Callout({ className, type, children }: CalloutProps): JSX.Element {
-  const classes = cn(
+
+  return <div className={cn(
     "p-4 border-l-4",
     {
-      "bg-bg/10 border-primary": type === "info",
-      "bg-warning/10 border-warning": type === "warning",
-      "bg-error/10 border-error": type === "error",
+      "bg-neutral/20 border-primary": type === "info",
+      "bg-warning/20 border-warning": type === "warning",
+      "bg-danger/20 border-danger": type === "error",
     },
-    "relative",
-  );
-
-  return <div className={classes && className}>{children}</div>;
+    "relative",className)}>{children}</div>;
 }

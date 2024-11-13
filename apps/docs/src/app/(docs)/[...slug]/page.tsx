@@ -45,7 +45,7 @@ export default async function Page({ params }: PageProps): Promise<JSX.Element> 
     notFound();
   }
 
-  const { rawContent, metadata, categories } = doc;
+  const { rawContent, metadata } = doc;
   const themeClass = metadata.color || "react";
 
   return (
@@ -64,7 +64,7 @@ export default async function Page({ params }: PageProps): Promise<JSX.Element> 
        >
           <div className="mx-auto w-full min-w-0 pt-4 md:pt-6 space-y-2">
             <div className="block">
-              {metadata.breadcrumbs.length > 1 && (
+              {metadata.breadcrumbs.length >= 1 && (
                 <Breadcrumbs>
                   {metadata.breadcrumbs.map((item, index) => (
                     <Breadcrumb

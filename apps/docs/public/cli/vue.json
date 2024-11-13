@@ -1,0 +1,17 @@
+{
+    "$schema": "https://ui.bastiencouder.com/schema.json",
+    "vue": true,
+    "framework": "react",
+    "tailwind": {
+      "config": "tailwind.config.ts",
+      "css": "src/styles/globals.css",
+      "cssVariables": true
+    },
+    "aliases": {
+      "components": "@/components",
+      "utils": "@/lib/utils",
+      "ui": "@/components/ui",
+      "lib": "@/lib",
+      "hooks": "@/hooks"
+    }
+  }

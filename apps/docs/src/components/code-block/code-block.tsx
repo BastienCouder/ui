@@ -12,6 +12,8 @@ interface CodeBlockProps extends CodeBlockRootProps {
   expandable?: boolean;
   language?: string;
   className?: string;
+  example?: boolean;
+  title?: string;
 }
 
 const CodeBlock = async ({
@@ -59,6 +61,7 @@ const CodeBlock = async ({
       };
     }),
   );
+
 
   return (
     <CodeBlockClient

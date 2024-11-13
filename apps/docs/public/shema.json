@@ -13,9 +13,6 @@
         },
         "cssVariables": {
           "type": "boolean"
-        },
-        "prefix": {
-          "type": "string"
         }
       },
       "required": ["config", "css", "baseColor", "cssVariables"]
@@ -24,6 +21,9 @@
       "type": "boolean"
     },
     "tsx": {
+      "type": "boolean"
+    },
+    "vue": {
       "type": "boolean"
     },
     "aliases": {

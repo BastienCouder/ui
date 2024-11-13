@@ -28,6 +28,8 @@ interface CodeBlockClientProps {
   preview?: JSX.Element;
   previewStr?: string;
   expandable?: boolean;
+  example?: boolean;
+  title?: string;
 }
 
 const CodeBlockClient = ({
@@ -35,6 +37,8 @@ const CodeBlockClient = ({
   preview,
   previewStr,
   expandable = false,
+  example = false,
+  title,
   ...props
 }: CodeBlockClientProps): JSX.Element => {
   const [activeTab, setActiveTab] = useState(files[0]?.fileName || "defaultKey");
@@ -46,6 +50,8 @@ const CodeBlockClient = ({
 
   return (
     <CodeBlockRoot defaultValue={activeTab} onValueChange={setActiveTab} {...props}>
+      {example && (<span className="text-xs font-medium text-muted-foreground">{title}</span>)}
+      {!example && (
       <CodeBlockHeader>
         <div className="shrink-1 flex h-full w-full flex-1 basis-0 items-end gap-2">
           {files.length > 0 && (
@@ -80,9 +86,21 @@ const CodeBlockClient = ({
           />
         </div>
       </CodeBlockHeader>
+      )}
       <CodeBlockBody className={cn(isExpanded ? "max-h-[1000px]" : "max-h-[500px]")}>
         {preview && !isExpanded ? (
           <TabsContent value={files[0]?.fileName || "defaultKey"} className="!mt-0">
+           {example && (
+           <CodeBlockCopyButton
+            code={
+              (previewStr && !isExpanded
+                ? previewStr
+                : files.find(({ fileName }) => fileName === activeTab)
+                    ?.codeStr) || ""
+            }
+            example={example}
+          />
+          )}
             {preview}
           </TabsContent>
         ) : (
@@ -120,8 +138,9 @@ const CodeBlockBody = ({ className, ...props }: CodeBlockBodyProps): JSX.Element
 
 interface CodeBlockCopyButtonProps extends ButtonProps {
   code: string;
+  example?: boolean;
 }
-const CodeBlockCopyButton = ({ code, ...props }: CodeBlockCopyButtonProps): JSX.Element => {
+const CodeBlockCopyButton = ({ code,example, ...props }: CodeBlockCopyButtonProps): JSX.Element => {
  
   const [copied, setCopied] = useState(false);
   const handleCopy = () => {
@@ -134,7 +153,7 @@ const CodeBlockCopyButton = ({ code, ...props }: CodeBlockCopyButtonProps): JSX.
       size="sm"
       shape="square"
       onClick={handleCopy}
-      className="h-7 w-7 [&_svg]:w-3 [&_svg]:h-3"
+      className={cn(`${example ? "absolute top-2 right-2" : ""} h-7 w-7 [&_svg]:w-3 [&_svg]:h-3`)}
       {...props}
     >
       {copied ? <Check className="animate-in fade-in" /> : <Copy className="animate-in fade-in" />}

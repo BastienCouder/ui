@@ -14,6 +14,7 @@ import { Code } from "../code";
 import { Tabs,TabsTrigger, TabsContent, TabsList } from "@/registry/ui/react/tabs"; 
 import Bash from "../component-bash";
 import Callout from "../callout";
+import { ComponentCode } from "../component-code";
 
 export const Link = ({
   className,
@@ -191,6 +192,12 @@ export const components: React.ComponentPropsWithoutRef<
   ComponentPreview: (props: ComponentPreviewProps) => (
     <ComponentPreview
       containerClassName="[&:not(:first-child)]:mt-4"
+      {...props}
+    />
+  ),
+  ComponentCode: (props) => (
+    <ComponentCode
+      className="w-full [&:not(:first-child)]:mt-4"
       {...props}
     />
   ),

@@ -13,13 +13,36 @@ component: true
 
 ## Installation
 
-Install the following dependencies:
+<Tabs defaultValue="cli">
+<TabsList>
+<TabsTrigger value="cli">
+CLI
+</TabsTrigger>
+<TabsTrigger value="manual">  
+Manual
+</TabsTrigger>
+</TabsList>
 
-```bash
-npm install @radix-ui/react-dropdown-menu
-```
-Copy and paste the following code into your project.<br/>
-  <ComponentSource name={["ui/react/dropdown"]} extension={["tsx"]} />
+<TabsContent value="cli">
+<Bash>
+<BashCommand>npx</BashCommand> mbi add breadcrumb
+</Bash>
+</TabsContent>
+
+<TabsContent value="manual">
+<Steps>
+<Step>Install the following dependencies:</Step>
+
+<Bash>
+<BashCommand>npm </BashCommand>install @radix-ui/react-dropdown-menu
+</Bash>
+
+<Step>Copy and paste the following code into your project.</Step>
+<ComponentSource name={["ui/react/dropdown"]} extension={["tsx"]} />
+
+</Steps>
+</TabsContent>
+</Tabs>
 
 ## Options
 

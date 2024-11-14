@@ -113,7 +113,7 @@ export default function DrawerDemo(): JSX.Element {
                     dataKey="goal"
                     style={
                       {
-                        fill: "hsl(var(--fg))",
+                        fill: "hsl(var(--foreground))",
                         opacity: 0.9,
                       } as React.CSSProperties
                     }

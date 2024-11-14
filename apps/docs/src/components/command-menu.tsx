@@ -81,7 +81,7 @@ export function CommandMenu({ ...props }: CommandMenuProps): JSX.Element {
       <Button
         variant="outline"
         className={cn(
-          "bg-bg text-fg relative h-8 w-full justify-start rounded-lg text-sm font-normal shadow-none",
+          "bg-background text-foreground relative h-8 w-full justify-start rounded-lg text-sm font-normal shadow-none",
         )}
         onClick={() => setOpen(true)}
         {...props}

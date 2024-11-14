@@ -21,7 +21,7 @@ export default function StepperDemo(): JSX.Element {
         {steps.map((stepProps, index) => {
           return (
             <Step key={stepProps.label} {...stepProps}>
-              <div className="bg-bg text-primary my-2 flex h-40 items-center justify-center rounded-md border">
+              <div className="bg-background text-primary my-2 flex h-40 items-center justify-center rounded-md border">
                 <h1 className="text-xl">
                   Step
                   {index + 1}
@@ -49,7 +49,7 @@ function Footer() {
   return (
     <>
       {hasCompletedAllSteps && (
-        <div className="bg-bg text-primary my-2 flex h-40 items-center justify-center rounded-md border">
+        <div className="bg-background text-primary my-2 flex h-40 items-center justify-center rounded-md border">
           <h1 className="text-xl">Woohoo! All steps completed! 🎉</h1>
         </div>
       )}

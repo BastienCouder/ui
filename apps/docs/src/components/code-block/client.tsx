@@ -62,7 +62,7 @@ const CodeBlockClient = ({
                   <TabsTrigger
                     key={index}
                     value={fileName}
-                    className="relative inline-flex items-center justify-center whitespace-nowrap px-3 py-1 text-sm font-medium ring-offset-bg transition-all"
+                    className="relative inline-flex items-center justify-center whitespace-nowrap px-3 py-1 text-sm font-medium ring-offset-background transition-all"
                   >
                     {fileName}
                   </TabsTrigger>

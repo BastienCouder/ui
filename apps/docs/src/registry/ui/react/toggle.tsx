@@ -6,15 +6,15 @@ import { tv, type VariantProps } from "tailwind-variants";
 import { cn } from "@/lib/utils";
 
 const toggleStyles = tv({
-  base: "inline-flex items-center justify-center gap-2 rounded-md leading-normal text-sm font-medium ring-offset-bg transition-colors disabled:cursor-default disabled:bg-disabled disabled:text-disabled-fg",
+  base: "inline-flex items-center justify-center gap-2 rounded-md leading-normal text-sm font-medium ring-offset-background transition-colors disabled:cursor-default disabled:opacity-50 disabled:bg-background",
   variants: {
     variant: {
       quiet:
-        "bg-transparent hover:bg-neutral/40 active:bg-neutral/20 text-fg data-[state=on]:bg-primary data-[state=on]:text-primary-fg data-[state=on]:hover:bg-primary-hover data-[state=on]:active:bg-primary-active",
+        "bg-transparent hover:bg-neutral/40 active:bg-neutral/20 text-foreground data-[state=on]:bg-primary data-[state=on]:text-primary-foreground data-[state=on]:hover:bg-primary data-[state=on]:active:bg-primary",
       outline:
-        "border border-border-field bg-transparent hover:bg-neutral/40 active:bg-neutral/20 active:border-transparent text-fg data-[state=on]:bg-primary data-[state=on]:border-transparent data-[state=on]:text-primary-fg data-[state=on]:hover:bg-primary-hover data-[state=on]:active:bg-primary-active",
+        "border border-border-field bg-transparent hover:bg-neutral/40 active:bg-neutral/20 active:border-transparent text-foreground data-[state=on]:bg-primary data-[state=on]:border-transparent data-[state=on]:text-primary-foreground data-[state=on]:hover:bg-primary data-[state=on]:active:bg-primary",
       accent:
-        "border border-border-field bg-transparent hover:bg-neutral/40 active:bg-neutral/20 active:border-transparent text-fg data-[state=on]:bg-accent data-[state=on]:border-transparent data-[state=on]:hover:bg-accent-hover data-[state=on]:active:bg-accent-active data-[state=on]:text-accent-fg",
+        "border border-border-field bg-transparent hover:bg-neutral/40 active:bg-neutral/20 active:border-transparent text-foreground data-[state=on]:bg-accent data-[state=on]:border-transparent data-[state=on]:hover:bg-accent data-[state=on]:active:bg-accent data-[state=on]:text-accent-foreground",
     },
     size: {
       sm: "p-1.5 w-8 h-8 [&_svg]:w-4 [&_svg]:h-4",

@@ -63,7 +63,7 @@ export default function RootLayout({
     <html lang="fr" suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen font-sans overflow-x-hidden bg-bg text-fg",
+          "min-h-screen font-sans overflow-x-hidden bg-background text-foreground",
           geistMono.variable,
           geistSans.variable,
           fontDisplay.variable,

@@ -779,9 +779,9 @@ function StepButtonContainer({
         "size-[var(--step-icon-size)]",
         "flex items-center justify-center rounded-full border-2",
         "data-[clickable=true]:pointer-events-auto",
-        "data-[active=true]:bg-primary data-[active=true]:border-primary data-[active=true]:text-primary-fg",
+        "data-[active=true]:bg-primary data-[active=true]:border-primary data-[active=true]:text-primary-foreground",
         "data-[current=true]:border-primary data-[current=true]:bg-secondary",
-        "data-[invalid=true]:bg-danger data-[invalid=true]:border-danger data-[invalid=true]:text-danger-fg",
+        "data-[invalid=true]:bg-danger data-[invalid=true]:border-danger data-[invalid=true]:text-danger-foreground",
         styles?.["step-button-container"],
       )}
       aria-current={isCurrentStep ? "step" : undefined}
@@ -997,7 +997,7 @@ function StepLabel({
         <span
           className={cn(
             "stepper__step-description",
-            "text-muted-fg",
+            "text-muted-foreground",
             descriptionVariants({ size }),
             styles?.["step-description"],
           )}

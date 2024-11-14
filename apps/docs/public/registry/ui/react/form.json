@@ -1,13 +1,6 @@
 {
   "name": "form",
   "type": "registry:ui",
-  "dependencies": [
-    "@radix-ui/react-label",
-    "@radix-ui/react-slot",
-    "react-hook-form",
-    "@hookform/resolvers",
-    "zod"
-  ],
   "registryDependencies": [
     "button",
     "label"

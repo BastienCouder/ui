@@ -20,13 +20,13 @@ const selectStyles = tv({
     },
     variant: {
       primary:
-        "border-primary bg-primary text-primary-fg hover:bg-primary-hover active:bg-primary-active",
+        "border-primary bg-primary text-primary-foreground hover:bg-primary-hover active:bg-primary-active",
       secondary:
-        "border-secondary bg-secondary text-secondary-fg hover:bg-secondary-hover active:bg-secondary-active",
+        "border-secondary bg-secondary text-secondary-foreground hover:bg-secondary-hover active:bg-secondary-active",
       outline:
         "border-foreground bg-transparent text-foreground hover:bg-muted/50",
       neutral:
-        "border-neutral bg-neutral text-fg hover:bg-neutral-hover active:bg-neutral-active",
+        "border-neutral bg-neutral text-foreground hover:bg-neutral-hover active:bg-neutral-active",
     },
   },
   defaultVariants: {
@@ -125,7 +125,7 @@ const SelectTrigger = React.forwardRef<
       className={cn(
         selectStyles({ size, shape, variant }),
         withRing
-          ? "ring-offset-bg focus:ring-ring focus:ring-2 focus:ring-offset-2"
+          ? "ring-offset-background focus:ring-ring focus:ring-2 focus:ring-offset-2"
           : "",
         "flex w-full items-center justify-between border px-3 py-2 text-left text-sm focus:outline-none disabled:cursor-not-allowed disabled:opacity-50",
         className,

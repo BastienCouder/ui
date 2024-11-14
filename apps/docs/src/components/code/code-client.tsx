@@ -7,7 +7,7 @@ import { Button } from "@/registry/ui/react/button";
 import { ScrollArea } from "@/registry/ui/react/scroll-area";
 
 const codeStyles = tv({
-  base: "relative rounded-md bg-bg border border-secondary",
+  base: "relative rounded-md bg-background border border-secondary",
   variants: {
     variant: {
       classic: "text-xs p-4",

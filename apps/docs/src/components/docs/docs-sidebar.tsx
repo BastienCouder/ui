@@ -67,9 +67,9 @@ const Category = ({ title, slug, items, pathname }: CategoryProps) => {
                         {"href" in item && item.href && (
                           <div
                             className={cn(
-                              "border-bg-muted hover:text-foreground group ml-2 flex items-center gap-2 border-l pl-4 text-fg-muted transition-colors",
+                              "border-muted hover:text-foreground group ml-2 flex items-center gap-2 border-l pl-4 text-foreground transition-colors",
                               {
-                                "border-border font-medium text-fg":
+                                "border-border font-medium text-foreground":
                                   pathname === item.href,
                               },
                             )}
@@ -94,12 +94,12 @@ const Category = ({ title, slug, items, pathname }: CategoryProps) => {
                                     <>
                                       <span
                                         className={cn(
-                                          "border-bg-muted block cursor-not-allowed border-l py-1 pl-4 text-disabled-fg",
+                                          "border-muted block cursor-not-allowed border-l py-1 pl-4 text-disabled-foreground",
                                         )}
                                       >
                                         {subItem.title}
                                         {subItem.label && (
-                                          <span className="ml-2 rounded-md bg-disabled px-1.5 py-0.5 text-sm md:text-base leading-none text-disabled-fg">
+                                          <span className="ml-2 rounded-md bg-disabled px-1.5 py-0.5 text-sm md:text-base leading-none text-disabled-foreground">
                                             {subItem.label}
                                           </span>
                                         )}
@@ -110,7 +110,7 @@ const Category = ({ title, slug, items, pathname }: CategoryProps) => {
                                       <Link
                                         href={subItem.href}
                                         className={cn(
-                                          "border-bg-muted text-fg group block border-l pl-4 transition-colors",
+                                          "border-muted text-foreground group block border-l pl-4 transition-colors",
                                           {
                                             "border-muted font-medium text-primary":
                                               pathname === subItem.href,
@@ -120,7 +120,7 @@ const Category = ({ title, slug, items, pathname }: CategoryProps) => {
                                         <span className="block transition-transform duration-100 group-hover:translate-x-0.5 ">
                                           {subItem.title}
                                           {subItem.label && (
-                                            <span className="ml-2 rounded-md border bg-bg-muted px-1.5 py-0.5 text-sm md:text-base leading-none text-fg-muted">
+                                            <span className="ml-2 rounded-md border bg-muted px-1.5 py-0.5 text-sm md:text-base leading-none text-foreground-muted">
                                               {subItem.label}
                                             </span>
                                           )}
@@ -142,9 +142,9 @@ const Category = ({ title, slug, items, pathname }: CategoryProps) => {
                       <Link
                         href={item.href}
                         className={cn(
-                          "border-bg-muted hover:text-foreground group ml-2 block border-l pl-4 text-fg-muted transition-colors",
+                          "border-muted hover:text-foreground group ml-2 block border-l pl-4 text-foreground-muted transition-colors",
                           {
-                            "border-border font-medium text-fg":
+                            "border-border font-medium text-foreground":
                               pathname === item.href,
                           },
                         )}

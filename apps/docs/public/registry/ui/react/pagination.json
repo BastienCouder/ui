@@ -1,9 +1,6 @@
 {
   "name": "pagination",
   "type": "registry:ui",
-  "dependencies": [
-    "@radix-ui/react-popover"
-  ],
   "registryDependencies": [
     "button"
   ],

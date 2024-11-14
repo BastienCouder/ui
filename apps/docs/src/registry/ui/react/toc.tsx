@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 const tocStyles = tv({
   variants: {
     variant: {
-      neutral: "text-fg hover:text-primary-hover",
+      neutral: "text-foreground hover:text-primary-hover",
       active: "text-primary-active font-bold",
     },
     indent: {
@@ -62,8 +62,8 @@ const TableOfContent = React.forwardRef<HTMLLIElement, TableOfContentProps>(
         <a
           href={href}
           className={cn(
-            "text-fg hover:text-primary text-sm font-medium transition-colors",
-            isActive ? "text-fg font-medium" : "text-muted-fg",
+            "text-foreground hover:text-primary text-sm font-medium transition-colors",
+            isActive ? "text-foreground font-medium" : "text-muted-foreground",
             className,
           )}
         >

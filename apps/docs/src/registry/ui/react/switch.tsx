@@ -9,7 +9,7 @@ const switchStyles = tv({
   base: "focus-visible:ring-ring focus-visible:ring-offset-background peer inline-flex items-center rounded-full border-2 border-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
   variants: {
     variant: {
-      neutral: "data-[state=checked]:bg-fg data-[state=unchecked]:bg-input",
+      neutral: "data-[state=checked]:bg-foreground data-[state=unchecked]:bg-input",
       primary:
         "data-[state=checked]:bg-primary data-[state=unchecked]:bg-input",
       secondary:
@@ -34,7 +34,7 @@ const switchStyles = tv({
 });
 
 const thumbStyles = tv({
-  base: "bg-bg pointer-events-none block rounded-full shadow-lg ring-0 transition-transform",
+  base: "bg-background pointer-events-none block rounded-full shadow-lg ring-0 transition-transform",
   variants: {
     size: {
       sm: "h-3 w-3 data-[state=checked]:translate-x-4 data-[state=unchecked]:translate-x-0",

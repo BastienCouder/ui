@@ -11,7 +11,7 @@ const textareaStyles = tv({
   variants: {
     variant: {
       default:
-        "bg-bg hover:bg-input-background-hover focus:bg-input-background-active text-input-foreground border border-input-border",
+        "bg-background hover:bg-input-background-hover focus:bg-input-background-active text-input-foreground border border-input-border",
       primary:
         "bg-primary hover:bg-primary-hover focus:bg-primary-active text-primary-foreground border border-primary-border",
       secondary:
@@ -31,7 +31,7 @@ const textareaStyles = tv({
       circle: "rounded-full",
     },
     invalid: {
-      true: "border-danger bg-bg text-danger-fg focus-visible:ring-danger",
+      true: "border-destructive bg-background text-destructive-foreground focus-visible:ring-destructive",
     },
   },
   defaultVariants: {
@@ -88,7 +88,7 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           {...props}
         />
         {isInvalid && errorMessage && (
-          <p className="text-xs text-danger mt-1">{errorMessage}</p>
+          <p className="text-xs text-destructive mt-1">{errorMessage}</p>
         )}
         {!isInvalid && description && (
           <p className="text-xs text-muted-foreground mt-1">{description}</p>

@@ -29,7 +29,7 @@ const Bash: React.FC<BashProps> = ({ children, className }) => {
   };
 
   return (
-    <pre className={cn("relative bg-bg border p-4 rounded-lg", className)}>
+    <pre className={cn("relative bg-background border p-4 rounded-lg", className)}>
       <Button
         variant="primary"
         shape="square"
@@ -43,7 +43,7 @@ const Bash: React.FC<BashProps> = ({ children, className }) => {
           <Copy className="animate-in fade-in" />
         )}
       </Button>
-      <div className="text-sm text-fg/60">{children}</div>
+      <div className="text-sm text-foreground/60">{children}</div>
     </pre>
   );
 };

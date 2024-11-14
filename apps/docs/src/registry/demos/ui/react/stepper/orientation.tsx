@@ -29,7 +29,7 @@ export default function StepperOrientation(): JSX.Element {
       >
         <Label
           htmlFor="horizontal"
-          className="bg-bg hover:bg-gray-3 [&:has([data-state=checked])]:border-primary flex w-fit flex-col gap-3 rounded-md border px-2 py-1"
+          className="bg-background hover:bg-gray-3 [&:has([data-state=checked])]:border-primary flex w-fit flex-col gap-3 rounded-md border px-2 py-1"
         >
           <RadioGroupItem
             value="horizontal"
@@ -40,7 +40,7 @@ export default function StepperOrientation(): JSX.Element {
         </Label>
         <Label
           htmlFor="vertical"
-          className="bg-bg hover:bg-gray-3 [&:has([data-state=checked])]:border-primary flex w-fit flex-col gap-3 rounded-md border px-2 py-1"
+          className="bg-background hover:bg-gray-3 [&:has([data-state=checked])]:border-primary flex w-fit flex-col gap-3 rounded-md border px-2 py-1"
         >
           <RadioGroupItem value="vertical" id="vertical" className="sr-only" />
           <h2 className="font-medium">Vertical</h2>
@@ -50,7 +50,7 @@ export default function StepperOrientation(): JSX.Element {
         {steps.map((stepProps, index) => {
           return (
             <Step key={stepProps.label} {...stepProps}>
-              <div className="bg-bg text-primary my-4 flex h-40 items-center justify-center rounded-md border">
+              <div className="bg-background text-primary my-4 flex h-40 items-center justify-center rounded-md border">
                 <h1 className="text-xl">
                   Step
                   {index + 1}
@@ -78,7 +78,7 @@ function Footer() {
   return (
     <>
       {hasCompletedAllSteps && (
-        <div className="bg-bg text-primary flex h-40 items-center justify-center rounded-md border">
+        <div className="bg-background text-primary flex h-40 items-center justify-center rounded-md border">
           <h1 className="text-xl">Woohoo! All steps completed! 🎉</h1>
         </div>
       )}

@@ -56,13 +56,33 @@ description: A context menu is a user interface element that appears when the us
 
 ## Installation
 
+<Tabs defaultValue="cli">
+<TabsList>
+<TabsTrigger value="cli">
+CLI
+</TabsTrigger>
+<TabsTrigger value="manual">  
+Manual
+</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+<Bash>
+<BashCommand>npx</BashCommand> mbi add breadcrumb
+</Bash>
+</TabsContent>
+
+<TabsContent value="manual">
 <Steps>
 <Step>Install the following dependencies:</Step>
 
-```bash
-npm install @radix-ui/react-context-menu
-```
+<Bash>
+<BashCommand>npm </BashCommand>install @radix-ui/react-context-menu
+</Bash>
+
   <Step>Copy and paste the following code into your project.</Step>
   <ComponentSource name={["ui/react/context-menu"]} extension={["tsx"]} />
   <Step>Update the import paths to match your project setup.</Step>
 </Steps>
+</TabsContent>
+</Tabs>

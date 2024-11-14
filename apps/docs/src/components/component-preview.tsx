@@ -30,7 +30,7 @@ export const ComponentPreview = ({
     const Component = previews[name]?.component;
 
     if (!Component) {
-      return <p className="text-sm text-fg-muted">Component not found.</p>;
+      return <p className="text-sm text-muted-foreground">Component not found.</p>;
     }
 
     return <Component />;

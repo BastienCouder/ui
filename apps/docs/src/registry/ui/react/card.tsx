@@ -9,15 +9,15 @@ const cardStyles = tv({
   variants: {
     variant: {
       default:
-        "bg-neutral/70 hover:bg-neutral-hover active:bg-neutral-active text-neutral-fg",
+        "bg-neutral/70 hover:bg-neutral active:bg-neutral text-neutral-foreground",
       outline:
-        "border border-border bg-transparent hover:bg-neutral/10 active:bg-neutral/20 text-fg disabled:border-disabled disabled:bg-transparent",
+        "border border-border bg-transparent hover:bg-neutral/10 active:bg-neutral/20 text-foreground disabled:opacity-50",
       success:
-        "bg-success hover:bg-success-hover active:bg-success-active text-success-fg",
+        "bg-success hover:bg-success active:bg-success text-success-foreground",
       warning:
-        "bg-warning hover:bg-warning-hover active:bg-warning-active text-warning-fg",
+        "bg-warning hover:bg-warning active:bg-warning text-warning-foreground",
       danger:
-        "bg-danger hover:bg-danger-hover active:bg-danger-active text-danger-fg",
+        "bg-destructive hover:bg-destructive active:bg-destructive text-destructive-foreground",
     },
     shape: {
       rectangle: "",

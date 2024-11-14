@@ -115,7 +115,7 @@ export const components: React.ComponentPropsWithoutRef<
   blockquote: ({ className, ...props }) => (
     <blockquote
       className={cn(
-        "mt-6 border-l-2 pl-6 italic [&>*]:text-fg-muted",
+        "mt-6 border-l-2 pl-6 italic [&>*]:text-muted-foreground",
         className,
       )}
       {...props}
@@ -252,7 +252,7 @@ export const components: React.ComponentPropsWithoutRef<
   ),
   BashCommand: ({...props }: React.ComponentPropsWithoutRef<typeof Bash>) => (
     <span
-      className={'text-sm font-bold text-fg'}
+      className={'text-sm font-bold text-foreground'}
       {...props}
     />
   ),

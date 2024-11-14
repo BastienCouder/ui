@@ -6,26 +6,26 @@ import { cn } from "@/lib/utils";
 
 const buttonStyles = tv(
   {
-    base: "inline-flex gap-2 cursor-pointer items-center justify-center whitespace-nowrap rounded-md leading-normal text-sm shrink-0 font-medium ring-offset-background transition-colors disabled:cursor-default disabled:bg-disabled disabled:text-disabled-fg",
+    base: "inline-flex gap-2 cursor-pointer items-center justify-center whitespace-nowrap rounded-md leading-normal text-sm shrink-0 font-medium ring-offset-background transition-colors disabled:cursor-default disabled:opacity-50",
     variants: {
       variant: {
         default:
-          "bg-neutral hover:bg-neutral-hover active:bg-neutral-active text-neutral-fg",
+          "bg-neutral hover:bg-neutral active:bg-neutral text-neutral-foreground",
         primary:
-          "bg-primary hover:bg-primary-hover active:bg-primary-active text-primary-fg",
+          "bg-primary hover:bg-primary active:bg-primary text-primary-foreground",
         secondary:
-          "bg-secondary hover:bg-secondary-hover active:bg-secondary-active text-secondary-fg",
+          "bg-secondary hover:bg-secondary active:bg-secondary text-secondary-foreground",
         quiet:
-          "bg-transparent hover:bg-neutral/10 active:bg-neutral/20 text-fg",
-        link: "bg-transparent hover:transparent underline active:underline text-fg",
+          "bg-transparent hover:bg-neutral/10 active:bg-neutral/20 text-foreground",
+        link: "bg-transparent hover:transparent underline active:underline text-foreground",
         outline:
-          "border border-border bg-transparent hover:bg-neutral/10 active:bg-neutral/20 text-fg disabled:border-disabled disabled:bg-transparent",
+          "border border-border bg-transparent hover:bg-neutral/10 active:bg-neutral/20 text-foreground",
         success:
-          "bg-success hover:bg-success-hover active:bg-success-active text-success-fg",
+          "bg-success hover:bg-success active:bg-success text-success-foreground",
         warning:
-          "bg-warning hover:bg-warning-hover active:bg-warning-active text-warning-fg",
+          "bg-warning hover:bg-warning active:bg-warning text-warning-foreground",
         danger:
-          "bg-danger hover:bg-danger-hover active:bg-danger-active text-danger-fg",
+          "bg-destructive hover:bg-destructive  active:bg-destructive text-destructive-foreground",
       },
       size: {
         sm: "h-8 px-3 [&_svg]:w-4 [&_svg]:h-4",

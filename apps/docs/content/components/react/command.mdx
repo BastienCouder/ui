@@ -48,16 +48,36 @@ registryDependencies: 'dialog'
 
 ## Installation
 
+<Tabs defaultValue="cli">
+<TabsList>
+<TabsTrigger value="cli">
+CLI
+</TabsTrigger>
+<TabsTrigger value="manual">  
+Manual
+</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+<Bash>
+<BashCommand>npx</BashCommand> mbi add breadcrumb
+</Bash>
+</TabsContent>
+
+<TabsContent value="manual">
 <Steps>
 <Step>Install the following dependencies:</Step>
 
-```bash
-npm install @radix-ui/react-dialog cmdk
-```
+<Bash>
+<BashCommand>npm </BashCommand>install @radix-ui/react-dialog cmdk
+</Bash>
+
   <Step>Copy and paste the following code into your project.</Step>
   <ComponentSource name={["ui/react/command"]} extension={["tsx"]} />
   <Step>Update the import paths to match your project setup.</Step>
 </Steps>
+</TabsContent>
+</Tabs>
 
 ### Examples
 
@@ -75,8 +95,9 @@ npm install @radix-ui/react-dialog cmdk
 
 To show the command menu in a dialog, use the `<CommandDialog />` component.
 
-```tsx
-export function CommandMenu() {
+<ComponentCode
+language="tsx"
+preview={`export function CommandMenu() {
   const [open, setOpen] = React.useState(false)
  
   React.useEffect(() => {
@@ -89,7 +110,7 @@ export function CommandMenu() {
     document.addEventListener("keydown", down)
     return () => document.removeEventListener("keydown", down)
   }, [])
- 
+
   return (
     <CommandDialog open={open} onOpenChange={setOpen}>
       <CommandInput placeholder="Type a command or search..." />
@@ -103,5 +124,5 @@ export function CommandMenu() {
       </CommandList>
     </CommandDialog>
   )
-}
-```
+}`}
+/>

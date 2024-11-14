@@ -27,14 +27,14 @@ export default function StepperDemo(): JSX.Element {
       >
         <Label
           htmlFor="circle"
-          className="bg-bg hover:bg-gray-3 [&:has([data-state=checked])]:border-primary flex w-fit flex-col gap-3 rounded-md border px-2 py-1"
+          className="bg-background hover:bg-gray-3 [&:has([data-state=checked])]:border-primary flex w-fit flex-col gap-3 rounded-md border px-2 py-1"
         >
           <RadioGroupItem value="circle" id="circle" className="sr-only" />
           <h2 className="font-medium">circle</h2>
         </Label>
         <Label
           htmlFor="circle-alt"
-          className="bg-bg hover:bg-gray-3 [&:has([data-state=checked])]:border-primary flex w-fit flex-col gap-3 rounded-md border px-2 py-1"
+          className="bg-background hover:bg-gray-3 [&:has([data-state=checked])]:border-primary flex w-fit flex-col gap-3 rounded-md border px-2 py-1"
         >
           <RadioGroupItem
             value="circle-alt"
@@ -45,7 +45,7 @@ export default function StepperDemo(): JSX.Element {
         </Label>
         <Label
           htmlFor="line"
-          className="bg-bg hover:bg-gray-3 [&:has([data-state=checked])]:border-primary flex w-fit flex-col gap-3 rounded-md border px-2 py-1"
+          className="bg-background hover:bg-gray-3 [&:has([data-state=checked])]:border-primary flex w-fit flex-col gap-3 rounded-md border px-2 py-1"
         >
           <RadioGroupItem value="line" id="line" className="sr-only" />
           <h2 className="font-medium">line</h2>
@@ -55,7 +55,7 @@ export default function StepperDemo(): JSX.Element {
         {steps.map((stepProps, index) => {
           return (
             <Step key={stepProps.label} {...stepProps}>
-              <div className="bg-bg text-primary my-2 flex h-40 items-center justify-center rounded-md border">
+              <div className="bg-background text-primary my-2 flex h-40 items-center justify-center rounded-md border">
                 <h1 className="text-xl">
                   Step
                   {index + 1}
@@ -83,7 +83,7 @@ function Footer() {
   return (
     <>
       {hasCompletedAllSteps && (
-        <div className="bg-bg text-primary my-2 flex h-40 items-center justify-center rounded-md border">
+        <div className="bg-background text-primary my-2 flex h-40 items-center justify-center rounded-md border">
           <h1 className="text-xl">Woohoo! All steps completed! 🎉</h1>
         </div>
       )}

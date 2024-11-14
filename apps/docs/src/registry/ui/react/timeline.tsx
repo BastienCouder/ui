@@ -40,11 +40,11 @@ const Timeline = React.forwardRef<HTMLUListElement, TimelineProps>(
 Timeline.displayName = "Timeline";
 
 const timelineItemVariants = tv({
-  base: "grid items-center gap-x-2 text-muted-fg",
+  base: "grid items-center gap-x-2 text-muted-foreground",
   variants: {
     status: {
       done: "text-primary",
-      default: "text-muted-fg",
+      default: "text-muted-foreground",
     },
   },
   defaultVariants: {
@@ -74,9 +74,9 @@ const timelineDotVariants = tv({
       default: "[&>*]:hidden",
       current:
         "[&>*:not(.lucide-circle)]:hidden [&>.lucide-circle]:fill-current [&>.lucide-circle]:text-current",
-      done: "bg-primary [&>*:not(.lucide-check)]:hidden [&>.lucide-check]:text-bg",
+      done: "bg-primary [&>*:not(.lucide-check)]:hidden [&>.lucide-check]:text-background",
       error:
-        "border-danger bg-danger [&>*:not(.lucide-x)]:hidden [&>.lucide-x]:text-bg",
+        "border-danger bg-danger [&>*:not(.lucide-x)]:hidden [&>.lucide-x]:text-background",
       custom: "[&>*:not(:nth-child(4))]:hidden [&>*:nth-child(4)]:block",
     },
   },
@@ -108,7 +108,7 @@ const TimelineDot = React.forwardRef<HTMLDivElement, TimelineDotProps>(
 TimelineDot.displayName = "TimelineDot";
 
 const timelineContentVariants = tv({
-  base: "row-start-2 row-end-2 pb-8 text-fg/80",
+  base: "row-start-2 row-end-2 pb-8 text-foreground/80",
   variants: {
     side: {
       right: "col-start-3 col-end-4 mr-auto text-left",
@@ -128,7 +128,7 @@ interface TimelineContentProps
 
 const TimelineContent = React.forwardRef<HTMLDivElement, TimelineContentProps>(
   ({ className, status, side, ...props }, ref) => {
-    const textClass = status === "done" ? "text-fg" : "text-muted-fg";
+    const textClass = status === "done" ? "text-foreground" : "text-muted-foreground";
 
     return (
       <div
@@ -149,9 +149,9 @@ const timelineHeadingVariants = tv({
       left: "col-start-1 col-end-2 ml-auto text-right",
     },
     variant: {
-      neutral: "text-sm font-medium text-fg",
+      neutral: "text-sm font-medium text-foreground",
       primary: "text-sm font-medium text-primary",
-      secondary: "text-sm font-light text-muted-fg",
+      secondary: "text-sm font-light text-muted-foreground",
     },
   },
   defaultVariants: {

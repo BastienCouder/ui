@@ -17,7 +17,7 @@ export const Header: React.FC = () => {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 flex h-14 rounded-md  max-md:bg-bg md:h-16",
+        "sticky top-0 z-50 flex h-14 rounded-md  max-md:bg-background md:h-16",
         scrolled && "pointer-events-none",
       )}
     >
@@ -51,7 +51,7 @@ export const Header: React.FC = () => {
             className={cn(
               "relative flex items-center gap-6 overflow-hidden rounded-md bg-transparent px-4 py-1 transition-[padding,background-color] duration-300 ease-out",
               scrolled &&
-                "pointer-events-auto bg-bg-muted pl-14 shadow-md bg-neutral/70",
+                "pointer-events-auto bg-background-muted pl-14 shadow-md bg-neutral/70",
             )}
           >
             <Link
@@ -153,10 +153,10 @@ const Nav = (props: NavProps) => {
               key={index}
               className={cn(
                 focusRing(),
-                "flex items-center justify-center gap-2 rounded px-4 py-1 text-sm font-medium text-fg/60 transition-colors hover:text-fg",
+                "flex items-center justify-center gap-2 rounded px-4 py-1 text-sm font-medium text-foreground/60 transition-colors hover:text-foreground",
                 pathname.startsWith(item.href) &&
                   item.href !== "/" &&
-                  "bg-bg-inverse/10 text-fg",
+                  "bg-background-inverse/10 text-foreground",
                 direction === "col" && "text-md w-full py-2",
               )}
               href={item.href}

@@ -60,8 +60,9 @@ The `<Form />` component is a wrapper around the `react-hook-form` library. It p
 
 ## Anatomy
 
-```tsx
-<Form>
+<ComponentCode
+language="tsx"
+preview={`<Form>
   <FormField
     control={...}
     name="..."
@@ -76,22 +77,42 @@ The `<Form />` component is a wrapper around the `react-hook-form` library. It p
       </FormItem>
     )}
   />
-</Form>
-```
+</Form>`}
+/>
 
 ## Installation
 
+<Tabs defaultValue="cli">
+<TabsList>
+<TabsTrigger value="cli">
+CLI
+</TabsTrigger>
+<TabsTrigger value="manual">  
+Manual
+</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+<Bash>
+<BashCommand>npx</BashCommand> mbi add breadcrumb
+</Bash>
+</TabsContent>
+
+<TabsContent value="manual">
 <Steps>
 <Step>Install the following dependencies:</Step>
 
-```bash
-npm install @radix-ui/react-label @radix-ui/react-slot react-hook-form @hookform/resolvers zod
-```
+<Bash>
+<BashCommand>npm</BashCommand> install @radix-ui/react-label @radix-ui/react-slot react-hook-form @hookform/resolvers zod
+</Bash>
+
   <Step>Copy and paste the following code into your project.</Step>
   <ComponentSource  name={["ui/react/form"]} extension={["tsx"]} />
   <Step>Update the import paths to match your project setup.</Step>
 
 </Steps>
+</TabsContent>
+</Tabs>
 
 ## Examples
 

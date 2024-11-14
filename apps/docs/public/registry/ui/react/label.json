@@ -1,9 +1,6 @@
 {
   "name": "label",
   "type": "registry:ui",
-  "dependencies": [
-    "@radix-ui/react-label"
-  ],
   "files": [
     {
       "path": "ui/react/label.tsx",

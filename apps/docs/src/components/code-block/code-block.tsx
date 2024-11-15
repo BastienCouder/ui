@@ -62,7 +62,6 @@ const CodeBlock = async ({
     }),
   );
 
-
   return (
     <CodeBlockClient
       files={files}

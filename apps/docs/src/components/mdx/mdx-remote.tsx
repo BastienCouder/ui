@@ -4,7 +4,11 @@ import { components } from "@/components/mdx/mdx-components";
 
 import { ReactElement } from "react";
 
-export async function Mdx({ source }: { source: string }): Promise<ReactElement> {
+export async function Mdx({
+  source,
+}: {
+  source: string;
+}): Promise<ReactElement> {
   const options = {
     parseFrontmatter: false,
     mdxOptions: {
@@ -13,10 +17,6 @@ export async function Mdx({ source }: { source: string }): Promise<ReactElement>
   };
 
   return (
-    <MDXRemote
-      source={source}
-      components={components}
-      options={options}
-    />
+    <MDXRemote source={source} components={components} options={options} />
   );
 }

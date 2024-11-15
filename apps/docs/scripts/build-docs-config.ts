@@ -78,7 +78,7 @@ const docsConfig: DocsConfig = {
         {
           title: "Theming",
           href: "/docs/theming",
-        }
+        },
       ],
     },
     {

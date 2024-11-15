@@ -39,7 +39,9 @@ export async function generateStaticParams(): Promise<PageProps["params"][]> {
   return allDocs.map((doc) => ({ slug: doc.href.split("/").slice(1) }));
 }
 
-export default async function Page({ params }: PageProps): Promise<JSX.Element> {
+export default async function Page({
+  params,
+}: PageProps): Promise<JSX.Element> {
   const doc = await getDocFromSlug(params.slug);
 
   if (!doc) {
@@ -50,19 +52,13 @@ export default async function Page({ params }: PageProps): Promise<JSX.Element> 
   const themeClass = metadata.color || "react";
 
   return (
-    <main    className={cn(
-      "h-full w-full",
-      themeClass,
-    )} >
+    <main className={cn("h-full w-full", themeClass)}>
       <DocsLayout>
-         <section
-         className={cn(
-           "relative pb-20 lg:gap-10",
-           {
-             "xl:grid xl:grid-cols-[1fr_220px]": !!doc.toc.items,
-           }
-         )}
-       >
+        <section
+          className={cn("relative pb-20 lg:gap-10", {
+            "xl:grid xl:grid-cols-[1fr_220px]": !!doc.toc.items,
+          })}
+        >
           <div className="mx-auto w-full min-w-0 pt-4 md:pt-6 space-y-2">
             <div className="block">
               {metadata.breadcrumbs.length >= 1 && (
@@ -124,6 +120,6 @@ export default async function Page({ params }: PageProps): Promise<JSX.Element> 
           )}
         </section>
       </DocsLayout>
-      </main>
+    </main>
   );
 }

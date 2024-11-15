@@ -4,45 +4,42 @@ import { Card } from "@/registry/ui/react/card";
 import * as React from "react";
 
 export default function HomePage(): JSX.Element {
-  return <main className="container">
-    <div className="h-full font-sans">
-
-{/* Left (miroir du côté droit) */}
-<div className="absolute w-[125px] h-[100vh] top-0 left-0 overflow-hidden">
-  <div
-    className="w-[250px] h-[100vh] rounded-[100%_0_0_100%] drop-shadow-[0px_15px_3px_rgba(0,0,0,0.25)] transform scale-x-[-1]"
-    style={{
-      background: "linear-gradient(180deg, rgba(36, 36, 36, 1) 0%, rgba(36, 36, 36, 0.54) 33%, rgba(5, 5, 5, 0.56) 66%, rgba(5, 5, 5, 0) 100%)",
-    }}
-  ></div>
-</div>
-
-{/* Right */}
-<div className="absolute w-[125px] h-[100vh] top-0 right-0 overflow-hidden">
-  <div
-    className="w-[250px] h-[100vh] rounded-[100%_0_0_100%] drop-shadow-[0px_15px_3px_rgba(0,0,0,0.25)]"
-    style={{
-      background: "linear-gradient(180deg, rgba(36, 36, 36, 1) 0%, rgba(36, 36, 36, 0.54) 33%, rgba(5, 5, 5, 0.56) 66%, rgba(5, 5, 5, 0) 100%)",
-    }}
-  ></div>
-</div>
-
-
-
-
-      <section className="flex flex-col items-center py-12 space-y-12">
-        <h1 className="text-4xl font-bold text-center">
-         UI Components
-        </h1>
-        <p className="text-center text-lg max-w-lg">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.
-        </p>
-        <div className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6 w-full max-w-4xl">
-
+  return (
+    <main className="container">
+      <div className="h-full font-sans">
+        {/* Left (miroir du côté droit) */}
+        <div className="absolute w-[125px] h-[100vh] top-0 left-0 overflow-hidden">
+          <div
+            className="w-[250px] h-[100vh] rounded-[100%_0_0_100%] drop-shadow-[0px_15px_3px_rgba(0,0,0,0.25)] transform scale-x-[-1]"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(36, 36, 36, 1) 0%, rgba(36, 36, 36, 0.54) 33%, rgba(5, 5, 5, 0.56) 66%, rgba(5, 5, 5, 0) 100%)",
+            }}
+          ></div>
         </div>
-      </section>
-    </div>
-  </main>;
+
+        {/* Right */}
+        <div className="absolute w-[125px] h-[100vh] top-0 right-0 overflow-hidden">
+          <div
+            className="w-[250px] h-[100vh] rounded-[100%_0_0_100%] drop-shadow-[0px_15px_3px_rgba(0,0,0,0.25)]"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(36, 36, 36, 1) 0%, rgba(36, 36, 36, 0.54) 33%, rgba(5, 5, 5, 0.56) 66%, rgba(5, 5, 5, 0) 100%)",
+            }}
+          ></div>
+        </div>
+
+        <section className="flex flex-col items-center py-12 space-y-12">
+          <h1 className="text-4xl font-bold text-center">UI Components</h1>
+          <p className="text-center text-lg max-w-lg">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            varius enim in eros elementum tristique.
+          </p>
+          <div className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6 w-full max-w-4xl"></div>
+        </section>
+      </div>
+    </main>
+  );
 }
 
 // Composant Earnings
@@ -70,10 +67,10 @@ const Earnings: React.FC = () => {
 // Composant ConnectSources
 const ConnectSources: React.FC = () => {
   const sources = [
-    { name: 'Uber', icon: '🚗' },
-    { name: 'Spotify', icon: '🎶' },
-    { name: 'Amazon', icon: '🛒' },
-    { name: 'Netflix', icon: '📺' },
+    { name: "Uber", icon: "🚗" },
+    { name: "Spotify", icon: "🎶" },
+    { name: "Amazon", icon: "🛒" },
+    { name: "Netflix", icon: "📺" },
   ];
 
   return (
@@ -112,9 +109,7 @@ const Insights: React.FC = () => {
           </p>
         ))}
       </div>
-      <p className="text-blue-500 mt-4 font-semibold">
-        Make better decisions
-      </p>
+      <p className="text-blue-500 mt-4 font-semibold">Make better decisions</p>
     </Card>
   );
 };

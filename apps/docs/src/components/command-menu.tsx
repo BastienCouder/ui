@@ -18,7 +18,6 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-
 } from "@/registry/ui/react/command";
 import { docsConfig } from "@/config/docs-config";
 import type { Item, SubCategory } from "@/types/docs-nav";

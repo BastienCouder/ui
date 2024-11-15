@@ -178,9 +178,7 @@ const createRegistry = () => {
   // Generate the registry files based on the existing index.json files
   generateRegistryData();
 
-  console.log(
-    "\x1b[32m✓\x1b[0m Generated individual component JSON files.",
-  );
+  console.log("\x1b[32m✓\x1b[0m Generated individual component JSON files.");
 };
 
 // Run the registry creation

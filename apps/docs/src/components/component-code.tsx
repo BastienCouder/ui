@@ -21,10 +21,10 @@ export const ComponentCode = ({
   preview,
   expandable,
   language,
-  example
+  example,
 }: ComponentCodeProps): JSX.Element => {
   // make it server component
- 
+
   const code = React.useMemo(() => {
     const allCodeFiles = previews[name]?.code ?? [];
 
@@ -39,12 +39,7 @@ export const ComponentCode = ({
   }, [name]);
 
   return (
-    <div
-      className={cn(
-        "mt-2 overflow-hidden rounded-md space-y-4",
-        className
-      )}
-    >
+    <div className={cn("mt-2 overflow-hidden rounded-md space-y-4", className)}>
       <CodeBlock
         files={code.map((file) => ({
           fileName: file.title,

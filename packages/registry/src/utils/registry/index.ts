@@ -201,8 +201,7 @@ export async function registryResolveItemsTree(
 ) {
   console.log(names);
   console.log(config);
-  
-  
+
   try {
     const index = await getRegistryIndex();
     if (!index) {
@@ -295,7 +294,7 @@ async function resolveRegistryDependencies(
     // const url = getRegistryUrl(
     //   isUrl(itemUrl) ? itemUrl : `ui/react/${itemUrl}.json`
     // )
-    
+
     const url = `https://ui.bastiencouder.com/registry/ui/react/${itemUrl}.json`;
     //correction url;
 

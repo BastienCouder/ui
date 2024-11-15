@@ -7,13 +7,19 @@ interface PackageManagerContextType {
   setPackageManager: (value: string) => void;
 }
 
-const PackageManagerContext = createContext<PackageManagerContextType | undefined>(undefined);
+const PackageManagerContext = createContext<
+  PackageManagerContextType | undefined
+>(undefined);
 
-export const PackageManagerProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const PackageManagerProvider: React.FC<{ children: ReactNode }> = ({
+  children,
+}) => {
   const [packageManager, setPackageManager] = useState<string>("npm");
 
   return (
-    <PackageManagerContext.Provider value={{ packageManager, setPackageManager }}>
+    <PackageManagerContext.Provider
+      value={{ packageManager, setPackageManager }}
+    >
       {children}
     </PackageManagerContext.Provider>
   );
@@ -22,7 +28,9 @@ export const PackageManagerProvider: React.FC<{ children: ReactNode }> = ({ chil
 export const usePackageManager = (): PackageManagerContextType => {
   const context = useContext(PackageManagerContext);
   if (!context) {
-    throw new Error("usePackageManager must be used within a PackageManagerProvider");
+    throw new Error(
+      "usePackageManager must be used within a PackageManagerProvider",
+    );
   }
   return context;
 };

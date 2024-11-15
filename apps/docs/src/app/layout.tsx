@@ -72,11 +72,11 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <Analytics />
-          <Header />
-          <Toaster />
-          {children}
-          {/* <Footer /> */}
-          {/* <LayoutColumnsGrid /> */}
+        <Header />
+        <Toaster />
+        {children}
+        {/* <Footer /> */}
+        {/* <LayoutColumnsGrid /> */}
       </body>
     </html>
   );

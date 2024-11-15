@@ -5,7 +5,10 @@ interface UseScrolledProps {
   initial?: boolean;
 }
 
-export const useScrolled = ({ threshold = 0, initial = false }: UseScrolledProps): { scrolled: boolean; mounted: boolean } => {
+export const useScrolled = ({
+  threshold = 0,
+  initial = false,
+}: UseScrolledProps): { scrolled: boolean; mounted: boolean } => {
   const [scrolled, setScrolled] = React.useState(initial);
   const [mounted, setMounted] = React.useState(false);
 

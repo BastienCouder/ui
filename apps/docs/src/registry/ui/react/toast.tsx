@@ -76,8 +76,10 @@ const toastActionVariants = cva(
           "border bg-transparent text-foreground hover:bg-neutral/40 hover:text-foreground",
         primary:
           "border-secondary text-secondary hover:bg-secondary hover:text-primary",
-        danger: "border-foreground text-foreground hover:bg-foreground hover:text-danger",
-        secondary: "border-foreground text-foreground hover:bg-foreground hover:text-secondary",
+        danger:
+          "border-foreground text-foreground hover:bg-foreground hover:text-danger",
+        secondary:
+          "border-foreground text-foreground hover:bg-foreground hover:text-secondary",
       },
     },
     defaultVariants: {

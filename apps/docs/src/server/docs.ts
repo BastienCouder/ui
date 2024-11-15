@@ -194,7 +194,7 @@ export const getDocFromSlug = async (
       findParentColor(slug.slice(0, -1));
 
     const toc = await getTableOfContents(content);
-    
+
     return {
       metadata: {
         title: frontmatter.title,

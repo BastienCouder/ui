@@ -128,7 +128,8 @@ interface TimelineContentProps
 
 const TimelineContent = React.forwardRef<HTMLDivElement, TimelineContentProps>(
   ({ className, status, side, ...props }, ref) => {
-    const textClass = status === "done" ? "text-foreground" : "text-muted-foreground";
+    const textClass =
+      status === "done" ? "text-foreground" : "text-muted-foreground";
 
     return (
       <div

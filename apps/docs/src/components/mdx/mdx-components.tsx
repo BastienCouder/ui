@@ -11,7 +11,12 @@ import { DocsList, type DocsListProps } from "@/components/docs/docs-list";
 import { slugify } from "@/utils/string";
 import { cn } from "@/lib/utils";
 import { Code } from "../code";
-import { Tabs,TabsTrigger, TabsContent, TabsList } from "@/registry/ui/react/tabs"; 
+import {
+  Tabs,
+  TabsTrigger,
+  TabsContent,
+  TabsList,
+} from "@/registry/ui/react/tabs";
 import Bash from "../component-bash";
 import Callout from "../callout";
 import { ComponentCode } from "../component-code";
@@ -198,10 +203,7 @@ export const components: React.ComponentPropsWithoutRef<
     />
   ),
   ComponentCode: (props) => (
-    <ComponentCode
-      className="w-full [&:not(:first-child)]:mt-4"
-      {...props}
-    />
+    <ComponentCode className="w-full [&:not(:first-child)]:mt-4" {...props} />
   ),
   DocsList: (props: DocsListProps) => (
     <DocsList
@@ -238,47 +240,35 @@ export const components: React.ComponentPropsWithoutRef<
       {...props}
     />
   ),
-  Callout : ({type: _type = 'info', className , ...props }: React.ComponentPropsWithoutRef<typeof Callout>) => (
-    <Callout
-      type={_type}
-      className={cn("w-full", className)}
-      {...props}
-    />
+  Callout: ({
+    type: _type = "info",
+    className,
+    ...props
+  }: React.ComponentPropsWithoutRef<typeof Callout>) => (
+    <Callout type={_type} className={cn("w-full", className)} {...props} />
   ),
-  Bash: ({ className, ...props }: React.ComponentPropsWithoutRef<typeof Bash>) => (
-    <Bash
-      className={cn("w-full", className)}
-      
-      {...props}
-    />
+  Bash: ({
+    className,
+    ...props
+  }: React.ComponentPropsWithoutRef<typeof Bash>) => (
+    <Bash className={cn("w-full", className)} {...props} />
   ),
-  BashCommand: ({...props }: React.ComponentPropsWithoutRef<typeof Bash>) => (
-    <span
-      className={'text-sm font-bold text-foreground'}
-      {...props}
-    />
+  BashCommand: ({ ...props }: React.ComponentPropsWithoutRef<typeof Bash>) => (
+    <span className={"text-sm font-bold text-foreground"} {...props} />
   ),
-  Tabs:({className, ...props}: React.ComponentPropsWithoutRef<typeof Tabs>) => (
+  Tabs: ({
+    className,
+    ...props
+  }: React.ComponentPropsWithoutRef<typeof Tabs>) => (
     <Tabs className={cn("w-full mt-4", className)} {...props} />
   ),
-  SelectPackageManager: () => (
-    <SelectPackageManager  />
-  ),
-  PackageManager: () => (
-    <PackageManager />
-  ),
+  SelectPackageManager: () => <SelectPackageManager />,
+  PackageManager: () => <PackageManager />,
   TabsList,
-  TabsTrigger : ({ className, ...props }) => (
-    <TabsTrigger
-      className={cn("text-base", className)}
-      {...props}
-    />
+  TabsTrigger: ({ className, ...props }) => (
+    <TabsTrigger className={cn("text-base", className)} {...props} />
   ),
   TabsContent: ({ className, ...props }) => (
-    <TabsContent
-      className={cn("mt-8", className)}
-      {...props}
-    />
+    <TabsContent className={cn("mt-8", className)} {...props} />
   ),
-
 };

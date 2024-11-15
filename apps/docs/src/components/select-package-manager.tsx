@@ -22,8 +22,9 @@ export default function SelectPackageManager(): JSX.Element {
           { label: "pnpm", value: "pnpm" },
           { label: "yarn", value: "yarn" },
         ]}
-      >{packageManager}
-    </Select>
+      >
+        {packageManager}
+      </Select>
     </div>
   );
 }

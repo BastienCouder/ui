@@ -13,14 +13,15 @@ type BashProps = {
 
 const Bash: React.FC<BashProps> = ({ children, className }) => {
   const [copied, setCopied] = React.useState(false);
-const {packageManager } = usePackageManager();
+  const { packageManager } = usePackageManager();
 
   const handleCopy = async () => {
     try {
-      const textToCopy = typeof children === "string" ? children : extractText(children);
+      const textToCopy =
+        typeof children === "string" ? children : extractText(children);
 
-        await navigator.clipboard.writeText(packageManager + ' ' + textToCopy);
-    
+      await navigator.clipboard.writeText(packageManager + " " + textToCopy);
+
       setCopied(true);
       setTimeout(() => {
         setCopied(false);
@@ -31,7 +32,9 @@ const {packageManager } = usePackageManager();
   };
 
   return (
-    <pre className={cn("relative bg-background border p-4 rounded-lg", className)}>
+    <pre
+      className={cn("relative bg-background border p-4 rounded-lg", className)}
+    >
       <Button
         variant="primary"
         shape="square"
@@ -45,7 +48,9 @@ const {packageManager } = usePackageManager();
           <Copy className="animate-in fade-in" />
         )}
       </Button>
-      <div className="text-sm text-foreground/60 flex items-center">{children}</div>
+      <div className="text-sm text-foreground/60 flex items-center">
+        {children}
+      </div>
     </pre>
   );
 };
@@ -58,6 +63,5 @@ const extractText = (node: string | React.ReactNode): string => {
     return extractText(node.props.children);
   return "";
 };
-
 
 export default Bash;

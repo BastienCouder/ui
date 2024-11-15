@@ -4,6 +4,7 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/registry/ui/react/button";
 import { Check, Copy } from "lucide-react";
+import { usePackageManager } from "@/context/package-manager";
 
 type BashProps = {
   children: string;
@@ -12,12 +13,13 @@ type BashProps = {
 
 const Bash: React.FC<BashProps> = ({ children, className }) => {
   const [copied, setCopied] = React.useState(false);
+const {packageManager } = usePackageManager();
 
   const handleCopy = async () => {
     try {
       const textToCopy = typeof children === "string" ? children : extractText(children);
 
-        await navigator.clipboard.writeText(textToCopy);
+        await navigator.clipboard.writeText(packageManager + ' ' + textToCopy);
     
       setCopied(true);
       setTimeout(() => {
@@ -43,7 +45,7 @@ const Bash: React.FC<BashProps> = ({ children, className }) => {
           <Copy className="animate-in fade-in" />
         )}
       </Button>
-      <div className="text-sm text-foreground/60">{children}</div>
+      <div className="text-sm text-foreground/60 flex items-center">{children}</div>
     </pre>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import NavLink from "next/link";
-import { InfoIcon } from "lucide-react";
+import { InfoIcon, Package } from "lucide-react";
 import { type MDXRemote } from "next-mdx-remote/rsc";
 import {
   ComponentPreview,
@@ -15,6 +15,8 @@ import { Tabs,TabsTrigger, TabsContent, TabsList } from "@/registry/ui/react/tab
 import Bash from "../component-bash";
 import Callout from "../callout";
 import { ComponentCode } from "../component-code";
+import SelectPackageManager from "../select-package-manager";
+import PackageManager from "../package-manager";
 
 export const Link = ({
   className,
@@ -97,7 +99,7 @@ export const components: React.ComponentPropsWithoutRef<
   p: ({ className, ...props }) => (
     <p
       className={cn(
-        "leading-7 [&:not(:first-child)]:mt-4",
+        "flex items-center leading-7 [&:not(:first-child)]:mt-4",
         className,
       )}
       {...props}
@@ -258,6 +260,12 @@ export const components: React.ComponentPropsWithoutRef<
   ),
   Tabs:({className, ...props}: React.ComponentPropsWithoutRef<typeof Tabs>) => (
     <Tabs className={cn("w-full mt-4", className)} {...props} />
+  ),
+  SelectPackageManager: () => (
+    <SelectPackageManager  />
+  ),
+  PackageManager: () => (
+    <PackageManager />
   ),
   TabsList,
   TabsTrigger : ({ className, ...props }) => (

@@ -11,6 +11,7 @@ import { DocsLogo } from "@/components/docs/doc-logo";
 import DocsLayout from "@/components/docs/doc-layout";
 import { ScrollArea } from "@/registry/ui/react/scroll-area";
 import { Breadcrumb, Breadcrumbs } from "@/registry/ui/react/breadcrumb";
+import { PackageManagerProvider } from "@/context/package-manager";
 
 interface PageProps {
   params: {
@@ -105,7 +106,9 @@ export default async function Page({ params }: PageProps): Promise<JSX.Element> 
               </div>
             )}
             <div className="text-sm md:text-base">
-              <Mdx source={rawContent} />
+              <PackageManagerProvider>
+                <Mdx source={rawContent} />
+              </PackageManagerProvider>
             </div>
           </div>
           {doc.toc.items && ( // doc.toc

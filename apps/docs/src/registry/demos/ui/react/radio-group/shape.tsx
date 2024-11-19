@@ -1,12 +1,9 @@
 "use client";
 
-import {
-  RadioGroup,
-  RadioGroupItem,
-} from "@/registry/ui/react/radio-group";
+import { RadioGroup, RadioGroupItem } from "@/registry/ui/react/radio-group";
 import { Label } from "@/registry/ui/react/label";
 
-export default function RadioGroupDemo() {
+export default function RadioGroupDemo(): JSX.Element {
   return (
     <RadioGroup defaultValue="circle">
       <div className="flex items-center space-x-2">

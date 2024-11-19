@@ -20,7 +20,7 @@ import {
   CommandInput,
 } from "@/registry/ui/react/command";
 
-export default function CommandDemo() {
+export default function CommandDemo(): JSX.Element {
   return (
     <Command className="rounded-lg border shadow-md">
       <CommandInput placeholder="Type a command or search..." />

@@ -1,6 +1,6 @@
 ---
 title: Tooltip
-description: A tooltip is a transient view that appears above other content on the screen when a user interacts with a control.
+description: A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.
 component: true
 ---
 
@@ -13,6 +13,23 @@ component: true
 
 ## Installation
 
+<Tabs defaultValue="cli">
+<TabsList>
+<TabsTrigger value="cli">
+CLI
+</TabsTrigger>
+<TabsTrigger value="manual">  
+Manual
+</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+<Bash>
+<BashCommand>npx</BashCommand> mbi add breadcrumb
+</Bash>
+</TabsContent>
+
+<TabsContent value="manual">
 <Steps>
   <Step>Copy and paste the following code into your project.</Step>
   <ComponentSource
@@ -21,6 +38,8 @@ component: true
   />
   <Step>Update the import paths to match your project setup.</Step>
 </Steps>
+</TabsContent>
+</Tabs>
 
 ## Options
 

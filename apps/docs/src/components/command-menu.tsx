@@ -4,10 +4,6 @@ import * as React from "react";
 import { useRouter } from "next/navigation";
 import {
   CircleIcon,
-  FileIcon,
-  LaptopIcon,
-  MoonIcon,
-  SunIcon,
   ChevronRightIcon,
   ChevronDownIcon,
 } from "@radix-ui/react-icons";
@@ -22,17 +18,21 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-  CommandSeparator,
 } from "@/registry/ui/react/command";
 import { docsConfig } from "@/config/docs-config";
 import type { Item, SubCategory } from "@/types/docs-nav";
 
 // Type guard to check if the object is of type Item
+// eslint-disable-next-line unused-imports/no-unused-vars
 function isItem(obj: Item | SubCategory): obj is Item {
   return (obj as Item).href !== undefined;
 }
 
-export function CommandMenu({ ...props }) {
+interface CommandMenuProps {
+  [key: string]: any;
+}
+
+export function CommandMenu({ ...props }: CommandMenuProps): JSX.Element {
   const router = useRouter();
   const [open, setOpen] = React.useState(false);
   const { setTheme } = useTheme();
@@ -80,7 +80,7 @@ export function CommandMenu({ ...props }) {
       <Button
         variant="outline"
         className={cn(
-          "bg-bg text-fg relative h-8 w-full justify-start rounded-lg text-sm font-normal shadow-none",
+          "bg-background text-foreground relative h-8 w-full justify-start rounded-lg text-sm font-normal shadow-none",
         )}
         onClick={() => setOpen(true)}
         {...props}

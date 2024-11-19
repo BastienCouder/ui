@@ -27,7 +27,6 @@ import {
   LogInIcon,
   UploadIcon,
   PaletteIcon,
-  Check,
   UsersIcon,
   PlaneIcon,
   CameraIcon,
@@ -53,7 +52,6 @@ import {
   CheckCheck,
   AlertTriangle,
 } from "lucide-react";
-import { Loader } from "react-feather";
 
 export {
   Loader2Icon as Loader2,
@@ -103,7 +101,7 @@ export {
   ALargeSmallIcon as ALargeSmall,
   Volume1Icon as Volume1,
   Volume2Icon as Volume2,
-  Loader as Loader,
+  Loader2Icon as Loader,
   ArrowUpDown as ArrowUpDown,
   MoreHorizontal as MoreHorizontal,
   AlertCircle as Warning,

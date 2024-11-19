@@ -1,6 +1,6 @@
 import { File, Folder, Tree } from "@/registry/ui/react/tree";
 
-export default function FileTreeDemo() {
+export default function FileTreeDemo(): JSX.Element {
   return (
     <div className="bg-background relative flex h-[300px] w-1/2 flex-col items-center justify-center overflow-hidden rounded-lg border md:shadow-xl">
       <Tree

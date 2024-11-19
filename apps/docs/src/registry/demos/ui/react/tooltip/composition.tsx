@@ -8,7 +8,7 @@ import {
   TooltipTrigger,
 } from "@/registry/ui/react/tooltip";
 
-export default function TooltipDemo() {
+export default function TooltipDemo(): JSX.Element {
   return (
     <Tooltip>
       <TooltipTrigger asChild>

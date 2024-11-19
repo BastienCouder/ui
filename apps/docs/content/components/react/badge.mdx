@@ -1,12 +1,32 @@
 ---
 title: Badge
 description: Displays a badge or a component that looks like a badge.
+component: true
 ---
 
-<ComponentPreview name="demos/ui/react/badge/default" />
+<ComponentPreview name="demos/ui/react/badge/default"
+preview={`<Badge>Badge</Badge>`}
+ />
 
 ## Installation
 
+<Tabs defaultValue="cli">
+<TabsList>
+<TabsTrigger value="cli">
+CLI
+</TabsTrigger>
+<TabsTrigger value="manual">  
+Manual
+</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+<Bash>
+<BashCommand>npx</BashCommand> mbi add badge
+</Bash>
+</TabsContent>
+
+<TabsContent value="manual">
 <Steps>
   <Step>Copy and paste the following code into your project.</Step>
   <ComponentSource
@@ -15,6 +35,8 @@ description: Displays a badge or a component that looks like a badge.
   />
   <Step>Update the import paths to match your project setup.</Step>
 </Steps>
+</TabsContent>
+</Tabs>
 
 ## Options
 
@@ -23,18 +45,16 @@ description: Displays a badge or a component that looks like a badge.
 Use the `variant` prop to control the visual style of the `Badge`. The default variant is `primary`.
 
 <ComponentPreview
-  name="demos/ui/react/badge/variants"
-  preview={`<Flex>
+  name="demos/ui/react/badge/variant"
+  preview={`
   <Badge variant="neutral">Neutral</Badge>
   <Badge variant="outline">Outline</Badge>
   <Badge variant="primary">Primary</Badge>
-</Flex>
-<Flex>
   <Badge variant="success">Success</Badge>
   <Badge variant="danger">Danger</Badge>
   <Badge variant="warning">Warning</Badge>
   <Badge variant="accent">Accent</Badge>
-</Flex>`}
+`}
 />
 
 ### Size
@@ -42,7 +62,7 @@ Use the `variant` prop to control the visual style of the `Badge`. The default v
 Use the `size` prop to control the size of the `Badge`. The default variant is `sm`.
 
 <ComponentPreview
-  name="demos/ui/react/badge/sizes"
+  name="demos/ui/react/badge/size"
   preview={`<Badge variant="primary" size="sm">
   Small
 </Badge>

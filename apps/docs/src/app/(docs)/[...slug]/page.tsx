@@ -7,14 +7,11 @@ import { Mdx } from "@/components/mdx/mdx-remote";
 import { Button } from "@/registry/ui/react/button";
 import { cn } from "@/lib/utils";
 import { getDocFromSlug, getDocs } from "@/server/docs";
-import { ThemeWrapper } from "@/components/theme-wrapper";
 import { DocsLogo } from "@/components/docs/doc-logo";
 import DocsLayout from "@/components/docs/doc-layout";
 import { ScrollArea } from "@/registry/ui/react/scroll-area";
-import {
-  Breadcrumb,
-  Breadcrumbs,
-} from "@/registry/ui/react/breadcrumb";
+import { Breadcrumb, Breadcrumbs } from "@/registry/ui/react/breadcrumb";
+import { PackageManagerProvider } from "@/context/package-manager";
 
 interface PageProps {
   params: {
@@ -42,27 +39,29 @@ export async function generateStaticParams(): Promise<PageProps["params"][]> {
   return allDocs.map((doc) => ({ slug: doc.href.split("/").slice(1) }));
 }
 
-export default async function Page({ params }: PageProps) {
+export default async function Page({
+  params,
+}: PageProps): Promise<JSX.Element> {
   const doc = await getDocFromSlug(params.slug);
 
   if (!doc) {
     notFound();
   }
 
-  const { rawContent, metadata, categories } = doc;
-  const themeColor = metadata.color || "react";
+  const { rawContent, metadata } = doc;
+  const themeClass = metadata.color || "react";
 
   return (
-    <ThemeWrapper metadataColor={themeColor}>
+    <main className={cn("h-full w-full", themeClass)}>
       <DocsLayout>
-        <main
+        <section
           className={cn("relative pb-20 lg:gap-10", {
             "xl:grid xl:grid-cols-[1fr_220px]": !!doc.toc.items,
           })}
         >
           <div className="mx-auto w-full min-w-0 pt-4 md:pt-6 space-y-2">
-            <div className="hidden md:block">
-              {metadata.breadcrumbs.length > 1 && (
+            <div className="block">
+              {metadata.breadcrumbs.length >= 1 && (
                 <Breadcrumbs>
                   {metadata.breadcrumbs.map((item, index) => (
                     <Breadcrumb
@@ -95,7 +94,7 @@ export default async function Page({ params }: PageProps) {
                     suffix={<ExternalLink />}
                     size="sm"
                     className="h-6 text-xs font-semibold [&_svg]:w-3 [&_svg]:h-3"
-                  // target="_blank"
+                    // target="_blank"
                   >
                     {link.label}
                   </Button>
@@ -103,7 +102,9 @@ export default async function Page({ params }: PageProps) {
               </div>
             )}
             <div className="text-sm md:text-base">
-              <Mdx source={rawContent} />
+              <PackageManagerProvider>
+                <Mdx source={rawContent} />
+              </PackageManagerProvider>
             </div>
           </div>
           {doc.toc.items && ( // doc.toc
@@ -117,8 +118,8 @@ export default async function Page({ params }: PageProps) {
               </div>
             </div>
           )}
-        </main>
+        </section>
       </DocsLayout>
-    </ThemeWrapper>
+    </main>
   );
 }

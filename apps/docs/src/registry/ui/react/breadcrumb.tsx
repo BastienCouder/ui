@@ -8,8 +8,8 @@ import { cn } from "@/lib/utils";
 const breadcrumbStyles = tv({
   variants: {
     variant: {
-      neutral: "text-fg hover:text-primary-hover",
-      active: "text-primary-active font-bold",
+      neutral: "text-foreground hover:text-primary",
+      active: "text-primary font-bold",
     },
     size: {
       sm: "text-sm [&_svg]:w-4 [&_svg]:h-4",
@@ -103,8 +103,6 @@ const BreadcrumbItem = React.forwardRef<HTMLLIElement, BreadcrumbProps>(
       isLast,
       separatorIcon,
       orientation = "horizontal",
-      size,
-      variant,
       children,
       ...props
     },
@@ -172,7 +170,7 @@ const BreadcrumbLink = React.forwardRef<
             href && !disabled
               ? "transition-colors hover:text-foreground"
               : "font-normal text-foreground"
-          } ${disabled ? "pointer-events-none text-disabled-fg" : ""}`,
+          } ${disabled ? "pointer-events-none text-disabled-foreground" : ""}`,
           itemClasses,
           className,
         )}
@@ -226,7 +224,7 @@ const Breadcrumb = React.forwardRef<HTMLLIElement, BreadcrumbProps>(
               href && !disabled
                 ? "transition-colors hover:text-foreground"
                 : "font-normal text-foreground"
-            } ${disabled ? "pointer-events-none text-disabled-fg" : ""}`,
+            } ${disabled ? "pointer-events-none text-disabled-foreground" : ""}`,
             itemClasses,
             itemClassName,
           )}

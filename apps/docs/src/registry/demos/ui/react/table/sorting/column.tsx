@@ -1,6 +1,6 @@
 "use client";
 
-import { ColumnDef } from "@tanstack/react-table";
+import { ColumnDef, Column } from "@tanstack/react-table";
 import { ArrowUpDown } from "@/lib/icons";
 import { Payment } from "../basic/column";
 import { Button } from "@/registry/ui/react/button";
@@ -8,7 +8,7 @@ import { Button } from "@/registry/ui/react/button";
 export const columns: ColumnDef<Payment>[] = [
   {
     accessorKey: "email",
-    header: ({ column }) => {
+    header: ({ column }: { column: Column<Payment, unknown> }): JSX.Element => {
       return (
         <Button
           variant="quiet"

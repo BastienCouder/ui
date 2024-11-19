@@ -134,6 +134,7 @@ const Tree = forwardRef<HTMLDivElement, TreeViewProps>(
       if (initialSelectedId) {
         expandSpecificTargetedElements(elements, initialSelectedId);
       }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [initialSelectedId, elements]);
 
     const direction = dir === "rtl" ? "rtl" : "ltr";
@@ -152,7 +153,7 @@ const Tree = forwardRef<HTMLDivElement, TreeViewProps>(
           direction,
         }}
       >
-        <div className={cn("size-full", className)}>
+        <div className={cn("w-full h-full", className)}>
           <ScrollArea
             ref={ref}
             className="relative h-full px-2"
@@ -259,8 +260,8 @@ const Folder = forwardRef<
           onClick={() => handleExpand(value)}
         >
           {expandedItems?.includes(value)
-            ? (openIcon ?? <FolderOpenIcon className="size-4" />)
-            : (closeIcon ?? <FolderIcon className="size-4" />)}
+            ? (openIcon ?? <FolderOpenIcon className="w-5 h-5" />)
+            : (closeIcon ?? <FolderIcon className="w-5 h-5" />)}
           <span>{element}</span>
         </AccordionPrimitive.Trigger>
         <AccordionPrimitive.Content className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down relative h-full overflow-hidden text-sm">
@@ -323,14 +324,14 @@ const File = forwardRef<
           className={cn(
             "flex cursor-pointer items-center gap-1 rounded-md pr-1 text-sm duration-200 ease-in-out  rtl:pl-1 rtl:pr-0",
             {
-              "bg-muted": isSelected && isSelectable,
+              "bg-background": isSelected && isSelectable,
             },
             isSelectable ? "cursor-pointer" : "cursor-not-allowed opacity-50",
             className,
           )}
           onClick={() => selectItem(value)}
         >
-          {fileIcon ?? <FileIcon className="size-4" />}
+          {fileIcon ?? <FileIcon className="w-4 h-4" />}
           {children}
         </AccordionPrimitive.Trigger>
       </AccordionPrimitive.Item>
@@ -371,6 +372,7 @@ const CollapseButton = forwardRef<
     if (expandAll) {
       expendAllTree(elements);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [expandAll]);
 
   return (

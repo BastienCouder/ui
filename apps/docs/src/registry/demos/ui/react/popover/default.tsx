@@ -5,7 +5,7 @@ import { Button } from "@/registry/ui/react/button";
 import { TextField } from "@/registry/ui/react/text-field";
 import { Popover } from "@/registry/ui/react/popover";
 
-export default function PopoverDemo() {
+export default function PopoverDemo(): JSX.Element {
   const Content = () => (
     <div className="grid gap-4">
       <div className="space-y-2">

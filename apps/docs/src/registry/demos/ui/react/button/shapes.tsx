@@ -1,7 +1,7 @@
 import { Button } from "@/registry/ui/react/button";
 import { Upload } from "@/lib/icons";
 
-export default function ButtonDemo() {
+export default function ButtonDemo(): JSX.Element {
   return (
     <div className="flex items-center justify-center gap-4">
       <Button size="sm" shape="square" aria-label="upload">

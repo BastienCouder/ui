@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { columns, Payment } from "./column";
 import { DataTable } from "./data-table";
@@ -17,7 +15,7 @@ async function getData(): Promise<Payment[]> {
   ];
 }
 
-export default async function DemoPage() {
+export default async function DemoPage(): Promise<JSX.Element> {
   const data = await getData();
 
   return (

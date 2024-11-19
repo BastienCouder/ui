@@ -5,13 +5,10 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogCancel,
-  AlertDialogAction,
 } from "@/registry/ui/react/alert-dialog";
 import { Button } from "@/registry/ui/react/button";
 
-export default function AlertDialogDemo() {
+export default function AlertDialogDemo(): JSX.Element {
   const Content = () => (
     <>
       <AlertDialogHeader>

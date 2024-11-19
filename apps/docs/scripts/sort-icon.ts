@@ -44,7 +44,6 @@ const sortedContent = `
 import {
   ${imports.join(",\n  ")}
 } from "lucide-react";
-import { Loader } from "react-feather";
 
 export {
   ${exports.join(",\n  ")}

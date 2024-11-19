@@ -1,6 +1,6 @@
 import React from "react";
 
-export function useMounted() {
+export function useMounted(): boolean {
   const [isMounted, setIsMounted] = React.useState(false);
 
   React.useEffect(() => {

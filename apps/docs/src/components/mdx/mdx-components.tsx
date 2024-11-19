@@ -1,6 +1,6 @@
 import React from "react";
 import NavLink from "next/link";
-import { InfoIcon } from "lucide-react";
+import { InfoIcon, Package } from "lucide-react";
 import { type MDXRemote } from "next-mdx-remote/rsc";
 import {
   ComponentPreview,
@@ -11,6 +11,17 @@ import { DocsList, type DocsListProps } from "@/components/docs/docs-list";
 import { slugify } from "@/utils/string";
 import { cn } from "@/lib/utils";
 import { Code } from "../code";
+import {
+  Tabs,
+  TabsTrigger,
+  TabsContent,
+  TabsList,
+} from "@/registry/ui/react/tabs";
+import Bash from "../component-bash";
+import Callout from "../callout";
+import { ComponentCode } from "../component-code";
+import SelectPackageManager from "../select-package-manager";
+import PackageManager from "../package-manager";
 
 export const Link = ({
   className,
@@ -18,7 +29,7 @@ export const Link = ({
   ref: _,
   children,
   ...props
-}: React.ComponentProps<"a">) => {
+}: React.ComponentProps<"a">): JSX.Element => {
   const classes = cn("font-medium underline underline-offset-4", className);
 
   if (href?.startsWith("/")) {
@@ -93,7 +104,7 @@ export const components: React.ComponentPropsWithoutRef<
   p: ({ className, ...props }) => (
     <p
       className={cn(
-        "text-base leading-7 [&:not(:first-child)]:mt-4",
+        "flex items-center leading-7 [&:not(:first-child)]:mt-4",
         className,
       )}
       {...props}
@@ -111,7 +122,7 @@ export const components: React.ComponentPropsWithoutRef<
   blockquote: ({ className, ...props }) => (
     <blockquote
       className={cn(
-        "mt-6 border-l-2 pl-6 italic [&>*]:text-fg-muted",
+        "mt-6 border-l-2 pl-6 italic [&>*]:text-muted-foreground",
         className,
       )}
       {...props}
@@ -191,6 +202,9 @@ export const components: React.ComponentPropsWithoutRef<
       {...props}
     />
   ),
+  ComponentCode: (props) => (
+    <ComponentCode className="w-full [&:not(:first-child)]:mt-4" {...props} />
+  ),
   DocsList: (props: DocsListProps) => (
     <DocsList
       {...props}
@@ -225,5 +239,36 @@ export const components: React.ComponentPropsWithoutRef<
       )}
       {...props}
     />
+  ),
+  Callout: ({
+    type: _type = "info",
+    className,
+    ...props
+  }: React.ComponentPropsWithoutRef<typeof Callout>) => (
+    <Callout type={_type} className={cn("w-full", className)} {...props} />
+  ),
+  Bash: ({
+    className,
+    ...props
+  }: React.ComponentPropsWithoutRef<typeof Bash>) => (
+    <Bash className={cn("w-full", className)} {...props} />
+  ),
+  BashCommand: ({ ...props }: React.ComponentPropsWithoutRef<typeof Bash>) => (
+    <span className={"text-sm font-bold text-foreground"} {...props} />
+  ),
+  Tabs: ({
+    className,
+    ...props
+  }: React.ComponentPropsWithoutRef<typeof Tabs>) => (
+    <Tabs className={cn("w-full mt-4", className)} {...props} />
+  ),
+  SelectPackageManager: () => <SelectPackageManager />,
+  PackageManager: () => <PackageManager />,
+  TabsList,
+  TabsTrigger: ({ className, ...props }) => (
+    <TabsTrigger className={cn("text-base", className)} {...props} />
+  ),
+  TabsContent: ({ className, ...props }) => (
+    <TabsContent className={cn("mt-8", className)} {...props} />
   ),
 };

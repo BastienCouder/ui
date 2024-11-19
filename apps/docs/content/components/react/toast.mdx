@@ -1,6 +1,6 @@
 ---
 title: Toast
-description: Toasts are used to display messages to the user in a non-intrusive way.
+description: A succinct message that is displayed temporarily.
 component: true
 ---
 
@@ -24,20 +24,41 @@ component: true
 
 ## Installation
 
-<Steps>
-<Step>Install the following dependencies:</Step>
+<Tabs defaultValue="cli">
+<TabsList>
+<TabsTrigger value="cli">
+CLI
+</TabsTrigger>
+<TabsTrigger value="manual">  
+Manual
+</TabsTrigger>
+</TabsList>
 
-```bash
-npm install @radix-ui/react-toast
-```
+<TabsContent value="cli">
+<Bash>
+<BashCommand>npx</BashCommand> mbi add breadcrumb
+</Bash>
+</TabsContent>
+
+<TabsContent value="manual">
+<Steps>
+<Step className='flex items-center gap-2 mb-2'>Install the following dependencies:<SelectPackageManager/></Step>
+
+<Bash>
+<PackageManager/> @radix-ui/react-toast
+</Bash>
+
   <Step>Copy and paste the following code into your project.</Step>
   <ComponentSource name={["ui/react/toast","ui/react/toaster","ui/react/use-toast" ]} extension={["tsx","tsx","tsx"]} />
   <Step>Update the import paths to match your project setup.</Step>
   <Step>Add the Toaster component</Step>
 </Steps>
+</TabsContent>
+</Tabs>
 
-```tsx
-import { Toaster } from "@/lib/components/react/overlay/toaster";
+<ComponentCode
+language="tsx"
+preview={`import { Toaster } from "@/lib/components/react/overlay/toaster";
 
 import { ReactNode } from "react";
 
@@ -54,8 +75,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
             </body>
         </html>
     )
-}
-```
+}`}
+/>
 
 ## Options
 

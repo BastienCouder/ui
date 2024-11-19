@@ -1,0 +1,92 @@
+---
+title: Tour
+description: An overlay that outlines provided refs for touring an application.
+component: true
+---
+
+<ComponentPreview
+  name="demos/ui/react/tour/default"
+  preview={` <div className="flex h-96 w-full items-center justify-center">
+         <div className="absolute bottom-2 left-2 flex gap-2">
+            <tour.TourFocus
+               name="buttonOne"
+               tourRender={(
+                  <TourDisplay title="Create Incident">
+                     <h1>This button creates an incident</h1>
+                     <p>helpful text about this button</p>
+                  </TourDisplay>
+               )}
+            >
+               <Button>Create Incident</Button>
+            </tour.TourFocus>
+            <tour.TourFocus
+               name="buttonFour"
+               tourRender={(
+                  <TourDisplay title="Update Incident">
+                     <h1>This button pushes your updates</h1>
+                     <p>helpful text about this button</p>
+                  </TourDisplay>
+               )}
+            >
+               <Button>Update Incident</Button>
+            </tour.TourFocus>
+         </div>
+         <div className="absolute right-2 top-12 flex gap-2">
+            <tour.TourFocus
+               name="buttonTwo"
+               tourRender={(
+                  <TourDisplay title="Resolve Incident">
+                     <h1>This button Resolves the Incident</h1>
+                     <p>helpful text about this button</p>
+                  </TourDisplay>
+               )}
+            >
+               <Button>Resolve Incident</Button>
+            </tour.TourFocus>
+         </div>
+         <div>
+            <tour.TourFocus
+               name="emailInput"
+               tourRender={(
+                  <TourDisplay title="Email Input">
+                     <h1>This is where you put incident info</h1>
+                     <p>helpful text about this input</p>
+                  </TourDisplay>
+               )}
+            >
+               <TextField type="email" placeholder="Email" />
+            </tour.TourFocus>
+         </div>
+         <div className="absolute bottom-2 right-2">
+            <Button onClick={ctx.open}>Open Tour</Button>
+         </div>
+      </div>`}
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+<TabsList>
+<TabsTrigger value="cli">
+CLI
+</TabsTrigger>
+<TabsTrigger value="manual">  
+Manual
+</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+<Bash>
+<BashCommand>npx</BashCommand> mbi add breadcrumb
+</Bash>
+</TabsContent>
+
+<TabsContent value="manual">
+<Steps>
+  <Step>Copy and paste the following code into your project.</Step>
+  <ComponentSource name={["ui/react/tour"]} extension={["tsx"]} />
+  <Step>Update the import paths to match your project setup.</Step>
+</Steps>
+</TabsContent>
+</Tabs>
+

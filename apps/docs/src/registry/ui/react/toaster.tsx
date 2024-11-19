@@ -10,7 +10,7 @@ import {
   ToastViewport,
 } from "@/registry/ui/react/toast";
 
-export function Toaster() {
+export function Toaster(): JSX.Element {
   const { toasts } = useToast();
 
   return (

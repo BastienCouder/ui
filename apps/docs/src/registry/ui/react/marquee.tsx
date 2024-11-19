@@ -20,7 +20,7 @@ export function Marquee({
   vertical = false,
   repeat = 4,
   ...props
-}: MarqueeProps) {
+}: MarqueeProps): JSX.Element {
   return (
     <div
       {...props}

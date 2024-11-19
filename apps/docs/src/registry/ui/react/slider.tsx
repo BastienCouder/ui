@@ -59,6 +59,7 @@ const Slider = React.forwardRef<
               ? defaultValue
               : [min, max],
         );
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [min, max, value]);
 
     const handleValueChange = (newValues: number[]) => {
@@ -128,7 +129,7 @@ const Slider = React.forwardRef<
                       "w-0.5 h-2": orientation !== "vertical",
                       "w-2 h-0.5": orientation === "vertical",
                     },
-                    "bg-fg absolute",
+                    "bg-foreground absolute",
                     {
                       "left-1":
                         orientation === "vertical" && showSteps === "half",
@@ -154,7 +155,7 @@ const Slider = React.forwardRef<
           <SliderPrimitive.Thumb
             key={index}
             className={cn(
-              "border-primary bg-bg focus-visible:ring-ring block size-4 rounded-full border shadow transition-colors focus-visible:outline-none focus-visible:ring-1",
+              "border-primary bg-background focus-visible:ring-ring block size-4 rounded-full border shadow transition-colors focus-visible:outline-none focus-visible:ring-1",
             )}
           >
             {hoveredThumbIndex && formatLabel && (

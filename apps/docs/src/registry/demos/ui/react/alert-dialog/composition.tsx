@@ -13,7 +13,7 @@ import {
 } from "@/registry/ui/react/alert-dialog";
 import { Button } from "@/registry/ui/react/button";
 
-export default function AlertDialogDemo() {
+export default function AlertDialogDemo(): JSX.Element {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>

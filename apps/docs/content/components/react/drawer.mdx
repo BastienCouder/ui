@@ -1,6 +1,6 @@
 ---
 title: Drawer
-description: A drawer is a transient view that slides in from the side of the screen when a user interacts with a control.
+description: A transient view that slides in from the side of the screen when a user interacts with a control.
 component: true
 ---
 
@@ -76,16 +76,35 @@ component: true
 
 ## Installation
 
-<Steps>
-<Step>Install the following dependencies:</Step>
+<Tabs defaultValue="cli">
+<TabsList>
+<TabsTrigger value="cli">
+CLI
+</TabsTrigger>
+<TabsTrigger value="manual">  
+Manual
+</TabsTrigger>
+</TabsList>
 
-```bash
-npm install vaul
-```
+<TabsContent value="cli">
+<Bash>
+<BashCommand>npx</BashCommand> mbi add breadcrumb
+</Bash>
+</TabsContent>
+
+<TabsContent value="manual">
+<Steps>
+<Step className='flex items-center gap-2 mb-2'>Install the following dependencies:<SelectPackageManager/></Step>
+
+<Bash>
+<PackageManager/> vaul
+</Bash>
 
   <Step>Copy and paste the following code into your project.</Step>
   <ComponentSource name={["ui/react/drawer"]} extension={["tsx"]} />
   <Step>Update the import paths to match your project setup.</Step>
 </Steps>
+</TabsContent>
+</Tabs>
 
 in progress...

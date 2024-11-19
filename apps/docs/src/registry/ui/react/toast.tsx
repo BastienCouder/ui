@@ -29,10 +29,10 @@ const toastVariants = cva(
   {
     variants: {
       variant: {
-        default: "border bg-bg text-fg",
-        primary: "border-primary bg-primary text-primary-fg",
-        secondary: "border-secondary bg-secondary text-secondary-fg",
-        danger: "danger group border-danger bg-danger text-danger-fg",
+        default: "border bg-background text-foreground",
+        primary: "border-primary bg-primary text-primary-foreground",
+        secondary: "border-secondary bg-secondary text-secondary-foreground",
+        danger: "danger group border-danger bg-danger text-danger-foreground",
       },
     },
     defaultVariants: {
@@ -73,11 +73,13 @@ const toastActionVariants = cva(
     variants: {
       variant: {
         default:
-          "border bg-transparent text-fg hover:bg-neutral/40 hover:text-fg",
+          "border bg-transparent text-foreground hover:bg-neutral/40 hover:text-foreground",
         primary:
           "border-secondary text-secondary hover:bg-secondary hover:text-primary",
-        danger: "border-fg text-fg hover:bg-fg hover:text-danger",
-        secondary: "border-fg text-fg hover:bg-fg hover:text-secondary",
+        danger:
+          "border-foreground text-foreground hover:bg-foreground hover:text-danger",
+        secondary:
+          "border-foreground text-foreground hover:bg-foreground hover:text-secondary",
       },
     },
     defaultVariants: {
@@ -106,7 +108,7 @@ const ToastClose = React.forwardRef<
   <ToastPrimitives.Close
     ref={ref}
     className={cn(
-      "absolute right-1 top-1 rounded-md p-1 text-fg/50 opacity-0 transition-opacity hover:text-fg focus:opacity-100 focus:outline-none focus:ring-1 group-hover:opacity-100 group-[.danger]:text-red-300 group-[.danger]:hover:text-red-50 group-[.danger]:focus:ring-red-400 group-[.danger]:focus:ring-offset-red-600",
+      "absolute right-1 top-1 rounded-md p-1 text-foreground/50 opacity-0 transition-opacity hover:text-foreground focus:opacity-100 focus:outline-none focus:ring-1 group-hover:opacity-100 group-[.danger]:text-red-300 group-[.danger]:hover:text-red-50 group-[.danger]:focus:ring-red-400 group-[.danger]:focus:ring-offset-red-600",
       className,
     )}
     toast-close=""

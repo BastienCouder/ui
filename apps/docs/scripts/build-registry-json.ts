@@ -22,13 +22,13 @@ const extractFrontMatterManually = (fileContent: string) => {
 
     // Find the line containing registryDependencies
     const registryDependenciesLine = lines.find((line) =>
-      line.trim().startsWith("registryDependencies:")
+      line.trim().startsWith("registryDependencies:"),
     );
 
     if (registryDependenciesLine) {
       // Extract the value from the line (e.g., 'button - label')
       const dependenciesMatch = /registryDependencies:\s*['"](.*?)['"]/.exec(
-        registryDependenciesLine
+        registryDependenciesLine,
       );
 
       if (dependenciesMatch && dependenciesMatch[1]) {
@@ -49,7 +49,7 @@ const extractFrontMatterManually = (fileContent: string) => {
 const parseComponentSource = (fileContent: string) => {
   const componentSourceMatch =
     /<ComponentSource\s+name=\{(\[.*?\])\}\s+extension=\{(\[.*?\])\}/.exec(
-      fileContent
+      fileContent,
     );
 
   if (componentSourceMatch && componentSourceMatch[1]) {
@@ -69,7 +69,7 @@ const parseComponentSource = (fileContent: string) => {
 // Helper function to extract dependencies from <Steps> and registryDependencies from front matter
 const parseDependencies = (fileContent: string) => {
   const installCommandMatch = /```bash\r?\nnpm install (.*?)\r?\n```/.exec(
-    fileContent
+    fileContent,
   );
 
   const dependencies =
@@ -93,7 +93,7 @@ const updateOrCreateIndexFile = (registryPath: string, componentInfo: any) => {
     existingData = JSON.parse(existingFileContent);
 
     const existingEntryIndex = existingData.findIndex(
-      (item) => item.name === componentInfo.name
+      (item) => item.name === componentInfo.name,
     );
     if (existingEntryIndex !== -1) {
       existingData[existingEntryIndex] = componentInfo;
@@ -196,7 +196,7 @@ const createRegistry = () => {
   generateRegistryData(COMPONENTS_BASE_PATH, REGISTRY_BASE_PATH);
 
   console.log(
-    "\x1b[32m✓\x1b[0m Generated index.json files with registryDependencies (if any)."
+    "\x1b[32m✓\x1b[0m Generated index.json files with registryDependencies (if any).",
   );
 };
 

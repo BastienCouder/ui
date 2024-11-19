@@ -6,96 +6,30 @@
   :root {
     --gradient: #707070;
     --radius: 0.5rem;
-  }
-
-  /* Thème clair */
-  .light {
-    --bg: 240 10% 3.9%;
-    --fg: 0 0% 98%;
-    --neutral: 240 5.9% 10%;
-    --neutral-hover: 240 5.9% 30%;
-    --neutral-active: 240 5.9% 30%;
-    --neutral-fg: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-fg: 240 5% 64.9%;
-    --popover: 240 10% 3.9%;
-    --popover-fg: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-fg: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --primary: 0 0% 98%;
-    --primary-hover: 0 0% 98%;
-    --primary-active: 0 0% 98%;
-    --primary-fg: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-hover: 240 3.7% 15.9%;
-    --secondary-active: 240 3.7% 15.9%;
-    --secondary-fg: 0 0% 98%;
-    --accent: 240 3.7% 15.9%;
-    --accent-hover: 240 3.7% 15.9%;
-    --accent-active: 240 3.7% 15.9%;
-    --accent-fg: 0 0% 98%;
-    --success: 168 76% 36%;
-    --success-hover: 168 76% 36%;
-    --success-active: 168 76% 36%;
-    --success-fg: 0 0% 98%;
-    --warning: 32 82% 56%;
-    --warning-hover: 32 82% 56%;
-    --warning-active: 32 82% 56%;
-    --warning-fg: 0 0% 98%;
-    --danger: 0 84.2% 60.2%;
-    --danger-hover: 0 84.2% 60.2%;
-    --danger-active: 0 84.2% 60.2%;
-    --danger-fg: 0 0% 98%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-    --ring: 240 4.9% 83.9%;
-  }
-
-  /* Thème sombre */
-  .dark {
-    --bg: 0, 0%, 2%;
-    --fg: 240 10% 98%;
+    --background: 0, 0%, 2%;
+    --foreground: 240 10% 98%;
     --neutral: 0 0% 20%;
-    --neutral-hover: 0 0% 40%;
-    --neutral-active: 0 0% 40%;
-    --neutral-fg: 240 10% 90%;
+    --neutral-foreground: 240 10% 90%;
     --muted: 0 0% 30%;
-    --muted-fg: 240 5% 70%;
+    --muted-foreground: 240 5% 70%;
     --popover: 0, 0%, 2%;
-    --popover-fg: 240 10% 90%;
+    --popover-foreground: 240 10% 90%;
     --card: 0, 0%, 2%;
-    --card-fg: 240 10% 90%;
+    --card-foreground: 240 10% 90%;
     --border: 0 0% 30%;
     --input: 0 0% 30%;
     --primary: 240 10% 90%;
-    --primary-hover: 240 10% 90%;
-    --primary-active: 240 10% 90%;
-    --primary-fg: 0 0% 20%;
+    --primary-foreground: 0 0% 20%;
     --secondary: 0 0% 30%;
-    --secondary-hover: 0 0% 30%;
-    --secondary-active: 0 0% 30%;
-    --secondary-fg: 240 10% 90%;
+    --secondary-foreground: 240 10% 90%;
     --accent: 0 0% 30%;
-    --accent-hover: 0 0% 30%;
-    --accent-active: 0 0% 30%;
-    --accent-fg: 240 10% 90%;
+    --accent-foreground: 240 10% 90%;
     --success: 145, 63%, 40%;
-    --success-hover: 145, 63%, 40%;
-    --success-active: 145, 63%, 40%;
-    --success-fg: 240 10% 90%;
+    --success-foreground: 240 10% 90%;
     --warning: 37, 90%, 51%;
-    --warning-hover: 37, 90%, 51%;
-    --warning-active: 37, 90%, 51%;
-    --warning-fg: 240 10% 90%;
-    --danger: 0 84.2% 60.2%;
-    --danger-hover: 0 84.2% 60.2%;
-    --danger-active: 0 84.2% 60.2%;
-    --danger-fg: 240 10% 90%;
+    --warning-foreground: 240 10% 90%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 240 10% 90%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
@@ -103,138 +37,100 @@
     --chart-5: 340 75% 55%;
     --ring: 0 0% 90%;
   }
-
   /* Thème React */
   .react {
-    --bg: 0, 0%, 2%;
-    --fg: 0 0% 80%;
-    --border: 215, 15%, 16%;
-    --input: 0 0% 30%;
+    --background: 0, 0%, 2%;
+    --foreground: 208 9.8% 97.7%;
     --neutral: 0 0% 30%;
-    --neutral-hover:  0 0% 30%;
-    --neutral-active:  0 0% 30%;
-    --neutral-fg: 240 10% 98%;
-    --muted: 191, 66%, 61%;
-    --muted-fg:0 0% 40%;
-    --popover: 215, 15%, 16%;
-    --popover-fg: 191, 66%, 61%;
-    --card: 215, 15%, 16%;
-    --card-fg: 191, 66%, 61%;
-    --primary: 191, 66%, 61%;
-    --primary-hover: 191, 66%, 61%;
-    --primary-active: 191, 66%, 61%;
-    --primary-fg:215, 15%, 16%;
-    --secondary:215, 15%, 16%;
-    --secondary-hover:215, 15%, 16%;
-    --secondary-active:215, 15%, 16%;
-    --secondary-fg: 240 10% 98%;
-    --accent: 0 0% 30%;
-    --accent-hover: 0 0% 30%;
-    --accent-active: 0 0% 30%;
-    --accent-fg: 240 10% 90%;
-    --success: 145, 63%, 40%;
-    --success-hover: 145, 63%, 40%;
-    --success-active: 145, 63%, 40%;
-    --success-fg: 240 10% 90%;
+    --neutral-forground: 240 10% 98%;
+    --card: 208 45.4% 7.0200000000000005%;
+    --card-foreground: 208 9.8% 97.7%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 196, 98%, 54%;
+    --primary-foreground: 208 9.8% 5.4%;
+    --secondary: 208 49% 16.200000000000003%;
+    --secondary-foreground: 208 9.8% 97.7%;
+    --muted: 196, 98%, 54%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 208 49% 16.200000000000003%;
+    --accent-foreground: 208 9.8% 97.7%;
+    --destructive: 345, 100%, 38%;
+    --destructive-foreground: 240 10% 90%;
     --warning: 44, 99%, 50%;
-    --warning-hover: 38, 76%, 50%;
-    --warning-active: 38, 76%, 50%;
-    --warning-fg:0, 0%, 2%;
-    --danger:  345, 100%, 38%;
-    --danger-hover:0, 96%, 31%;
-    --danger-active: 0, 96%, 31%;
-    --danger-fg: 240 10% 90%;
-    --ring: 215, 15%, 16%;
+    --warning-foreground: 0, 0%, 2%;
+    --success: 145, 63%, 40%;
+    --success-foreground: 240 10% 90%;
+    --border: 208 49% 16.200000000000003%;
+    --input: 208 49% 16.200000000000003%;
+    --ring: 208 98% 54%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
   }
 
   /* Thème Angular */
   .angular {
-    --bg: 0, 0%, 2%;
-    --fg:240 10% 98%;
-    --border: 240 10% 98%;
-    --input: 0 0% 30%;
+    --background: 0, 0%, 2%;
+    --foreground:0 10% 97.3%;
     --neutral:359, 59%, 45%;
-    --neutral-hover: 359, 59%, 45%;
-    --neutral-active: 359, 59%, 45%;
-    --neutral-fg: 0, 0%, 2%;
+    --neutral-foreground: 0, 0%, 2%;
     --muted: 359, 59%, 45%;
-    --muted-fg:240 10% 98%;
-    --popover: 0, 0%, 2%;
-    --popover-fg:359, 59%, 45%;
-    --card: 0, 0%, 2%;
-    --card-fg:359, 59%, 45%;
-    --primary: 359, 59%, 45%;
-    --primary-hover: 359, 59%, 45%;
-    --primary-active: 359, 59%, 45%;
-    --primary-fg: 0, 0%, 2%;
-    --secondary:240 10% 98%;
-    --secondary-hover:240 10% 98%;
-    --secondary-active:240 10% 98%;
-    --secondary-fg: 240 10% 90%;
-    --accent: 0 0% 30%;
-    --accent-hover: 0 0% 30%;
-    --accent-active: 0 0% 30%;
-    --accent-fg: 240 10% 90%;
+    --muted-foreground:0 10% 54.6%;
+    --popover: 0 45% 5.98%;
+    --popover-foreground:0 10% 97.3%;
+    --card: 0 45% 5.98%;
+    --card-foreground:0 10% 97.3%;
+    --primary: 0 100% 46%;
+    --primary-foreground: 0 10% 4.6000000000000005%;
+    --secondary:0 50% 13.8%;
+    --secondary-foreground:  0 10% 97.3%;
+    --accent: 0 50% 13.8%;
+    --accent-foreground: 240 10% 90%;
     --success: 145, 63%, 40%;
-    --success-hover: 145, 63%, 40%;
-    --success-active: 145, 63%, 40%;
-    --success-fg: 240 10% 90%;
+    --success-foreground: 240 10% 90%;
     --warning: 44, 99%, 50%;
-    --warning-hover: 38, 76%, 50%;
-    --warning-active: 38, 76%, 50%;
-    --warning-fg:0, 0%, 2%;
-    --danger:  345, 100%, 38%;
-    --danger-hover:0, 96%, 31%;
-    --danger-active: 0, 96%, 31%;
-    --danger-fg: 240 10% 90%;
+    --warning-foreground:0, 0%, 2%;
+    --destructive:  345, 100%, 38%;
+    --destructive-foreground: 240 10% 90%;
+    --border: 0 50% 13.8%;
+    --input: 0 50% 13.8%;
     --ring: 240 10% 98%;
-    /* autres variables spécifiques à Angular */
   }
 
   /* Thème Vue */
   .vue {
-    --bg: 0, 0%, 2%;
-    --fg:240 10% 98%;
+    --background: 0, 0%, 2%;
+    --foreground:240 10% 98%;
+    --neutral: 0 0% 30%;
+    --neutral-foreground: 240 10% 98%;
+    --muted: 153, 48%, 49%;
+    --muted-foreground:210, 29%, 29%;
+    --popover: 0, 0%, 2%;
+    --popover-foreground: 153, 48%, 49%;
+    --card: 0, 0%, 2%;
+    --card-foreground: 153, 48%, 49%;
+    --primary: 153, 48%, 49%;
+    --primary-foreground:210, 29%, 29%;
+    --secondary:210, 29%, 29%;
+    --secondary-foreground: 240 10% 90%;
+    --accent: 0 0% 30%;
+    --accent-foreground: 240 10% 90%;
+    --success: 145, 63%, 40%;
+    --success-foreground: 240 10% 90%;
+    --warning: 44, 99%, 50%;
+    --warning-foreground:0, 0%, 2%;
+    --destructive:  345, 100%, 38%;
+    --destructive-foreground: 240 10% 90%;
     --border: 210, 29%, 29%;
     --input: 0 0% 30%;
-    --neutral: 0 0% 30%;
-    --neutral-hover:  0 0% 30%;
-    --neutral-active:  0 0% 30%;
-    --neutral-fg: 240 10% 98%;
-    --muted: 153, 48%, 49%;
-    --muted-fg:210, 29%, 29%;
-    --popover: 0, 0%, 2%;
-    --popover-fg: 153, 48%, 49%;
-    --card: 0, 0%, 2%;
-    --card-fg: 153, 48%, 49%;
-    --primary: 153, 48%, 49%;
-    --primary-hover: 153, 48%, 49%;
-    --primary-active: 153, 48%, 49%;
-    --primary-fg:210, 29%, 29%;
-    --secondary:210, 29%, 29%;
-    --secondary-hover:210, 29%, 29%;
-    --secondary-active:210, 29%, 29%;
-    --secondary-fg: 240 10% 90%;
-    --accent: 0 0% 30%;
-    --accent-hover: 0 0% 30%;
-    --accent-active: 0 0% 30%;
-    --accent-fg: 240 10% 90%;
-    --success: 145, 63%, 40%;
-    --success-hover: 145, 63%, 40%;
-    --success-active: 145, 63%, 40%;
-    --success-fg: 240 10% 90%;
-    --warning: 44, 99%, 50%;
-    --warning-hover: 38, 76%, 50%;
-    --warning-active: 38, 76%, 50%;
-    --warning-fg:0, 0%, 2%;
-    --danger:  345, 100%, 38%;
-    --danger-hover:0, 96%, 31%;
-    --danger-active: 0, 96%, 31%;
-    --danger-fg: 240 10% 90%;
     --ring: 210, 29%, 29%;
-    /* autres variables spécifiques à Vue */
-  }
 }
+}
+
 
 @layer base {
   * {
@@ -242,9 +138,6 @@
   }
   html {
     @apply scroll-smooth;
-  }
-  body {
-    @apply bg-bg text-fg;
   }
 }
 
@@ -297,18 +190,18 @@
 /* TODO PUT THIS SHIT IN TAILWIND CLASSES */
 
 .data-dragging .data-scrollable [data-direction="top"] {
-  overflow-y: hidden !important;
+  overflow-y: hiden !important;
 }
 .data-dragging .data-scrollable [data-direction="bottom"] {
-  overflow-y: hidden !important;
+  overflow-y: hiden !important;
 }
 
 .data-dragging .data-scrollable [data-direction="left"] {
-  overflow-x: hidden !important;
+  overflow-x: hiden !important;
 }
 
 .data-dragging .data-scrollable [data-direction="right"] {
-  overflow-x: hidden !important;
+  overflow-x: hiden !important;
 }
 
 [data-drawer]::after {

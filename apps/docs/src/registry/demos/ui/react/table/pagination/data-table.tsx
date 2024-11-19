@@ -26,7 +26,7 @@ interface DataTableProps<TData, TValue> {
 export function DataTable<TData, TValue>({
   columns,
   data,
-}: DataTableProps<TData, TValue>) {
+}: DataTableProps<TData, TValue>): JSX.Element {
   const table = useReactTable({
     data,
     columns,

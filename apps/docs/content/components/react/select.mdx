@@ -1,11 +1,144 @@
 ---
 title: Select
-description:  A select component that allows users to select one or more options from a list of choices.
+description:  Displays a list of options for the user to pick from—triggered by a button.
 component: true
 ---
 
 <ComponentPreview
   name="demos/ui/react/select/default"
+  extension={"tsx"}
+  preview={`<Select className="w-[180px]" label="Fruits"
+  options={[
+    { label: "Apple", value: "apple" },
+    { label: "Banana", value: "banana" },
+    { label: "Blueberry", value: "blueberry" },
+    { label: "Grapes", value: "grapes" },
+    { label: "Pineapple", value: "pineapple" },
+  ]}
+>
+  Select a fruit
+</Select>`}
+/>
+
+## Installation
+
+<Tabs defaultValue="cli">
+<TabsList>
+<TabsTrigger value="cli">
+CLI
+</TabsTrigger>
+<TabsTrigger value="manual">  
+Manual
+</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+<Bash>
+<BashCommand>npx</BashCommand> mbi add breadcrumb
+</Bash>
+</TabsContent>
+
+<TabsContent value="manual">
+<Steps>
+<Step className='flex items-center gap-2 mb-2'>Install the following dependencies:<SelectPackageManager/></Step>
+
+<Bash>
+<PackageManager/> @radix-ui/react-select
+</Bash>
+
+  <Step>Copy and paste the following code into your project.</Step>
+  <ComponentSource  name={["ui/react/select"]} extension={["tsx"]} />
+  <Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+</TabsContent>
+</Tabs>
+
+## Options
+
+### Variant
+
+Use the `variant` prop to control the visual style of the select.<br/>
+
+<ComponentPreview
+  name="demos/ui/react/select/variant"
+  extension={"tsx"}
+  preview={`<Select className="w-[180px]" label="Fruits"
+  options={[
+    { label: "Apple", value: "apple" },
+    { label: "Banana", value: "banana" },
+    { label: "Blueberry", value: "blueberry" },
+    { label: "Grapes", value: "grapes" },
+    { label: "Pineapple", value: "pineapple" },
+  ]},
+  variant="outline"
+>
+  Select a fruit
+</Select>`}
+/>
+
+### Size
+
+Use the `size` prop to control the size of the select.<br/>
+
+<ComponentPreview
+  name="demos/ui/react/select/size"
+  extension={"tsx"}
+  preview={`<Select className="w-[180px]" label="Fruits"
+  options={[
+    { label: "Apple", value: "apple" },
+    { label: "Banana", value: "banana" },
+    { label: "Blueberry", value: "blueberry" },
+    { label: "Grapes", value: "grapes" },
+    { label: "Pineapple", value: "pineapple" },
+  ]},
+  size="sm"
+>
+  Select a fruit
+</Select>`}
+/>
+
+### shape
+
+Use the `shape` prop to control the shape of the select.<br/>
+
+<ComponentPreview
+  name="demos/ui/react/select/shape"
+  extension={"tsx"}
+  preview={`<Select className="w-[180px]" label="Fruits"
+  options={[
+    { label: "Apple", value: "apple" },
+    { label: "Banana", value: "banana" },
+    { label: "Blueberry", value: "blueberry" },
+    { label: "Grapes", value: "grapes" },
+    { label: "Pineapple", value: "pineapple" },
+  ]},
+  shape="circle"
+>
+  Select a fruit
+</Select>`}
+/>
+
+### getData 
+
+<ComponentPreview
+  name="demos/ui/react/select/getData"
+  extension={"tsx"}
+  preview={`<Select
+  className="w-[180px]"
+  label="Fruits"
+  options={options}
+>
+  Select a fruit
+</Select>`}
+/>
+
+### Composition
+
+The `Select` component is composed of the following sub-components:
+
+<ComponentPreview
+  name="demos/ui/react/select/composition"
   extension={"tsx"}
   preview={`<Select>
     <SelectTrigger className="w-[180px]">
@@ -23,19 +156,3 @@ component: true
     </SelectContent>
 </Select>`}
 />
-
-## Installation
-
-<Steps>
-<Step>Install the following dependencies:</Step>
-
-```bash
-npm install @radix-ui/react-select
-```
-  <Step>Copy and paste the following code into your project.</Step>
-  <ComponentSource  name={["ui/react/select"]} extension={["tsx"]} />
-  <Step>Update the import paths to match your project setup.</Step>
-
-</Steps>
-
-in progress...

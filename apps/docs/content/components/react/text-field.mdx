@@ -1,6 +1,6 @@
 ---
 title: Text Field
-description:  A text field component that allows users to input text.
+description:  Displays a form input field or a component that looks like an input field.
 component: true
 ---
 
@@ -12,13 +12,81 @@ component: true
 
 ## Installation
 
-<Steps>
-<Step>Install the following dependencies:</Step>
+<Tabs defaultValue="cli">
+<TabsList>
+<TabsTrigger value="cli">
+CLI
+</TabsTrigger>
+<TabsTrigger value="manual">  
+Manual
+</TabsTrigger>
+</TabsList>
 
+<TabsContent value="cli">
+<Bash>
+<BashCommand>npx</BashCommand> mbi add breadcrumb
+</Bash>
+</TabsContent>
+
+<TabsContent value="manual">
+<Steps>
   <Step>Copy and paste the following code into your project.</Step>
   <ComponentSource  name={["ui/react/text-field"]} extension={["tsx"]} />
   <Step>Update the import paths to match your project setup.</Step>
 
 </Steps>
+</TabsContent>
+</Tabs>
 
-in progress...
+## Options
+
+### Prefix and Suffix
+
+You can add a prefix or suffix to the text field by passing a component to the `prefix` or `suffix` prop.
+
+<ComponentPreview
+  name="demos/ui/react/text-field/prefix-suffix"
+  extension={"tsx"}
+  preview={`<TextField prefix={<Upload />} />
+<TextField suffix={<Upload />} />`}
+/>
+
+### Description
+
+You can add a description to the text field by passing a string to the `description` prop.
+
+<ComponentPreview
+  name="demos/ui/react/text-field/description"
+  extension={"tsx"}
+  preview={`<TextField description="This is a description" />`}
+/>
+
+### Label
+
+You can add a label to the text field by passing a string to the `label` prop.
+
+<ComponentPreview
+  name="demos/ui/react/text-field/label"
+  extension={"tsx"}
+  preview={`<TextField label="label" />`}
+/>
+
+### Error
+
+You can add an error to the text field by passing a string to the `isInvalid` and `errorMessage` prop.
+
+<ComponentPreview
+  name="demos/ui/react/text-field/error"
+  extension={"tsx"}
+  preview={`<TextField isInvalid errorMessage="This is an error" />`}
+/>
+
+### Help
+
+You can add help text to the text field by passing a string to the `contextualHelp` prop.
+
+<ComponentPreview
+  name="demos/ui/react/text-field/help"
+  extension={"tsx"}
+  preview={`<TextField contextualHelp='help message' />`}
+/>

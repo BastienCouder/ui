@@ -21,7 +21,7 @@ import {
   CommandShortcut,
 } from "@/registry/ui/react/command";
 
-export default function CommandDialogDemo() {
+export default function CommandDialogDemo(): JSX.Element {
   const [open, setOpen] = React.useState(false);
 
   React.useEffect(() => {
@@ -38,9 +38,9 @@ export default function CommandDialogDemo() {
 
   return (
     <>
-      <p className="text-muted-fg text-sm">
+      <p className="text-muted-foreground text-sm">
         Press{" "}
-        <kbd className="bg-secondary text-secondary-fg pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border px-1.5 font-mono text-[10px] font-medium opacity-100">
+        <kbd className="bg-secondary text-secondary-foreground pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border px-1.5 font-mono text-[10px] font-medium opacity-100">
           <span className="text-xs">⌘</span>J
         </kbd>
       </p>

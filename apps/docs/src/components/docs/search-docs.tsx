@@ -3,10 +3,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { File, Search } from "@/lib/icons";
-import {
-  Button,
-  type ButtonProps,
-} from "@/registry/ui/react/button";
+import { Button, type ButtonProps } from "@/registry/ui/react/button";
 import { cn } from "@/lib/utils";
 import { docsConfig } from "@/config/docs-config";
 

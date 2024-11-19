@@ -4,10 +4,6 @@ import * as React from "react";
 import { useRouter } from "next/navigation";
 import {
   CircleIcon,
-  FileIcon,
-  LaptopIcon,
-  MoonIcon,
-  SunIcon,
   ChevronRightIcon,
   ChevronDownIcon,
 } from "@radix-ui/react-icons";
@@ -22,7 +18,6 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-  CommandSeparator,
 } from "@/registry/ui/react/command";
 import { docsConfig } from "@/config/docs-config";
 import type { Item, SubCategory } from "@/types/docs-nav";
@@ -80,7 +75,7 @@ export function CommandMenu({ ...props }) {
       <Button
         variant="outline"
         className={cn(
-          "bg-bg text-fg relative h-8 w-full justify-start rounded-lg text-sm font-normal shadow-none",
+          "bg-background text-foreground relative h-8 w-full justify-start rounded-lg text-sm font-normal shadow-none",
         )}
         onClick={() => setOpen(true)}
         {...props}

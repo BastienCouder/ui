@@ -4,9 +4,9 @@ import React from "react";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 import type { Primitive } from "@radix-ui/react-primitive";
 import { useControllableState } from "@radix-ui/react-use-controllable-state";
-import { Check, ChevronsUpDown } from "lucide-react";
+import { Check, ChevronsUpDown, X } from "lucide-react";
 import { createPortal } from "react-dom";
-import { cn } from "@/lib/utils";
+
 import {
   Command,
   CommandEmpty,
@@ -16,6 +16,14 @@ import {
   CommandList,
   CommandSeparator,
 } from "@/registry/ui/react/command";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/registry/ui/react/tooltip";
+import { cn } from "@/lib/utils";
+import { Badge } from "@/registry/ui/react/badge";
 
 export interface MultiSelectOptionItem {
   value: string;
@@ -31,7 +39,7 @@ interface MultiSelectContextValue {
 
   onDeselect: (value: string, item: MultiSelectOptionItem) => void;
 
-  onSearch?: (keyword?: string | undefined) => void;
+  onSearch?: (keyword?: string) => void;
 
   filter?: boolean | ((keyword: string, current: string) => boolean);
 
@@ -63,7 +71,7 @@ type MultiSelectProps = React.ComponentPropsWithoutRef<
   onSelect?: (value: string, item: MultiSelectOptionItem) => void;
   onDeselect?: (value: string, item: MultiSelectOptionItem) => void;
   defaultValue?: string[];
-  onSearch?: (keyword?: string | undefined) => void;
+  onSearch?: (keyword: string | undefined) => void;
   filter?: boolean | ((keyword: string, current: string) => boolean);
   disabled?: boolean;
   maxCount?: number;
@@ -96,6 +104,7 @@ const MultiSelect: React.FC<MultiSelectProps> = ({
         onValueChangeProp(state, items);
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [onValueChangeProp],
   );
 
@@ -149,6 +158,7 @@ const MultiSelect: React.FC<MultiSelectProps> = ({
       onDeselect: handleDeselect,
       itemCache,
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     value,
     open,
@@ -196,7 +206,7 @@ const MultiSelectTrigger = React.forwardRef<
         data-disabled={disabled}
         {...props}
         className={cn(
-          "border-input ring-offset-background focus:ring-ring flex w-full h-full min-h-10 items-center justify-between whitespace-nowrap rounded-md border bg-transparent px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring-1 [&>span]:line-clamp-1",
+          "border-input ring-offset-background focus:ring-ring flex size-full min-h-10 items-center justify-between whitespace-nowrap rounded-md border bg-transparent px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring-1 [&>span]:line-clamp-1",
           disabled ? "cursor-not-allowed opacity-50" : "cursor-text",
           className,
         )}
@@ -219,6 +229,7 @@ interface MultiSelectValueProps
   maxItemLength?: number;
 }
 
+// eslint-disable-next-line react/display-name
 const MultiSelectValue = React.forwardRef<
   React.ElementRef<typeof Primitive.div>,
   MultiSelectValueProps
@@ -247,73 +258,67 @@ const MultiSelectValue = React.forwardRef<
     }
 
     return (
-      <></>
-      /*
-         <TooltipProvider delayDuration={300}>
-            <div
-               className={cn(
-                  'flex flex-1 flex-wrap items-center gap-1.5 overflow-x-hidden',
-                  className,
-               )}
-               {...props}
-               ref={forwardRef}
-            >
-               {renderItems.map((value) => {
-                  const item = itemCache.get(value)
+      <TooltipProvider delayDuration={300}>
+        <div
+          className={cn(
+            "flex flex-1 flex-wrap items-center gap-1.5 overflow-x-hidden",
+            className,
+          )}
+          {...props}
+          ref={forwardRef}
+        >
+          {renderItems.map((value) => {
+            const item = itemCache.get(value);
 
-                  const content = item?.label || value
+            const content = item?.label || value;
 
-                  const child
-              = maxItemLength
-              && typeof content === 'string'
-              && content.length > maxItemLength
-                 ? `${content.slice(0, maxItemLength)}...`
-                 : content
+            const child =
+              maxItemLength &&
+              typeof content === "string" &&
+              content.length > maxItemLength
+                ? `${content.slice(0, maxItemLength)}...`
+                : content;
 
-                  const el = (
-                     <Badge
-                        variant="outline"
-                        key={value}
-                        className="group/multi-select-badge cursor-pointer rounded-full pr-1.5"
-                        onClick={(e) => {
-                           e.preventDefault()
-                           e.stopPropagation()
-                           onDeselect(value, item!)
-                        }}
-                     >
-                        <span>{child}</span>
-                        <X className="text-muted-foreground group-hover/multi-select-badge:text-foreground ml-1 size-3" />
-                     </Badge>
-                  )
+            const el = (
+              <Badge
+                variant="outline"
+                key={value}
+                className="group/multi-select-badge cursor-pointer rounded-full pr-1.5"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  onDeselect(value, item!);
+                }}
+              >
+                <span>{child}</span>
+                <X className="text-muted-foreground group-hover/multi-select-badge:text-foreground ml-1 size-3" />
+              </Badge>
+            );
 
-                  if (child !== content) {
-                     return (
-                        <Tooltip key={value}>
-                           <TooltipTrigger className="inline-flex">{el}</TooltipTrigger>
-                           <TooltipContent
-                              side="bottom"
-                              align="start"
-                              className="z-[51]"
-                           >
-                              {content}
-                           </TooltipContent>
-                        </Tooltip>
-                     )
-                  }
+            if (child !== content) {
+              return (
+                <Tooltip key={value}>
+                  <TooltipTrigger className="inline-flex">{el}</TooltipTrigger>
+                  <TooltipContent
+                    side="bottom"
+                    align="start"
+                    className="z-[51]"
+                  >
+                    {content}
+                  </TooltipContent>
+                </Tooltip>
+              );
+            }
 
-                  return el
-               })}
-               {renderRemain
-                  ? (
-                        <span className="text-muted-foreground py-.5 text-xs leading-4">
-                           +
-                           {renderRemain}
-                        </span>
-                     )
-                  : null}
-            </div>
-         </TooltipProvider>
-         */
+            return el;
+          })}
+          {renderRemain ? (
+            <span className="text-muted-foreground py-.5 text-xs leading-4">
+              +{renderRemain}
+            </span>
+          ) : null}
+        </div>
+      </TooltipProvider>
     );
   },
 );
@@ -347,6 +352,7 @@ MultiSelectList.displayName = "MultiSelectList";
 interface MultiSelectContentProps
   extends React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content> {}
 
+// eslint-disable-next-line react/display-name
 const MultiSelectContent = React.forwardRef<
   React.ElementRef<typeof PopoverPrimitive.Content>,
   MultiSelectContentProps
@@ -409,6 +415,7 @@ type MultiSelectItemProps = React.ComponentPropsWithoutRef<typeof CommandItem> &
     onDeselect?: (value: string, item: MultiSelectOptionItem) => void;
   };
 
+// eslint-disable-next-line react/display-name
 const MultiSelectItem = React.forwardRef<
   React.ElementRef<typeof CommandItem>,
   MultiSelectItemProps
@@ -448,6 +455,7 @@ const MultiSelectItem = React.forwardRef<
 
     React.useEffect(() => {
       if (value) itemCache.set(value, item!);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selected, value, item]);
 
     const disabled = Boolean(
@@ -479,7 +487,7 @@ const MultiSelectItem = React.forwardRef<
         ref={forwardedRef}
       >
         <span className="mr-2 truncate">{children || label || value}</span>
-        {selected ? <Check className="ml-auto size-4 shrink-0" /> : null}
+        {selected ? <Check className="ml-auto w-4 h-4 shrink-0" /> : null}
       </CommandItem>
     );
   },
@@ -534,6 +542,7 @@ export type MultiSelectOption =
   | MultiSelectOptionSeparator
   | MultiSelectOptionGroup;
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 function renderMultiSelectOptions(list: MultiSelectOption[]) {
   return list.map((option, index) => {
     if ("type" in option) {

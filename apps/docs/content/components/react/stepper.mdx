@@ -1,6 +1,6 @@
 ---
 title: Stepper
-description: A stepper is a user interface element that displays a sequence of steps in a linear order.
+description: Display content divided into a steps sequence.
 component: true
 registryDependencies: 'button'
 ---
@@ -26,14 +26,32 @@ registryDependencies: 'button'
 
 ## Installation
 
+<Tabs defaultValue="cli">
+<TabsList>
+<TabsTrigger value="cli">
+CLI
+</TabsTrigger>
+<TabsTrigger value="manual">  
+Manual
+</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+<Bash>
+<BashCommand>npx</BashCommand> mbi add breadcrumb
+</Bash>
+</TabsContent>
+
+<TabsContent value="manual">
 <Steps>
   <Step>Copy and paste the following code into your project.</Step>
   <ComponentSource name={["ui/react/stepper"]} extension={["tsx"]} />
   <Step>
   Update tailwind.config.js
-  
-  ```js 
-  /** @type {import('tailwindcss').Config} */
+
+<ComponentCode
+language="js"
+preview={`/** @type {import('tailwindcss').Config} */
 module.exports = {
   theme: {
     extend: {
@@ -53,11 +71,14 @@ module.exports = {
       },
     },
   },
-}
-  ```
+}`}
+/>
+
   </Step>
   <Step>Update the import paths to match your project setup.</Step>
 </Steps>
+</TabsContent>
+</Tabs>
 
 ## Options
 

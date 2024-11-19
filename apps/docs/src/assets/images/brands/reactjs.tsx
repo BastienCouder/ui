@@ -8,7 +8,7 @@ export const ReactIcon = ({
   color = "currentColor",
   size = 24,
   ...rest
-}: IconProps) => {
+}: IconProps): JSX.Element => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

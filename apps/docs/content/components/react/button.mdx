@@ -1,10 +1,10 @@
 ---
 title: Button
-description: A button allows a user to perform an action, with mouse, touch, and keyboard interactions.
+description: Displays a button or a component that looks like a button.
 links:
   [
-    { href: "/ui/angular/button", label: "angular" },
-    { href: "/ui/vue/button", label: "vue" },
+    { href: "/components/angular/button", label: "angular" },
+    { href: "/components/vue/button", label: "vue" },
   ]
 ---
 
@@ -16,6 +16,23 @@ links:
 
 ## Installation
 
+<Tabs defaultValue="cli">
+<TabsList>
+<TabsTrigger value="cli">
+CLI
+</TabsTrigger>
+<TabsTrigger value="manual">  
+Manual
+</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+<Bash>
+<BashCommand>npx</BashCommand> mbi add button
+</Bash>
+</TabsContent>
+
+<TabsContent value="manual">
 <Steps>
   <Step>Copy and paste the following code into your project.</Step>
   <ComponentSource
@@ -24,11 +41,8 @@ links:
   />
   <Step>Update the import paths to match your project setup.</Step>
 </Steps>
-
-## Usage
-
-Button allow users to initiate an action or command with mouse, touch or keyboard interaction.<br/>
-The button's label indicates the purpose of the action to the user. You may also include an icon for additional context.
+</TabsContent>
+</Tabs>
 
 ## Options
 

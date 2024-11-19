@@ -2,7 +2,13 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { components } from "@/components/mdx/mdx-components";
 
-export async function Mdx(props: { source: string }) {
+import { ReactElement } from "react";
+
+export async function Mdx({
+  source,
+}: {
+  source: string;
+}): Promise<ReactElement> {
   const options = {
     parseFrontmatter: false,
     mdxOptions: {
@@ -11,10 +17,6 @@ export async function Mdx(props: { source: string }) {
   };
 
   return (
-    <MDXRemote
-      source={props.source}
-      components={components}
-      options={options}
-    />
+    <MDXRemote source={source} components={components} options={options} />
   );
 }

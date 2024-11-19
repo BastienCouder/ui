@@ -25,7 +25,7 @@ export const DocCard = ({
       href={doc.href}
       target={doc.href.startsWith("/") ? undefined : "_blank"}
       className={cn(
-        "group flex cursor-pointer flex-col overflow-hidden rounded-md border border-border/20 bg-bg/70 transition-colors duration-150 hover:border-border hover:bg-bg",
+        "group flex cursor-pointer flex-col overflow-hidden rounded-md border border-border/20 bg-background/70 transition-colors duration-150 hover:border-border hover:bg-background",
         className,
       )}
     >
@@ -40,7 +40,7 @@ export const DocCard = ({
         <div className="flex-1">
           <p className="text-lg font-semibold">{doc.title}</p>
           {doc.description && (
-            <p className="mt-1 text-sm text-fg-muted">
+            <p className="mt-1 text-sm text-muted-foreground">
               {truncateOnWord(doc.description, 70)}
             </p>
           )}
@@ -64,7 +64,7 @@ export const DocCard = ({
                   </ul>
                 }
               >
-                <Badge variant="outline" className="text-fg-muted">
+                <Badge variant="outline" className="text-muted-foreground">
                   +{doc.keywords.length - 2} more
                 </Badge>
               </Tooltip>
@@ -102,7 +102,7 @@ const Thumbnail = ({
   if (thumbnail?.video) {
     return (
       <div ref={ref}>
-        <AspectRatio ratio={16 / 9} asChild className="w-full bg-bg">
+        <AspectRatio ratio={16 / 9} asChild className="w-full bg-background">
           {debouncedInView && isInView ? (
             <video
               src={thumbnail.video}
@@ -130,7 +130,7 @@ const Thumbnail = ({
   }
 
   return (
-    <div className="aspect-video w-full bg-bg">
+    <div className="aspect-video w-full bg-background">
       <img src={thumbnail.image} alt="Thumbnail" />
     </div>
   );

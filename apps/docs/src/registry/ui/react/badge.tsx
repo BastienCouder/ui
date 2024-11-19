@@ -6,13 +6,13 @@ const badgeVariants = tv({
   base: "inline-flex items-center gap-1 rounded-md text-xs font-semibold transition-colors shrink-0 whitespace-nowrap",
   variants: {
     variant: {
-      neutral: "bg-neutral text-fg",
-      outline: "border text-fg",
-      primary: "bg-primary text-primary-fg",
-      success: "bg-success text-success-fg",
-      danger: "bg-danger text-danger-fg",
-      warning: "bg-warning text-warning-fg",
-      accent: "bg-accent text-accent-fg",
+      neutral: "bg-neutral text-foreground",
+      outline: "border text-foreground",
+      primary: "bg-primary text-primary-foreground",
+      success: "bg-success text-success-foreground",
+      danger: "bg-destructive text-destructive-foreground",
+      warning: "bg-warning text-warning-foreground",
+      accent: "bg-accent text-accent-foreground",
     },
     size: {
       sm: "h-5 px-2.5 [&_svg]:w-3 [&_svg]:h-3",
@@ -39,7 +39,7 @@ function Badge({
   size,
   icon,
   ...props
-}: BadgeProps) {
+}: BadgeProps): JSX.Element {
   return (
     <span
       role="presentation"

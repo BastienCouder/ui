@@ -2,32 +2,22 @@
 
 import * as React from "react";
 
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/registry/ui/react/select";
+import { Select } from "@/registry/ui/react/select";
 
-export default function SelectDemo() {
+export default function SelectDemo(): JSX.Element {
   return (
-    <Select>
-      <SelectTrigger className="w-[180px]">
-        <SelectValue placeholder="Select a fruit" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectLabel>Fruits</SelectLabel>
-          <SelectItem value="apple">Apple</SelectItem>
-          <SelectItem value="banana">Banana</SelectItem>
-          <SelectItem value="blueberry">Blueberry</SelectItem>
-          <SelectItem value="grapes">Grapes</SelectItem>
-          <SelectItem value="pineapple">Pineapple</SelectItem>
-        </SelectGroup>
-      </SelectContent>
+    <Select
+      className="w-[180px]"
+      label="Fruits"
+      options={[
+        { label: "Apple", value: "apple" },
+        { label: "Banana", value: "banana" },
+        { label: "Blueberry", value: "blueberry" },
+        { label: "Grapes", value: "grapes" },
+        { label: "Pineapple", value: "pineapple" },
+      ]}
+    >
+      Select a fruit
     </Select>
   );
 }

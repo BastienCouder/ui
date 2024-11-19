@@ -8,7 +8,7 @@ import {
 import { Button } from "@/registry/ui/react/button";
 import { HoverCard } from "@/registry/ui/react/hover-card";
 
-export default function HoverCardDemo() {
+export default function HoverCardDemo(): JSX.Element {
   const Content = () => (
     <div className="flex justify-between space-x-4">
       <Avatar>

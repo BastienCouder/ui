@@ -24,11 +24,11 @@ const getFileContent = (filePath: string) => {
 // Helper function to generate a JSON file for each component
 const generateComponentJsonFile = (
   frameworkRegistryPath: string,
-  componentInfo: any
+  componentInfo: any,
 ) => {
   const componentJsonPath = path.join(
     frameworkRegistryPath,
-    `${componentInfo.name}.json`
+    `${componentInfo.name}.json`,
   );
 
   // Transform the "files" array to include file content, path, and target
@@ -56,7 +56,7 @@ const generateComponentJsonFile = (
   fs.writeFileSync(
     componentJsonPath,
     JSON.stringify(componentWithFiles, null, 2),
-    "utf-8"
+    "utf-8",
   );
 };
 
@@ -86,7 +86,7 @@ const createFixedIndexJson = (outputPath: string, frameworkName: string) => {
   fs.writeFileSync(
     indexJsonPath,
     JSON.stringify(fixedIndexConfig, null, 2),
-    "utf-8"
+    "utf-8",
   );
 };
 
@@ -117,14 +117,14 @@ export function cn(...inputs: ClassValue[]) {
   fs.writeFileSync(
     utilsJsonPath,
     JSON.stringify(utilsConfig, null, 2),
-    "utf-8"
+    "utf-8",
   );
 };
 
 // Helper function to process each framework's index.json and generate files
 const processFrameworkIndexFile = (
   frameworkPath: string,
-  frameworkName: string
+  frameworkName: string,
 ) => {
   const indexFilePath = path.join(frameworkPath, "index.json");
 
@@ -136,7 +136,7 @@ const processFrameworkIndexFile = (
       if (component.type === "registry:ui") {
         const frameworkRegistryPath = path.join(
           REGISTRY_UI_PATH,
-          frameworkName
+          frameworkName,
         );
 
         // Ensure the directory for the framework exists
@@ -178,9 +178,7 @@ const createRegistry = () => {
   // Generate the registry files based on the existing index.json files
   generateRegistryData();
 
-  console.log(
-    "\x1b[32m✓\x1b[0m Generated individual component JSON files with file contents from index.json and created index.json with fixed configuration for each subdirectory, along with utils.json in each subdirectory."
-  );
+  console.log("\x1b[32m✓\x1b[0m Generated individual component JSON files.");
 };
 
 // Run the registry creation

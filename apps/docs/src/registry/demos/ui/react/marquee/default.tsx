@@ -72,9 +72,9 @@ function ReviewCard({
   );
 }
 
-export default function MarqueeDemo() {
+export default function MarqueeDemo(): JSX.Element {
   return (
-    <div className="bg-bg relative flex w-full h-full flex-col items-center justify-center overflow-hidden rounded-lg md:shadow-xl">
+    <div className="bg-background relative flex w-full h-full flex-col items-center justify-center overflow-hidden rounded-lg md:shadow-xl">
       <Marquee className="[--duration:20s]">
         {firstRow.map((review) => (
           <ReviewCard key={review.username} {...review} />

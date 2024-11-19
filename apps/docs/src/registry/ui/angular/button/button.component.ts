@@ -18,27 +18,27 @@ import { LoaderIconComponent } from "../lib/icons/icons";
 
 export const buttonVariants = tv(
   {
-    base: "inline-flex gap-2 cursor-pointer items-center justify-center whitespace-nowrap rounded-md leading-normal text-sm shrink-0 font-medium ring-offset-background transition-colors disabled:cursor-default disabled:bg-bg-disabled disabled:text-fg-disabled",
+    base: "inline-flex gap-2 cursor-pointer items-center justify-center whitespace-nowrap rounded-md leading-normal text-sm shrink-0 font-medium ring-offset-background transition-colors disabled:cursor-default disabled:bg-background-disabled disabled:text-fg-disabled",
     variants: {
       variant: {
         default:
-          "bg-bg-neutral hover:bg-bg-neutral-hover pressed:bg-bg-neutral-active text-fg-onNeutral",
+          "bg-background-neutral hover:bg-background-neutral-hover pressed:bg-background-neutral-active text-fg-onNeutral",
         primary:
-          "bg-bg-primary hover:bg-bg-primary-hover pressed:bg-bg-primary-active text-fg-onPrimary",
+          "bg-background-primary hover:bg-background-primary-hover pressed:bg-background-primary-active text-fg-onPrimary",
         secondary:
-          "bg-bg-secondary hover:bg-bg-secondary-hover pressed:bg-bg-secondary-active text-fg-onSecondary",
+          "bg-background-secondary hover:bg-background-secondary-hover pressed:bg-background-secondary-active text-fg-onSecondary",
         quiet:
-          "bg-transparent hover:bg-bg-inverse/10 pressed:bg-bg-inverse/20 text-fg",
+          "bg-transparent hover:bg-background-inverse/10 pressed:bg-background-inverse/20 text-fg",
         outline:
-          "border border-border-field bg-transparent hover:bg-bg-inverse/10 pressed:bg-bg-inverse/20 text-fg disabled:border-border-disabled disabled:bg-transparent",
+          "border border-border-field bg-transparent hover:bg-background-inverse/10 pressed:bg-background-inverse/20 text-fg disabled:border-border-disabled disabled:bg-transparent",
         accent:
-          "bg-bg-accent hover:bg-bg-accent-hover pressed:bg-bg-accent-active text-fg-onAccent",
+          "bg-background-accent hover:bg-background-accent-hover pressed:bg-background-accent-active text-fg-onAccent",
         success:
-          "bg-bg-success hover:bg-bg-success-hover pressed:bg-bg-success-active text-fg-onSuccess",
+          "bg-background-success hover:bg-background-success-hover pressed:bg-background-success-active text-fg-onSuccess",
         warning:
-          "bg-bg-warning hover:bg-bg-warning-hover pressed:bg-bg-warning-active text-fg-onWarning",
+          "bg-background-warning hover:bg-background-warning-hover pressed:bg-background-warning-active text-fg-onWarning",
         danger:
-          "bg-bg-danger hover:bg-bg-danger-hover pressed:bg-bg-danger-active text-fg-onDanger",
+          "bg-background-danger hover:bg-background-danger-hover pressed:bg-background-danger-active text-fg-onDanger",
       },
       size: {
         sm: "h-8 px-3 [&_svg]:size-4",
@@ -141,7 +141,7 @@ export class HlmButtonDirective implements OnChanges, OnDestroy, AfterViewInit {
         shape: this.shape,
       }),
       {
-        "cursor-default bg-bg-disabled text-fg-disabled":
+        "cursor-default bg-background-disabled text-fg-disabled":
           this.isDisabled || this.isLoading,
       },
     );

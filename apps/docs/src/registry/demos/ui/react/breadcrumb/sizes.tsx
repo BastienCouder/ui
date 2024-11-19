@@ -1,9 +1,6 @@
-import {
-  Breadcrumb,
-  Breadcrumbs,
-} from "@/registry/ui/react/breadcrumb";
+import { Breadcrumb, Breadcrumbs } from "@/registry/ui/react/breadcrumb";
 
-export default function BreadcrumbDemo() {
+export default function BreadcrumbDemo(): JSX.Element {
   return (
     <div className="flex flex-col gap-4">
       <Breadcrumbs size="sm">

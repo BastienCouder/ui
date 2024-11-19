@@ -4,19 +4,9 @@ import * as React from "react";
 
 import { Button } from "@/registry/ui/react/button";
 import { Label } from "@/registry/ui/react/label";
-import {
-  RadioGroup,
-  RadioGroupItem,
-} from "@/registry/ui/react/radio-group";
-import type {
-  StepItem,
-  StepperProps,
-} from "@/registry/ui/react/stepper";
-import {
-  Step,
-  Stepper,
-  useStepper,
-} from "@/registry/ui/react/stepper";
+import { RadioGroup, RadioGroupItem } from "@/registry/ui/react/radio-group";
+import type { StepItem, StepperProps } from "@/registry/ui/react/stepper";
+import { Step, Stepper, useStepper } from "@/registry/ui/react/stepper";
 
 const steps = [
   { label: "Step 1" },
@@ -24,7 +14,7 @@ const steps = [
   { label: "Step 3" },
 ] satisfies StepItem[];
 
-export default function StepperDemo() {
+export default function StepperDemo(): JSX.Element {
   const [size, setSize] = React.useState<StepperProps["size"]>("md");
 
   return (
@@ -36,21 +26,21 @@ export default function StepperDemo() {
       >
         <Label
           htmlFor="sm"
-          className="bg-bg hover:bg-gray-3 [&:has([data-state=checked])]:border-primary flex w-fit flex-col gap-3 rounded-md border px-2 py-1"
+          className="bg-background hover:bg-gray-3 [&:has([data-state=checked])]:border-primary flex w-fit flex-col gap-3 rounded-md border px-2 py-1"
         >
           <RadioGroupItem value="sm" id="sm" className="sr-only" />
           <h2 className="font-medium">sm</h2>
         </Label>
         <Label
           htmlFor="md"
-          className="bg-bg hover:bg-gray-3 [&:has([data-state=checked])]:border-primary flex w-fit flex-col gap-3 rounded-md border px-2 py-1"
+          className="bg-background hover:bg-gray-3 [&:has([data-state=checked])]:border-primary flex w-fit flex-col gap-3 rounded-md border px-2 py-1"
         >
           <RadioGroupItem value="md" id="md" className="sr-only" />
           <h2 className="font-medium">md</h2>
         </Label>
         <Label
           htmlFor="lg"
-          className="bg-bg hover:bg-gray-3 [&:has([data-state=checked])]:border-primary flex w-fit flex-col gap-3 rounded-md border px-2 py-1"
+          className="bg-background hover:bg-gray-3 [&:has([data-state=checked])]:border-primary flex w-fit flex-col gap-3 rounded-md border px-2 py-1"
         >
           <RadioGroupItem value="lg" id="lg" className="sr-only" />
           <h2 className="font-medium">lg</h2>
@@ -60,7 +50,7 @@ export default function StepperDemo() {
         {steps.map((stepProps, index) => {
           return (
             <Step key={stepProps.label} {...stepProps}>
-              <div className="bg-bg text-primary my-2 flex h-40 items-center justify-center rounded-md border">
+              <div className="bg-background text-primary my-2 flex h-40 items-center justify-center rounded-md border">
                 <h1 className="text-xl">
                   Step
                   {index + 1}
@@ -88,7 +78,7 @@ function Footer() {
   return (
     <>
       {hasCompletedAllSteps && (
-        <div className="bg-bg text-primary my-2 flex h-40 items-center justify-center rounded-md border">
+        <div className="bg-background text-primary my-2 flex h-40 items-center justify-center rounded-md border">
           <h1 className="text-xl">Woohoo! All steps completed! 🎉</h1>
         </div>
       )}

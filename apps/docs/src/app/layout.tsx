@@ -12,7 +12,6 @@ import {
 } from "@/styles/fonts";
 import "@/styles/globals.css";
 import { siteConfig } from "@/config";
-import { Providers } from "./providers";
 import { Toaster } from "@/registry/ui/react/toaster";
 
 const config = siteConfig.global;
@@ -59,12 +58,12 @@ export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
-}) {
+}): JSX.Element {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="fr" suppressHydrationWarning>
       <body
         className={cn(
-          "font-sans",
+          "min-h-screen font-sans overflow-x-hidden bg-background text-foreground",
           geistMono.variable,
           geistSans.variable,
           fontDisplay.variable,
@@ -73,13 +72,11 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <Analytics />
-        <Providers>
-          <Header />
-          <Toaster />
-          <main>{children}</main>
-          {/* <Footer /> */}
-          {/* <LayoutColumnsGrid /> */}
-        </Providers>
+        <Header />
+        <Toaster />
+        {children}
+        {/* <Footer /> */}
+        {/* <LayoutColumnsGrid /> */}
       </body>
     </html>
   );

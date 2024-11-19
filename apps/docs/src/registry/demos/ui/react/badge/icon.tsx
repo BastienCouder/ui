@@ -1,7 +1,7 @@
 import { Badge } from "@/registry/ui/react/badge";
 import { Shield } from "@/lib/icons";
 
-export default function BadgeDemo() {
+export default function BadgeDemo(): JSX.Element {
   return (
     <div className="flex items-center gap-2">
       <Badge icon={<Shield />} size="sm">

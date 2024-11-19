@@ -9,7 +9,7 @@ import {
   PopoverTrigger,
 } from "@/registry/ui/react/popover";
 
-export default function PopoverDemo() {
+export default function PopoverDemo(): JSX.Element {
   return (
     <Popover>
       <PopoverTrigger asChild>

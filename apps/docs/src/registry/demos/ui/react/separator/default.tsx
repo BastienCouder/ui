@@ -1,11 +1,11 @@
 import { Separator } from "@/registry/ui/react/separator";
 
-export default function SeparatorDemo() {
+export default function SeparatorDemo(): JSX.Element {
   return (
     <div className="space-y-2 rounded-md border p-4">
       <div>
         <h3 className="font-bold">UI</h3>
-        <p className="text-sm text-muted-fg">
+        <p className="text-sm text-muted-foreground">
           Tools for building high-quality, accessible UI.
         </p>
       </div>

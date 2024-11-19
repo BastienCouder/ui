@@ -31,7 +31,7 @@ export async function updateTailwindConfig(
   config: Config,
   options: {
     silent?: boolean;
-  }
+  },
 ) {
   if (!tailwindConfig) {
     return;
@@ -44,13 +44,13 @@ export async function updateTailwindConfig(
 
   const tailwindFileRelativePath = path.relative(
     config.resolvedPaths.cwd,
-    config.resolvedPaths.tailwindConfig
+    config.resolvedPaths.tailwindConfig,
   );
   const tailwindSpinner = spinner(
     `Updating ${highlighter.info(tailwindFileRelativePath)}`,
     {
       silent: options.silent,
-    }
+    },
   ).start();
   const raw = await fs.readFile(config.resolvedPaths.tailwindConfig, "utf8");
   const output = await transformTailwindConfig(raw, tailwindConfig, config);
@@ -61,7 +61,7 @@ export async function updateTailwindConfig(
 export async function transformTailwindConfig(
   input: string,
   tailwindConfig: UpdaterTailwindConfig,
-  config: Config
+  config: Config,
 ) {
   const sourceFile = await _createSourceFile(input, config);
   // Find the object with content property.
@@ -75,8 +75,8 @@ export async function transformTailwindConfig(
         .some(
           (property) =>
             property.isKind(SyntaxKind.PropertyAssignment) &&
-            property.getName() === "content"
-        )
+            property.getName() === "content",
+        ),
     );
 
   // We couldn't find the config object, so we return the input as is.
@@ -93,7 +93,7 @@ export async function transformTailwindConfig(
       name: "darkMode",
       value: "class",
     },
-    { quoteChar }
+    { quoteChar },
   );
 
   // Add Tailwind config plugins.
@@ -119,7 +119,7 @@ function addTailwindConfigProperty(
     quoteChar,
   }: {
     quoteChar: string;
-  }
+  },
 ) {
   const existingProperty = configObject.getProperty("darkMode");
 
@@ -173,7 +173,7 @@ function addTailwindConfigProperty(
 
 async function addTailwindConfigTheme(
   configObject: ObjectLiteralExpression,
-  theme: UpdaterTailwindConfig["theme"]
+  theme: UpdaterTailwindConfig["theme"],
 ) {
   // Ensure there is a theme property.
   if (!configObject.getProperty("theme")) {
@@ -213,7 +213,7 @@ async function addTailwindConfigTheme(
 
 function addTailwindConfigPlugin(
   configObject: ObjectLiteralExpression,
-  plugin: string
+  plugin: string,
 ) {
   const existingPlugins = configObject.getProperty("plugins");
 
@@ -303,7 +303,7 @@ export function nestSpreadProperties(obj: ObjectLiteralExpression) {
       ) {
         // Recursively process nested object literals
         nestSpreadProperties(
-          initializer.asKindOrThrow(SyntaxKind.ObjectLiteralExpression)
+          initializer.asKindOrThrow(SyntaxKind.ObjectLiteralExpression),
         );
       }
     }
@@ -335,7 +335,7 @@ export function unnestSpreadProperties(obj: ObjectLiteralExpression) {
 async function parseObjectLiteral(objectLiteralString: string): Promise<any> {
   const sourceFile = await _createSourceFile(
     `const theme = ${objectLiteralString}`,
-    null
+    null,
   );
 
   const statement = sourceFile.getStatements()[0];
@@ -361,7 +361,7 @@ function parseObjectLiteralExpression(node: ObjectLiteralExpression): any {
         property.getInitializer()?.isKind(SyntaxKind.ObjectLiteralExpression)
       ) {
         result[name] = parseObjectLiteralExpression(
-          property.getInitializer() as ObjectLiteralExpression
+          property.getInitializer() as ObjectLiteralExpression,
         );
       } else {
         result[name] = parseValue(property.getInitializer());
@@ -391,7 +391,7 @@ function parseValue(node: any): any {
 }
 
 export function buildTailwindThemeColorsFromCssVars(
-  cssVars: Record<string, string>
+  cssVars: Record<string, string>,
 ) {
   const result: Record<string, any> = {};
 

@@ -23,7 +23,7 @@ const FormSchema = z.object({
   }),
 });
 
-export default function FormDemo() {
+export default function FormDemo(): JSX.Element {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {

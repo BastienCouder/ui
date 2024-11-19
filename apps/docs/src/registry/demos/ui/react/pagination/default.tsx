@@ -12,7 +12,7 @@ const generateFakeData = (numItems: number) => {
 
 const ITEMS_PER_PAGE = 10;
 
-export default function PaginationDemo() {
+export default function PaginationDemo(): JSX.Element {
   const data = generateFakeData(100);
   const [currentPage, setCurrentPage] = React.useState(1);
 

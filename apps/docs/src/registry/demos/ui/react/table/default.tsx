@@ -56,7 +56,7 @@ const invoices = [
   },
 ];
 
-export default function TableDemo() {
+export default function TableDemo(): JSX.Element {
   return (
     <Table>
       <TableCaption>A list of your recent invoices.</TableCaption>

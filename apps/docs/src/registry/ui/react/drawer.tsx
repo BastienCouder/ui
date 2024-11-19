@@ -7,7 +7,7 @@ import { Drawer as DrawerPrimitive } from "vaul";
 function Drawer({
   shouldScaleBackground = true,
   ...props
-}: React.ComponentProps<typeof DrawerPrimitive.Root>) {
+}: React.ComponentProps<typeof DrawerPrimitive.Root>): JSX.Element {
   return (
     <DrawerPrimitive.Root
       shouldScaleBackground={shouldScaleBackground}
@@ -29,7 +29,7 @@ const DrawerOverlay = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.Overlay
     ref={ref}
-    className={cn("fixed inset-0 z-50 bg-black/80", className)}
+    className={cn("fixed inset-0 z-50 bg-background", className)}
     {...props}
   />
 ));
@@ -59,7 +59,7 @@ DrawerContent.displayName = "DrawerContent";
 function DrawerHeader({
   className,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
+}: React.HTMLAttributes<HTMLDivElement>): JSX.Element {
   return (
     <div
       className={cn("grid gap-1.5 p-4 text-center sm:text-left", className)}
@@ -72,7 +72,7 @@ DrawerHeader.displayName = "DrawerHeader";
 function DrawerFooter({
   className,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
+}: React.HTMLAttributes<HTMLDivElement>): JSX.Element {
   return (
     <div
       className={cn("mt-auto flex flex-col gap-2 p-4", className)}

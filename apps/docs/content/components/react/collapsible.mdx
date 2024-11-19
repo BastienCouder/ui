@@ -1,6 +1,6 @@
 ---
 title: Collapsible
-description: A collapsible component that allows users to toggle the visibility of content.
+description: An interactive component which expands/collapses a panel.
 ---
 
 <ComponentPreview
@@ -37,8 +37,27 @@ description: A collapsible component that allows users to toggle the visibility 
 
 ## Installation
 
+<Tabs defaultValue="cli">
+<TabsList>
+<TabsTrigger value="cli">
+CLI
+</TabsTrigger>
+<TabsTrigger value="manual">  
+Manual
+</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+<Bash>
+<BashCommand>npx</BashCommand> mbi add breadcrumb
+</Bash>
+</TabsContent>
+
+<TabsContent value="manual">
 <Steps>
   <Step>Copy and paste the following code into your project.</Step>
   <ComponentSource name={["ui/react/collapsible"]} extension={["tsx"]} />
   <Step>Update the import paths to match your project setup.</Step>
 </Steps>
+</TabsContent>
+</Tabs>

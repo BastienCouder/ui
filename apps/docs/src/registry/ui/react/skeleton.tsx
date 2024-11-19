@@ -6,8 +6,8 @@ function Skeleton({
   ...props
 }: React.HTMLAttributes<HTMLDivElement> & {
   show?: boolean;
-}) {
-  if (!show) return props.children;
+}): JSX.Element {
+  if (!show) return <>{props.children}</>;
   return (
     <span
       className={cn(

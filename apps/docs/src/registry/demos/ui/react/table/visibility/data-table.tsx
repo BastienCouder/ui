@@ -24,11 +24,11 @@ import {
 import { Button } from "@/registry/ui/react/button";
 import { TextField } from "@/registry/ui/react/text-field";
 import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuTrigger,
-} from "@/registry/ui/react/dropdown-menu";
+  Dropdown,
+  DropdownCheckboxItem,
+  DropdownContent,
+  DropdownTrigger,
+} from "@/registry/ui/react/dropdown";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -38,7 +38,7 @@ interface DataTableProps<TData, TValue> {
 export function DataTable<TData, TValue>({
   columns,
   data,
-}: DataTableProps<TData, TValue>) {
+}: DataTableProps<TData, TValue>): JSX.Element {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     [],
@@ -74,19 +74,19 @@ export function DataTable<TData, TValue>({
           }
           className="max-w-sm"
         />
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
+        <Dropdown>
+          <DropdownTrigger asChild>
             <Button variant="outline" className="ml-auto">
               Columns
             </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
+          </DropdownTrigger>
+          <DropdownContent align="end">
             {table
               .getAllColumns()
               .filter((column) => column.getCanHide())
               .map((column) => {
                 return (
-                  <DropdownMenuCheckboxItem
+                  <DropdownCheckboxItem
                     key={column.id}
                     className="capitalize"
                     checked={column.getIsVisible()}
@@ -95,11 +95,11 @@ export function DataTable<TData, TValue>({
                     }
                   >
                     {column.id}
-                  </DropdownMenuCheckboxItem>
+                  </DropdownCheckboxItem>
                 );
               })}
-          </DropdownMenuContent>
-        </DropdownMenu>
+          </DropdownContent>
+        </Dropdown>
       </div>
       <div className="rounded-md border">
         <Table>

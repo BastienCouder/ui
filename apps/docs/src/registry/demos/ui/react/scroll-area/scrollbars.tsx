@@ -1,11 +1,9 @@
 "use client";
 
-import {
-  ScrollArea,
-  ScrollAreaProps,
-} from "@/registry/ui/react/scroll-area";
+import { ScrollArea, ScrollAreaProps } from "@/registry/ui/react/scroll-area";
 import * as React from "react";
-// import { Radio, RadioGroup } from "@/lib/components/radio-group";
+import { RadioGroup, RadioGroupItem } from "@/registry/ui/react/radio-group";
+import { Label } from "@/registry/ui/react/label";
 
 export default function ScrollAreaDemo(): JSX.Element {
   const [scrollbars, setScrollbars] = React.useState("vertical");
@@ -75,11 +73,26 @@ export default function ScrollAreaDemo(): JSX.Element {
           </div>
         </ScrollArea>
       </div>
-      {/* <RadioGroup label="Scrollbars" value={scrollbars} onChange={setScrollbars}>
-        <Radio value="vertical">Vertical</Radio>
-        <Radio value="horizontal">Horizontal</Radio>
-        <Radio value="both">Both</Radio>
-      </RadioGroup> */}
+
+      <RadioGroup
+        defaultValue="vertical"
+        value={scrollbars}
+        onValueChange={setScrollbars}
+      >
+        <Label className="mb-2">Scrollbars</Label>
+        <div className="flex items-center space-x-2">
+          <RadioGroupItem value="vertical" id="r1" />
+          <Label htmlFor="r1">Vertical</Label>
+        </div>
+        <div className="flex items-center space-x-2">
+          <RadioGroupItem value="horizontal" id="r2" />
+          <Label htmlFor="r2">Horizontal</Label>
+        </div>
+        <div className="flex items-center space-x-2">
+          <RadioGroupItem value="both" id="r3" />
+          <Label htmlFor="r3">Both</Label>
+        </div>
+      </RadioGroup>
     </div>
   );
 }

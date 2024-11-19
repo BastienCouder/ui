@@ -13,7 +13,7 @@ import {
   DialogFooter,
 } from "@/registry/ui/react/dialog";
 
-export default function DialogDemo() {
+export default function DialogDemo(): JSX.Element {
   return (
     <Dialog>
       <DialogTrigger asChild>

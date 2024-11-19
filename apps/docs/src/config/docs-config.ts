@@ -12,6 +12,18 @@ export const docsConfig: DocsConfig = {
         {
           "title": "Installation",
           "href": "/docs/installation"
+        },
+        {
+          "title": "Components.json",
+          "href": "/docs/components.json"
+        },
+        {
+          "title": "CLI",
+          "href": "/docs/cli"
+        },
+        {
+          "title": "Theming",
+          "href": "/docs/theming"
         }
       ]
     },
@@ -33,6 +45,10 @@ export const docsConfig: DocsConfig = {
           "title": "React",
           "href": "/components/react",
           "items": [
+            {
+              "title": "Accordion",
+              "href": "/components/react/accordion"
+            },
             {
               "title": "Alert dialog",
               "href": "/components/react/alert-dialog"
@@ -82,6 +98,10 @@ export const docsConfig: DocsConfig = {
               "href": "/components/react/command"
             },
             {
+              "title": "Context menu",
+              "href": "/components/react/context-menu"
+            },
+            {
               "title": "Dialog",
               "href": "/components/react/dialog"
             },
@@ -116,6 +136,10 @@ export const docsConfig: DocsConfig = {
             {
               "title": "Multi select",
               "href": "/components/react/multi-select"
+            },
+            {
+              "title": "Navigation menu",
+              "href": "/components/react/navigation-menu"
             },
             {
               "title": "Pagination",
@@ -204,6 +228,10 @@ export const docsConfig: DocsConfig = {
             {
               "title": "Tooltip",
               "href": "/components/react/tooltip"
+            },
+            {
+              "title": "Tour",
+              "href": "/components/react/tour"
             },
             {
               "title": "Tree",

@@ -11,11 +11,11 @@ const checkedStyles = tv({
   variants: {
     variant: {
       neutral:
-        "border-fg data-[state=checked]:bg-fg data-[state=checked]:text-bg",
+        "border-foreground data-[state=checked]:bg-foreground data-[state=checked]:text-background",
       primary:
-        "border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-fg",
+        "border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
       secondary:
-        "border-secondary data-[state=checked]:bg-secondary data-[state=checked]:text-secondary-fg",
+        "border-secondary data-[state=checked]:bg-secondary data-[state=checked]:text-secondary-foreground",
     },
     size: {
       sm: "h-4 w-4",
@@ -110,7 +110,7 @@ const Checkbox = React.forwardRef<
         <div className={cn("ml-2", labelPosition === "left" ? "mr-2" : "ml-2")}>
           {children && <span>{children}</span>}
           {description && (
-            <p className="text-sm text-muted-fg">{description}</p>
+            <p className="text-sm text-muted-foreground">{description}</p>
           )}
         </div>
       </div>

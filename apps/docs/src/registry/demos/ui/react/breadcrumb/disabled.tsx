@@ -1,9 +1,6 @@
-import {
-  Breadcrumb,
-  Breadcrumbs,
-} from "@/registry/ui/react/breadcrumb";
+import { Breadcrumb, Breadcrumbs } from "@/registry/ui/react/breadcrumb";
 
-export default function BreadcrumbDemo() {
+export default function BreadcrumbDemo(): JSX.Element {
   return (
     <Breadcrumbs>
       <Breadcrumb href="#">Home</Breadcrumb>

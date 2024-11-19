@@ -12,7 +12,7 @@ import {
 
 import { cn } from "@/lib/utils";
 import { BellRing, Check } from "@/lib/icons";
-import { Switch } from "react-aria-components";
+import { Switch } from "@/registry/ui/react/switch";
 
 const notifications = [
   {
@@ -31,7 +31,10 @@ const notifications = [
 
 type CardProps = React.ComponentProps<typeof Card>;
 
-export default function CardDemo({ className, ...props }: CardProps) {
+export default function CardDemo({
+  className,
+  ...props
+}: CardProps): JSX.Element {
   return (
     <Card className={cn("w-[380px]", className)} {...props}>
       <CardHeader>

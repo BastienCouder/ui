@@ -12,7 +12,7 @@ import {
   HoverCardTrigger,
 } from "@/registry/ui/react/hover-card";
 
-export default function HoverCardDemo() {
+export default function HoverCardDemo(): JSX.Element {
   return (
     <HoverCard>
       <HoverCardTrigger asChild>

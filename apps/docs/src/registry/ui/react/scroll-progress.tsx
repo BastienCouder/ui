@@ -7,7 +7,9 @@ interface ScrollProgressProps {
   className?: string;
 }
 
-export function ScrollProgress({ className }: ScrollProgressProps) {
+export function ScrollProgress({
+  className,
+}: ScrollProgressProps): JSX.Element {
   const { scrollYProgress } = useScroll();
 
   const scaleX = useSpring(scrollYProgress, {

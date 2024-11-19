@@ -1,9 +1,9 @@
 import { ScrollArea } from "@/registry/ui/react/scroll-area";
 import * as React from "react";
 
-const variants = ["default", "primary", "secondary"] as const;
+const variants = ["default", "primary", "secondary", "transparent"] as const;
 
-export default function ScrollAreaDemo() {
+export default function ScrollAreaDemo(): JSX.Element {
   return (
     <div className="grid grid-cols-3 gap-10">
       {variants.map((variant) => (

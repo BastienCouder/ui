@@ -20,7 +20,7 @@ import prompts from "prompts";
 export function resolveTargetDir(
   projectInfo: Awaited<ReturnType<typeof getProjectInfo>>,
   config: Config,
-  target: string
+  target: string,
 ) {
   if (target.startsWith("~/")) {
     return path.join(config.resolvedPaths.cwd, target.replace("~/", ""));
@@ -37,7 +37,7 @@ export async function updateFiles(
     overwrite?: boolean;
     force?: boolean;
     silent?: boolean;
-  }
+  },
 ) {
   if (!files?.length) {
     return;
@@ -77,7 +77,7 @@ export async function updateFiles(
 
     if (!config.tsx) {
       filePath = filePath.replace(/\.tsx?$/, (match) =>
-        match === ".tsx" ? ".jsx" : ".js"
+        match === ".tsx" ? ".jsx" : ".js",
       );
     }
 
@@ -88,7 +88,7 @@ export async function updateFiles(
         type: "confirm",
         name: "overwrite",
         message: `The file ${highlighter.info(
-          fileName
+          fileName,
         )} already exists. Would you like to overwrite?`,
         initial: false,
       });
@@ -114,7 +114,7 @@ export async function updateFiles(
         // baseColor,
         transformJsx: !config.tsx,
       },
-      [transformImport, transformRsc, transformCssVars, transformTwPrefixes]
+      [transformImport, transformRsc, transformCssVars, transformTwPrefixes],
     );
 
     await fs.writeFile(filePath, content, "utf-8");
@@ -132,7 +132,7 @@ export async function updateFiles(
     filesCreatedSpinner?.succeed(
       `Created ${filesCreated.length} ${
         filesCreated.length === 1 ? "file" : "files"
-      }:`
+      }:`,
     );
     if (!options.silent) {
       for (const file of filesCreated) {
@@ -150,7 +150,7 @@ export async function updateFiles(
       }:`,
       {
         silent: options.silent,
-      }
+      },
     )?.info();
     if (!options.silent) {
       for (const file of filesUpdated) {
@@ -166,7 +166,7 @@ export async function updateFiles(
       }:`,
       {
         silent: options.silent,
-      }
+      },
     )?.info();
     if (!options.silent) {
       for (const file of filesSkipped) {

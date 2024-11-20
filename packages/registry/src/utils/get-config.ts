@@ -21,14 +21,12 @@ const explorer = cosmiconfig("components", {
 export const rawConfigSchema = z
   .object({
     $schema: z.string().optional(),
-    rsc: z.coerce.boolean().default(false),
     tsx: z.coerce.boolean().default(true),
     framework: z.string().default("react"),
     tailwind: z.object({
       config: z.string(),
       css: z.string(),
       cssVariables: z.boolean().default(true),
-      prefix: z.string().default("").optional(),
     }),
     aliases: z.object({
       components: z.string(),
@@ -59,7 +57,6 @@ export type Config = z.infer<typeof configSchema>;
 
 export async function getConfig(cwd: string) {
   const config = await getRawConfig(cwd);
-
   if (!config) {
     return null;
   }
@@ -68,14 +65,13 @@ export async function getConfig(cwd: string) {
 }
 
 export async function resolveConfigPaths(cwd: string, config: RawConfig) {
-  // Read tsconfig.json.
   const tsConfig = await loadConfig(cwd);
 
   if (tsConfig.resultType === "failed") {
     throw new Error(
       `Failed to load ${config.tsx ? "tsconfig" : "jsconfig"}.json. ${
         tsConfig.message ?? ""
-      }`.trim(),
+      }`.trim()
     );
   }
 
@@ -92,7 +88,7 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
         : path.resolve(
             (await resolveImport(config.aliases["components"], tsConfig)) ??
               cwd,
-            "ui",
+            "ui"
           ),
       // TODO: Make this configurable.
       // For now, we assume the lib and hooks directories are one level up from the components directory.
@@ -100,7 +96,7 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
         ? await resolveImport(config.aliases["lib"], tsConfig)
         : path.resolve(
             (await resolveImport(config.aliases["utils"], tsConfig)) ?? cwd,
-            "..",
+            ".."
           ),
       hooks: config.aliases["hooks"]
         ? await resolveImport(config.aliases["hooks"], tsConfig)
@@ -108,7 +104,7 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
             (await resolveImport(config.aliases["components"], tsConfig)) ??
               cwd,
             "..",
-            "hooks",
+            "hooks"
           ),
     },
   });
@@ -126,7 +122,7 @@ export async function getRawConfig(cwd: string): Promise<RawConfig | null> {
   } catch (error) {
     const componentPath = `${cwd}/components.json`;
     throw new Error(
-      `Invalid configuration found in ${highlighter.info(componentPath)}.`,
+      `Invalid configuration found in ${highlighter.info(componentPath)}.`
     );
   }
 }

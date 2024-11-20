@@ -9,7 +9,7 @@ const breadcrumbStyles = tv({
     variants: {
         variant: {
             neutral: 'text-fg hover:text-primary-hover',
-            active: 'text-primary-active font-bold',
+            active: 'text-primary font-bold',
         },
         size: {
             sm: 'text-sm [&_svg]:w-4 [&_svg]:h-4',
@@ -31,6 +31,7 @@ const props = defineProps<{
     size?: 'sm' | 'md' | 'lg',
     orientation?: 'horizontal' | 'vertical',
     icon?: Component,
+    isLast?: boolean,
 }>()
 
 const defaultSeparatorIcon = props.orientation === 'vertical'
@@ -43,6 +44,7 @@ provide('orientation', props.orientation);
 provide('icon', effectiveSeparatorIcon);
 provide('breadcrumbStyles', breadcrumbStyles);
 provide('size', props.size);
+provide('isLast', props.isLast);
 </script>
 
 <template>

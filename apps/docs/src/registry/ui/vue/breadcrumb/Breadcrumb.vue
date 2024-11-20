@@ -10,14 +10,15 @@ const props = defineProps<{
     href?: string,
     disabled?: boolean,
     variant?: 'neutral' | 'active',
-    size?: 'sm' | 'md' | 'lg'
+    size?: 'sm' | 'md' | 'lg',
+    isLast?: boolean,
 }>();
 
 const breadcrumbStyles = inject<BreadcrumbStylesType>('breadcrumbStyles') as unknown as (args: { variant?: string, size?: string }) => string;
 const injectedSize = inject<string>('size', 'sm');
 
 const breadcrumbClass = computed(() => breadcrumbStyles({
-    variant: props.variant,
+    variant: props.isLast ? 'active' : props.variant,
     size: props.size || injectedSize,
 }));
 
@@ -29,7 +30,7 @@ const breadcrumbClass = computed(() => breadcrumbStyles({
         props.class,
         { 'opacity-50 cursor-not-allowed': props.disabled })" :aria-disabled="props.disabled ? 'true' : undefined">
 
-        <template v-if="props.href && !props.disabled">
+        <template v-if="props.href && !props.disabled && !props.isLast">
             <NuxtLink :to="props.href" class="group-hover:text-primary-hover">
                 <slot />
             </NuxtLink>
@@ -42,7 +43,9 @@ const breadcrumbClass = computed(() => breadcrumbStyles({
         </template>
 
         <template v-else>
-            <slot />
+            <span class="font-bold">
+                <slot />
+            </span>
         </template>
     </li>
 </template>

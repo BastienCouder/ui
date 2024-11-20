@@ -40,7 +40,7 @@ export const init = new Command()
   .description("initialize your project and install dependencies")
   .argument(
     "[components...]",
-    "the components to add or a url to the component.",
+    "the components to add or a url to the component."
   )
   .option("-y, --yes", "skip confirmation prompt.", true)
   .option("-d, --defaults,", "use default configuration.", false)
@@ -48,13 +48,13 @@ export const init = new Command()
   .option(
     "-c, --cwd <cwd>",
     "the working directory. defaults to the current directory.",
-    process.cwd(),
+    process.cwd()
   )
   .option("-s, --silent", "mute output.", false)
   .option(
     "--src-dir",
     "use the src directory when creating a new project.",
-    false,
+    false
   )
   .action(async (components, opts) => {
     try {
@@ -69,8 +69,8 @@ export const init = new Command()
 
       logger.log(
         `${highlighter.success(
-          "Success!",
-        )} Project initialization completed.\nYou may now add components.`,
+          "Success!"
+        )} Project initialization completed.\nYou may now add components.`
       );
       logger.break();
     } catch (error) {
@@ -82,7 +82,7 @@ export const init = new Command()
 export async function runInit(
   options: z.infer<typeof initOptionsSchema> & {
     skipPreflight?: boolean;
-  },
+  }
 ) {
   let projectInfo;
   if (!options.skipPreflight) {
@@ -106,8 +106,9 @@ export async function runInit(
   const projectConfig = await getProjectConfig(options.cwd, projectInfo);
 
   const framework = await getFramework(
-    projectInfo?.framework.name ? projectInfo?.framework.name : "react",
+    projectInfo?.framework.name ? projectInfo?.framework.name : "react"
   );
+
   const config = projectConfig
     ? await promptForMinimalConfig(projectConfig, options, framework ?? "react")
     : await promptForConfig(await getConfig(options.cwd), framework ?? "react");
@@ -117,7 +118,7 @@ export async function runInit(
       type: "confirm",
       name: "proceed",
       message: `Write configuration to ${highlighter.info(
-        "components.json",
+        "components.json"
       )}. Proceed?`,
       initial: true,
     });
@@ -152,7 +153,7 @@ export async function runInit(
       fullConfig,
       {
         silent: options.silent,
-      },
+      }
     );
   }
 
@@ -161,7 +162,7 @@ export async function runInit(
 
 async function promptForConfig(
   defaultConfig: Config | null = null,
-  framework: string,
+  framework: string
 ) {
   logger.info("");
 
@@ -267,7 +268,7 @@ async function promptForConfig(
 async function promptForMinimalConfig(
   defaultConfig: Config,
   opts: z.infer<typeof initOptionsSchema>,
-  framework: string,
+  framework: string
 ) {
   let cssVariables = defaultConfig.tailwind.cssVariables;
 
@@ -277,7 +278,7 @@ async function promptForMinimalConfig(
         type: "toggle",
         name: "tailwindCssVariables",
         message: `Would you like to use ${highlighter.info(
-          "CSS variables",
+          "CSS variables"
         )} for theming?`,
         initial: defaultConfig?.tailwind.cssVariables,
         active: "yes",
@@ -295,8 +296,6 @@ async function promptForMinimalConfig(
       ...defaultConfig?.tailwind,
       cssVariables,
     },
-    rsc: defaultConfig?.rsc,
-    tsx: defaultConfig?.tsx,
     aliases: defaultConfig?.aliases,
   });
 }

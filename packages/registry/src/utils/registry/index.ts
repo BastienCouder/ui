@@ -4,29 +4,26 @@ import { handleError } from "@/src/utils/handle-error";
 import { highlighter } from "@/src/utils/highlighter";
 import { logger } from "@/src/utils/logger";
 import {
-  registryBaseColorSchema,
   registryIndexSchema,
   registryItemFileSchema,
   registryItemSchema,
   registryResolvedItemsTreeSchema,
-  stylesSchema,
 } from "@/src/utils/registry/schema";
-import { buildTailwindThemeColorsFromCssVars } from "@/src/utils/updaters/update-tailwind-config";
 import deepmerge from "deepmerge";
 import { HttpsProxyAgent } from "https-proxy-agent";
 import fetch from "node-fetch";
 import { z } from "zod";
 
 const REGISTRY_URL =
-  process.env.REGISTRY_URL ?? "https://ui.bastiencouder.com/registry/react";
+  process.env.REGISTRY_URL ?? "https://ui.bastiencouder.com/registry";
 
 const agent = process.env.https_proxy
   ? new HttpsProxyAgent(process.env.https_proxy)
   : undefined;
 
-export async function getRegistryIndex() {
+export async function getRegistryIndex(framework?: string) {
   try {
-    const [result] = await fetchRegistry(["index.json"]);
+    const [result] = await fetchRegistry(["index.json"], framework);
 
     return registryIndexSchema.parse(result);
   } catch (error) {
@@ -37,7 +34,7 @@ export async function getRegistryIndex() {
 
 export async function resolveTree(
   index: z.infer<typeof registryIndexSchema>,
-  names: string[],
+  names: string[]
 ) {
   const tree: z.infer<typeof registryIndexSchema> = [];
 
@@ -58,13 +55,13 @@ export async function resolveTree(
 
   return tree.filter(
     (component, index, self) =>
-      self.findIndex((c) => c.name === component.name) === index,
+      self.findIndex((c) => c.name === component.name) === index
   );
 }
 
 export async function fetchTree(
   style: string,
-  tree: z.infer<typeof registryIndexSchema>,
+  tree: z.infer<typeof registryIndexSchema>
 ) {
   try {
     const paths = tree.map((item) => `styles/${style}/${item.name}.json`);
@@ -78,7 +75,7 @@ export async function fetchTree(
 export async function getItemTargetPath(
   config: Config,
   item: Pick<z.infer<typeof registryItemSchema>, "type">,
-  override?: string,
+  override?: string
 ) {
   if (override) {
     return override;
@@ -95,15 +92,16 @@ export async function getItemTargetPath(
 
   return path.join(
     config.resolvedPaths[parent as keyof typeof config.resolvedPaths],
-    type,
+    type
   );
 }
 
-async function fetchRegistry(paths: string[]) {
+async function fetchRegistry(paths: string[], framework?: string) {
   try {
     const results = await Promise.all(
       paths.map(async (path) => {
-        const url = getRegistryUrl(path);
+        const url = getRegistryUrl(path, framework);
+
         const response = await fetch(url, { agent });
 
         if (!response.ok) {
@@ -118,24 +116,24 @@ async function fetchRegistry(paths: string[]) {
           if (response.status === 401) {
             throw new Error(
               `You are not authorized to access the component at ${highlighter.info(
-                url,
-              )}.\nIf this is a remote registry, you may need to authenticate.`,
+                url
+              )}.\nIf this is a remote registry, you may need to authenticate.`
             );
           }
 
           if (response.status === 404) {
             throw new Error(
               `The component at ${highlighter.info(
-                url,
-              )} was not found.\nIt may not exist at the registry. Please make sure it is a valid component.`,
+                url
+              )} was not found.\nIt may not exist at the registry. Please make sure it is a valid component.`
             );
           }
 
           if (response.status === 403) {
             throw new Error(
               `You do not have access to the component at ${highlighter.info(
-                url,
-              )}.\nIf this is a remote registry, you may need to authenticate or a token.`,
+                url
+              )}.\nIf this is a remote registry, you may need to authenticate or a token.`
             );
           }
 
@@ -145,12 +143,12 @@ async function fetchRegistry(paths: string[]) {
               ? result.error
               : response.statusText || errorMessages[response.status];
           throw new Error(
-            `Failed to fetch from ${highlighter.info(url)}.\n${message}`,
+            `Failed to fetch from ${highlighter.info(url)}.\n${message}`
           );
         }
 
         return response.json();
-      }),
+      })
     );
 
     return results;
@@ -164,7 +162,7 @@ async function fetchRegistry(paths: string[]) {
 export function getRegistryItemFileTargetPath(
   file: z.infer<typeof registryItemFileSchema>,
   config: Config,
-  override?: string,
+  override?: string
 ) {
   if (override) {
     return override;
@@ -197,13 +195,10 @@ export function getRegistryItemFileTargetPath(
 
 export async function registryResolveItemsTree(
   names: z.infer<typeof registryItemSchema>["name"][],
-  config: Config,
+  config: Config
 ) {
-  console.log(names);
-  console.log(config);
-
   try {
-    const index = await getRegistryIndex();
+    const index = await getRegistryIndex(config.framework);
     if (!index) {
       return null;
     }
@@ -217,17 +212,20 @@ export async function registryResolveItemsTree(
     for (const name of names) {
       const itemRegistryDependencies = await resolveRegistryDependencies(
         name,
-        config,
+        config
       );
 
       registryDependencies.push(...itemRegistryDependencies);
     }
 
     const uniqueRegistryDependencies = Array.from(
-      new Set(registryDependencies),
+      new Set(registryDependencies)
     );
 
-    let result = await fetchRegistry(uniqueRegistryDependencies);
+    let result = await fetchRegistry(
+      uniqueRegistryDependencies,
+      config.framework
+    );
     const payload = z.array(registryItemSchema).parse(result);
 
     if (!payload) {
@@ -266,10 +264,10 @@ export async function registryResolveItemsTree(
 
     return registryResolvedItemsTreeSchema.parse({
       dependencies: deepmerge.all(
-        payload.map((item) => item.dependencies ?? []),
+        payload.map((item) => item.dependencies ?? [])
       ),
       devDependencies: deepmerge.all(
-        payload.map((item) => item.devDependencies ?? []),
+        payload.map((item) => item.devDependencies ?? [])
       ),
       files: deepmerge.all(payload.map((item) => item.files ?? [])),
       tailwind,
@@ -284,18 +282,17 @@ export async function registryResolveItemsTree(
 
 async function resolveRegistryDependencies(
   url: string,
-  config: Config,
+  config: Config
 ): Promise<string[]> {
   const visited = new Set<string>();
   const payload: string[] = [];
 
-  console.log(config);
   async function resolveDependencies(itemUrl: string) {
     // const url = getRegistryUrl(
-    //   isUrl(itemUrl) ? itemUrl : `ui/react/${itemUrl}.json`
-    // )
+    //   isUrl(itemUrl) ? itemUrl : `ui/${config.framework}/${itemUrl}.json`
+    // );
 
-    const url = `https://ui.bastiencouder.com/registry/ui/react/${itemUrl}.json`;
+    const url = `${REGISTRY_URL}/ui/${config.framework}/${itemUrl}.json`;
     //correction url;
 
     if (visited.has(url)) {
@@ -305,7 +302,7 @@ async function resolveRegistryDependencies(
     visited.add(url);
 
     try {
-      const [result] = await fetchRegistry([url]);
+      const [result] = await fetchRegistry([url], config.framework);
       const item = registryItemSchema.parse(result);
       payload.push(url);
 
@@ -317,7 +314,7 @@ async function resolveRegistryDependencies(
     } catch (error) {
       console.error(
         `Error fetching or parsing registry item at ${itemUrl}:`,
-        error,
+        error
       );
     }
   }
@@ -370,7 +367,7 @@ export async function registryGetTheme(name: string, config: Config) {
   return theme;
 }
 
-function getRegistryUrl(path: string) {
+function getRegistryUrl(path: string, framework?: string) {
   if (isUrl(path)) {
     // If the url contains /chat/b/, we assume it's the v0 registry.
     // We need to add the /json suffix if it's missing.
@@ -382,7 +379,7 @@ function getRegistryUrl(path: string) {
     return url.toString();
   }
 
-  return `${REGISTRY_URL}/${path}`;
+  return `${REGISTRY_URL}/${framework}/${path}`;
 }
 
 function isUrl(path: string) {

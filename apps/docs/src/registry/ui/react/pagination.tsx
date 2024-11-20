@@ -3,7 +3,7 @@
 import * as React from "react";
 import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { ButtonProps, buttonStyles } from "@/registry/ui/react/button";
+import { ButtonProps, buttonStyles } from "./button";
 
 type PaginationProps = {
   totalPages: number;
@@ -13,6 +13,8 @@ type PaginationProps = {
   size?: "sm" | "md" | "lg";
   onePage?: boolean;
   lastPage?: boolean;
+  nextText?: string;
+  previousText?: string;
 };
 
 const Paginations: React.FC<PaginationProps> = ({
@@ -22,6 +24,8 @@ const Paginations: React.FC<PaginationProps> = ({
   size = "md",
   onePage = false,
   lastPage = false,
+  nextText = "Next",
+  previousText = "Previous",
   children,
   ...props
 }) => {
@@ -56,6 +60,7 @@ const Paginations: React.FC<PaginationProps> = ({
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious
+            previousText={previousText}
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
           />
@@ -169,6 +174,7 @@ const Paginations: React.FC<PaginationProps> = ({
 
         <PaginationItem>
           <PaginationNext
+            nextText={nextText}
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages} // Disable if on the last page
           />

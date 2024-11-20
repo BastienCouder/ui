@@ -29,6 +29,7 @@ const PROJECT_SHARED_IGNORE = [
   "build",
 ];
 
+// Main function to get project information
 export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
   const [
     configFiles,
@@ -45,7 +46,7 @@ export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
         cwd,
         deep: 3,
         ignore: PROJECT_SHARED_IGNORE,
-      },
+      }
     ),
     fs.pathExists(path.resolve(cwd, "src")),
     isTypeScriptProject(cwd),
@@ -56,7 +57,7 @@ export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
   ]);
 
   const isUsingAppDir = await fs.pathExists(
-    path.resolve(cwd, `${isSrcDir ? "src/" : ""}app`),
+    path.resolve(cwd, `${isSrcDir ? "src/" : ""}app`)
   );
 
   const type: ProjectInfo = {
@@ -69,8 +70,8 @@ export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
     aliasPrefix,
   };
 
-  // Next.js.
-  if (configFiles.find((file) => file.startsWith("next.config."))?.length) {
+  // Detect specific frameworks
+  if (configFiles.some((file) => file.startsWith("next.config."))) {
     type.framework = isUsingAppDir
       ? FRAMEWORKS["next-app"]
       : FRAMEWORKS["next-pages"];
@@ -78,54 +79,46 @@ export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
     return type;
   }
 
-  // Astro.
-  if (configFiles.find((file) => file.startsWith("astro.config."))?.length) {
+  if (configFiles.some((file) => file.startsWith("astro.config."))) {
     type.framework = FRAMEWORKS["astro"];
     return type;
   }
 
-  // Gatsby.
-  if (configFiles.find((file) => file.startsWith("gatsby-config."))?.length) {
+  if (configFiles.some((file) => file.startsWith("gatsby-config."))) {
     type.framework = FRAMEWORKS["gatsby"];
     return type;
   }
 
-  // Laravel.
-  if (configFiles.find((file) => file.startsWith("composer.json"))?.length) {
+  if (configFiles.some((file) => file.startsWith("composer.json"))) {
     type.framework = FRAMEWORKS["laravel"];
     return type;
   }
 
-  // Remix.
   if (
-    Object.keys(packageJson?.dependencies ?? {}).find((dep) =>
-      dep.startsWith("@remix-run/"),
+    Object.keys(packageJson?.dependencies ?? {}).some((dep) =>
+      dep.startsWith("@remix-run/")
     )
   ) {
     type.framework = FRAMEWORKS["remix"];
     return type;
   }
 
-  // Vite.
-  if (configFiles.find((file) => file.startsWith("vite.config."))?.length) {
+  if (configFiles.some((file) => file.startsWith("vite.config."))) {
     type.framework = FRAMEWORKS["vite"];
     return type;
   }
 
-  // Angular.
-  if (configFiles.find((file) => file.startsWith("angular.json"))?.length) {
+  if (configFiles.some((file) => file.startsWith("angular.json"))) {
     type.framework = FRAMEWORKS["angular"];
     return type;
   }
 
-  // Vue.js.
-  if (configFiles.find((file) => file.startsWith("vue.config."))?.length) {
+  if (configFiles.some((file) => file.startsWith("vue.config."))) {
     type.framework = FRAMEWORKS["vue"];
     return type;
   }
 
-  // Nuxt.js.
-  if (configFiles.find((file) => file.startsWith("nuxt.config."))?.length) {
+  if (configFiles.some((file) => file.startsWith("nuxt.config."))) {
     type.framework = FRAMEWORKS["nuxt"];
     return type;
   }
@@ -133,6 +126,7 @@ export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
   return type;
 }
 
+// Utility to find Tailwind CSS file
 export async function getTailwindCssFile(cwd: string) {
   const files = await fg.glob(["**/*.css", "**/*.scss"], {
     cwd,
@@ -140,21 +134,17 @@ export async function getTailwindCssFile(cwd: string) {
     ignore: PROJECT_SHARED_IGNORE,
   });
 
-  if (!files.length) {
-    return null;
-  }
+  if (!files.length) return null;
 
   for (const file of files) {
     const contents = await fs.readFile(path.resolve(cwd, file), "utf8");
-    // Assume that if the file contains `@tailwind base` it's the main css file.
-    if (contents.includes("@tailwind base")) {
-      return file;
-    }
+    if (contents.includes("@tailwind base")) return file;
   }
 
   return null;
 }
 
+// Utility to find Tailwind configuration file
 export async function getTailwindConfigFile(cwd: string) {
   const files = await fg.glob("tailwind.config.*", {
     cwd,
@@ -162,35 +152,56 @@ export async function getTailwindConfigFile(cwd: string) {
     ignore: PROJECT_SHARED_IGNORE,
   });
 
-  if (!files.length) {
-    return null;
-  }
+  return files.length > 0 ? files[0] : null;
+}
 
-  return files[0];
+// Liste des priorités des alias
+const priorities = [
+  "~",
+  "@",
+  "~~",
+  "@@",
+  "#shared",
+  "assets",
+  "public",
+  "#build",
+];
+
+function getPriority(alias: string): number {
+  const baseAlias = alias.split("/")[0];
+  const index = priorities.indexOf(baseAlias);
+  return index === -1 ? priorities.length : index;
+}
+
+function sortAliases(aliases: [string, string[]][]): [string, string[]][] {
+  return aliases.sort(([aliasA], [aliasB]) => {
+    return getPriority(aliasA) - getPriority(aliasB);
+  });
 }
 
 export async function getTsConfigAliasPrefix(cwd: string) {
   const tsConfig = await loadConfig(cwd);
 
-  if (tsConfig?.resultType === "failed" || !tsConfig?.paths) {
-    return null;
-  }
+  if (tsConfig?.resultType === "failed" || !tsConfig?.paths) return null;
 
-  // This assume that the first alias is the prefix.
-  for (const [alias, paths] of Object.entries(tsConfig.paths)) {
+  const sortedAliases = sortAliases(Object.entries(tsConfig.paths));
+
+  for (const [alias, paths] of sortedAliases) {
     if (
       paths.includes("./*") ||
+      paths.includes("../*") ||
       paths.includes("./src/*") ||
       paths.includes("./app/*") ||
-      paths.includes("./resources/js/*") // Laravel.
+      paths.includes("./resources/js/*")
     ) {
-      return alias.at(0) ?? null;
+      return alias.split("/")[0] ?? null;
     }
   }
 
   return null;
 }
 
+// Determine if the project is using TypeScript
 export async function isTypeScriptProject(cwd: string) {
   const files = await fg.glob("tsconfig.*", {
     cwd,
@@ -201,36 +212,27 @@ export async function isTypeScriptProject(cwd: string) {
   return files.length > 0;
 }
 
+// Load tsconfig.json
 export async function getTsConfig() {
   try {
     const tsconfigPath = path.join("tsconfig.json");
-    const tsconfig = await fs.readJSON(tsconfigPath);
-
-    if (!tsconfig) {
-      throw new Error("tsconfig.json is missing");
-    }
-
-    return tsconfig;
-  } catch (error) {
+    return await fs.readJSON(tsconfigPath);
+  } catch {
     return null;
   }
 }
 
+// Get project configuration or generate a default one
 export async function getProjectConfig(
   cwd: string,
-  defaultProjectInfo: ProjectInfo | null = null,
+  defaultProjectInfo: ProjectInfo | null = null
 ): Promise<Config | null> {
-  // Check for existing component config.
   const [existingConfig, projectInfo] = await Promise.all([
     getConfig(cwd),
-    !defaultProjectInfo
-      ? getProjectInfo(cwd)
-      : Promise.resolve(defaultProjectInfo),
+    defaultProjectInfo ? defaultProjectInfo : getProjectInfo(cwd),
   ]);
 
-  if (existingConfig) {
-    return existingConfig;
-  }
+  if (existingConfig) return existingConfig;
 
   if (
     !projectInfo ||
@@ -244,14 +246,12 @@ export async function getProjectConfig(
 
   const config: RawConfig = {
     $schema: "https://ui.bastiencouder.com/schema.json",
-    rsc: projectInfo.isRSC,
     tsx: projectInfo.isTsx,
     framework: framework ?? "react",
     tailwind: {
       config: projectInfo.tailwindConfigFile,
       css: projectInfo.tailwindCssFile,
       cssVariables: true,
-      prefix: "",
     },
     aliases: {
       components: `${projectInfo.aliasPrefix}/components`,

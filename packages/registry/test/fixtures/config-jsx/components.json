@@ -1,6 +1,6 @@
 {
   "style": "default",
-  "tsx": false,
+  "ts": false,
   "tailwind": {
     "config": "./tailwind.config.js",
     "css": "./src/assets/css/tailwind.css",

@@ -15,7 +15,7 @@ type ProjectInfo = {
   framework: Framework;
   isSrcDir: boolean;
   isRSC: boolean;
-  isTsx: boolean;
+  isTs: boolean;
   tailwindConfigFile: string | null;
   tailwindCssFile: string | null;
   aliasPrefix: string | null;
@@ -34,7 +34,7 @@ export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
   const [
     configFiles,
     isSrcDir,
-    isTsx,
+    isTs,
     tailwindConfigFile,
     tailwindCssFile,
     aliasPrefix,
@@ -64,7 +64,7 @@ export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
     framework: FRAMEWORKS["manual"],
     isSrcDir,
     isRSC: false,
-    isTsx,
+    isTs,
     tailwindConfigFile,
     tailwindCssFile,
     aliasPrefix,
@@ -246,7 +246,7 @@ export async function getProjectConfig(
 
   const config: RawConfig = {
     $schema: "https://ui.bastiencouder.com/schema.json",
-    tsx: projectInfo.isTsx,
+    ts: projectInfo.isTs,
     framework: framework ?? "react",
     tailwind: {
       config: projectInfo.tailwindConfigFile,

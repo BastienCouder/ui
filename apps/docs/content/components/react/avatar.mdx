@@ -1,6 +1,7 @@
 ---
 title: Avatar
 description: An image element with a fallback for representing the user.
+component: true
 ---
 
 <ComponentPreview
@@ -22,7 +23,7 @@ Manual
 
 <TabsContent value="cli">
 <Bash>
-<BashCommand>npx</BashCommand> mbi add badge
+<BashCommand>npx</BashCommand> revueui add badge
 </Bash>
 </TabsContent>
 
@@ -42,7 +43,7 @@ Manual
 
 ### Shape
 
-`Avatar` can be either a circle or a square using the `shape` prop.
+Use the `shape` prop to control the shape of the `Avatar`. The default variant is `circle`.
 
 <ComponentPreview
   name="demos/ui/react/avatar/shape"
@@ -61,9 +62,9 @@ Use the `size` prop to control the size of the `Avatar`. The default variant is 
 <Avatar size="lg" />`}
 />
 
-## Composition
+## Full Example
 
-If you need to customize things further, you can drop down to the composition level.
+Here’s a full example combining all the components: `AvatarRoot`, `AvatarImage`, `AvatarFallback`, and `AvatarPlaceholder`.
 
 <ComponentPreview
   name="demos/ui/react/avatar/composition"
@@ -71,7 +72,7 @@ If you need to customize things further, you can drop down to the composition le
   <AvatarImage src="/images/profile-default.png" alt="@bastiencouder" />
   <AvatarFallback>B</AvatarFallback>
   <AvatarPlaceholder>
-    <UserIcon className="size-5" />
+    <UserIcon className="h-5 w-5" />
   </AvatarPlaceholder>
 </AvatarRoot>`}
 />

@@ -20,7 +20,7 @@
     "rsc": {
       "type": "boolean"
     },
-    "tsx": {
+    "ts": {
       "type": "boolean"
     },
     "vue": {

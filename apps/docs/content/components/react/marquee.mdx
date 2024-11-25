@@ -23,6 +23,27 @@ component: true
 
 ## Installation
 
-Copy and paste the following code into your project.<br/>
-<ComponentSource name={["ui/react/marquee"]} extension={["tsx"]}/>
+<Tabs defaultValue="cli">
+<TabsList>
+<TabsTrigger value="cli">
+CLI
+</TabsTrigger>
+<TabsTrigger value="manual">  
+Manual
+</TabsTrigger>
+</TabsList>
 
+<TabsContent value="cli">
+<Bash>
+<BashCommand>npx</BashCommand> revueui add marquee
+</Bash>
+</TabsContent>
+
+<TabsContent value="manual">
+<Steps>
+<Step>Copy and paste the following code into your project.</Step>
+<ComponentSource name={["ui/react/marquee"]} extension={["tsx"]}/>
+<Step>Update the import paths to match your project setup.</Step>
+</Steps>
+</TabsContent>
+</Tabs>

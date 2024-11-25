@@ -1,7 +1,7 @@
 {
     "$schema": "https://ui.bastiencouder.com/schema.json",
     "rsc": true,
-    "tsx": true,
+    "ts": true,
     "framework": "react",
     "tailwind": {
       "config": "tailwind.config.ts",

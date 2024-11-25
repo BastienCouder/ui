@@ -1,9 +1,9 @@
 ---
 title: Button
 description: Displays a button or a component that looks like a button.
+component: true
 links:
   [
-    { href: "/components/angular/button", label: "angular" },
     { href: "/components/vue/button", label: "vue" },
   ]
 ---
@@ -28,7 +28,7 @@ Manual
 
 <TabsContent value="cli">
 <Bash>
-<BashCommand>npx</BashCommand> mbi add button
+<BashCommand>npx</BashCommand> revueui add button
 </Bash>
 </TabsContent>
 
@@ -48,8 +48,7 @@ Manual
 
 ### Variant
 
-Use the `variant` prop to control the visual style of the button.<br/>
-The default variant is `"default"`.
+Use the `variant` prop to control the visual style of the button.
 
 <ComponentPreview
   name="demos/ui/react/button/variants"
@@ -65,8 +64,7 @@ The default variant is `"default"`.
 
 ### Size
 
-Use the `size` prop to control the size of the button.<br/>
-The default size is `"md"`.
+Use the `size` prop to control the size of the button.
 
 <ComponentPreview
   name="demos/ui/react/button/sizes"
@@ -77,8 +75,7 @@ The default size is `"md"`.
 
 ### Shape
 
-Use the `shape` prop to control the shape of the button. The default variant is `"rectangle"`.<br/>
-Icon-only buttons should include an `aria-label`.
+Use the `shape` prop to control the shape of the button.
 
 <ComponentPreview
   name="demos/ui/react/button/shapes"

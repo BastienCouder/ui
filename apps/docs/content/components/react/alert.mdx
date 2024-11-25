@@ -29,7 +29,7 @@ Manual
 
 <TabsContent value="cli">
 <Bash>
-<BashCommand>npx</BashCommand> mbi add alert
+<BashCommand>npx</BashCommand> revueui add alert
 </Bash>
 </TabsContent>
 
@@ -46,12 +46,12 @@ Manual
 
 ### Destructive
 
-An alert with a destructive variant. The title says 'Delete this item?' and the description is 'This action cannot be undone.'.
+An alert with a destructive variant.
 
 <ComponentPreview
   name="demos/ui/react/alert/danger"
   preview={`<Alert variant="danger">
-    <AlertCircle className="size-4" />
+    <AlertCircle className="h-4 w-4" />
     <AlertTitle>Error</AlertTitle>
     <AlertDescription>
         Your session has expired. Please log in again.

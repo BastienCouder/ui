@@ -171,7 +171,7 @@ async function promptForConfig(
       type: "toggle",
       name: "typescript",
       message: `Would you like to use ${highlighter.info("TypeScript")} (recommended)?`,
-      initial: defaultConfig?.tsx ?? true,
+      initial: defaultConfig?.ts ?? true,
       active: "yes",
       inactive: "no",
     },
@@ -258,9 +258,8 @@ async function promptForConfig(
       config: options.tailwindConfig,
       css: options.tailwindCss,
       cssVariables: options.tailwindCssVariables,
-      prefix: options.tailwindPrefix,
     },
-    tsx: options.typescript,
+    ts: options.typescript,
     aliases,
   });
 }

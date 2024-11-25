@@ -1,6 +1,7 @@
 ---
 title: Breadcrumb
 description: Displays the path to the current resource using a hierarchy of links.
+component: true
 ---
 
 <ComponentPreview
@@ -26,7 +27,7 @@ Manual
 
 <TabsContent value="cli">
 <Bash>
-<BashCommand>npx</BashCommand> mbi add breadcrumb
+<BashCommand>npx</BashCommand> revueui add breadcrumb
 </Bash>
 </TabsContent>
 
@@ -111,9 +112,9 @@ Use the `disabled` prop to disable the breadcrumbs.
 </Breadcrumbs>`}
 />
 
-## Composition
+## Full Example
 
-If you need to customize things further, you can drop down to the composition level.
+Here’s a full example combining all the components: Breadcrumbs, Breadcrumb, and BreadcrumbLink.
 
 <ComponentPreview
   name="demos/ui/react/breadcrumb/composition"

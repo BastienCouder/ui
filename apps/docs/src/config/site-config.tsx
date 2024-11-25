@@ -1,9 +1,9 @@
 export const siteConfig = {
   global: {
     url: "https://bastiencouder.com",
-    name: "Bastiencouder",
+    name: "ReVueUI",
     logo: "",
-    title: "UI",
+    title: "ReVueUI",
     description: "Accessible, mobile friendly, modern UI components.",
     keywords: [],
     authors: [

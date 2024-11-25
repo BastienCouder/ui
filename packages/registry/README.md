@@ -19,19 +19,19 @@ Use the `add` command to add components to your project.
 The `add` command adds a component to your project and installs all required dependencies.
 
 ```bash
-npx rva-ui add [component]
+npx revueui add [component]
 ```
 
 ### Example
 
 ```bash
-npx rva-ui add alert-dialog
+npx revueui add alert-dialog
 ```
 
 You can also run the command without any arguments to view a list of all available components:
 
 ```bash
-npx rva-ui add
+npx revueui add
 ```
 
 ## Documentation

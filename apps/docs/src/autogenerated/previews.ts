@@ -65,7 +65,7 @@ export const previews = {
     code: [
       {
         title: "danger.tsx",
-        code: '"use client";\n\nimport { Alert, AlertDescription, AlertTitle } from "@/registry/ui/react/alert";\nimport { AlertCircle } from "lucide-react";\n\nexport default function AlertDemo(): JSX.Element {\n  return (\n    <Alert variant="danger">\n      <AlertCircle className="size-4" />\n      <AlertTitle>Error</AlertTitle>\n      <AlertDescription>\n        Your session has expired. Please log in again.\n      </AlertDescription>\n    </Alert>\n  );\n}\n',
+        code: '"use client";\n\nimport { Alert, AlertDescription, AlertTitle } from "@/registry/ui/react/alert";\nimport { AlertCircle } from "lucide-react";\n\nexport default function AlertDemo(): JSX.Element {\n  return (\n    <Alert variant="danger">\n      <AlertCircle className="h-4 w-4" />\n      <AlertTitle>Error</AlertTitle>\n      <AlertDescription>\n        Your session has expired. Please log in again.\n      </AlertDescription>\n    </Alert>\n  );\n}\n',
       },
     ],
   },

@@ -72,7 +72,7 @@ export async function updateFiles(
       targetDir = path.dirname(filePath);
     }
 
-    if (!config.tsx) {
+    if (!config.ts) {
       filePath = filePath.replace(/\.tsx?$/, (match) =>
         match === ".tsx" ? ".jsx" : ".js",
       );
@@ -109,7 +109,7 @@ export async function updateFiles(
         raw: file.content,
         config,
         // baseColor,
-        transformJsx: !config.tsx,
+        transformJsx: !config.ts,
       },
       [transformImport, transformRsc, transformCssVars, transformTwPrefixes],
     );

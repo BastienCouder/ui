@@ -79,7 +79,7 @@
     "recharts": "^2.13.3",
     "remark": "^15.0.1",
     "remark-gfm": "^3.0.1",
-    "rva-uit": "workspace:*",
+    "revueui": "workspace:*",
     "sharp": "^0.33.5",
     "shiki": "^1.22.2",
     "tailwind-merge": "^2.5.4",

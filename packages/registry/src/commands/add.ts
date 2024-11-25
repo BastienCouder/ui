@@ -29,14 +29,14 @@ export const add = new Command()
   .description("add a component to your project")
   .argument(
     "[components...]",
-    "the components to add or a url to the component."
+    "the components to add or a url to the component.",
   )
   .option("-y, --yes", "skip confirmation prompt.", false)
   .option("-o, --overwrite", "overwrite existing files.", false)
   .option(
     "-c, --cwd <cwd>",
     "the working directory. defaults to the current directory.",
-    process.cwd()
+    process.cwd(),
   )
   .option("-a, --all", "add all available components", false)
   .option("-p, --path <path>", "the path to add the component to.")
@@ -44,7 +44,7 @@ export const add = new Command()
   .option(
     "--src-dir",
     "use the src directory when creating a new project.",
-    false
+    false,
   )
   .action(async (components, opts) => {
     try {
@@ -57,7 +57,7 @@ export const add = new Command()
       // Confirm if user is installing themes.
       // For now, we assume a theme is prefixed with "theme-".
       const isTheme = options.components?.some((component) =>
-        component.includes("theme-")
+        component.includes("theme-"),
       );
       if (!options.yes && isTheme) {
         logger.break();
@@ -65,7 +65,7 @@ export const add = new Command()
           type: "confirm",
           name: "confirm",
           message: highlighter.warn(
-            "You are about to install a new theme. \nExisting CSS variables will be overwritten. Continue?"
+            "You are about to install a new theme. \nExisting CSS variables will be overwritten. Continue?",
           ),
         });
         if (!confirm) {
@@ -80,7 +80,7 @@ export const add = new Command()
       if (!options.components?.length) {
         options.components = await promptForRegistryComponents(
           options,
-          config?.framework
+          config?.framework,
         );
       }
 
@@ -92,7 +92,7 @@ export const add = new Command()
           type: "confirm",
           name: "proceed",
           message: `You need to create a ${highlighter.info(
-            "components.json"
+            "components.json",
           )} file to add components. Proceed?`,
           initial: true,
         });
@@ -145,7 +145,7 @@ export const add = new Command()
 
       if (!config) {
         throw new Error(
-          `Failed to read config at ${highlighter.info(options.cwd)}.`
+          `Failed to read config at ${highlighter.info(options.cwd)}.`,
         );
       }
 
@@ -164,7 +164,7 @@ export const add = new Command()
 
 async function promptForRegistryComponents(
   options: z.infer<typeof addOptionsSchema>,
-  framework?: string
+  framework?: string,
 ) {
   console.log(options);
 

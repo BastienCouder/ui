@@ -103,10 +103,7 @@ export const components: React.ComponentPropsWithoutRef<
   a: Link,
   p: ({ className, ...props }) => (
     <p
-      className={cn(
-        "flex items-center leading-7 [&:not(:first-child)]:mt-4",
-        className,
-      )}
+      className={cn("leading-7 [&:not(:first-child)]:mt-4", className)}
       {...props}
     />
   ),
@@ -251,7 +248,9 @@ export const components: React.ComponentPropsWithoutRef<
     className,
     ...props
   }: React.ComponentPropsWithoutRef<typeof Bash>) => (
-    <Bash className={cn("w-full", className)} {...props} />
+    <Bash className={cn("flex w-full", className)} {...props}>
+      {props.children}
+    </Bash>
   ),
   BashCommand: ({ ...props }: React.ComponentPropsWithoutRef<typeof Bash>) => (
     <span className={"text-sm font-bold text-foreground"} {...props} />

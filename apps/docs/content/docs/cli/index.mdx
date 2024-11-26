@@ -10,7 +10,7 @@ Use the `init` command to initialize configuration and dependencies for a new pr
 The `init` command installs dependencies, adds the `cn` util, configures `tailwind.config.js`, and CSS variables for the project.
 
 <Bash>
-<BashCommand>npx </BashCommand> shadcn@latest init
+<BashCommand>npx </BashCommand> revueui@latest init
 </Bash>
 
 You will be asked a few questions to configure `components.json`:
@@ -26,7 +26,7 @@ You will be asked a few questions to configure `components.json`:
 <ComponentCode
   example={true}
   language="txt"
-  preview={`Usage: shadcn init [options] [components...]
+  preview={`Usage: revueui init [options] [components...]
 
 initialize your project and install dependencies
 
@@ -46,7 +46,7 @@ Options:
 Use the `add` command to add components and dependencies to your project.
 
 <Bash>
-<BashCommand>npx </BashCommand>shadcn@latest add [component]
+<BashCommand>npx </BashCommand>revueui@latest add [component]
 </Bash>
 
 You will be presented with a list of components to choose from:
@@ -74,7 +74,7 @@ Enter to submit.
 <ComponentCode
   example={true}
   language="txt"
-  preview={`Usage: shadcn add [options] [components...]
+  preview={`Usage: revueui add [options] [components...]
 
 add a component to your project
 
@@ -89,18 +89,3 @@ Options:
   -p, --path <path>  the path to add the component to.
   -h, --help         display help for command`}
 />
-
-
-## Monorepo
-
-In a monorepo, you can specify the path to your workspace with the `-c` or `--cwd` option.
-
-<Bash>
-<BashCommand>npx </BashCommand>shadcn@latest init -c ./apps/www
-</Bash>
-
-or
-
-<Bash>
-<BashCommand>npx </BashCommand>shadcn@latest add alert-dialog -c ./apps/www
-</Bash>

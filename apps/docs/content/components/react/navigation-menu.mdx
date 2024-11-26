@@ -91,7 +91,7 @@ Manual
 <Step className='flex items-center gap-2 mb-2'>Install the following dependencies:<SelectPackageManager/></Step>
 
 <Bash>
-<PackageManager/> @radix-ui/react-navigation-menu
+<PackageManager/> <p className='flex ml-2'>@radix-ui/react-navigation-menu</p>
 </Bash>
 
   <Step>Copy and paste the following code into your project.</Step>
@@ -108,8 +108,9 @@ Manual
 
 When using the Next.js `<Link />` component, you can use `navigationMenuTriggerStyle()` to apply the correct styles to the trigger.
 
-```tsx
-import { navigationMenuTriggerStyle } from "~/components/ui/navigation-menu"
+<ComponentCode
+language="tsx"
+preview={`import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
 
 <NavigationMenuItem>
   <Link href="/docs" legacyBehavior passHref>
@@ -117,5 +118,5 @@ import { navigationMenuTriggerStyle } from "~/components/ui/navigation-menu"
       Documentation
     </NavigationMenuLink>
   </Link>
-</NavigationMenuItem>
-```
+</NavigationMenuItem>`}
+/>

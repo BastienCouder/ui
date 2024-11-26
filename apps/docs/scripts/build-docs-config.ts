@@ -68,8 +68,8 @@ const docsConfig: DocsConfig = {
           href: "/docs/installation",
         },
         {
-          title: "Components.json",
-          href: "/docs/components.json",
+          title: "Components-json",
+          href: "/docs/components-json",
         },
         {
           title: "CLI",

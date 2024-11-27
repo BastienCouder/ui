@@ -21,7 +21,6 @@ const explorer = cosmiconfig("components", {
 export const rawConfigSchema = z
   .object({
     $schema: z.string().optional(),
-    ts: z.coerce.boolean().default(true),
     framework: z.string().default("react"),
     tailwind: z.object({
       config: z.string(),
@@ -69,9 +68,7 @@ export async function resolveConfigPaths(cwd: string, config: RawConfig) {
 
   if (tsConfig.resultType === "failed") {
     throw new Error(
-      `Failed to load ${config.ts ? "tsconfig" : "jsconfig"}.json. ${
-        tsConfig.message ?? ""
-      }`.trim(),
+      `Failed to load tsconfig.json. ${tsConfig.message ?? ""}`.trim(),
     );
   }
 

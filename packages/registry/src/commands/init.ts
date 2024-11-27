@@ -167,14 +167,6 @@ async function promptForConfig(
   logger.info("");
 
   const options = await prompts([
-    {
-      type: "toggle",
-      name: "typescript",
-      message: `Would you like to use ${highlighter.info("TypeScript")} (recommended)?`,
-      initial: defaultConfig?.ts ?? true,
-      active: "yes",
-      inactive: "no",
-    },
     ...(framework === "vue"
       ? [
           {
@@ -259,7 +251,6 @@ async function promptForConfig(
       css: options.tailwindCss,
       cssVariables: options.tailwindCssVariables,
     },
-    ts: options.typescript,
     aliases,
   });
 }

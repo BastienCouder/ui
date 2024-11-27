@@ -13,9 +13,6 @@ import { loadConfig } from "tsconfig-paths";
 
 type ProjectInfo = {
   framework: Framework;
-  isSrcDir: boolean;
-  isRSC: boolean;
-  isTs: boolean;
   tailwindConfigFile: string | null;
   tailwindCssFile: string | null;
   aliasPrefix: string | null;
@@ -62,9 +59,6 @@ export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
 
   const type: ProjectInfo = {
     framework: FRAMEWORKS["manual"],
-    isSrcDir,
-    isRSC: false,
-    isTs,
     tailwindConfigFile,
     tailwindCssFile,
     aliasPrefix,
@@ -75,7 +69,6 @@ export async function getProjectInfo(cwd: string): Promise<ProjectInfo | null> {
     type.framework = isUsingAppDir
       ? FRAMEWORKS["next-app"]
       : FRAMEWORKS["next-pages"];
-    type.isRSC = isUsingAppDir;
     return type;
   }
 
@@ -246,7 +239,6 @@ export async function getProjectConfig(
 
   const config: RawConfig = {
     $schema: "https://ui.bastiencouder.com/schema.json",
-    ts: projectInfo.isTs,
     framework: framework ?? "react",
     tailwind: {
       config: projectInfo.tailwindConfigFile,

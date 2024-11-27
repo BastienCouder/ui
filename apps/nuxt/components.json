@@ -1,6 +1,5 @@
 {
   "$schema": "https://ui.bastiencouder.com/schema.json",
-  "ts": true,
   "framework": "vue",
   "tailwind": {
     "config": "tailwind.config.js",

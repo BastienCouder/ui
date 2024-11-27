@@ -17,9 +17,6 @@
       },
       "required": ["config", "css", "cssVariables"]
     },
-    "ts": {
-      "type": "boolean"
-    },
     "framework": {
       "type": "string",
       "enum": ["vue", "react"]

@@ -12,6 +12,7 @@ import DocsLayout from "@/components/docs/doc-layout";
 import { ScrollArea } from "@/registry/ui/react/scroll-area";
 import { Breadcrumb, Breadcrumbs } from "@/registry/ui/react/breadcrumb";
 import { PackageManagerProvider } from "@/context/package-manager";
+import Banner from "@/components/docs/banner";
 
 interface PageProps {
   params: {

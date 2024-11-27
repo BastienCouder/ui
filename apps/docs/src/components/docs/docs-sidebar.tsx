@@ -149,7 +149,12 @@ const Category = ({ title, slug, items, pathname }: CategoryProps) => {
                           },
                         )}
                       >
-                        <span className="block duration-100 group-hover:translate-x-0.5">
+                        <span
+                          className={cn(
+                            "block duration-100 group-hover:translate-x-0.5",
+                            { "text-primary": pathname === item.href },
+                          )}
+                        >
                           {item.title}
                         </span>
                       </Link>

@@ -115,7 +115,7 @@ export default function DropdownDemo(): JSX.Element {
 
   return (
     <Dropdown content={<Content />} className="w-56">
-      <Button variant="outline">Open</Button>
+      <Button>Open</Button>
     </Dropdown>
   );
 }

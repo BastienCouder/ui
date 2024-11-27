@@ -15,16 +15,14 @@
           "type": "boolean"
         }
       },
-      "required": ["config", "css", "baseColor", "cssVariables"]
-    },
-    "rsc": {
-      "type": "boolean"
+      "required": ["config", "css", "cssVariables"]
     },
     "ts": {
       "type": "boolean"
     },
-    "vue": {
-      "type": "boolean"
+    "framework": {
+      "type": "string",
+      "enum": ["vue", "react"]
     },
     "aliases": {
       "type": "object",
@@ -48,5 +46,5 @@
       "required": ["utils", "components"]
     }
   },
-  "required": ["style", "tailwind", "rsc", "aliases"]
+  "required": ["tailwind", "aliases", "framework"]
 }

@@ -28,6 +28,7 @@ import {
   MultiSelectValue,
   renderMultiSelectOptions,
 } from "@/registry/ui/react/multi-select";
+import { toast } from "@/registry/ui/react/use-toast";
 // import { toast } from '~/components/ui/use-toast'
 
 const ALL_ITEMS = [
@@ -100,14 +101,14 @@ export default function MultiSelectDemo(): JSX.Element {
   };
 
   const onSubmit = (data: z.infer<typeof FormSchema>) => {
-    /*  toast({
-         title: 'You submitted the following values:',
-         description: (
-            <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-               <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-            </pre>
-         ),
-      }) */
+    toast({
+      title: "You submitted the following values:",
+      description: (
+        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
+        </pre>
+      ),
+    });
   };
 
   return (

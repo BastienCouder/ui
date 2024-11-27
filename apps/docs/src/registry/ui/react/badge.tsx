@@ -47,7 +47,7 @@ function Badge({
       {...props}
     >
       {icon && <span>{icon}</span>}
-      <span>{children}</span>
+      <span className="flex items-center">{children}</span>
     </span>
   );
 }

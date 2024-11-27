@@ -7,7 +7,7 @@ export default function HomePage(): JSX.Element {
   return (
     <main className="container">
       <div className="h-full font-sans">
-        {/* Left (miroir du côté droit) */}
+        {/* Left (miroir du côté droit) 
         <div className="absolute w-[125px] h-[100vh] top-0 left-0 overflow-hidden">
           <div
             className="w-[250px] h-[100vh] rounded-[100%_0_0_100%] drop-shadow-[0px_15px_3px_rgba(0,0,0,0.25)] transform scale-x-[-1]"
@@ -17,8 +17,8 @@ export default function HomePage(): JSX.Element {
             }}
           ></div>
         </div>
-
-        {/* Right */}
+*/}
+        {/* Right 
         <div className="absolute w-[125px] h-[100vh] top-0 right-0 overflow-hidden">
           <div
             className="w-[250px] h-[100vh] rounded-[100%_0_0_100%] drop-shadow-[0px_15px_3px_rgba(0,0,0,0.25)]"
@@ -28,7 +28,7 @@ export default function HomePage(): JSX.Element {
             }}
           ></div>
         </div>
-
+        */}
         <section className="flex flex-col items-center py-12 space-y-12">
           <h1 className="text-4xl font-bold text-center">UI Components</h1>
           <p className="text-center text-lg max-w-lg">

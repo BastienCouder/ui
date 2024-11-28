@@ -22,21 +22,29 @@ const TabsList = React.forwardRef<
 ));
 TabsList.displayName = TabsPrimitive.List.displayName;
 
+interface TabsTriggerProps
+  extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger> {
+  isCard?: boolean;
+}
+
 const TabsTrigger = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger>
->(({ className, ...props }, ref) => (
+  TabsTriggerProps
+>(({ className, isCard = false, ...props }, ref) => (
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
       "relative inline-flex items-center justify-center whitespace-nowrap px-3 py-1 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:text-foreground",
-      "before:absolute before:-bottom-0.5 before:left-0 before:right-0 before:h-[2px] before:bg-primary before:scale-x-0  before:origin-left data-[state=active]:before:scale-x-100",
+      isCard
+        ? "flex-col rounded-lg border border-muted-foreground bg-background px-4 py-3 shadow-sm hover:shadow-md hover:border-primary data-[state=active]:bg-primary data-[state=active]:text-background data-[state=active]:border-primary"
+        : "before:absolute before:-bottom-0.5 before:left-0 before:right-0 before:h-[2px] before:bg-primary before:scale-x-0 before:origin-left data-[state=active]:before:scale-x-100",
       className,
     )}
     {...props}
   />
 ));
 TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;
+
 const TabsContent = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>

@@ -139,7 +139,6 @@ interface NavProps {
 const Nav = (props: NavProps) => {
   const { items, direction = "row", onNavItemClick } = props;
   const pathname = usePathname();
-
   return (
     <nav
       className={cn("flex items-center gap-0 sm:gap-2", {

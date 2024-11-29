@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { tv } from "tailwind-variants";
 
 const checkedStyles = tv({
-  base: "ring-offset-background focus-visible:ring-ring peer shrink-0 rounded-sm border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',",
+  base: "ring-offset-background focus-visible:ring-ring peer shrink-0 rounded-sm border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
   variants: {
     variant: {
       neutral:
@@ -32,6 +32,19 @@ const checkedStyles = tv({
     variant: "primary",
     size: "md",
     shape: "rectangle",
+  },
+});
+
+const textStyles = tv({
+  variants: {
+    size: {
+      sm: "text-xs",
+      md: "text-sm",
+      lg: "text-base",
+    },
+  },
+  defaultVariants: {
+    size: "md",
   },
 });
 
@@ -85,7 +98,7 @@ const Checkbox = React.forwardRef<
     const content = (
       <div
         className={cn(
-          "flex items-start",
+          "flex items-center",
           labelPosition === "left" ? "flex-row-reverse" : "flex-row",
           disabled && "opacity-50 cursor-not-allowed",
         )}
@@ -108,7 +121,9 @@ const Checkbox = React.forwardRef<
           </CheckboxPrimitive.Indicator>
         </CheckboxPrimitive.Root>
         <div className={cn("ml-2", labelPosition === "left" ? "mr-2" : "ml-2")}>
-          {children && <span>{children}</span>}
+          {children && (
+            <span className={cn(textStyles({ size }))}>{children}</span>
+          )}
           {description && (
             <p className="text-sm text-muted-foreground">{description}</p>
           )}

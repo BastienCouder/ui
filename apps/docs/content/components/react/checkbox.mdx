@@ -51,5 +51,115 @@ Manual
 </TabsContent>
 </Tabs>
 
+## Options  
 
-in progress...
+### Variant
+
+Use the `variant` prop to change the appearance of the checkbox. The `variant` prop accepts the following values:
+
+<ComponentPreview
+  name="demos/ui/react/checkbox/variant"
+  extension={"tsx"}
+  preview={`<Checkbox variant="neutral">Neutral Variant</Checkbox>
+<Checkbox variant="primary">Primary Variant</Checkbox>
+<Checkbox variant="secondary">Secondary Variant</Checkbox>`}
+/>
+
+### Size
+
+Use the `size` prop to change the size of the checkbox. The `size` prop accepts the following values:
+
+<ComponentPreview
+  name="demos/ui/react/checkbox/size"
+  extension={"tsx"}
+  preview={`<Checkbox size="sm">Small Checkbox</Checkbox>
+<Checkbox size="md">Medium Checkbox</Checkbox>
+<Checkbox size="lg">Large Checkbox</Checkbox>`}
+/>
+
+### Shape
+
+Use the `shape` prop to change the shape of the checkbox. The `shape` prop accepts the following values:
+
+<ComponentPreview
+  name="demos/ui/react/checkbox/shape"
+  extension={"tsx"}
+  preview={`<Checkbox shape="rectangle">Rectangle Shape</Checkbox>
+<Checkbox shape="square">Square Shape</Checkbox>
+<Checkbox shape="circle">Circle Shape</Checkbox>`}
+/>
+
+### Disabled
+
+Use the `disabled` prop to disable the checkbox.
+
+<ComponentPreview
+  name="demos/ui/react/checkbox/disabled"
+  extension={"tsx"}
+  preview={`<Checkbox disabled>
+  Disabled Option
+</Checkbox>`} 
+/>
+
+### labelPosition
+
+Use the `labelPosition` prop to change the position of the label. The `labelPosition` prop accepts the following values:
+
+<ComponentPreview
+  name="demos/ui/react/checkbox/label-position"
+  extension={"tsx"}
+  preview={`<Checkbox labelPosition="left">
+  Label on the left
+</Checkbox>
+<Checkbox labelPosition="right">
+  Label on the right
+</Checkbox>`}
+/>
+
+### description
+
+Use the `description` prop to add a description to the checkbox.
+
+<ComponentPreview
+  name="demos/ui/react/checkbox/description"
+  extension={"tsx"}
+  preview={`<Checkbox description="This is additional information about the checkbox.">
+  Option with description
+</Checkbox>`}
+/>
+
+### defaultChecked
+
+Use the `defaultChecked` prop to set the checkbox to checked by default.
+
+<ComponentPreview
+  name="demos/ui/react/checkbox/default-checked"
+  extension={"tsx"}
+  preview={`<Checkbox defaultChecked>
+  Pre-checked Option
+</Checkbox>`}
+/>
+
+### readOnly
+
+Use the `readOnly` prop to make the checkbox read-only.
+
+<ComponentPreview
+  name="demos/ui/react/checkbox/read-only"
+  extension={"tsx"}
+  preview={`<Checkbox readOnly defaultChecked>
+  Read-Only Option
+</Checkbox>`}
+/>
+
+### card
+
+Use the `card` prop to style the checkbox as a card.
+
+<ComponentPreview
+  name="demos/ui/react/checkbox/card"
+  extension={"tsx"}
+  preview={`<Checkbox card cardClassName="border-gray-300 hover:border-gray-500">
+  Card styled checkbox
+</Checkbox>`}
+/>

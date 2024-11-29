@@ -140,6 +140,42 @@ export const previews = {
     component: React.lazy(() => import("@/registry/demos/ui/react/checkbox/default")),
     code: [{"title":"default.tsx","code":"\"use client\";\n\nimport { Checkbox } from \"@/registry/ui/react/checkbox\";\n\nexport default function CheckboxDemo(): JSX.Element {\n  return (\n    <div className=\"flex items-center space-x-2\">\n      <Checkbox id=\"terms\" />\n      <label\n        htmlFor=\"terms\"\n        className=\"text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70\"\n      >\n        Accept terms and conditions\n      </label>\n    </div>\n  );\n}\n"}]
   },
+  "demos/ui/react/checkbox/variant": {
+    component: React.lazy(() => import("@/registry/demos/ui/react/checkbox/variant")),
+    code: [{"title":"variant.tsx","code":"\"use client\";\n\nimport { Checkbox } from \"@/registry/ui/react/checkbox\";\n\nexport default function CheckboxDemo(): JSX.Element {\n  return (\n    <div className=\"space-y-4\">\n      <Checkbox variant=\"neutral\">Neutral Variant</Checkbox>\n      <Checkbox variant=\"primary\">Primary Variant</Checkbox>\n      <Checkbox variant=\"secondary\">Secondary Variant</Checkbox>\n    </div>\n  );\n}\n"}]
+  },
+  "demos/ui/react/checkbox/size": {
+    component: React.lazy(() => import("@/registry/demos/ui/react/checkbox/size")),
+    code: [{"title":"size.tsx","code":"\"use client\";\n\nimport { Checkbox } from \"@/registry/ui/react/checkbox\";\n\nexport default function CheckboxDemo(): JSX.Element {\n  return (\n    <div className=\"space-y-4\">\n      <Checkbox size=\"sm\">Small Checkbox</Checkbox>\n      <Checkbox size=\"md\">Medium Checkbox</Checkbox>\n      <Checkbox size=\"lg\">Large Checkbox</Checkbox>\n    </div>\n  );\n}\n"}]
+  },
+  "demos/ui/react/checkbox/shape": {
+    component: React.lazy(() => import("@/registry/demos/ui/react/checkbox/shape")),
+    code: [{"title":"shape.tsx","code":"\"use client\";\n\nimport { Checkbox } from \"@/registry/ui/react/checkbox\";\n\nexport default function CheckboxDemo(): JSX.Element {\n  return (\n    <div className=\"space-y-4\">\n      <Checkbox shape=\"rectangle\">Rectangle Shape</Checkbox>\n      <Checkbox shape=\"square\">Square Shape</Checkbox>\n      <Checkbox shape=\"circle\">Circle Shape</Checkbox>\n    </div>\n  );\n}\n"}]
+  },
+  "demos/ui/react/checkbox/disabled": {
+    component: React.lazy(() => import("@/registry/demos/ui/react/checkbox/disabled")),
+    code: [{"title":"disabled.tsx","code":"\"use client\";\n\nimport { Checkbox } from \"@/registry/ui/react/checkbox\";\n\nexport default function CheckboxDemo(): JSX.Element {\n  return <Checkbox disabled>Disabled Option</Checkbox>;\n}\n"}]
+  },
+  "demos/ui/react/checkbox/label-position": {
+    component: React.lazy(() => import("@/registry/demos/ui/react/checkbox/label-position")),
+    code: [{"title":"label-position.tsx","code":"\"use client\";\n\nimport { Checkbox } from \"@/registry/ui/react/checkbox\";\n\nexport default function CheckboxDemo(): JSX.Element {\n  return (\n    <div className=\"space-y-4\">\n      <Checkbox labelPosition=\"left\">Label on the left</Checkbox>\n      <Checkbox labelPosition=\"right\">Label on the right</Checkbox>\n    </div>\n  );\n}\n"}]
+  },
+  "demos/ui/react/checkbox/description": {
+    component: React.lazy(() => import("@/registry/demos/ui/react/checkbox/description")),
+    code: [{"title":"description.tsx","code":"\"use client\";\n\nimport { Checkbox } from \"@/registry/ui/react/checkbox\";\n\nexport default function CheckboxDemo(): JSX.Element {\n  return (\n    <Checkbox description=\"This is additional information about the checkbox.\">\n      Option with description\n    </Checkbox>\n  );\n}\n"}]
+  },
+  "demos/ui/react/checkbox/default-checked": {
+    component: React.lazy(() => import("@/registry/demos/ui/react/checkbox/default-checked")),
+    code: [{"title":"default-checked.tsx","code":"\"use client\";\n\nimport { Checkbox } from \"@/registry/ui/react/checkbox\";\n\nexport default function CheckedCheckboxDemo(): JSX.Element {\n  return <Checkbox defaultChecked>Pre-checked Option</Checkbox>;\n}\n"}]
+  },
+  "demos/ui/react/checkbox/read-only": {
+    component: React.lazy(() => import("@/registry/demos/ui/react/checkbox/read-only")),
+    code: [{"title":"read-only.tsx","code":"\"use client\";\n\nimport { Checkbox } from \"@/registry/ui/react/checkbox\";\n\nexport default function CheckboxDemo(): JSX.Element {\n  return (\n    <Checkbox readOnly defaultChecked>\n      Read-Only Option\n    </Checkbox>\n  );\n}\n"}]
+  },
+  "demos/ui/react/checkbox/card": {
+    component: React.lazy(() => import("@/registry/demos/ui/react/checkbox/card")),
+    code: [{"title":"card.tsx","code":"\"use client\";\n\nimport { Checkbox } from \"@/registry/ui/react/checkbox\";\n\nexport default function CheckboxDemo(): JSX.Element {\n  return (\n    <Checkbox card cardClassName=\"border-gray-300 hover:border-gray-500\">\n      Card styled checkbox\n    </Checkbox>\n  );\n}\n"}]
+  },
   "demos/ui/react/collapsible/default": {
     component: React.lazy(() => import("@/registry/demos/ui/react/collapsible/default")),
     code: [{"title":"default.tsx","code":"\"use client\";\n\nimport * as React from \"react\";\nimport { ChevronsUpDown } from \"lucide-react\";\n\nimport { Button } from \"@/registry/ui/react/button\";\nimport {\n  Collapsible,\n  CollapsibleContent,\n  CollapsibleTrigger,\n} from \"@/registry/ui/react/collapsible\";\n\nexport default function CollapsibleDemo(): JSX.Element {\n  const [isOpen, setIsOpen] = React.useState(false);\n\n  return (\n    <Collapsible\n      open={isOpen}\n      onOpenChange={setIsOpen}\n      className=\"w-[350px] space-y-2\"\n    >\n      <div className=\"flex items-center justify-between space-x-4 px-4\">\n        <h4 className=\"text-sm font-semibold\">\n          @peduarte starred 3 repositories\n        </h4>\n        <CollapsibleTrigger asChild>\n          <Button variant=\"quiet\" size=\"sm\" className=\"w-9 p-0\">\n            <ChevronsUpDown className=\"h-4 w-4\" />\n            <span className=\"sr-only\">Toggle</span>\n          </Button>\n        </CollapsibleTrigger>\n      </div>\n      <div className=\"rounded-md border px-4 py-3 font-mono text-sm\">\n        @radix-ui/primitives\n      </div>\n      <CollapsibleContent className=\"space-y-2\">\n        <div className=\"rounded-md border px-4 py-3 font-mono text-sm\">\n          @radix-ui/colors\n        </div>\n        <div className=\"rounded-md border px-4 py-3 font-mono text-sm\">\n          @stitches/react\n        </div>\n      </CollapsibleContent>\n    </Collapsible>\n  );\n}\n"}]

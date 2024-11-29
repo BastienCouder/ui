@@ -1,13 +1,10 @@
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
-
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest): NextResponse {
-
-  if (request.nextUrl.pathname === '/components') {
-   
+  if (request.nextUrl.pathname === "/components") {
     const url = request.nextUrl.clone();
-    url.pathname = '/components/react/accordion';
+    url.pathname = "/components/react/accordion";
 
     return NextResponse.redirect(url);
   }
@@ -16,5 +13,5 @@ export function middleware(request: NextRequest): NextResponse {
 }
 
 export const config = {
-  matcher: '/components',
+  matcher: "/components",
 };

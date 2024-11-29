@@ -37,4 +37,59 @@ Manual
 </TabsContent>
 </Tabs>
 
-in progress...
+## Options
+
+### Size
+
+Use the `size` prop to set the size of the pagination component. The default size is `md`.
+
+<ComponentPreview
+  name="demos/ui/react/pagination/size"
+  preview={`<Paginations totalPages={5} size="sm" />
+<Paginations totalPages={5} size="md" />
+<Paginations totalPages={5} size="lg" />`}
+/>
+
+### Custom Text
+
+Use the `prevText` and `nextText` props to set custom text for the previous and next buttons.
+
+<ComponentPreview
+  name="demos/ui/react/pagination/custom-text"
+  preview={`<Paginations
+  totalPages={7}
+  nextText="Custom Next"
+  previousText="Custom Previous"
+/>`}
+/>
+
+### Controlled
+
+Use the `nitialPage` prop to set the current page of the pagination component. The `onChange` prop is required to handle page changes.
+
+<ComponentPreview
+  name="demos/ui/react/pagination/controlled"
+  preview={`<Paginations
+  totalPages={10}
+  initialPage={currentPage}
+  onChange={handlePageChange}
+/>`}
+/>
+
+### Single Page
+
+Use the `singlePage` prop to hide the pagination component when there is only one page.
+
+<ComponentPreview
+  name="demos/ui/react/pagination/single-page"
+  preview={`<Paginations totalPages={10} onePage />`}
+/>
+
+### Last Page
+
+Use the `lastPage` prop to hide the last page button.
+
+<ComponentPreview
+  name="demos/ui/react/pagination/last-page"
+  preview={`<Paginations totalPages={15} lastPage />`}
+/>

@@ -8,6 +8,10 @@ import { useScrolled } from "@/hooks/use-scrolled";
 import { cn } from "@/lib/utils";
 import { focusRing } from "@/lib/utils/styles";
 import { siteConfig } from "@/config";
+import { Sheet } from "@/registry/ui/react/sheet";
+import { DocsSidebar } from "./docs/docs-sidebar";
+import { docsConfig } from "@/config/docs-config";
+import { ChevronRight, MenuIcon } from "lucide-react";
 
 const config = siteConfig.header;
 
@@ -101,7 +105,7 @@ export const Header: React.FC = () => {
             href="/"
             className={cn(
               focusRing(),
-              "flex w-[130px] items-center space-x-2 rounded transition-opacity hover:opacity-80",
+              "flex w-full items-center space-x-2 rounded transition-opacity hover:opacity-80",
             )}
           >
             {/*}
@@ -116,6 +120,11 @@ export const Header: React.FC = () => {
               {siteConfig.global.name}
             </div>
           </Link>
+          <div className="block md:hidden py-4">
+            <Sheet content={<DocsSidebar items={docsConfig.nav} />} side="left">
+              <MenuIcon />
+            </Sheet>
+          </div>
           {/* <SearchDocs className="flex-1" size="sm">
             <span className="mr-4 flex-1 text-left">Search...</span>
           </SearchDocs>*/}
@@ -140,40 +149,42 @@ const Nav = (props: NavProps) => {
   const { items, direction = "row", onNavItemClick } = props;
   const pathname = usePathname();
   return (
-    <nav
-      className={cn("flex items-center gap-0 sm:gap-2", {
-        "flex-col gap-2": direction === "col",
-      })}
-    >
-      {items.map(
-        (item, index) =>
-          item.href && (
-            <Link
-              key={index}
-              className={cn(
-                focusRing(),
-                "flex items-center justify-center gap-2 rounded px-4 py-1 text-sm font-medium text-foreground/60 transition-colors hover:text-foreground",
-                pathname.startsWith(item.href) &&
-                  item.href !== "/" &&
-                  "bg-background-inverse/10 text-foreground",
-                direction === "col" && "text-md w-full py-2",
-              )}
-              href={item.href}
-              onClick={onNavItemClick}
-            >
-              {item.href === "/" && (
-                <Image
-                  src={siteConfig.global.logo}
-                  alt={siteConfig.global.name}
-                  loading="lazy"
-                  width={24}
-                  height={24}
-                />
-              )}
-              <span>{item.label}</span>
-            </Link>
-          ),
-      )}
-    </nav>
+    <>
+      <nav
+        className={cn("flex items-center gap-0 sm:gap-2", {
+          "flex-col gap-2": direction === "col",
+        })}
+      >
+        {items.map(
+          (item, index) =>
+            item.href && (
+              <Link
+                key={index}
+                className={cn(
+                  focusRing(),
+                  "flex items-center justify-center gap-2 rounded px-4 py-1 text-sm font-medium text-foreground/60 transition-colors hover:text-foreground",
+                  pathname.startsWith(item.href) &&
+                    item.href !== "/" &&
+                    "bg-background-inverse/10 text-foreground",
+                  direction === "col" && "text-md w-full py-2",
+                )}
+                href={item.href}
+                onClick={onNavItemClick}
+              >
+                {item.href === "/" && (
+                  <Image
+                    src={siteConfig.global.logo}
+                    alt={siteConfig.global.name}
+                    loading="lazy"
+                    width={24}
+                    height={24}
+                  />
+                )}
+                <span>{item.label}</span>
+              </Link>
+            ),
+        )}
+      </nav>
+    </>
   );
 };

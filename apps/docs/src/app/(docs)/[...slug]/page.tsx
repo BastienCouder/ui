@@ -59,7 +59,7 @@ export default async function Page({
             "xl:grid xl:grid-cols-[1fr_220px]": !!doc.toc.items,
           })}
         >
-          <div className="mx-auto w-full min-w-0 pt-4 md:pt-6 space-y-2">
+          <div className="mx-auto w-full min-w-0 pt-2 md:pt-6 space-y-2">
             <div className="block">
               {metadata.breadcrumbs.length >= 1 && (
                 <Breadcrumbs>

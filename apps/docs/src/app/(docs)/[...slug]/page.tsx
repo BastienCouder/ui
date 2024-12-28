@@ -12,6 +12,7 @@ import DocsLayout from "@/components/docs/doc-layout";
 import { ScrollArea } from "@/registry/ui/react/scroll-area";
 import { Breadcrumb, Breadcrumbs } from "@/registry/ui/react/breadcrumb";
 import { PackageManagerProvider } from "@/context/package-manager";
+import { Header } from "@/components/header";
 
 interface PageProps {
   params: {
@@ -52,7 +53,9 @@ export default async function Page({
   const themeClass = metadata.color || "react";
 
   return (
-    <main className={cn("h-full w-full", themeClass)}>
+    <div className="background-slug">
+    <Header />
+    <main className={cn("h-full w-full")}>
       <DocsLayout>
         <section
           className={cn("relative pb-20 lg:gap-10", {
@@ -121,5 +124,6 @@ export default async function Page({
         </section>
       </DocsLayout>
     </main>
+    </div>
   );
 }

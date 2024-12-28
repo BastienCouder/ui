@@ -1,12 +1,13 @@
-import { Inter, Josefin_Sans } from "next/font/google";
+import { Inter, Josefin_Sans, Kanit } from "next/font/google";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 
-export const fontDisplay = Inter({
+export const fontDisplay = Kanit({
   variable: "--font-display",
   subsets: ["latin"],
+  weight: "400"
 });
-export const JosephinFont = Josefin_Sans({
+export const JosephinFont = Kanit({
   variable: "--font-josephin",
   subsets: ["latin"],
   weight: "400",

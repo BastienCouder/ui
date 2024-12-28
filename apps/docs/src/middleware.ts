@@ -2,10 +2,18 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest): NextResponse {
-  if (request.nextUrl.pathname === "/components") {
-    const url = request.nextUrl.clone();
-    url.pathname = "/components/react/accordion";
+  const { pathname } = request.nextUrl;
 
+  const redirectMap: Record<string, string> = {
+    "/components": "/components/react/accordion",
+    "/docs": "/docs/installation",
+    "/components/react": "/components/react/accordion",
+    "/components/vue": "/components/vue/button",
+  };
+
+  if (redirectMap[pathname]) {
+    const url = request.nextUrl.clone();
+    url.pathname = redirectMap[pathname];
     return NextResponse.redirect(url);
   }
 
@@ -13,5 +21,5 @@ export function middleware(request: NextRequest): NextResponse {
 }
 
 export const config = {
-  matcher: "/components",
+  matcher: ["/components/:path*", "/docs/:path*"],
 };

@@ -8,10 +8,11 @@ import { useScrolled } from "@/hooks/use-scrolled";
 import { cn } from "@/lib/utils";
 import { focusRing } from "@/lib/utils/styles";
 import { siteConfig } from "@/config";
-import { Sheet } from "@/registry/ui/react/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/registry/ui/react/sheet";
 import { DocsSidebar } from "./docs/docs-sidebar";
 import { docsConfig } from "@/config/docs-config";
-import { ChevronRight, MenuIcon } from "lucide-react";
+import { MenuIcon } from "lucide-react";
+import { ScrollArea } from "@/registry/ui/react/scroll-area";
 
 const config = siteConfig.header;
 
@@ -21,7 +22,7 @@ export const Header: React.FC = () => {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 flex h-14 rounded-md  max-md:bg-background md:h-16",
+        "sticky top-0 z-50 flex h-14 rounded-md md:h-16",
         scrolled && "pointer-events-none",
       )}
     >
@@ -29,7 +30,7 @@ export const Header: React.FC = () => {
         {/* Desktop Nav */}
         <div className="hidden w-full items-center justify-between md:flex">
           <div className="w-[130px]">
-            <Link
+            {/* <Link
               href="/"
               className={cn(
                 focusRing(),
@@ -45,17 +46,17 @@ export const Header: React.FC = () => {
                 width={24}
                 height={24}
                 className="size-6 rounded-sm"
-              /> */}
+              /> 
               <div className="mt-1 font-josephin font-bold leading-normal tracking-tighter">
                 {siteConfig.global.name}
               </div>
-            </Link>
+            </Link> */}
           </div>
           <div
             className={cn(
               "relative flex items-center gap-6 overflow-hidden rounded-md bg-transparent px-4 py-1 transition-[padding,background-color] duration-300 ease-out",
               scrolled &&
-                "pointer-events-auto bg-background-muted pl-14 shadow-md bg-neutral/70",
+              "pointer-events-auto bg-background-muted shadow-md bg-neutral/70",
             )}
           >
             <Link
@@ -101,7 +102,7 @@ export const Header: React.FC = () => {
         </div>
         {/* Mobile nav */}
         <div className="flex w-full items-center gap-4 md:hidden">
-          <Link
+          {/* <Link
             href="/"
             className={cn(
               focusRing(),
@@ -115,14 +116,28 @@ export const Header: React.FC = () => {
               loading="lazy"
               width={24}
               height={24}
-            />*/}
+            />*
             <div className="mt-1 font-josephin font-bold leading-normal tracking-tighter">
               {siteConfig.global.name}
             </div>
-          </Link>
-          <div className="block md:hidden py-4">
-            <Sheet content={<DocsSidebar items={docsConfig.nav} />} side="left">
-              <MenuIcon />
+          </Link> */}
+          <div className="block md:hidden py-4 absolute right-4">
+            <Sheet>
+              <SheetTrigger>
+                <MenuIcon />
+              </SheetTrigger>
+              <SheetContent side="left" className="p-4">
+                <ScrollArea>
+                  <div>
+                          <Link href={"/"}>
+                            <span className="block duration-100 group-hover:translate-x-0.5">
+                              Home
+                            </span>
+                        </Link>
+                  </div>
+                  <DocsSidebar items={docsConfig.nav} />
+                </ScrollArea>
+              </SheetContent>
             </Sheet>
           </div>
           {/* <SearchDocs className="flex-1" size="sm">
@@ -164,8 +179,8 @@ const Nav = (props: NavProps) => {
                   focusRing(),
                   "flex items-center justify-center gap-2 rounded px-4 py-1 text-sm font-medium text-foreground/60 transition-colors hover:text-foreground",
                   pathname.startsWith(item.href) &&
-                    item.href !== "/" &&
-                    "bg-background-inverse/10 text-foreground",
+                  item.href !== "/" &&
+                  "bg-background-inverse/10 text-foreground",
                   direction === "col" && "text-md w-full py-2",
                 )}
                 href={item.href}

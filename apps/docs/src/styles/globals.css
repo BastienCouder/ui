@@ -11,7 +11,7 @@
     --background: 0, 0%, 2%;
     --foreground: 255 5.1% 98.35%;
 
-    --muted: 255 25.5% 20.1%;
+    --muted: 255 51% 67%;
     --muted-foreground: 255 5.1% 56.7%;
 
     --popover: 255 54.8% 8.71%;
@@ -265,4 +265,79 @@
     width: 100%;
     height: 100%;
   }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    background-image: radial-gradient(
+      63% 65% at 53% 64%, 
+      #F7F4F4FF 0%, 
+      #D5CEF5FF 19%, 
+      #C49DFF 39%, 
+      #6E58ACFF 66%, 
+      #503D79FF 76%, 
+      #29233CFF 90%, 
+      #1C1928FF 95%, 
+      #131313FF 100%
+    );
+  }
+  50% {
+    background-size: 120% 120%;
+    background-position: 48% 52%;
+    background-image: radial-gradient(
+      70% 75% at 50% 60%, 
+      #F7F4F4FF 5%, 
+      #B0A8FF 25%, 
+      #996BFF 45%, 
+      #6E58ACFF 65%, 
+      #42316DFF 85%, 
+      #221B30FF 95%, 
+      #0F0F0FFF 100%
+    );
+  }
+  100% {
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+    background-image: radial-gradient(
+      63% 65% at 53% 64%, 
+      #F7F4F4FF 0%, 
+      #D5CEF5FF 19%, 
+      #C49DFF 39%, 
+      #6E58ACFF 66%, 
+      #503D79FF 76%, 
+      #29233CFF 90%, 
+      #1C1928FF 95%, 
+      #131313FF 100%
+    );
+  }
+}
+
+.background-container {
+  width: 100%;
+  height: 100vh;
+  background-size: 100% 100%;
+  background-position: 0px 0px;
+  background-image: radial-gradient(
+    63% 65% at 53% 64%, 
+    #F7F4F4FF 0%, 
+    #D5CEF5FF 19%, 
+    #C49DFF 39%, 
+    #6E58ACFF 66%, 
+    #503D79FF 76%, 
+    #29233CFF 90%, 
+    #1C1928FF 95%, 
+    #131313FF 100%
+  );
+}
+
+.background-slug {
+  background-size: 100% 100%;
+  background-position: 0px 0px;
+  background-image: radial-gradient(75% 100% at 65% 50%, #120B1EFF 0%, #04040AFF 53%, #020203FF 100%);
+}
+
+::selection {
+  display: none;
 }

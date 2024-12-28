@@ -72,7 +72,6 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <Analytics />
-        <Header />
         <Toaster />
         {children}
         {/* <Footer /> */}

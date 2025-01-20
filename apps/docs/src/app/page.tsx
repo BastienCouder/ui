@@ -9,7 +9,7 @@ import Link from "next/link";
 
 export default function HomePage(): JSX.Element {
   return (
-    <div className="h-screen overflow-y-hidden">
+    <div className="h-screen">
       <div className="fixed h-screen z-[-1] w-screen background-container">
       </div>
       <Header />
@@ -17,7 +17,7 @@ export default function HomePage(): JSX.Element {
         <div className="h-full font-sans">
           <Image src={"/svg/line.svg"} alt="line" width={1680} height={1080} className="z-[1] absolute -top-10" />
           <Image src={"/svg/line2.svg"} alt="line" width={1980} height={1080} className="z-[1] absolute -top-28 -right-[20rem]" />
-          <section className="container grid lg:grid-cols-2 gap-4 grid-cols-1 items-center mt-12 lg:mt-36">
+          <section className="container grid lg:grid-cols-2 gap-4 grid-cols-1 items-center  2xl:mt-36">
             <h1 className="p-4 rounded text-background text-5xl lg:text-5xl xl:text-6xl">
               <span className="text-foreground">{`}`}</span> RevueIU <br />  A Modern <br />
               UI Library <br />
@@ -41,7 +41,7 @@ export default function HomePage(): JSX.Element {
               </Link>
             </div>
           </section>
-          <div className="w-full relative mt-20 lg:absolute lg:bottom-10">
+          <div className="w-full relative">
             <section className="grid  gap-[2px] grid-cols-2 md:grid-cols-3 xl:grid-cols-4 items-center">
               {/* left */}
               <div className="flex flex-col">

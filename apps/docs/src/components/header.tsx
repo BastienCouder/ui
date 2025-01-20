@@ -59,12 +59,12 @@ export const Header: React.FC = () => {
               "pointer-events-auto bg-background-muted shadow-md bg-neutral/70",
             )}
           >
-            <Link
+           <Link
               href="/"
               className={cn(
                 focusRing(),
-                "pointer-events-none absolute -translate-x-14 rounded opacity-0 transition-[opacity,transform] duration-300 ease-out",
-                scrolled && "-translate-x-10 opacity-100",
+                "text-sm cursor-pointer -translate-x-14 rounded opacity-0 transition-[opacity,transform] duration-500 ease-out",
+                scrolled && "-translate-x-0 opacity-100",
               )}
               aria-hidden={!scrolled}
               tabIndex={scrolled ? undefined : -1}
@@ -76,7 +76,9 @@ export const Header: React.FC = () => {
                 width={20}
                 height={20}
               />*/}
+            Home
             </Link>
+            
             <Nav items={config.nav.links} />
           </div>
           <div

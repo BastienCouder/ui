@@ -33,7 +33,10 @@ const Bash: React.FC<BashProps> = ({ children, className }) => {
 
   return (
     <pre
-      className={cn("relative bg-background border p-4 rounded-lg", className)}
+      className={cn(
+        "relative bg-background border p-4 rounded-lg pr-12 overflow-x-auto", // Ajout de `overflow-x-auto` pour gérer le débordement
+        className
+      )}
     >
       <Button
         variant="primary"
@@ -48,7 +51,8 @@ const Bash: React.FC<BashProps> = ({ children, className }) => {
           <Copy className="animate-in fade-in" />
         )}
       </Button>
-      <div className="text-sm text-foreground/60 flex items-center">
+      <div className="text-sm text-foreground/60 flex items-center whitespace-pre-wrap break-words">
+        {" "}
         {children}
       </div>
     </pre>

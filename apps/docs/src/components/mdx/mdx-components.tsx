@@ -68,7 +68,7 @@ function createHeading(level: number, className?: string) {
           key: `link-${slug}`,
         }),
       ],
-      children,
+      children
     );
   };
 
@@ -82,23 +82,23 @@ export const components: React.ComponentPropsWithoutRef<
   h1: createHeading(1, "font-heading mt-2 scroll-m-20 text-4xl font-bold"),
   h2: createHeading(
     2,
-    "text-primary font-heading mt-12 scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0",
+    "text-primary font-heading mt-12 scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0"
   ),
   h3: createHeading(
     3,
-    "text-primary  font-heading mt-8 scroll-m-20 text-xl font-semibold tracking-tight",
+    "text-primary  font-heading mt-8 scroll-m-20 text-xl font-semibold tracking-tight"
   ),
   h4: createHeading(
     4,
-    "text-primary font-heading mt-8 scroll-m-20 text-lg font-semibold tracking-tight",
+    "text-primary font-heading mt-8 scroll-m-20 text-lg font-semibold tracking-tight"
   ),
   h5: createHeading(
     5,
-    "text-primary mt-8 scroll-m-20 text-lg font-semibold tracking-tight",
+    "text-primary mt-8 scroll-m-20 text-lg font-semibold tracking-tight"
   ),
   h6: createHeading(
     6,
-    "text-primary mt-8 scroll-m-20 text-base font-semibold tracking-tight",
+    "text-primary mt-8 scroll-m-20 text-base font-semibold tracking-tight"
   ),
   a: Link,
   p: ({ className, ...props }) => (
@@ -120,7 +120,7 @@ export const components: React.ComponentPropsWithoutRef<
     <blockquote
       className={cn(
         "mt-6 border-l-2 pl-6 italic [&>*]:text-muted-foreground",
-        className,
+        className
       )}
       {...props}
     />
@@ -144,7 +144,7 @@ export const components: React.ComponentPropsWithoutRef<
     <h3
       className={cn(
         "font-heading mt-8 scroll-m-20 text-base font-semibold tracking-tight before:text-secondary",
-        className,
+        className
       )}
       {...props}
     />
@@ -170,7 +170,7 @@ export const components: React.ComponentPropsWithoutRef<
     <th
       className={cn(
         "border px-2 py-2 text-left font-bold sm:px-4 [&[align=center]]:text-center [&[align=right]]:text-right",
-        className,
+        className
       )}
       {...props}
     />
@@ -179,7 +179,7 @@ export const components: React.ComponentPropsWithoutRef<
     <td
       className={cn(
         "border px-2 py-2 text-left sm:px-4 [&[align=center]]:text-center [&[align=right]]:text-right",
-        className,
+        className
       )}
       {...props}
     >
@@ -232,7 +232,7 @@ export const components: React.ComponentPropsWithoutRef<
     <Link
       className={cn(
         "bg-card text-card-foreground hover:bg-muted/50 flex w-full flex-col items-center rounded-xl border p-6 shadow transition-colors sm:p-10",
-        className,
+        className
       )}
       {...props}
     />

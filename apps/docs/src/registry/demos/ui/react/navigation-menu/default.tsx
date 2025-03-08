@@ -68,7 +68,9 @@ export default function NavigationMenuDemo(): JSX.Element {
                     href="/"
                   >
                     <X className="size-6" />
-                    <div className="mb-2 mt-4 text-lg font-medium">nyxb/ui</div>
+                    <div className="mb-2 mt-4 text-lg font-medium">
+                      revue/ui
+                    </div>
                     <p className="text-muted-foreground text-sm leading-tight">
                       Beautifully designed components that you can copy and
                       paste into your apps. Accessible. Customizable. Open
@@ -128,7 +130,7 @@ const ListItem = React.forwardRef<
           ref={ref}
           className={cn(
             "hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors",
-            className,
+            className
           )}
           {...props}
         >

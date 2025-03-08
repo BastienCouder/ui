@@ -20,9 +20,25 @@ description: How to install dependencies and structure your app.
     <p className="font-medium">React</p>
     </div>
 </TabsTrigger>
+<TabsTrigger value="vue" isCard className="h-36 w-full md:w-72">
+<div>
+    <svg version="1.1" 
+    viewBox="0 0 261.76 226.69"
+     xmlns="http://www.w3.org/2000/svg"
+       className="w-[50px] p-1"
+     >
+     <g transform="matrix(1.3333 0 0 -1.3333 -76.311 313.34)">
+     <g transform="translate(178.06 235.01)">
+     <path fill="currentColor" opacity={0.5} d="m0 0-22.669-39.264-22.669 39.264h-75.491l98.16-170.02 98.16 170.02z"/></g><g transform="translate(178.06 235.01)"><path d="m0 0-22.669-39.264-22.669 39.264h-36.227l58.896-102.01 58.896 102.01z" fill="currentColor"/>
+     </g>
+     </g>
+     </svg>
+  <p className="font-medium">Vue</p>
+  </div>
+</TabsTrigger>
 </TabsList>
 
-<TabsContent value="react" className="md:mt-2">
+<TabsContent value="react" className="mt-20 md:mt-2">
 
 add a compontent.json file in the root of your project with the following content:
 
@@ -77,5 +93,59 @@ preview={`{
 `}
 />
 
+</TabsContent>
+<TabsContent value="vue" className="mt-20 md:mt-2">
+
+add a compontent.json file in the root of your project with the following content:
+
+<ComponentCode
+  example={true}
+language="json"
+preview={`{
+  "$schema": "https://ui.bastiencouder.com/schema.json",
+  "framework": "vue",
+  "tailwind": {
+    "config": "tailwind.config.js",
+    "css": "assets/css/main.css",
+    "cssVariables": true
+  },
+  "aliases": {
+    "components": "~/components",
+    "utils": "~/lib/utils",
+    "ui": "~/components/ui",
+    "lib": "~/lib",
+    "hooks": "~/hooks",
+  }
+}`}
+/>
+
+Add helper functions
+
+<ComponentCode
+  example={true}
+language="tsx"
+preview={`import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+ 
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+`}
+/>
+
+To configure import aliases, you can use the following jsconfig.json:
+
+<ComponentCode
+  example={true}
+language="json"
+preview={`{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./*"]
+    }
+  }
+}
+`}
+/>
 </TabsContent>
 </Tabs>

@@ -228,16 +228,6 @@ export const docsConfig: DocsConfig = {
               "href": "/components/react/tree"
             }
           ]
-        },
-        {
-          "title": "Vue",
-          "href": "/components/vue",
-          "items": [
-            {
-              "title": "Button",
-              "href": "/components/vue/button"
-            }
-          ]
         }
       ]
     }

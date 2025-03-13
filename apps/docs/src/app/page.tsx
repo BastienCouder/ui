@@ -15,7 +15,7 @@ export default function HomePage(): JSX.Element {
       <main>
         <div className="h-full font-sans">
           <section className="container grid lg:grid-cols-2 gap-4 grid-cols-1 items-center 3xl:mt-36">
-            <h1 className="p-4 rounded text-background text-5xl lg:text-5xl xl:text-6xl">
+            <h1 className="p-4 rounded text-background text-5xl lg:text-5xl xl:text-6xl md:mt-20">
               <span className="text-foreground">{`}`}</span> RevueIU <br /> A
               Modern <br />
               UI Library <br />
